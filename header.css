@@ -1,0 +1,545 @@
+/* botón scroll */
+.scroll-up__btn {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    display: block;
+    padding: 10px 20px;
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.6) 0%, rgba(70, 70, 70, 0.2) 100%);
+    border: 2px solid #8c8c8c;
+    border-bottom: 5px solid #8c8c8c;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+/* efecto :hover para cursor general en el botón scroll */
+@media (hover: hover) {
+    .scroll-up__btn:hover {
+        background-image: linear-gradient(to bottom, rgba(45, 45, 45, 0.8) 0%, rgba(45, 45, 45, 0.2) 100%);
+    }
+}
+/* efecto :active para tactil general en el botón scroll */
+.scroll-up__btn:active {
+    background-image: linear-gradient(to bottom, rgba(45, 45, 45, 0.8) 0%, rgba(45, 45, 45, 0.2) 100%);
+}
+.scroll-up__btn i {
+    display: block;
+    font-size: 18px;
+    color: #f0f0f0;
+}
+
+header {
+    position: fixed;
+    gap: 40px;
+    width: 100%;
+    z-index: 10;
+}
+/* efecto blur() en <header> */
+/* se aplica en un pseudoelemento para evitar problemas con el efecto blur() en el <ul> en modo mobile */
+header::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+/* estructura flexbox para todo el <header> */
+header .container,
+.header-container__social,
+.header-container__ul,
+.header-container__ul a,
+.header-container__login a,
+.header-container__menu,
+.header-container__menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+/* corrijo algunos elementos para mejorar la distribución */
+header .container {
+    justify-content: space-between;
+}
+/* este margen en la nav es para representar el width extra por deformar los <li> <a> */
+.header-container__social {
+    margin: 0 25px;
+}
+
+.header-container__logo {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    max-width: 100px;
+}
+/* logo Argentina Programa */
+.header-container__logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+}
+
+/* transformo los <li>s y su contenido en un paralelogramo */
+.header-container__ul li,
+.header-container__login,
+.header-container__menu {
+    --skewX: 40deg;
+    transform: skewX(var(--skewX));
+    -webkit-transform: skewX(var(--skewX));
+    -moz-transform: skewX(var(--skewX));
+    -ms-transform: skewX(var(--skewX));
+    -o-transform: skewX(var(--skewX));
+}
+
+/* estilo general de los <li> <a>s */
+.header-container__ul a,
+.header-container__login a,
+.header-container__menu-container {
+    position: relative;
+    align-items: flex-end;
+    height: 60px;
+    width: 100px;
+    background: rgba(45, 45, 45, 0.8);
+    border-bottom: 5px solid #8c8c8c;
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);
+}
+
+/* cambio el color al botón "LOG IN" y a los <li> <a>s activos */
+.header-container__login a,
+.header-container__ul a.active {
+    background: rgba(100, 30, 30, 1);
+    background: linear-gradient(to bottom, rgba(100, 30, 30, 1) 0%, rgba(170, 5, 5, 1) 100%);
+    border-bottom: 5px solid #ff4e1d;
+}
+
+/* efecto :hover para cursor general en los <li>s */
+@media (hover: hover) {
+    .header-container__ul a:hover,
+    .header-container__login a:hover,
+    .header-container__menu-container:hover {
+        background: rgba(70, 70, 70, 0.8);
+        border-bottom: 5px solid #f0f0f0;
+    }
+}
+/* efecto :active para tactil general en los <li>s */
+.header-container__ul a:active,
+.header-container__login a:active,
+.header-container__menu-container:active {
+    background: rgba(70, 70, 70, 0.8);
+    border-bottom: 5px solid #f0f0f0;
+}
+
+/* cambio el color del efecto al botón "LOG IN" y a los <li> <a>s activos */
+@media (hover: hover) {
+    .header-container__login a:hover,
+    .header-container__ul a.active:hover {
+        background: rgba(110, 40, 40, 1);
+        background: linear-gradient(to bottom, rgba(110, 40, 40, 1) 0%, rgba(180, 10, 10, 1) 100%);
+        border-bottom: 5px solid #ff732e;
+    }
+}
+.header-container__login a:active,
+.header-container__ul a.active:active {
+    background: rgba(110, 40, 40, 1);
+    background: linear-gradient(to bottom, rgba(110, 40, 40, 1) 0%, rgba(180, 10, 10, 1) 100%);
+    border-bottom: 5px solid #ff732e;
+}
+
+/* texto de los <li> <a>s y del botón "LOG IN" */
+/* modifico un poco la posición del contenido */
+/* regreso el contenido de los <li> <a>s a su forma original */
+.header-container__ul span,
+.header-container__login span {
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #b0b0b0;
+    --skewX: -40deg;
+    transform: skewX(var(--skewX));
+    -webkit-transform: skewX(var(--skewX));
+    -moz-transform: skewX(var(--skewX));
+    -ms-transform: skewX(var(--skewX));
+    -o-transform: skewX(var(--skewX));
+}
+/* color del texto del botón "LOG IN" y de los <li> <a>s activos */
+.header-container__ul a.active span,
+.header-container__login span {
+    color: #f0f0f0;
+}
+
+/* efecto :hover para cursor general en el texto de los <li> <a>s */
+@media (hover: hover) {
+    .header-container__ul a:hover span,
+    .header-container__login a:hover span {
+        letter-spacing: 2px;
+    }
+}
+/* efecto :active para tactil general en el texto de los <li> <a>s */
+.header-container__ul a:active span,
+.header-container__login a:active span {
+    letter-spacing: 2px;
+}
+
+/* se corrige la distribución del icono para que esté centrado */
+/* botón menú interactúa con el cursor */
+.header-container__menu-container {
+    align-items: center;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+/* ícono menú con <span> para que tenga animación */
+/* de desplazan dos <span> hacia arriba y abajo para formar el icono del menú hamburguesa */
+.header-container__menu span {
+    position: absolute;
+    width: 30px;
+    height: 1px;
+    cursor: pointer;
+    background: #8c8c8c;
+    border-radius: 1px;
+    opacity: 1;
+    --skewX: 0;
+    --translateY: 0;
+    --rotate: 0;
+    transform: skewX(var(--skewX)) translateY(var(--translateY)) rotate(var(--rotate));
+    -webkit-transform: skewX(var(--skewX)) translateY(var(--translateY)) rotate(var(--rotate));
+    -moz-transform: skewX(var(--skewX)) translateY(var(--translateY)) rotate(var(--rotate));
+    -ms-transform: skewX(var(--skewX)) translateY(var(--translateY)) rotate(var(--rotate));
+    -o-transform: skewX(var(--skewX)) translateY(var(--translateY)) rotate(var(--rotate));
+    transition: .3s, background 0s;
+    -webkit-transition: .3s, background 0s;
+    -moz-transition: .3s, background 0s;
+    -ms-transition: .3s, background 0s;
+    -o-transition: .3s, background 0s;
+}
+.header-container__menu span:first-child {
+    --translateY: -7px;
+}
+.header-container__menu span:last-child {
+    --translateY: 7px;
+}
+
+/* efecto :hover para cursor en botón menú */
+@media (hover: hover) {
+    .header-container__menu-container:hover span {
+        background: #f0f0f0;
+    }
+}
+/* efecto :active para tactil en botón menú */
+.header-container__menu-container:active span {
+    background: #f0f0f0;
+}
+
+/* efecto de iluminación de los <li> <a>s */
+.header-container__ul a::before,
+.header-container__login a::before,
+.header-container__menu-container::before {
+    position: absolute;
+    content: '';
+    top: calc(100% + 5px);
+    height: 25px;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.2) 0%, rgba(70, 70, 70, 0) 100%);
+    pointer-events: none;
+}
+/* cambio el color en el botón "LOG IN" y en los <li> <a>s activos */
+.header-container__login a::before,
+.header-container__ul a.active::before {
+    background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.2) 0%, rgba(180, 10, 10, 0) 100%);
+}
+
+/* efecto :hover para cursor de los <li> <a>s */
+@media (hover: hover) {
+    .header-container__ul a:hover::before,
+    .header-container__menu-container:hover::before {
+        background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, rgba(70, 70, 70, 0) 100%);
+    }
+}
+/* efecto :active para tactil de los <li> <a>s */
+.header-container__ul a:active::before,
+.header-container__menu-container:active::before {
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, rgba(70, 70, 70, 0) 100%);
+}
+
+/* efecto :hover para cursor en el botón "LOG IN" y en los <li> <a>s activos */
+@media (hover: hover) {
+    .header-container__login a:hover::before,
+    .header-container__ul a.active:hover::before {
+        background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.5) 0%, rgba(180, 10, 10, 0) 100%);
+    }
+}
+/* efecto :active para tactil en el botón "LOG IN" y en los <li> <a>s activos */
+.header-container__login a:active::before,
+.header-container__ul a.active:active::before {
+    background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.5) 0%, rgba(180, 10, 10, 0) 100%);
+}
+
+/* pequeño cartel con mi nombre que se esconde al inicio de la página */
+/* transformo el rectángulo en un trapecio */
+.float-widget {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 180px;
+    border-top: 5px solid #fb0;
+    border-left: 2px solid #fb0;
+    border-right: 2px solid #fb0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    transform: translateX(-50%) perspective(10px) rotateX(4deg);
+    -webkit-transform: translateX(-50%) perspective(10px) rotateX(4deg);
+    -moz-transform: translateX(-50%) perspective(10px) rotateX(4deg);
+    -ms-transform: translateX(-50%) perspective(10px) rotateX(4deg);
+    -o-transform: translateX(-50%) perspective(10px) rotateX(4deg);
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+/* posiciono el span */
+/* regreso el contenido del cartel a su forma original, el span sirve de contenedor para hacer esto */
+.float-widget span {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    gap: 20px;
+    transform: perspective(10px) rotateX(-4deg);
+    -webkit-transform: perspective(10px) rotateX(-4deg);
+    -moz-transform: perspective(10px) rotateX(-4deg);
+    -ms-transform: perspective(10px) rotateX(-4deg);
+    -o-transform: perspective(10px) rotateX(-4deg);
+}
+/* color y animación en los iconos */
+.float-widget a {
+    color: #fb0;
+    transition: .1s;
+    -webkit-transition: .1s;
+    -moz-transition: .1s;
+    -ms-transition: .1s;
+    -o-transition: .1s;
+}
+/* efecto :hover para cursor en los iconos */
+@media (hover: hover) {
+    .float-widget a:hover {
+        padding-bottom: 5px;
+    }
+}
+/* efecto :active para tactil en los iconos */
+.float-widget a:active {
+    padding-bottom: 5px;
+}
+.float-widget i {
+    font-size: 1.2em;
+}
+
+/* líneas horizontales a los lados del cartel */
+.float-widget::before,
+.float-widget::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    height: 5px;
+    width: 100px;
+    background: #fb0;
+}
+/* izquierda */
+.float-widget::before {
+    right: 100%;
+}
+/* derecha */
+.float-widget::after {
+    left: 100%;
+}
+
+
+@media screen and (min-width: 768px) {
+    /* se muestra el logo de argprog que está a la derecha */
+    .header-container__logo:last-child {
+        display: flex;
+    }
+    /* se oculta el botón menú */
+    .header-container__menu {
+        display: none;
+    }
+}
+@media screen and (max-width: 991px) {
+    /* se reduce el width de los <li> <a>s para mejor visibilidad */
+    .header-container__ul a,
+    .header-container__login a,
+    .header-container__menu {
+        width: 80px;
+    }
+}
+@media screen and (max-width: 767px) {
+    /* se oculta el logo de argprog que está a la derecha */
+    .header-container__logo:last-child {
+        display: none;
+    }
+    /* se muestra el botón menú */
+    .header-container__menu {
+        display: flex;
+    }
+    /* los botones "LOG IN" y menú se superponen al ul */
+    .header-container__login,
+    .header-container__menu {
+        z-index: 10;
+    }
+
+    /* ----- el menú hamburguesa se convierte en una X al activarse ----- */
+    /* se rota el primer span 45 grados y se compensa el skew para que no se vea inclinado */
+    .header-container__menu.active span:first-child {
+        --skewX: -40deg;
+        --translateY: 0;
+        --rotate: 45deg;
+    }
+    /* el tercero se oculta */
+    .header-container__menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    /* se rota el segundo 45 grados en dirección opuesta */
+    .header-container__menu.active span:last-child {
+        --skewX: -40deg;
+        --translateY: 0;
+        --rotate: -45deg;
+    }
+
+    /* el ul se adapta al formato mobile */
+    .header-container__ul {
+        position: fixed;
+        top: 0px;
+        left: -200%;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        padding: 0 50px;
+        /* backdrop-filter: grayscale(0.2) blur(10px); */
+        background: rgba(30, 30, 30, 1);
+        transition: .5s;
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -ms-transition: .5s;
+        -o-transition: .5s;
+}
+    .header-container__ul li,
+    .header-container__ul a {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    /* cambio el estilo del <a> de dos hijos <li> para un efecto acordeón */
+    .header-container__ul li:nth-child(2),
+    .header-container__ul li:last-child {
+        --skewX: -40deg;
+    }
+    /* regreso el contenido de los <li>s a su forma original */
+    .header-container__ul li:nth-child(2) span,
+    .header-container__ul li:last-child span {
+        --skewX: 40deg;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .header-container__social {
+        margin: 0 17px;
+    }
+    /* reduzco gradualmente el skew en los botones "LOG IN" y menú */
+    /* con el fin de ganar más compatibilidad con dispositivos de pantalla pequeña */
+    .header-container__login,
+    .header-container__menu {
+        --skewX: 30deg;
+    }
+
+    /* compenso dicha reducción en el texto del botón "LOG IN" */
+    .header-container__login span,
+    /* compenso dicha reducción en el botón "X" del menú */
+    .header-container__menu.active span:first-child,
+    .header-container__menu.active span:last-child {
+        --skewX: -30deg;
+    }
+}
+@media screen and (max-width: 320px) {
+    .header-container__social {
+        margin: 0 10px;
+    }
+    /* reduzco gradualmente el skew en los botones "LOG IN" y menú */
+    /* con el fin de ganar más compatibilidad con dispositivos de pantalla pequeña */
+    .header-container__login,
+    .header-container__menu {
+        --skewX: 20deg;
+    }
+    
+    /* compenso dicha reducción en el texto del botón "LOG IN" */
+    .header-container__login span,
+    /* compenso dicha reducción en el botón "X" del menú */
+    .header-container__menu.active span:first-child,
+    .header-container__menu.active span:last-child {
+        --skewX: -20deg;
+    }
+}
+@media screen and (max-width: 300px) {
+    .header-container__social {
+        margin: 0 5px;
+    }
+    /* reduzco gradualmente el skew en los botones "LOG IN" y menú */
+    /* con el fin de ganar más compatibilidad con dispositivos de pantalla pequeña */
+    .header-container__login,
+    .header-container__menu {
+        --skewX: 10deg;
+    }
+    
+    /* compenso dicha reducción en el texto del botón "LOG IN" */
+    .header-container__login span,
+    /* compenso dicha reducción en el botón "X" del menú */
+    .header-container__menu.active span:first-child,
+    .header-container__menu.active span:last-child {
+        --skewX: -10deg;
+    }
+}
+@media screen and (max-width: 280px) {
+    .header-container__social {
+        margin: 0;
+    }
+    /* reduzco gradualmente el skew en los botones "LOG IN" y menú */
+    /* con el fin de ganar más compatibilidad con dispositivos de pantalla pequeña */
+    .header-container__login,
+    .header-container__menu,
+    /* compenso dicha reducción en el texto del botón "LOG IN" */
+    .header-container__login span,
+        /* compenso dicha reducción en el botón "X" del menú */
+        .header-container__menu.active span:first-child,
+        .header-container__menu.active span:last-child {
+        --skewX: 0;
+    }
+}
