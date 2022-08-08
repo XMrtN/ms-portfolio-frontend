@@ -32,13 +32,13 @@ window.addEventListener("scroll", function() {
         : (li.classList.remove("active")); // si no se le quita.
     });
 
-    // animación del widget y botón scroll
-    const widget = document.querySelector(".float-widget"),
+    // animación del cartel con las redes sociales y botón scroll
+    const socials = document.querySelector(".socials"),
     scrollBtn = document.querySelector(".scroll-up__btn");
     current != "home" // ¿la sección actual es cualquiera excepto la principal?
-    ? (widget.setAttribute("style", "bottom: 0;"), // si es así se le agrega el atributo style y se muestra el widget...
+    ? (socials.setAttribute("style", "bottom: 0;"), // si es así se le agrega el atributo style y se muestra el cartel con las redes sociales...
       scrollBtn.setAttribute("style", "right: 30px; opacity: 1;")) // y el botón scroll.
-    : (widget.removeAttribute("style"), // si no se les quita el atributo y se ocultan.
+    : (socials.removeAttribute("style"), // si no se les quita el atributo y se ocultan.
       scrollBtn.removeAttribute("style"));
 });
 

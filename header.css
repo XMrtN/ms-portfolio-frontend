@@ -298,9 +298,9 @@ header .container {
     background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.5) 0%, rgba(180, 10, 10, 0) 100%);
 }
 
-/* pequeño cartel con mi nombre que se esconde al inicio de la página */
+/* pequeño cartel con las redes sociales que se esconde al inicio de la página */
 /* transformo el rectángulo en un trapecio */
-.float-widget {
+.socials {
     position: fixed;
     bottom: -50px;
     left: 50%;
@@ -326,9 +326,8 @@ header .container {
     -ms-transition: .5s;
     -o-transition: .5s;
 }
-/* posiciono el span */
-/* regreso el contenido del cartel a su forma original, el span sirve de contenedor para hacer esto */
-.float-widget span {
+/* regreso el contenido del cartel a su forma original, el contenedor es para lograr esto */
+.socials-container {
     position: absolute;
     bottom: 0;
     display: flex;
@@ -342,7 +341,7 @@ header .container {
     -o-transform: perspective(10px) rotateX(-4deg);
 }
 /* color y animación en los iconos */
-.float-widget a {
+.socials a {
     color: #fb0;
     transition: .1s;
     -webkit-transition: .1s;
@@ -352,21 +351,21 @@ header .container {
 }
 /* efecto :hover para cursor en los iconos */
 @media (hover: hover) {
-    .float-widget a:hover {
+    .socials a:hover {
         padding-bottom: 5px;
     }
 }
 /* efecto :active para tactil en los iconos */
-.float-widget a:active {
+.socials a:active {
     padding-bottom: 5px;
 }
-.float-widget i {
+.socials i {
     font-size: 1.2em;
 }
 
 /* líneas horizontales a los lados del cartel */
-.float-widget::before,
-.float-widget::after {
+.socials::before,
+.socials::after {
     position: absolute;
     content: '';
     bottom: 0;
@@ -375,11 +374,11 @@ header .container {
     background: #fb0;
 }
 /* izquierda */
-.float-widget::before {
+.socials::before {
     right: 100%;
 }
 /* derecha */
-.float-widget::after {
+.socials::after {
     left: 100%;
 }
 
@@ -444,7 +443,6 @@ header .container {
         height: 100vh;
         width: 100%;
         padding: 0 50px;
-        /* backdrop-filter: grayscale(0.2) blur(10px); */
         background: rgba(30, 30, 30, 1);
         transition: .5s;
         -webkit-transition: .5s;
