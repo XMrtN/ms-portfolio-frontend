@@ -80,7 +80,7 @@ footer::after {
 
 #home {
     position: relative;
-    background-image: url(img/galaxy1.jpg);
+    background-image: url(img/galaxy.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

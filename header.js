@@ -1,5 +1,5 @@
 // typed.js
-var typed = new Typed(".typing", { 
+const typed = new Typed(".typing", { 
     strings: ["Estudiante", "Desarrolador Full Stack Jr."],
     typeSpeed: 100,
     backSpeed: 60,
@@ -7,12 +7,12 @@ var typed = new Typed(".typing", {
 });
 
 // animación al cargar la página con GSAP
-var tl = gsap.timeline();
-tl.fromTo(".header-container__logo:first-child img", 1, {y:-200}, {y: 0});
-tl.fromTo(".header-container__login a, .header-container__menu-container, .header-container__ul a", 1, {y: -100}, {y: 0, stagger: .2});
-tl.fromTo(".header-container__logo:last-child img", 1, {y: -200}, {y: 0});
-gsap.timeline().fromTo(".textBox, .imgBox .img", 1, {opacity: 0}, {opacity: 1, delay: 1.5, stagger: .2});
-gsap.timeline().fromTo(".textBox, .imgBox", 1, {x: -150}, {x: 0, delay: 1.5, stagger: .2});
+const tl = gsap.timeline();
+tl.to(".header-container__logo:first-child img", 1, {y: 0});
+tl.to(".header-container__login a, .header-container__menu-container, .header-container__ul a", 1, {y: 0, stagger: .2}); // 0.2 segundos entre elementos.
+tl.to(".header-container__logo:last-child img", 1, {y: 0});
+tl.to(".textBox, .imgBox .img", 1, {opacity: 1, stagger: .5}, "<"); // empieza junto con la animación previa. 0.5 segundos entre elementos
+tl.to(".textBox, .imgBox", 1, {x: 0, stagger: .5}, "<"); // empieza junto con la animación previa. 0.5 segundos entre elementos
 
 window.addEventListener("scroll", function() {
     // animación en los <li> <a>s activos

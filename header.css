@@ -157,15 +157,15 @@ header .container {
 @media (hover: hover) {
     .header-container__login a:hover,
     .header-container__ul a.active:hover {
-        background: rgba(110, 40, 40, 1);
-        background: linear-gradient(to bottom, rgba(110, 40, 40, 1) 0%, rgba(180, 10, 10, 1) 100%);
+        background: rgba(110, 30, 30, 1);
+        background: linear-gradient(to bottom, rgba(110, 30, 30, 1) 0%, rgba(200, 5, 5, 1) 100%);
         border-bottom: 5px solid #ff732e;
     }
 }
 .header-container__login a:active,
 .header-container__ul a.active:active {
-    background: rgba(110, 40, 40, 1);
-    background: linear-gradient(to bottom, rgba(110, 40, 40, 1) 0%, rgba(180, 10, 10, 1) 100%);
+    background: rgba(110, 30, 30, 1);
+    background: linear-gradient(to bottom, rgba(110, 30, 30, 1) 0%, rgba(200, 5, 5, 1) 100%);
     border-bottom: 5px solid #ff732e;
 }
 
@@ -269,7 +269,7 @@ header .container {
 /* cambio el color en el botón "LOG IN" y en los <li> <a>s activos */
 .header-container__login a::before,
 .header-container__ul a.active::before {
-    background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.2) 0%, rgba(180, 10, 10, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(170, 5, 5, 0.2) 0%, rgba(170, 5, 5, 0) 100%);
 }
 
 /* efecto :hover para cursor de los <li> <a>s */
@@ -289,13 +289,13 @@ header .container {
 @media (hover: hover) {
     .header-container__login a:hover::before,
     .header-container__ul a.active:hover::before {
-        background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.5) 0%, rgba(180, 10, 10, 0) 100%);
+        background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, rgba(200, 5, 5, 0) 100%);
     }
 }
 /* efecto :active para tactil en el botón "LOG IN" y en los <li> <a>s activos */
 .header-container__login a:active::before,
 .header-container__ul a.active:active::before {
-    background-image: linear-gradient(to bottom, rgba(180, 10, 10, 0.5) 0%, rgba(180, 10, 10, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, rgba(200, 5, 5, 0) 100%);
 }
 
 /* pequeño cartel con las redes sociales que se esconde al inicio de la página */
