@@ -45,18 +45,6 @@ header {
     width: 100%;
     z-index: 10;
 }
-/* efecto blur() en <header> */
-/* se aplica en un pseudoelemento para evitar problemas con el efecto blur() en el <ul> en modo mobile */
-header::before {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    z-index: -1;
-}
 
 /* estructura flexbox para todo el <header> */
 header .container,
@@ -84,7 +72,7 @@ header .container {
     position: relative;
     height: 60px;
     width: 100%;
-    max-width: 100px;
+    max-width: 130px;
 }
 /* logo Argentina Programa */
 .header-container__logo img {
@@ -120,6 +108,7 @@ header .container {
     height: 60px;
     width: 100px;
     background: rgba(45, 45, 45, 0.8);
+    backdrop-filter: blur(10px);
     border-bottom: 5px solid #8c8c8c;
     transform: translateY(-100px);
     -webkit-transform: translateY(-100px);
@@ -204,6 +193,10 @@ header .container {
     letter-spacing: 2px;
 }
 
+/* se oculta por defecto el botón menú */
+.header-container__menu {
+    display: none;
+}
 /* se corrige la distribución del icono para que esté centrado */
 /* botón menú interactúa con el cursor */
 .header-container__menu-container {
@@ -211,7 +204,6 @@ header .container {
     padding-top: 5px;
     cursor: pointer;
 }
-
 /* ícono menú con <span> para que tenga animación */
 /* de desplazan dos <span> hacia arriba y abajo para formar el icono del menú hamburguesa */
 .header-container__menu span {
@@ -263,26 +255,26 @@ header .container {
     top: calc(100% + 5px);
     height: 25px;
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.2) 0%, rgba(70, 70, 70, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.2) 0%, transparent 100%);
     pointer-events: none;
 }
 /* cambio el color en el botón "LOG IN" y en los <li> <a>s activos */
 .header-container__login a::before,
 .header-container__ul a.active::before {
-    background-image: linear-gradient(to bottom, rgba(170, 5, 5, 0.2) 0%, rgba(170, 5, 5, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(170, 5, 5, 0.2) 0%, transparent 100%);
 }
 
 /* efecto :hover para cursor de los <li> <a>s */
 @media (hover: hover) {
     .header-container__ul a:hover::before,
     .header-container__menu-container:hover::before {
-        background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, rgba(70, 70, 70, 0) 100%);
+        background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, transparent 100%);
     }
 }
 /* efecto :active para tactil de los <li> <a>s */
 .header-container__ul a:active::before,
 .header-container__menu-container:active::before {
-    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, rgba(70, 70, 70, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.5) 0%, transparent 100%);
 }
 
 /* efecto :hover para cursor en el botón "LOG IN" y en los <li> <a>s activos */
@@ -383,16 +375,6 @@ header .container {
 }
 
 
-@media screen and (min-width: 768px) {
-    /* se muestra el logo de argprog que está a la derecha */
-    .header-container__logo:last-child {
-        display: flex;
-    }
-    /* se oculta el botón menú */
-    .header-container__menu {
-        display: none;
-    }
-}
 @media screen and (max-width: 991px) {
     /* se reduce el width de los <li> <a>s para mejor visibilidad */
     .header-container__ul a,
@@ -402,6 +384,10 @@ header .container {
     }
 }
 @media screen and (max-width: 767px) {
+    /* se reduce el tamaño del logo en mobile */
+    .header-container__logo {
+        max-width: 90px;
+    }
     /* se oculta el logo de argprog que está a la derecha */
     .header-container__logo:last-child {
         display: none;
@@ -443,13 +429,14 @@ header .container {
         height: 100vh;
         width: 100%;
         padding: 0 50px;
-        background: rgba(30, 30, 30, 1);
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
         transition: .5s;
         -webkit-transition: .5s;
         -moz-transition: .5s;
         -ms-transition: .5s;
         -o-transition: .5s;
-}
+    }
     .header-container__ul li,
     .header-container__ul a {
         width: 100%;
@@ -465,6 +452,10 @@ header .container {
     .header-container__ul li:nth-child(2) span,
     .header-container__ul li:last-child span {
         --skewX: 40deg;
+    }
+
+    .header-container__ul a::before {
+        display: none;
     }
 }
 

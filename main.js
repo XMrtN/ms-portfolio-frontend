@@ -1,4 +1,34 @@
-// typed.js
+// animación al cargar la página con GSAP
+const tl = gsap.timeline({defaults: {duration: 1}});
+tl
+    .to(".header-container__logo:first-child img", {y: 0})
+    .to(".header-container__login a, .header-container__menu-container", {y: 0, stagger: .2})
+    .to(".header-container__ul a", {y: 0, stagger: .2}, "<.2") // empieza junto con la animación previa pero con un delay de 0.2 segundos.
+    .to(".textBox, .img", {opacity: 1, stagger: .2}, "<1") // empieza junto con la animación previa pero con un delay de 1 segundo.
+    .to(".textBox, .imgBox", {x: 0, stagger: .2}, "<") // empieza junto con la animación previa.
+    .to(".header-container__logo:last-child img", {y: 0})
+
+
+// animación parallax en el home con Scroll Trigger de GSAP
+const parallax = gsap.timeline();
+parallax
+    .fromTo(".stars", {x: -250}, {x: 250})
+    .fromTo(".moon", {y: 50}, {y: 0}, "<")
+    .fromTo(".shadow", {y: 200, scale: .9}, {y: 0, scale: 1}, "<")
+    .fromTo(".ruins", {y: 300, scale: .925}, {y: 0, scale: 1}, "<")
+    .fromTo(".building, .buildingSmoke", {y: 400, scale: .95}, {y: 0, scale: 1}, "<")
+    .fromTo(".smoke", {y: 100}, {y: 0}, "<")
+
+ScrollTrigger.create({
+    animation: parallax,
+    trigger: "#home",
+    start: "top 0%",
+    end: "bottom 0%",
+    scrub: 1,
+    pin: true
+});
+
+// texto animado con typed.js
 const typed = new Typed(".typing", { 
     strings: ["Estudiante", "Desarrolador Full Stack Jr."],
     typeSpeed: 100,
@@ -6,17 +36,9 @@ const typed = new Typed(".typing", {
     loop: true
 });
 
-// animación al cargar la página con GSAP
-const tl = gsap.timeline();
-tl.to(".header-container__logo:first-child img", 1, {y: 0});
-tl.to(".header-container__login a, .header-container__menu-container, .header-container__ul a", 1, {y: 0, stagger: .2}); // 0.2 segundos entre elementos.
-tl.to(".header-container__logo:last-child img", 1, {y: 0});
-tl.to(".textBox, .imgBox .img", 1, {opacity: 1, stagger: .5}, "<"); // empieza junto con la animación previa. 0.5 segundos entre elementos
-tl.to(".textBox, .imgBox", 1, {x: 0, stagger: .5}, "<"); // empieza junto con la animación previa. 0.5 segundos entre elementos
-
 window.addEventListener("scroll", function() {
-    // animación en los <li> <a>s activos
     var current = '';
+    // animación en los <li> <a>s activos
     const sections = document.querySelectorAll("section, footer");
     sections.forEach(section => { // recorre todas las secciones una por una.
         window.scrollY >= (section.offsetTop - 60)
@@ -32,6 +54,7 @@ window.addEventListener("scroll", function() {
         : (li.classList.remove("active")); // si no se le quita.
     });
 
+
     // animación del cartel con las redes sociales y botón scroll
     const socials = document.querySelector(".socials"),
     scrollBtn = document.querySelector(".scroll-up__btn");
@@ -42,6 +65,7 @@ window.addEventListener("scroll", function() {
       scrollBtn.removeAttribute("style"));
 });
 
+
 // animación del menú mobile
 const menu = document.querySelector(".header-container__menu");
 menu.addEventListener("click", function() {
@@ -51,6 +75,7 @@ menu.addEventListener("click", function() {
     ? (ul.setAttribute("style", "left: 0;")) // si es así se muestra el <ul>.
     : (ul.removeAttribute("style")); // si no se le quita el atributo "style" y se oculta.
 });
+
 
 // función del botón scroll
 const scrollBtn = document.querySelector(".scroll-up__btn");

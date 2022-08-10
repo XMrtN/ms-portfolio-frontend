@@ -13,7 +13,7 @@
 }
 
 body {
-    background: #b0b0b0;
+    background: rgba(46, 18, 95, 1);
 }
 
 section, footer {
@@ -22,71 +22,35 @@ section, footer {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f0f0f0;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* separación entre sections */
+section#home {
+    background: rgba(46, 18, 95, 1);
+    background: linear-gradient(to bottom, rgba(46, 18, 95, 1) 0%, rgba(45, 75, 145, 1) 10%, rgba(75, 147, 200, 1) 50%, rgba(139, 227, 253, 1) 100%);
+}
 section:not(#home), footer {
-    margin-top: 5px;
+    background: rgba(42, 48, 100, 1);
 }
 
-/* diseño para la separación */
-/* parte debajo de la separación */
-section:not(#home) > .container::after,
-footer > .container::after {
+.parallax {
     position: absolute;
-    content: '';
-    top: -1px;
-    left: 50%;
-    height: 10px;
-    width: 30%;
-    background: #b0b0b0;
-    transform: translateX(-50%) perspective(10px) rotateX(-10deg);
-    -webkit-transform: translateX(-50%) perspective(10px) rotateX(-10deg);
-    -moz-transform: translateX(-50%) perspective(10px) rotateX(-10deg);
-    -ms-transform: translateX(-50%) perspective(10px) rotateX(-10deg);
-    -o-transform: translateX(-50%) perspective(10px) rotateX(-10deg);
+    top: 0;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transform-origin: bottom;
+}
+.moon, .smoke {
+    mix-blend-mode: screen;
+}
+.buildingSmoke {
+    mix-blend-mode: multiply;
 }
 
-/* parte sobre la separación */
-section::before,
-section::after,
-footer::before,
-footer::after {
-    position: absolute;
-    content: '';
-    bottom: -1px;
-    height: 10px;
-    width: 15%;
-    background: #b0b0b0;
-    transform: perspective(10px) rotateX(10deg);
-    -webkit-transform: perspective(10px) rotateX(10deg);
-    -moz-transform: perspective(10px) rotateX(10deg);
-    -ms-transform: perspective(10px) rotateX(10deg);
-    -o-transform: perspective(10px) rotateX(10deg);
-}
-/* parte izquierda */
-section::before,
-footer::before {
-    left: 0;
-    transform-origin: left;
-}
-/* parte derecha */
-section::after,
-footer::after {
-    right: 0;
-    transform-origin: right;
-}
-
-#home {
-    position: relative;
-    background-image: url(img/galaxy.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-section .container {
+#home .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,7 +89,7 @@ section .container {
     align-items: center;
     margin: 0 25px;
 }
-.img {
+.imgBox .img {
     display: flex;
     justify-content: center;
     height: 200px;
@@ -136,12 +100,11 @@ section .container {
     --color: #fb0;
     --top-left: 20%;
     --bottom-right: 20%;
-    --background: transparent;
     background:
-        linear-gradient(135deg, var(--color) 0 calc(var(--top-left, var(--all)) + 10px), var(--background) 0) top left / 50% 50%,
-        linear-gradient(-135deg, var(--color) 0 calc(var(--top-right, var(--all))), var(--background) 0) top right / 50% 50%,
-        linear-gradient(45deg, var(--color) 0 calc(var(--bottom-left, var(--all))), var(--background) 0) bottom left / 50% 50%,
-        linear-gradient(-45deg, var(--color) 0 calc(var(--bottom-right, var(--all)) + 5px), var(--background) 0) bottom right / 50% 50%;
+        linear-gradient(135deg, var(--color) 0 calc(var(--top-left, var(--all)) + 10px), transparent 0) top left / 50% 50%,
+        linear-gradient(-135deg, var(--color) 0 calc(var(--top-right, var(--all))), transparent 0) top right / 50% 50%,
+        linear-gradient(45deg, var(--color) 0 calc(var(--bottom-left, var(--all))), transparent 0) bottom left / 50% 50%,
+        linear-gradient(-45deg, var(--color) 0 calc(var(--bottom-right, var(--all)) + 5px), transparent 0) bottom right / 50% 50%;
     background-origin: border-box;
     background-repeat: no-repeat;
     backdrop-filter: blur(10px);
@@ -155,7 +118,7 @@ section .container {
     -o-transform: skewX(var(--skewX));
 }
 
-.img img {
+.imgBox img {
     height: 100%;
     object-fit: cover;
     --skewX: -30deg;
@@ -177,7 +140,7 @@ section .container {
     .textBox h2 {
         font-size: 2.5em;
     }
-    .img {
+    .imgBox .img {
         height: 150px;
         width: 150px;
         transform-origin: center;
@@ -190,32 +153,32 @@ section .container {
     .scroll-up__btn {
         bottom: 50px;
     }
-    .img {
+    .imgBox .img {
         --skewX: 25deg;
     }
-    .img img {
+    .imgBox img {
         --skewX: -25deg;
     }
 }
 @media screen and (max-width: 320px) {
-    .img {
+    .imgBox .img {
         --skewX: 20deg;
     }
-    .img img {
+    .imgBox img {
         --skewX: -20deg;
     }
 }
 @media screen and (max-width: 300px) {
-    .img {
+    .imgBox .img {
         --skewX: 10deg;
     }
-    .img img {
+    .imgBox img {
         --skewX: -10deg;
     }
 }
 @media screen and (max-width: 280px) {
-    .img,
-    .img img {
+    .imgBox .img,
+    .imgBox img {
         --skewX: 0;
     }
 }
