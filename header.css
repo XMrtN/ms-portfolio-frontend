@@ -72,7 +72,10 @@ header .container {
     position: relative;
     height: 60px;
     width: 100%;
-    max-width: 130px;
+    max-width: 100px;
+}
+.header-container__logo:last-child {
+    max-width: 200px;
 }
 /* logo Argentina Programa */
 .header-container__logo img {
@@ -85,6 +88,9 @@ header .container {
     -moz-transform: translateY(-200px);
     -ms-transform: translateY(-200px);
     -o-transform: translateY(-200px);
+}
+.header-container__logo:last-child img {
+    margin-top: 10px;
 }
 
 /* transformo los <li>s y su contenido en un paralelogramo */
@@ -281,13 +287,13 @@ header .container {
 @media (hover: hover) {
     .header-container__login a:hover::before,
     .header-container__ul a.active:hover::before {
-        background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, rgba(200, 5, 5, 0) 100%);
+        background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, transparent 100%);
     }
 }
 /* efecto :active para tactil en el botón "LOG IN" y en los <li> <a>s activos */
 .header-container__login a:active::before,
 .header-container__ul a.active:active::before {
-    background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, rgba(200, 5, 5, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(200, 5, 5, 0.5) 0%, transparent 100%);
 }
 
 /* pequeño cartel con las redes sociales que se esconde al inicio de la página */
@@ -384,10 +390,6 @@ header .container {
     }
 }
 @media screen and (max-width: 767px) {
-    /* se reduce el tamaño del logo en mobile */
-    .header-container__logo {
-        max-width: 90px;
-    }
     /* se oculta el logo de argprog que está a la derecha */
     .header-container__logo:last-child {
         display: none;

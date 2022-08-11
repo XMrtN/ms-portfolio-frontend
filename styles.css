@@ -9,7 +9,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Agency-fb', sans-serif;
+    font-family: 'Agency-fb', monospace;
 }
 
 body {
@@ -43,7 +43,7 @@ section:not(#home), footer {
     pointer-events: none;
     transform-origin: bottom;
 }
-.moon, .smoke {
+.moon, .shadow, .smoke {
     mix-blend-mode: screen;
 }
 .buildingSmoke {
