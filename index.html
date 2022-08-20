@@ -5,124 +5,137 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martín Sepúlveda</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap css file -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="./css/bootstrap-icons.css">
+    <!-- Navbar css file -->
+    <link rel="stylesheet" href="./css/navbar.css">
+    <!-- Main css file -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="scroll-up__btn"><i class="bi bi-chevron-up"></i></div>
-
     <header>
-        <div class="container">
-            <div class="header-container__logo">
-                <img src="img/argprog.png" alt="argpprog">
-            </div>
-            
-            <nav class="header-container__social"> 
-                <div class="header-container__login"><a href="#">
-                    <span>LOG IN</span>
-                </a></div>
-
-                <div class="header-container__menu">
-                    <div class="header-container__menu-container">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+        <nav class="navbar navbar-expand-lg fixed-top p-0">
+            <div class="container-fluid align-items-start">
+                <div class="nav-logo position-relative w-100">
+                    <img class="position-absolute" src="img/argprog.png" alt="argpprog">
                 </div>
                 
-                <ul class="header-container__ul">
-                    <li><a class="experience" href="#experience">
-                        <span>EXPERIENCE</span>
-                    </a></li>
+                <button class="navbar-toggler my-2 position-relative justify-content-center align-items-center align-self-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto py-lg-0 py-5 px-4 gap-1 justify-content-center align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link p-0" href="#home">
+                                <button class="d-flex home btn btn-primary" type="button"><span class="mt-auto mx-auto">HOME</span></button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link p-0" href="#experience">
+                                <button class="d-flex experience btn btn-secondary" type="button"><span class="mt-auto mx-auto">EXPERIENCE</span></button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link p-0" href="#skills">
+                                <button class="d-flex skills btn btn-secondary" type="button"><span class="mt-auto mx-auto">SKILLS</span></button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link p-0" href="#proyects">
+                                <button class="d-flex proyects btn btn-secondary" type="button"><span class="mt-auto mx-auto">PROYECTS</span></button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link p-0" href="#contact">
+                                <button class="d-flex contact btn btn-secondary" type="button"><span class="mt-auto mx-auto">CONTACT</span></button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="d-flex btn btn-primary" type="button"><span class="mt-auto mx-auto">LOG IN</span></button>
+                        </li>
+                    </ul>
                     
-                    <li><a class="skills" href="#skills">
-                        <span>SKILLS</span>
-                    </a></li>
-                    
-                    <li><a class="proyects" href="#proyects">
-                        <span>PROYECTS</span>
-                    </a></li>
-                    
-                    <li><a class="contact" href="#contact">
-                        <span>CONTACT</span>
-                    </a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-container__logo">
-                <img src="img/inti.png" alt="argpprog">
+                    <div class="nav-logo">
+                        <img class="position-relative d-lg-block d-none w-100" src="img/inti.png" alt="inti">
+                    </div>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
     
     <section id="home">
-        <img class="parallax stars" src="img/bg/stars.png" alt="">
-        <img class="parallax moon" src="img/bg/moon.png" alt="">
-        <img class="parallax shadow" src="img/bg/shadow.png" alt="">
-        <img class="parallax ruins" src="img/bg/ruins.png" alt="">
-        <img class="parallax building" src="img/bg/building.png" alt="">
-        <img class="parallax buildingSmoke" src="img/bg/building-smoke.png" alt="">
-        <img class="parallax smoke" src="img/bg/smoke.png" alt="">
-        <img class="parallax road" src="img/bg/road.png" alt="">
-
+        <img class="parallax stars" src="img/bg/stars.png" alt="stars">
+        <img class="parallax moon" src="img/bg/moon.png" alt="moon">
+        <img class="parallax shadow" src="img/bg/shadow.png" alt="shadow">
+        <img class="parallax building" src="img/bg/building.png" alt="building">
+        <img class="parallax smoke" src="img/bg/smoke.png" alt="smoke">
+        
         <div class="container">
-            <div class="textBox">
-                <h2>
-                    Soy <span>Martín Sepúlveda</span><br>
-                    <span class="typing"></span>
-                </h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed voluptates a obcaecati optio ratione quam reiciendis in, sunt vel nobis omnis sint quo error! Ducimus tempora incidunt enim adipisci voluptatem.</p>
-            </div>
-
-            <div class="imgBox">
-                <div class="img">
-                    <img src="img/martin-sepulveda.png" alt="Martín Sepúlveda - PortFolio Web">
+            <div class="row">
+                <div class="col-lg-8 col-12 d-flex align-items-center">
+                    <div class="textBox">
+                        <h2>
+                            ¡Hola! Soy <br>
+                            <span class="typing"></span>
+                        </h2>
+                        <p>Soy un joven de 19 años apasionado por la programación. Siempre me llamó la atención el mundo informático, pero desde que me introduje en el desarrollo web supe que esto era lo que quería.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-12 d-flex justify-content-lg-end justify-content-center align-items-center">
+                    <div class="imgBox mx-4">
+                        <div class="img">
+                            <img src="img/martin-sepulveda.png" alt="Martín Sepúlveda">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <img class="parallax road" src="img/bg/road.png" alt="road">
     </section>
-
+    
     <section id="experience">
         <div class="container"></div>
     </section>
-
+    
     <section id="skills">
         <div class="container"></div>
     </section>
-
+    
     <section id="proyects">
         <div class="container"></div>
     </section>
-
+    
     <footer id="contact">
         <div class="container">
             <a href="https://www.freepik.com/vectors/destroyed-city">Background - Destroyed city vector created by upklyak - www.freepik.com</a>
         </div>
     </footer>
     
-    <div class="socials">
-        <div class="socials-container">
-            <a href="https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/">
-                <i class="bi bi-facebook"></i>
-            </a>
-            <a href="https://telegram.me/XMrtN">
-                <i class="bi bi-telegram"></i>
-            </a>
-            <a href="https://www.instagram.com/martin07.24/">
-                <i class="bi bi-instagram"></i>
-            </a>
-            <a href="https://wa.me/5492995043762">
-                <i class="bi bi-whatsapp"></i>
-            </a>
+    <div class="navbar-bottom fixed-bottom d-flex">
+        <div class="socials position-relative d-flex mx-auto justify-content-center align-items-center gap-4 pt-2 px-4">
+            <a href="https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/"><i class="bi bi-facebook"></i></a>
+            <a href="https://telegram.me/XMrtN"><i class="bi bi-telegram"></i></a>
+            <a href="https://www.instagram.com/martin07.24/"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/5492995043762"><i class="bi bi-whatsapp"></i></a>
         </div>
+        
+        <button class="scroll-up__btn position-absolute me-4 mb-5 mb-sm-3 py-3 px-4 btn btn-secondary" type="button"><i class="bi bi-chevron-up"></i></button>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    
+    
+    <!-- Typed js file -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- GSAP js file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <!-- Scroll Trigger js file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
-    <script src="main.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- Main js file -->
+    <script src="./js/main.js"></script>
 </body>
 </html>

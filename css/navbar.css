@@ -1,0 +1,249 @@
+/* fondo al navbar en mobile */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    user-select: none;
+}
+
+/* oculto los elementos del header para animacion */
+.nav-logo img,
+.navbar .btn {
+    transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+}
+
+.nav-logo:first-child {
+    max-width: 100px;
+}
+.nav-logo:last-child img {
+    top: 10px;
+}
+
+/* transformo los nav-item y su contenido en paralelogramos */
+/* y luego corrijo la forma del texto */
+.navbar .nav-item,
+.navbar .nav-item span {
+    transform: skewX(var(--skewX));
+    -webkit-transform: skewX(var(--skewX));
+    -moz-transform: skewX(var(--skewX));
+    -ms-transform: skewX(var(--skewX));
+    -o-transform: skewX(var(--skewX));
+}
+
+/* algunos nav-item se inclinan hacia la derecha */
+/* corrijo la forma del texto de los nav-item que se inclinan a la izquierda */
+.navbar .nav-item:first-child,
+.navbar .nav-item:nth-child(2) span,
+.navbar .nav-item:nth-child(3),
+.navbar .nav-item:nth-child(4) span,
+.navbar .nav-item:nth-child(5),
+.navbar .nav-item:last-child span {
+    --skewX: 40deg;
+}
+/* otros nav-item se inclinan hacia la izquierda */
+/* corrijo la forma del texto de los nav-item que se inclinan a la derecha */
+.navbar .nav-item:first-child span,
+.navbar .nav-item:nth-child(2),
+.navbar .nav-item:nth-child(3) span,
+.navbar .nav-item:nth-child(4),
+.navbar .nav-item:nth-child(5) span,
+.navbar .nav-item:last-child {
+    --skewX: -40deg;
+}
+
+/* cambio los colores de las variables provistas por bootstrap */
+/* agrego dos variables para fondo gradiente */
+.navbar .btn-primary {
+    --bs-btn-color: #f0f0f0;
+    --bs-btn-bg: rgba(163, 6, 6, 1);
+    --bs-btn-bg-gradient: rgba(103, 35, 35, 1);
+    --bs-btn-border-color: #ff4e1d;
+    --bs-btn-hover-color: #f0f0f0;
+    --bs-btn-hover-bg: rgba(189, 10, 10, 1);
+    --bs-btn-hover-bg-gradient: rgba(113, 35, 35, 1);
+    --bs-btn-hover-border-color: #ff732e;
+    --bs-btn-focus-shadow-rgb: 255, 115, 46;
+    --bs-btn-active-color: #f0f0f0;
+    --bs-btn-active-bg: rgba(113, 35, 35, 1);
+    --bs-btn-active-border-color: #ff732e;
+
+    /* coloco un fondo gradiente */
+    background-image: linear-gradient(to bottom, var(--bs-btn-bg-gradient) 0%, var(--bs-btn-bg) 100%);
+}
+.navbar .btn-primary:focus,
+.navbar .btn-primary:hover {
+    /* otro fondo gradiente para hover */
+    background-image: linear-gradient(to bottom, var(--bs-btn-hover-bg-gradient) 0%, var(--bs-btn-hover-bg) 100%);
+}
+/* en active lo oculto para que se vea sólo el color sólido */
+.navbar .btn-primary:active {
+    background-image: none;
+}
+
+/* cambio los colores de las variables provistas por bootstrap */
+.navbar .btn-secondary,
+.navbar-bottom .btn-secondary {
+    --bs-btn-color: #b0b0b0;
+    --bs-btn-bg: rgba(46, 46, 46, 0.8);
+    --bs-btn-border-color: #8c8c8c;
+    --bs-btn-hover-color: #b0b0b0;
+    --bs-btn-hover-bg: rgba(69, 69, 69, 0.8);
+    --bs-btn-hover-border-color: #f0f0f0;
+    --bs-btn-focus-shadow-rgb: 140, 140, 140;
+    --bs-btn-active-color: #b0b0b0;
+    --bs-btn-active-bg: rgba(46, 46, 46, 0.8);
+    --bs-btn-active-border-color: #f0f0f0;
+}
+
+/* cambio los valores de las variables provistas por bootstrap */
+/* demas estilos */
+.navbar .btn,
+.navbar-bottom .btn {
+    --bs-btn-font-size: 1.3em;
+    --bs-btn-line-height: 0.8em;
+    --bs-btn-border-width: 5px;
+    --bs-btn-border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    backdrop-filter: blur(10px);
+    transition: 0s;
+    -webkit-transition: 0s;
+    -moz-transition: 0s;
+    -ms-transition: 0s;
+    -o-transition: 0s;
+}
+
+/* aumento el tamaño de los btn */
+.navbar .nav-item,
+.navbar .btn {
+    height: 40px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.navbar .btn span {
+    font-family: 'Teko', sans-serif;
+}
+
+/* efecto de luz debajo de los btn */
+/* en mobile se oculta */
+.navbar .btn::before {
+    position: absolute;
+    content: '';
+    top: calc(100% + 5px);
+    left: 0;
+    display: none;
+    height: 25px;
+    width: 100%;
+    background-image: linear-gradient(to bottom, var(--bs-btn-bg) 0%, transparent 100%);
+    pointer-events: none;
+}
+.navbar .btn:focus::before,
+.navbar .btn:hover::before {
+    background-image: linear-gradient(to bottom, var(--bs-btn-hover-bg) 0%, transparent 100%);
+}
+.navbar .btn:active::before {
+    background-image: linear-gradient(to bottom, var(--bs-btn-active-bg) 0%, transparent 100%);
+}
+
+/* contenedor del boton menu hamburguesa */
+.navbar-toggler {
+    --bs-border-width: 2px;
+    display: flex;
+    height: 44px;
+    width: 44px;
+}
+
+/* preparo los elementos para darles forma */
+.navbar-toggler span::before,
+.navbar-toggler span,
+.navbar-toggler span::after {
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 30px;
+    background-color: #b0b0b0;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    transform: translateY(var(--translateY)) rotate(var(--rotate));
+    -webkit-transform: translateY(var(--translateY)) rotate(var(--rotate));
+    -moz-transform: translateY(var(--translateY)) rotate(var(--rotate));
+    -ms-transform: translateY(var(--translateY)) rotate(var(--rotate));
+    -o-transform: translateY(var(--translateY)) rotate(var(--rotate));
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+/* por defecto tiene forma de menu hamburguesa */
+.navbar-toggler span::before,
+.navbar-toggler span::after {
+    --translateY: -12px;
+    --rotate: 0;
+    left: 0;
+    width: 20px;
+}
+.navbar-toggler span::after {
+    --translateY: 12px;
+    width: 10px;
+}
+
+/* cuando el menú no está colapsado tiene forma de X */
+.navbar-toggler:not(.collapsed) span::before,
+.navbar-toggler:not(.collapsed) span::after {
+    --translateY: 0;
+    --rotate: 45deg;
+    width: 30px;
+    transition-delay: 0.125s;
+}
+.navbar-toggler:not(.collapsed) span {
+    background-color: transparent;
+}
+.navbar-toggler:not(.collapsed) span::after {
+    --rotate: 315deg;
+    transition-delay: 0.25s;
+}
+
+
+/* estilos para pantallas grandes */
+@media only screen and (min-width: 992px) {
+    /* quito el fondo del navbar */
+    .navbar {
+        background-color: transparent;
+        backdrop-filter: none;
+    }
+    
+    /* todos los nav-item se inclinan hacia la derecha */
+    .navbar .nav-item:nth-child(2),
+    .navbar .nav-item:nth-child(4),
+    .navbar .nav-item:last-child {
+        --skewX: 40deg;
+    }
+    /* corrijo la forma del texto */
+    .navbar .nav-item:nth-child(2) span,
+    .navbar .nav-item:nth-child(4) span,
+    .navbar .nav-item:last-child span {
+        --skewX: -40deg;
+    }
+    
+    /* reduzco el tamaño de los btn */
+    .navbar .nav-item,
+    .navbar .btn {
+        height: 60px;
+        width: 100px;
+    }
+    
+    /* muestro el efecto de luz */
+    .navbar .btn::before {
+        display: block;
+    }
+}
