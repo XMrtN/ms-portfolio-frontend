@@ -37,9 +37,7 @@ section, footer {
     background-attachment: fixed;
     pointer-events: none;
 }
-/* #home:hover {
-    filter: blur(10px);
-} */
+
 section:not(#home), footer {
     background: rgba(42, 48, 100, 1);
 }
@@ -101,10 +99,11 @@ section:not(#home), footer {
     -o-transform: skewX(var(--skewX));
 }
 
-/* div debajo de la pantalla con las redes sociales y el botón de scroll */
+/* div debajo de la pantalla con las redes sociales */
 /* se esconde en el home */
-.navbar-bottom {
+.socials {
     height: 50px;
+    width: max-content;
     --translateY: 100px;
     transform: translateY(var(--translateY));
     -webkit-transform: translateY(var(--translateY));
@@ -116,12 +115,6 @@ section:not(#home), footer {
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
-}
-
-/* div con las redes sociales */
-.socials {
-    height: 100%;
-    width: max-content;
 }
 /* simulo la forma de un trapecio */
 .socials::before {
@@ -154,12 +147,20 @@ section:not(#home), footer {
     padding-bottom: 5px;
 }
 
-/* botón scroll */
+/* botón scroll que se oculta en el home */
 .scroll-up__btn.btn {
-    --bs-btn-border-radius: 10px;
+    --bs-btn-font-size: 1.3em;
+    --bs-btn-border-width: 2px;
     right: 0;
     bottom: 0;
+    border-bottom-width: 5px;
     backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
 
 

@@ -56,7 +56,7 @@
 
 /* cambio los colores de las variables provistas por bootstrap */
 /* agrego dos variables para fondo gradiente */
-.navbar .btn-primary {
+.btn-primary {
     --bs-btn-color: #f0f0f0;
     --bs-btn-bg: rgba(163, 6, 6, 1);
     --bs-btn-bg-gradient: rgba(103, 35, 35, 1);
@@ -73,19 +73,18 @@
     /* coloco un fondo gradiente */
     background-image: linear-gradient(to bottom, var(--bs-btn-bg-gradient) 0%, var(--bs-btn-bg) 100%);
 }
-.navbar .btn-primary:focus,
-.navbar .btn-primary:hover {
+.btn-primary:focus,
+.btn-primary:hover {
     /* otro fondo gradiente para hover */
     background-image: linear-gradient(to bottom, var(--bs-btn-hover-bg-gradient) 0%, var(--bs-btn-hover-bg) 100%);
 }
 /* en active lo oculto para que se vea sólo el color sólido */
-.navbar .btn-primary:active {
+.btn-primary:active {
     background-image: none;
 }
 
 /* cambio los colores de las variables provistas por bootstrap */
-.navbar .btn-secondary,
-.navbar-bottom .btn-secondary {
+.btn-secondary {
     --bs-btn-color: #b0b0b0;
     --bs-btn-bg: rgba(46, 46, 46, 0.8);
     --bs-btn-border-color: #8c8c8c;
@@ -99,9 +98,8 @@
 }
 
 /* cambio los valores de las variables provistas por bootstrap */
-/* demas estilos */
-.navbar .btn,
-.navbar-bottom .btn {
+/* demas estilos a los nav-link */
+.navbar .btn {
     --bs-btn-font-size: 1.3em;
     --bs-btn-line-height: 0.8em;
     --bs-btn-border-width: 5px;
@@ -117,7 +115,7 @@
     -o-transition: 0s;
 }
 
-/* aumento el tamaño de los btn */
+/* aumento el tamaño de los nav-link */
 .navbar .nav-item,
 .navbar .btn {
     height: 40px;
@@ -129,7 +127,7 @@
     font-family: 'Teko', sans-serif;
 }
 
-/* efecto de luz debajo de los btn */
+/* efecto de luz debajo de los nav-link */
 /* en mobile se oculta */
 .navbar .btn::before {
     position: absolute;
@@ -235,7 +233,7 @@
         --skewX: -40deg;
     }
     
-    /* reduzco el tamaño de los btn */
+    /* reduzco el tamaño de los nav-link */
     .navbar .nav-item,
     .navbar .btn {
         height: 60px;

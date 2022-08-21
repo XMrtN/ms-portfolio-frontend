@@ -65,8 +65,12 @@ window.addEventListener("scroll", function() {
     
     
     // animación del cartel con las redes sociales y botón scroll
-    const bottom = document.querySelector(".navbar-bottom");
+    const socials = document.querySelector(".socials");
     current != "home"? // ¿la sección actual es cualquiera excepto la principal?
-        (bottom.setAttribute("style", "--translateY: 0;")): // si es así se muestra el cartel con las redes sociales y el botón scroll...
-        (bottom.removeAttribute("style")); // si no se oculta el cartel con las redes sociales y el botón scroll....
+        (socials.setAttribute("style", "--translateY: 0;"), // si es así se muestra el cartel con las redes sociales...
+        scrollBtn.setAttribute("style", "opacity: 1;"), // y el botón scroll.
+        scrollBtn.classList.add("me-4")): // clase de bootstrap que agrega margen derecho.
+        (socials.removeAttribute("style"),  // si no se oculta el cartel con las redes sociales...
+        scrollBtn.removeAttribute("style"), // y el botón scroll.
+        scrollBtn.classList.remove("me-4")); // clase de bootstrap que agrega margen derecho.
 });
