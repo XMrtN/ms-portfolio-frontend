@@ -1,0 +1,219 @@
+/* oculto los elementos del header para animación */
+.nav-logo img,
+.navbar-toggler,
+.nav-link {
+  transform: translateY(-200px);
+  -webkit-transform: translateY(-200px);
+  -moz-transform: translateY(-200px);
+  -ms-transform: translateY(-200px);
+  -o-transform: translateY(-200px);
+}
+
+.nav-logo img,
+.navbar-toggler {
+  z-index: 10000;
+}
+
+.nav-logo:first-child,
+.nav-logo:first-child img {
+  max-width: 80px;
+}
+.nav-logo:last-child img {
+  top: 10px
+}
+
+.offcanvas {
+  background-color: var(--bs-body-bg);
+}
+/* el padding del offcanvas es el mismo que el de los containers */
+.offcanvas-header {
+  padding: 0 0.75rem;
+}
+
+/* transformo los nav-item y su contenido en paralelogramos */
+/* y luego corrijo la forma del texto */
+/* uso variables para acortar codigo */
+.nav-item,
+.nav-item span {
+  transform: skewX(var(--skewX));
+  -webkit-transform: skewX(var(--skewX));
+  -moz-transform: skewX(var(--skewX));
+  -ms-transform: skewX(var(--skewX));
+  -o-transform: skewX(var(--skewX));
+}
+
+
+/* ---------- HIJOS NAV-ITEM ---------- */
+
+/* los nav-item impares se inclinan hacia la derecha */
+.nav-item:nth-child(odd),
+/* corrijo la forma del texto de los nav-item pares */
+.nav-item:nth-child(even) span {
+  --skewX: 40deg;
+}
+/* los nav-item pares se inclinan hacia la izquierda */
+.nav-item:nth-child(even),
+/* corrijo la forma del texto de los nav-item impares */
+.nav-item:nth-child(odd) span {
+  --skewX: -40deg;
+}
+
+/* configuro el tamaño de los nav-link */
+.nav-item,
+.nav-link {
+  height: 36px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* cambio los valores de las variables provistas por bootstrap */
+/* demas estilos a los nav-link */
+.nav-link {
+  --bs-nav-link-font-size: 1.4em;
+  --bs-btn-line-height: 1.2em;
+  --bs-btn-border-width: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  backdrop-filter: blur(10px);
+  transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -moz-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -ms-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-link span {
+  font-family: 'Teko', sans-serif;
+  text-transform: uppercase;
+}
+
+/* efecto de luz debajo de los nav-link */
+/* en mobile se oculta */
+.nav-link::before {
+  position: absolute;
+  content: '';
+  top: calc(100% + 5px);
+  left: 0;
+  display: none;
+  height: 25px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-bg) 0%,
+    transparent 100%
+  );
+}
+.nav-link:focus::before,
+.nav-link:hover::before {
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-hover-bg) 0%,
+    transparent 100%
+  );
+}
+.nav-link:active::before {
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-active-bg) 0%,
+    transparent 100%
+  );
+}
+
+
+/* ----------  MENU BUTTON ---------- */
+/* contenedor del boton menu hamburguesa */
+.navbar-toggler {
+  height: 40px;
+  width: 40px;
+}
+
+/* preparo los elementos para darles forma */
+.navbar-toggler span::before,
+.navbar-toggler span,
+.navbar-toggler span::after {
+  position: absolute;
+  height: 2px;
+  background-color: #b0b0b0;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  transform: translateY(var(--translateY)) rotate(var(--rotate));
+  -webkit-transform: translateY(var(--translateY)) rotate(var(--rotate));
+  -moz-transform: translateY(var(--translateY)) rotate(var(--rotate));
+  -ms-transform: translateY(var(--translateY)) rotate(var(--rotate));
+  -o-transform: translateY(var(--translateY)) rotate(var(--rotate));
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+/* por defecto tiene estilo menú hamburguesa */
+.navbar-toggler span::before,
+.navbar-toggler span::after {
+  content: '';
+  --translateY: -10px;
+  --rotate: 0;
+  right: 0;
+  width: 16px;
+}
+.navbar-toggler span {
+  width: 24px;
+}
+.navbar-toggler span::after {
+  --translateY: 10px;
+  width: 8px;
+}
+
+/* cuando el menú no se muestra es una X */
+.offcanvas[role] ~ .navbar-toggler span::before,
+.offcanvas[role] ~ .navbar-toggler span::after {
+  --translateY: 0;
+  --rotate: 45deg;
+  width: 100%;
+  transition-delay: 0.125s;
+}
+.offcanvas[role] ~ .navbar-toggler span {
+  background-color: transparent;
+}
+.offcanvas[role] ~ .navbar-toggler span::after {
+  --rotate: 315deg;
+  transition-delay: 0.25s;
+}
+
+
+/* ---------- MEDIA QUERIES ---------- */
+
+/* estilos para pantallas más grandes */
+@media only screen and (min-width: 992px) {
+  .nav-logo:first-child,
+  .nav-logo:first-child img {
+    max-width: 100px;
+  }
+
+  /* los nav-item pares ahora se inclinan hacia la derecha */
+  .nav-item:nth-child(even) {
+    --skewX: 40deg;
+  }
+  /* corrijo la forma del texto */
+  .nav-item:nth-child(even) span {
+    --skewX: -40deg;
+  }
+
+  /* cambio el tamaño de los nav-link */
+  .nav-item,
+  .nav-link {
+    --bs-btn-border-radius: 0;
+    height: 64px;
+    width: 100px;
+  }
+
+  /* muestro el efecto de luz */
+  .nav-link::before {
+    display: block;
+  }
+}

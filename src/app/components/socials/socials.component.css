@@ -1,0 +1,37 @@
+/* div debajo de la pantalla con las redes sociales */
+/* se esconde en el home */
+.socials {
+  height: 50px;
+  width: max-content;
+  z-index: 10;
+}
+/* simulo la forma de un trapecio */
+.socials::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border-top: 5px solid var(--second-color);
+  border-left: 2px solid var(--second-color);
+  border-right: 2px solid var(--second-color);
+  background-color: var(--bs-body-bg);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  transform: perspective(10px) rotateX(4deg);
+  -webkit-transform: perspective(10px) rotateX(4deg);
+  -moz-transform: perspective(10px) rotateX(4deg);
+  -ms-transform: perspective(10px) rotateX(4deg);
+  -o-transform: perspective(10px) rotateX(4deg);
+}
+/* color de los iconos */
+.socials a {
+  font-size: 1.2em;
+  color: var(--second-color);
+}
+/* animación en los iconos */
+.socials a:hover,
+.socials a:active {
+  padding-bottom: 5px;
+}

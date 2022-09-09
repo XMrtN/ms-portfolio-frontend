@@ -1,0 +1,234 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* variables de color general */
+:root {
+  /* favorite color */
+  --hue-color: 250;
+
+  /* HSL color mode */
+  --bs-body-bg: hsl(var(--hue-color), 28%, 12%);
+  --first-color: hsl(var(--hue-color), 69%, 61%);
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+  --second-color: #fb0;
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 65%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  --scroll-thumb-hover-color: hsl(var(--hue-color), 8%, 65%);
+}
+
+
+/* ---------- BUTTON COLOR ---------- */
+
+.btn {
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem hsla(var(--bs-btn-focus-shadow-hsl), 0.5);
+}
+
+/* cambio los colores de variables provistas por bootstrap */
+.btn-primary {
+  --bs-btn-bg: var(--first-color);
+  --bs-btn-hover-bg: var(--first-color-alt);
+  --bs-btn-active-bg: var(--first-color-alt);
+  --bs-btn-border-color: var(--first-color);
+  --bs-btn-hover-border-color: var(--first-color-alt);
+  --bs-btn-active-border-color: var(--first-color-alt);
+  --bs-btn-focus-shadow-hsl: var(--hue-color), 69%, 61%;
+}
+
+/* cambio los colores de las variables provistas por bootstrap */
+.btn-secondary:not(.active) {
+  --bs-nav-link-color: #b0b0b0;
+  --bs-nav-link-hover-color: #b0b0b0;
+  --bs-btn-color: #b0b0b0;
+  --bs-btn-hover-color: #b0b0b0;
+  --bs-btn-active-color: #b0b0b0;
+  --bs-btn-bg: hsla(0, 0%, 18%, 0.8);
+  --bs-btn-hover-bg: hsla(0, 0%, 27%, 0.8);
+  --bs-btn-active-bg: hsla(0, 0%, 14%, 0.8);
+  --bs-btn-border-color: #8c8c8c;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-active-border-color: #fff;
+  --bs-btn-focus-shadow-hsl: 0, 0%, 55%;
+}
+
+/* cambio los colores de variables provistas por bootstrap */
+/* agrego dos variables para fondo gradiente */
+.btn-secondary.active {
+  --bs-btn-bg-gradient: #672323;
+  --bs-btn-bg: #a30606;
+  --bs-btn-hover-bg-gradient: #712323;
+  --bs-btn-hover-bg: #bd0a0a;
+  --bs-btn-active-bg: #712323;
+  --bs-btn-active-border-color: #ff4f1f;
+  --bs-btn-focus-shadow-hsl: 13, 100%, 56%;
+  /* coloco un fondo gradiente */
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-bg-gradient) 0%,
+    var(--bs-btn-bg) 100%
+  );
+}
+.btn-secondary.active:focus,
+.btn-secondary.active:hover,
+.btn-secondary.active:active {
+  --bs-btn-active-border-color: #ff732e;
+  --bs-btn-focus-shadow-hsl: 20, 100%, 59%;
+  /* otro fondo gradiente para hover */
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-hover-bg-gradient) 0%,
+    var(--bs-btn-hover-bg) 100%
+  );
+}
+.btn-secondary.active:active {
+  /* en active lo oculto para que se vea sólo el color sólido */
+  background-image: none;
+}
+
+
+/* ---------- SCROLL BAR ----------- */
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-thumb-hover-color);
+}
+
+
+/* ---------- MODAl ---------- */
+
+.modal {
+  --bs-modal-color: ;
+  --bs-modal-bg: hsl(var(--hue-color), 60%, 99%);
+  --bs-modal-border-color: var(--bs-modal-bg);
+  --bs-modal-header-border-color: var(--bs-border-color);
+  --bs-modal-footer-bg: ;
+  --bs-modal-footer-border-color: var(--bs-border-color);
+
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --title-color: hsl(var(--hue-color), 8%, 15%);
+  --text-color: hsl(var(--hue-color), 8%, 45%);
+  --input-color: hsl(var(--hue-color), 70%, 96%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+}
+
+
+/* ---------- SECTIONS ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--title-color);
+}
+p {
+  color: var(--text-color);
+}
+
+section,
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* ---------- REVEAL SECTION TITLE EFFECT ---------- */
+
+/* efecto reveal al entrar en el viewport */
+.reveal {
+  position: relative;
+  transform-origin: left;
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.reveal.active {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transition-delay: 0s;
+}
+
+.reveal::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--first-color);
+  transform-origin: right;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition-delay: 0s;
+}
+.reveal:last-child:before {
+  background-color: var(--second-color);
+}
+.reveal.active::before {
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transition-delay: 0.5s;
+}
+
+
+/* ---------- FORMS ---------- */
+
+.form-control,
+.form-control:focus {
+  color: var(--text-color);
+  background-color: var(--input-color);
+  border: none;
+}
+.form-control:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
+}
+
+.form-label {
+  color: var(--title-color);
+}

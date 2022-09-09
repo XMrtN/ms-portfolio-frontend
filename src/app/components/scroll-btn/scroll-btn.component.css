@@ -1,0 +1,12 @@
+/* botón scroll que se oculta en el home */
+.scroll-up__btn.btn {
+  --bs-btn-font-size: 1.5em;
+  --bs-btn-border-width: 2px;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  width: 56px;
+  border-bottom-width: 5px;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}

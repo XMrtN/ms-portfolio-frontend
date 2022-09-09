@@ -1,0 +1,15 @@
+.wrapper {
+  inset: 0;
+  place-items: center;
+  background-color: var(--bs-body-bg);
+  z-index: 99999999999999;
+  transition: opacity 0.25s, visibility 1s;
+  -webkit-transition: opacity 0.25s, visibility 1s;
+  -moz-transition: opacity 0.25s, visibility 1s;
+  -ms-transition: opacity 0.25s, visibility 1s;
+  -o-transition: opacity 0.25s, visibility 1s;
+}
+.fade {
+  opacity: 0;
+  visibility: hidden;
+}
