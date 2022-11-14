@@ -1,83 +1,46 @@
-<section id="proyects">
+<!---------- PROYECTS SECTION ---------->
+<section id="proyects" class="pt-5">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 d-flex flex-column align-items-start mb-4">
         <h2 class="reveal d-inline-block">PROYECTOS</h2>
-        <br>
         <p class="reveal d-inline-block">
-          Primeros proyectos en la escuela secundaria durante el 2021.
+          Proyectos escolares y prácticas personales que he realizado.
         </p>
       </div>
 
       <!---------- BOOTSTRAP CAROUSEL ---------->
       <div id="carouselExampleIndicators" class="col-12 carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <div class="carousel-indicators mb-0">
+          <!-- Se repite el botón tantas veces como proyectos haya, a los cuales se les agregan los atributos data-slide y aria-label según sus índices y aria-current en false. Solo al primer botón se le agrega la clase active y el atributo aria-current en true -->
+          <button type="button" 
+          [ngClass]="{'active': f}" 
+          *ngFor="let proyect of proyects; first as f; index as i" 
+          data-bs-target="#carouselExampleIndicators" 
+          attr.data-bs-slide-to="{{i}}" 
+          attr.aria-current="{{f}}" 
+          attr.aria-label="Slide {{i + 1}}"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item px-4 pb-5 active">
-            <div class="row">
-              <div class="col-sm-5 col-12 d-flex justify-content-center">
-                <img src="../../../assets/img/proyects/Wiki Rift.png" class="rounded-3" alt="proyectos">
-              </div>
-              <div class="col-sm-7 col-12 my-auto">
-                <h3 class="mt-3">Wiki Rift</h3>
-                <p>
-                  Proyecto intermedio de materia.<br>
-                  Una simple página informativa acerca de el videojuego League of Legends: Wild Rift.
-                </p>
-                <a href="#" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item px-4 pb-5">
-            <div class="row">
-              <div class="col-sm-5 col-12">
-                <img src="../. d-flex justify-content-center./../assets/img/proyects/Summoner's pedia.png" class="rounded-3" alt="proyectos">
-              </div>
-              <div class="col-sm-7 col-12 my-auto">
-                <h3 class="mt-3">Summoner's pedia</h3>
-                <p>
-                  Proyecto final de materia.<br>
-                  Versión mejorada y mucho más completa del proyecto Wiki Rift.
-                </p>
-                <a href="#" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item px-4 pb-5">
-            <div class="row">
-              <div class="col-sm-5 col-12">
-                <img src="../. d-flex justify-content-center./../assets/img/proyects/IMCalculator.png" class="rounded-3" alt="proyectos">
-              </div>
-              <div class="col-sm-7 col-12 my-auto">
-                <h3 class="mt-3">IMCalculator</h3>
-                <p>
-                  Proyecto final de materia.<br>
-                  Una página muy simple hecha con PHP para medir el índice de masa corporal.
-                </p>
-                <a href="#" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item px-4 pb-5">
-            <div class="row">
-              <div class="col-sm-5 col-12 d-flex justify-content-center">
-                <img src="../../../assets/img/proyects/Portfolio.png" class="rounded-3" alt="proyectos">
-              </div>
-              <div class="col-sm-7 col-12 my-auto">
-                <h3 class="mt-3">Portfolio Full Stack</h3>
-                <p>
-                  Proyecto final de #ArgentinaPrograma.<br>
-                  Basado de Bootstrap y desarrollado en Angular y Java.
-                </p>
-                <a href="#" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon"></i></a>
+          <!-- Se repiten los proyectos tantas veces como proyectos haya. Solo al primer proyecto se le agrega la clase active -->
+          <div class="carousel-item px-4 pb-5" 
+          [ngClass]="{'active': f}" 
+          *ngFor="let proyect of proyects; first as f">
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <img src="{{proyect.image}}" class="img-fluid rounded-3" alt="proyectos">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">{{proyect.title}}</h5>
+                    <p class="card-text">
+                      {{proyect.desc1}}<br>
+                      {{proyect.desc2}}
+                    </p>
+                    <a href="{{proyect.url}}" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon ms-2"></i></a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

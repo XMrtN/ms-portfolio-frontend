@@ -1,5 +1,4 @@
 /* ---------- BOOTSTRAP CAROUSEL ---------- */
-
 .carousel-control-prev,
 .carousel-control-next {
   width: max-content;
@@ -15,37 +14,23 @@
   opacity: 1;
 }
 
-.carousel img {
-  width: 100%;
-  max-width: 265px;
-  object-fit: cover;
-}
-
-.carousel a:hover .btn-icon {
-  transform: translateX(0.25rem);
-  -webkit-transform: translateX(0.25rem);
-  -moz-transform: translateX(0.25rem);
-  -ms-transform: translateX(0.25rem);
-  -o-transform: translateX(0.25rem);
+.carousel .card {
+  background-color: transparent;
+  border: none;
 }
 
 .carousel .btn-icon {
   font-size: 1.25rem;
-  margin-left: 0.5rem;
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-
-
-/* ---------- MEDIA QUERIES ---------- */
-
-/* estilos para pantallas grandes */
-@media only screen and (min-width: 576px) {
-  .carousel img {
-    height: 100%;
-    max-width: none;
-  }
+.carousel a:hover .btn-icon {
+  transform: translateX(0.25rem);
+  -webkit-transform: translateX(0.25rem);
+  -moz-transform: translateX(0.25rem);
+  -ms-transform: translateX(0.25rem);
+  -o-transform: translateX(0.25rem);
 }

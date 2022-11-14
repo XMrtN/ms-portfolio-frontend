@@ -1,0 +1,23 @@
+<section id="home" class="pt-5">
+  <img class="parallax {{img.alt}} position-absolute d-block h-100 w-100" 
+  *ngFor="let img of parallax" 
+  src="{{img.url}}" 
+  alt="{{img.alt}}">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-12 d-flex flex-column justify-content-center">
+        <h1 class="display-4">
+          ¡Hola! Soy<br>
+          <span>{{person.name}} {{person.lastName}}</span>
+        </h1>
+        <p>Un Desarrollador Full Stack Jr.</p>
+      </div>
+      <div class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+        <div class="imgBox d-flex justify-content-center align-items-end">
+          <img src="../../../assets/img/martin-sepulveda.png" alt="Martín Sepúlveda" class="h-100">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

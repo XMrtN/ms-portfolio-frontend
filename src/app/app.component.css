@@ -1,3 +1,4 @@
+/* ---------- LOADER ---------- */
 .wrapper {
   inset: 0;
   place-items: center;
@@ -12,4 +13,10 @@
 .fade {
   opacity: 0;
   visibility: hidden;
+}
+
+
+/* ---------- SECTION DIVISOR ---------- */
+hr {
+  border-top: 1px solid var(--text-color);
 }

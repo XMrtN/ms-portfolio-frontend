@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install
 
-node_modules: npm install bootstrap bootstrap-icons gsap typed.js
+for node_modules: npm install bootstrap bootstrap-icons gsap
 
 ## Development server
 

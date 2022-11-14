@@ -1,6 +1,12 @@
-<div class="socials fixed-bottom d-flex mx-auto justify-content-center align-items-center gap-4 pt-2 px-4">
-  <a href="https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/"><i class="bi bi-facebook"></i></a>
-  <a href="https://telegram.me/XMrtN"><i class="bi bi-telegram"></i></a>
-  <a href="https://www.instagram.com/martin07.24/"><i class="bi bi-instagram"></i></a>
-  <a href="https://github.com/XMrtN"><i class="bi bi-github"></i></a>
+<!---------- SOCIALS WIDGET ---------->
+<div class="socials fixed-bottom d-flex mx-auto justify-content-between align-items-center pt-2 px-3">
+  <a href="{{link.url}}" 
+  *ngFor="let link of socials">
+    <i class="bi bi-{{link.social}}"></i>
+  </a>
 </div>
+
+<!---------- SCROLL UP BUTTON ---------->
+<a href="#" class="scroll-up__btn btn btn-dark position-fixed m-3 py-0 px-2" type="button">
+  <i class="bi bi-arrow-up-short"></i>
+</a>

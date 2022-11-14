@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons";
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
 
 * {
   font-family: 'Poppins', sans-serif;
 }
-
 
 /* variables de color general */
 :root {
@@ -19,7 +17,7 @@
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --second-color: #fb0;
+  --second-color: hsl(44, 85%, 50%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 65%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
@@ -30,11 +28,6 @@
 
 
 /* ---------- BUTTON COLOR ---------- */
-
-.btn {
-  --bs-btn-focus-box-shadow: 0 0 0 0.25rem hsla(var(--bs-btn-focus-shadow-hsl), 0.5);
-}
-
 /* cambio los colores de variables provistas por bootstrap */
 .btn-primary {
   --bs-btn-bg: var(--first-color);
@@ -43,62 +36,54 @@
   --bs-btn-border-color: var(--first-color);
   --bs-btn-hover-border-color: var(--first-color-alt);
   --bs-btn-active-border-color: var(--first-color-alt);
-  --bs-btn-focus-shadow-hsl: var(--hue-color), 69%, 61%;
 }
 
 /* cambio los colores de las variables provistas por bootstrap */
-.btn-secondary:not(.active) {
-  --bs-nav-link-color: #b0b0b0;
-  --bs-nav-link-hover-color: #b0b0b0;
-  --bs-btn-color: #b0b0b0;
-  --bs-btn-hover-color: #b0b0b0;
-  --bs-btn-active-color: #b0b0b0;
-  --bs-btn-bg: hsla(0, 0%, 18%, 0.8);
-  --bs-btn-hover-bg: hsla(0, 0%, 27%, 0.8);
-  --bs-btn-active-bg: hsla(0, 0%, 14%, 0.8);
-  --bs-btn-border-color: #8c8c8c;
-  --bs-btn-hover-border-color: #fff;
-  --bs-btn-active-border-color: #fff;
-  --bs-btn-focus-shadow-hsl: 0, 0%, 55%;
+.btn-dark:not(.active) {
+  --bs-nav-link-color: hsl(0, 0%, 69%);
+  --bs-nav-link-hover-color: hsl(0, 0%, 69%);
+  --bs-btn-color: hsl(0, 0%, 69%);
+  --bs-btn-hover-color: hsl(0, 0%, 69%);
+  --bs-btn-active-color: hsl(0, 0%, 69%);
+  --bs-btn-bg: hsla(0, 0%, 18%, 0.6);
+  --bs-btn-hover-bg: hsla(0, 0%, 27%, 0.6);
+  --bs-btn-active-bg: hsla(0, 0%, 14%, 0.6);
+  --bs-btn-border-color: hsl(0, 0%, 55%);
+  --bs-btn-hover-border-color: hsl(0, 0%, 100%);
+  --bs-btn-active-border-color: hsl(0, 0%, 100%);
 }
 
 /* cambio los colores de variables provistas por bootstrap */
 /* agrego dos variables para fondo gradiente */
-.btn-secondary.active {
-  --bs-btn-bg-gradient: #672323;
-  --bs-btn-bg: #a30606;
-  --bs-btn-hover-bg-gradient: #712323;
-  --bs-btn-hover-bg: #bd0a0a;
-  --bs-btn-active-bg: #712323;
-  --bs-btn-active-border-color: #ff4f1f;
-  --bs-btn-focus-shadow-hsl: 13, 100%, 56%;
-  /* coloco un fondo gradiente */
+.btn-dark.active {
+  --bs-btn-bg-gradient: hsla(0, 49%, 27%, 0.8);
+  --bs-btn-bg: hsla(0, 94%, 34%, 0.8);
+  --bs-btn-hover-bg-gradient: hsla(0, 53%, 29%, 0.8);
+  --bs-btn-hover-bg: hsla(0, 90%, 39%, 0.8);
+  --bs-btn-active-bg: hsla(0, 53%, 29%, 0.8);
+  --bs-btn-hover-border-color: hsl(20, 100%, 59%);
+  --bs-btn-active-border-color: hsl(13, 100%, 56%);
   background-image: linear-gradient(
     to bottom,
     var(--bs-btn-bg-gradient) 0%,
     var(--bs-btn-bg) 100%
   );
 }
-.btn-secondary.active:focus,
-.btn-secondary.active:hover,
-.btn-secondary.active:active {
-  --bs-btn-active-border-color: #ff732e;
-  --bs-btn-focus-shadow-hsl: 20, 100%, 59%;
-  /* otro fondo gradiente para hover */
+.btn-dark.active:hover {
+  --bs-btn-active-border-color: hsl(20, 100%, 59%);
   background-image: linear-gradient(
     to bottom,
     var(--bs-btn-hover-bg-gradient) 0%,
     var(--bs-btn-hover-bg) 100%
   );
 }
-.btn-secondary.active:active {
-  /* en active lo oculto para que se vea sólo el color sólido */
+.btn-dark.active:active {
+  --bs-btn-active-border-color: hsl(20, 100%, 59%);
   background-image: none;
 }
 
 
 /* ---------- SCROLL BAR ----------- */
-
 ::-webkit-scrollbar {
   width: 0.6rem;
   background-color: var(--scroll-bar-color);
@@ -122,8 +107,7 @@
 
 
 /* ---------- MODAl ---------- */
-
-.modal {
+.modal, .bg-light {
   --bs-modal-color: ;
   --bs-modal-bg: hsl(var(--hue-color), 60%, 99%);
   --bs-modal-border-color: var(--bs-modal-bg);
@@ -141,7 +125,6 @@
 
 
 /* ---------- SECTIONS ---------- */
-
 h1, h2, h3, h4, h5, h6 {
   color: var(--title-color);
 }
@@ -149,19 +132,17 @@ p {
   color: var(--text-color);
 }
 
-section,
-footer {
+section {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100%;
+  overflow: hidden;
 }
 
 
 /* ---------- REVEAL SECTION TITLE EFFECT ---------- */
-
 /* efecto reveal al entrar en el viewport */
 .reveal {
   position: relative;
@@ -203,7 +184,8 @@ footer {
   -o-transition: 0.5s;
   transition-delay: 0s;
 }
-.reveal:last-child:before {
+.reveal.second:before,
+.reveal:nth-child(even):before {
   background-color: var(--second-color);
 }
 .reveal.active::before {
@@ -217,13 +199,13 @@ footer {
 
 
 /* ---------- FORMS ---------- */
-
 .form-control,
 .form-control:focus {
   color: var(--text-color);
   background-color: var(--input-color);
   border: none;
 }
+.btn-close:focus,
 .form-control:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);

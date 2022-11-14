@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
@@ -10,25 +11,27 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit(): void {
-    this.initAnimaitons();
-    this.initScrollAnimaitons();
+    this.initAnimaitons()
+    this.initScrollAnimaitons()
   }
 
   initAnimaitons(): void {
-    window.addEventListener("load", function() {
-      const loaderWrapper =  document.querySelector(".wrapper");
-      loaderWrapper?.classList.add("fade");
+    window.addEventListener("load", () => {
+      document.querySelector(".wrapper")?.classList.add("fade")
     })
   }
 
   initScrollAnimaitons(): void {
-    const reveal = gsap.utils.toArray<HTMLElement>(".reveal").forEach((text) => {
-      ScrollTrigger.create({
-        trigger: text,
-        toggleClass: "active",
-        start: "top 90%",
-        end: "bottom 10%"
+    window.addEventListener("load", () => {
+      gsap.utils.toArray<HTMLElement>(".reveal").forEach((text) => {
+        ScrollTrigger.create({
+          trigger: text,
+          toggleClass: "active",
+          start: "top 100%",
+          end: "bottom 0%"
+        })
       })
     })
   }
+
 }

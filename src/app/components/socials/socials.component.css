@@ -1,9 +1,15 @@
+/* ---------- SOCIALS ---------- */
 /* div debajo de la pantalla con las redes sociales */
 /* se esconde en el home */
 .socials {
   height: 50px;
-  width: max-content;
+  max-width: 200px;
   z-index: 10;
+  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
 }
 /* simulo la forma de un trapecio */
 .socials::before {
@@ -28,10 +34,32 @@
 /* color de los iconos */
 .socials a {
   font-size: 1.2em;
+  padding: 0.25rem 0.5rem;
   color: var(--second-color);
+  transition: padding 0.1s;
+  -webkit-transition: padding 0.1s;
+  -moz-transition: padding 0.1s;
+  -ms-transition: padding 0.1s;
+  -o-transition: padding 0.1s;
 }
 /* animación en los iconos */
 .socials a:hover,
 .socials a:active {
-  padding-bottom: 5px;
+  padding-bottom: 0.5rem;
+}
+
+
+/* ---------- SCROLL UP BUTTON ---------- */
+/* botón scroll que se oculta en el home */
+.scroll-up__btn {
+  --bs-btn-font-size: 1.5em;
+  --bs-btn-border-width: 2px;
+  right: 0;
+  bottom: 0;
+  border-bottom-width: 5px;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+.scroll-up__btn i {
+  font-size: 1.2em;
 }

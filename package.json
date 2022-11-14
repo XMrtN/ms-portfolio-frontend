@@ -18,13 +18,12 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
-    "bootstrap": "^5.2.0",
+    "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
     "gsap": "^3.11.0",
     "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "typed.js": "^2.0.12",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

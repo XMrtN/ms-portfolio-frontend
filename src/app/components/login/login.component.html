@@ -1,0 +1,45 @@
+<!-------- LOGIN SECTION -------->
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-light rounded-4">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4">
+              <h2 class="fw-bold mb-2 text-uppercase">Iniciá sesión</h2>
+              <p class="mb-5">Por favor ingrese su nombre y contraseña</p>
+
+              <form>
+                <!-- Email input -->
+                <div class="form-floating mb-4">
+                  <input type="email" class="form-control" id="emailInput" name="emailInput" [(ngModel)]="emailInput" placeholder="name@example.com">
+                  <label for="emailInput">Correo electrónico</label>
+                </div>
+                <!-- Password input -->
+                <div class="input-group mb-4">
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="passwordInput" name="passwordInput" [(ngModel)]="passwordInput" placeholder="Password" aria-label="Password" aria-describedby="button-addon">
+                    <label for="floatingPassword">Contraseña</label>
+                  </div>
+                  <button class="btn btn-dark" type="button" id="button-addon">
+                    <i class="bi bi-eye-slash fs-3"></i>
+                  </button>
+                </div>
+                
+                <p class="small mb-5"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                
+                <!-- Submit button -->
+                <a href="/" class="btn btn-primary btn-lg px-5" (click)="btnLogIn()">Iniciar sesión</a>
+              </form>
+            </div>
+
+            <div>
+              <p class="mb-0">¿No tienes una cuenta? <a href="#" class="fw-bold">Regístrate</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

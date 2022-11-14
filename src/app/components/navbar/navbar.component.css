@@ -1,3 +1,4 @@
+/* ---------- MOBILE ---------- */
 /* oculto los elementos del header para animación */
 .nav-logo img,
 .navbar-toggler,
@@ -14,67 +15,36 @@
   z-index: 10000;
 }
 
-.nav-logo:first-child,
-.nav-logo:first-child img {
+.nav-logo,
+.nav-logo img {
   max-width: 80px;
-}
-.nav-logo:last-child img {
-  top: 10px
 }
 
 .offcanvas {
+  --bs-offcanvas-width: 200px;
   background-color: var(--bs-body-bg);
 }
-/* el padding del offcanvas es el mismo que el de los containers */
-.offcanvas-header {
-  padding: 0 0.75rem;
-}
 
-/* transformo los nav-item y su contenido en paralelogramos */
-/* y luego corrijo la forma del texto */
-/* uso variables para acortar codigo */
-.nav-item,
-.nav-item span {
-  transform: skewX(var(--skewX));
-  -webkit-transform: skewX(var(--skewX));
-  -moz-transform: skewX(var(--skewX));
-  -ms-transform: skewX(var(--skewX));
-  -o-transform: skewX(var(--skewX));
+.navbar-nav {
+  gap: 5px 2px;
 }
 
 
 /* ---------- HIJOS NAV-ITEM ---------- */
-
-/* los nav-item impares se inclinan hacia la derecha */
-.nav-item:nth-child(odd),
-/* corrijo la forma del texto de los nav-item pares */
-.nav-item:nth-child(even) span {
-  --skewX: 40deg;
-}
-/* los nav-item pares se inclinan hacia la izquierda */
-.nav-item:nth-child(even),
-/* corrijo la forma del texto de los nav-item impares */
-.nav-item:nth-child(odd) span {
-  --skewX: -40deg;
-}
-
 /* configuro el tamaño de los nav-link */
 .nav-item,
 .nav-link {
-  height: 36px;
   width: 100%;
-  max-width: 200px;
 }
 
 /* cambio los valores de las variables provistas por bootstrap */
 /* demas estilos a los nav-link */
 .nav-link {
-  --bs-nav-link-font-size: 1.4em;
-  --bs-btn-line-height: 1.2em;
-  --bs-btn-border-width: 5px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 0;
+  border-width: 0;
+  border-left-width: 6px;
   backdrop-filter: blur(10px);
   transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -84,40 +54,8 @@
 }
 
 .nav-link span {
-  font-family: 'Teko', sans-serif;
-  text-transform: uppercase;
-}
-
-/* efecto de luz debajo de los nav-link */
-/* en mobile se oculta */
-.nav-link::before {
-  position: absolute;
-  content: '';
-  top: calc(100% + 5px);
-  left: 0;
-  display: none;
-  height: 25px;
-  width: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    var(--bs-btn-bg) 0%,
-    transparent 100%
-  );
-}
-.nav-link:focus::before,
-.nav-link:hover::before {
-  background-image: linear-gradient(
-    to bottom,
-    var(--bs-btn-hover-bg) 0%,
-    transparent 100%
-  );
-}
-.nav-link:active::before {
-  background-image: linear-gradient(
-    to bottom,
-    var(--bs-btn-active-bg) 0%,
-    transparent 100%
-  );
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: capitalize;
 }
 
 
@@ -134,7 +72,7 @@
 .navbar-toggler span::after {
   position: absolute;
   height: 2px;
-  background-color: #b0b0b0;
+  background-color: var(--title-color);
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -187,33 +125,75 @@
 
 
 /* ---------- MEDIA QUERIES ---------- */
-
 /* estilos para pantallas más grandes */
-@media only screen and (min-width: 992px) {
-  .nav-logo:first-child,
-  .nav-logo:first-child img {
-    max-width: 100px;
+@media only screen and (min-width: 768px) {
+  .nav-logo,
+  .nav-logo img {
+    max-width: 90px;
   }
 
-  /* los nav-item pares ahora se inclinan hacia la derecha */
-  .nav-item:nth-child(even) {
-    --skewX: 40deg;
+  /* transformo los nav-item en paralelogramos */
+  .nav-item {
+    transform: skewX(45deg);
+    -webkit-transform: skewX(45deg);
+    -moz-transform: skewX(45deg);
+    -ms-transform: skewX(45deg);
+    -o-transform: skewX(45deg);
   }
-  /* corrijo la forma del texto */
-  .nav-item:nth-child(even) span {
-    --skewX: -40deg;
+  /* corrijo la forma del texto, ya que este también se deforma */
+  .nav-item span {
+    transform: skewX(-45deg);
+    -webkit-transform: skewX(-45deg);
+    -moz-transform: skewX(-45deg);
+    -ms-transform: skewX(-45deg);
+    -o-transform: skewX(-45deg);
   }
 
   /* cambio el tamaño de los nav-link */
   .nav-item,
   .nav-link {
-    --bs-btn-border-radius: 0;
-    height: 64px;
-    width: 100px;
+    height: 60px;
+    max-width: 145px;
   }
 
-  /* muestro el efecto de luz */
+  /* cambio bordes */
+  .nav-link {
+    border-width: 0;
+    border-bottom-width: 6px;
+  }
+
+  .nav-link span {
+    text-transform: uppercase;
+  }
+  
+  /* efecto de luz debajo de los nav-link */
   .nav-link::before {
+    position: absolute;
+    content: '';
+    top: calc(100% + 6px);
+    left: 0;
     display: block;
+    height: 25px;
+    width: 100%;
+    pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      var(--bs-btn-bg) 0%,
+      transparent 100%
+    );
+  }
+  .nav-link:hover::before {
+    background-image: linear-gradient(
+      to bottom,
+      var(--bs-btn-hover-bg) 0%,
+      transparent 100%
+    );
+  }
+  .nav-link:active::before {
+    background-image: linear-gradient(
+      to bottom,
+      var(--bs-btn-active-bg) 0%,
+      transparent 100%
+    );
   }
 }

@@ -5,37 +5,41 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
-// npm install bootstrap bootstrap-icons gsap typed.js
+// npm i bootstrap bootstrap-icons gsap
 import gsap from 'gsap';
 
-import { HeaderComponent } from './components/header/header.component';
-import { NavbarComponent } from './components/header/navbar/navbar.component';
+import { MainComponent } from './components/main/main.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from './components/socials/socials.component';
 
+import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ScrollBtnComponent } from './components/scroll-btn/scroll-btn.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    MainComponent,
+    LoginComponent,
     NavbarComponent,
     SocialsComponent,
+    HomeComponent,
     AboutComponent,
-    ExperienceComponent,
     SkillsComponent,
     ProyectsComponent,
-    ContactComponent,
-    ScrollBtnComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
