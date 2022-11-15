@@ -23,11 +23,11 @@
 
         <!---------- LOG IN & LOG OUT BUTTONS ---------->
         <button type="button" 
-        class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
+        class="btn btn-primary login-btn align-self-end text-nowrap p-3 mt-2" 
         *ngIf="!isLoggedIn"
         (click)="logIn()">Log In</button>
         <button type="button" 
-        class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
+        class="btn btn-primary logout-btn align-self-end text-nowrap p-3 mt-2" 
         *ngIf="isLoggedIn" 
         (click)="onLogOut()">Log Out</button>
       </div>

@@ -1,0 +1,10 @@
+<!---------- TEXTAREA FOR EDIT CONTENT ---------->
+<textarea rows="3" class="editable-item"></textarea>
+<!-- <textarea rows="3" class="editable-item" [(ngModel)]="seccionEditable.descripcion"></textarea> -->
+
+<!---------- SAVE/CANCEL BUTTONS ---------->
+<div class="p-2">
+  <button class="btn btn-success me-2" 
+  (click)="toggleEdition(); saveChanges()">Guardar</button>
+  <button class="btn btn-danger" (click)="toggleEdition(); reload()">Cancelar</button>
+</div>

@@ -12,16 +12,16 @@
       [ngClass]="{'mb-md-0 mb-4': f}" 
       *ngFor="let column of ['Experiencia laboral', 'Educación']; first as f">
         <h2 class="reveal second d-inline-block mb-3">{{column}}</h2>
-        <div class="row experience-data" *ngFor="let exp of (f? laboral : education)">
+        <!-- <div class="row experience-data" *ngFor="let exp of (f? experience : education)">
           <div class="col-1 d-flex flex-column align-items-center p-0 mb-4">
             <div class="rounder"></div>
             <div class="line"></div>
           </div>
           <div class="col-11">
-            <h5>{{exp.title}}</h5>
-            <p>{{exp.desc}}</p>
+            <h5>{{exp.expName}}</h5>
+            <p>{{exp.expDesc}}</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

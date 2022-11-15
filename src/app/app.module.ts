@@ -22,6 +22,8 @@ import { ContactComponent } from './components/contact/contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { EducationComponent } from './components/education/education.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { InterceptorProvider } from './services/interceptor.service';
     AboutComponent,
     SkillsComponent,
     ProyectsComponent,
-    ContactComponent
+    ContactComponent,
+    ExperienceComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

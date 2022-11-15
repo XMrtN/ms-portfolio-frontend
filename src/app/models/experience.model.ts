@@ -1,11 +1,12 @@
 export class Experience {
 
-  title: string
-  desc: string
+  id?: number
+  expName: string
+  expDesc: string
 
-  constructor(title:string="", desc:string=""){
-    this.title = title
-    this.desc = desc
+  constructor(expName: string, expDesc: string){
+    this.expName = expName
+    this.expDesc = expDesc
   }
 
 }

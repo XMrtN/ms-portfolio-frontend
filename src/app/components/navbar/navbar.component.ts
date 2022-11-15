@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class NavbarComponent implements OnInit {
   
-  isLoggedIn = false
+  isLoggedIn: boolean = false
 
   constructor(private router: Router, private tokenService: TokenService) { }
   
@@ -26,10 +26,10 @@ export class NavbarComponent implements OnInit {
   initAnimations(): void {
     window.addEventListener("load", () => {
       const tl = gsap.timeline({defaults: {duration: 1}})
-      .to(".nav-logo:first-child img", {y: 0}, 1)
+      .to(".nav-logo img", {y: 0}, 1)
       .to(".navbar-toggler", {y: 0}, "<0.5")
       .to(".nav-link", {y: 0, stagger: 0.2}, "<0.5")
-      .to(".nav-logo:last-child img", {y: 0});
+      .to(".login-btn, .logout-btn", {y: 0}, "<1.2");
     })
   }
 
