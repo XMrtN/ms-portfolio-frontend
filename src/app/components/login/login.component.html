@@ -9,17 +9,31 @@
               <h2 class="fw-bold mb-2 text-uppercase">Iniciá sesión</h2>
               <p class="mb-5">Por favor ingrese su nombre y contraseña</p>
 
-              <form>
+              <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                 <!-- Email input -->
                 <div class="form-floating mb-4">
-                  <input type="email" class="form-control" id="emailInput" name="emailInput" [(ngModel)]="emailInput" placeholder="name@example.com">
-                  <label for="emailInput">Correo electrónico</label>
+                  <input type="text" 
+                  class="form-control" 
+                  id="userNameInput" 
+                  name="userNameInput" 
+                  [(ngModel)]="userName" 
+                  placeholder="name@example.com"
+                  required>
+                  <label for="userNameInput">Nombre de usuario</label>
                 </div>
                 <!-- Password input -->
                 <div class="input-group mb-4">
                   <div class="form-floating">
-                    <input type="password" class="form-control" id="passwordInput" name="passwordInput" [(ngModel)]="passwordInput" placeholder="Password" aria-label="Password" aria-describedby="button-addon">
-                    <label for="floatingPassword">Contraseña</label>
+                    <input type="password" 
+                    class="form-control" 
+                    id="passwordInput" 
+                    name="passwordInput" 
+                    [(ngModel)]="password" 
+                    placeholder="Password" 
+                    aria-label="Password" 
+                    aria-describedby="button-addon"
+                    required>
+                    <label for="passwordInput">Contraseña</label>
                   </div>
                   <button class="btn btn-dark" type="button" id="button-addon">
                     <i class="bi bi-eye-slash fs-3"></i>
@@ -29,7 +43,7 @@
                 <p class="small mb-5"><a href="#">¿Olvidaste tu contraseña?</a></p>
                 
                 <!-- Submit button -->
-                <a href="/" class="btn btn-primary btn-lg px-5" (click)="btnLogIn()">Iniciar sesión</a>
+                <button type="submit" class="btn btn-primary btn-lg px-5">Iniciar sesión</button>
               </form>
             </div>
 

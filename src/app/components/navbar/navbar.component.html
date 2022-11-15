@@ -22,12 +22,14 @@
         </ul>
 
         <!---------- LOG IN & LOG OUT BUTTONS ---------->
-        <a class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
+        <button type="button" 
+        class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
         *ngIf="!isLoggedIn"
-        href="/login">Log In</a>
-        <button class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
+        (click)="logIn()">Log In</button>
+        <button type="button" 
+        class="btn btn-primary align-self-end text-nowrap p-3 mt-2" 
         *ngIf="isLoggedIn" 
-        (click)="btnLogOut()">Log Out</button>
+        (click)="onLogOut()">Log Out</button>
       </div>
     </div>
 

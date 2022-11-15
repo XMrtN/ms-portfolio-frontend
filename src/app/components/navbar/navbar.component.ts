@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from 'src/app/services/authorization.service';
+import { Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,18 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 })
 export class NavbarComponent implements OnInit {
   
-  constructor(private auth: AuthorizationService) { }
+  isLoggedIn = false
+
+  constructor(private router: Router, private tokenService: TokenService) { }
   
   ngOnInit(): void {
     this.initAnimations()
+
+    if(this.tokenService.getToken()) {
+      this.isLoggedIn = true
+    } else {
+      this.isLoggedIn = false
+    }
   }
   
   initAnimations(): void {
@@ -24,12 +33,13 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-  public get isLoggedIn(): boolean {
-    return this.auth.isUserLoggedIn()
+  onLogOut(): void {
+    this.tokenService.logOut()
+    window.location.reload()
   }
 
-  public btnLogOut(): void {
-    this.auth.logOut()
+  logIn(): void {
+    this.router.navigate(['/login'])
   }
 
 }
