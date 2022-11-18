@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ParallaxImg } from 'src/app/models/parallax.model';
 import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +11,30 @@ import { PersonService } from 'src/app/services/person.service';
 })
 export class HomeComponent implements OnInit {
 
-  person: Person = new Person("", "", "")
-
-  constructor(public personService: PersonService) { }
-
+  isLoggedIn: boolean = false
+  person: Person = null
   parallax: ParallaxImg[] = []
 
+  constructor(
+    private personService: PersonService,
+    private tokenService: TokenService
+  ) { }
+
   ngOnInit(): void {
+    this.loadPerson()
     this.initScrollAnimations()
     this.parallaxAnimations()
     this.parallaxImages()
-    this.personService.getPerson().subscribe(data => {
+
+    if(this.tokenService.getToken()) {
+      this.isLoggedIn = true
+    } else {
+      this.isLoggedIn = false
+    }
+  }
+
+  loadPerson(): void {
+    this.personService.detail(1).subscribe(data => {
       this.person = data
     })
   }

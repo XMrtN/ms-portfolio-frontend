@@ -1,0 +1,42 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editExp" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="expLab">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editExpLabel">Modificar experiencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Title input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="expNameInput" 
+            name="expNameInput" 
+            placeholder="Título" 
+            [(ngModel)]="expLab.expName" 
+            required>
+            <label for="expNameInput">Título</label>
+          </div>
+          <!-- Description input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="expDescInput" 
+            name="expDescInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="expLab.expDesc" 
+            required>
+            <label for="expDescInput">Descripción</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

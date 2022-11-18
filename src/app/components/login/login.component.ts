@@ -13,13 +13,18 @@ export class LoginComponent implements OnInit {
 
   isLoggedIn: boolean = false
   isLoginFail: boolean = false
-  loginUser!: LoginUser
-  userName!: string
-  password!: string
+  isShowing: boolean = false
+  loginUser: LoginUser
+  userName: string
+  password: string
   roles: string[] = []
-  errorMsg!: string
+  errorMsg: string
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     if(this.tokenService.getToken()) {
@@ -38,14 +43,18 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUserName(data.userName)
       this.tokenService.setAuthorities(data.authorities)
       this.roles = data.authorities
-      this.router.navigate(['']).then(() => {
-        window.location.reload();
-      });
+      this.goBack()
     }, err => {
       this.isLoggedIn = false
       this.isLoginFail = true
       this.errorMsg = err.error.msg
       console.log(this.errorMsg)
+    })
+  }
+
+  goBack(): void {
+    this.router.navigate(['']).then(() => {
+      window.location.reload()
     })
   }
 

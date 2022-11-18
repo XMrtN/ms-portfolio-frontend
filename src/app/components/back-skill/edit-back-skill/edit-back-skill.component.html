@@ -1,0 +1,43 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editBackSkill" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editBackSkillLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editBackSkillLabel">Modificar habilidad en Backend</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Name input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="skillNameInput" 
+            name="skillNameInput" 
+            placeholder="Nombre" 
+            [(ngModel)]="backSkill.name" 
+            required>
+            <label for="skillNameInput">Nombre</label>
+          </div>
+          <!-- Percentage input -->
+          <label for="skillPercentageInput" class="form-label me-2">Porcentaje</label>
+          <output>50</output>
+          <input type="range" min="0" max="100" value="50"
+          class="form-range" 
+          id="skillPercentageInput" 
+          name="skillPercentageInput" 
+          oninput="this.previousElementSibling.value = this.value" 
+          [(ngModel)]="backSkill.percentage" 
+          required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" 
+          class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" 
+          class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

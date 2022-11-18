@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  baseUrl: 'http://10.168.0.181:8080',
-  authApi: 'http://10.168.0.181:8080/api/auth',
-  frontUrl: 'http://10.168.0.181:4200/portfolio/'
+  production: false
 };
 
 /*

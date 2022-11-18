@@ -9,7 +9,7 @@
 /* variables de color general */
 :root {
   /* favorite color */
-  --hue-color: 250;
+  --hue-color: 228;
 
   /* HSL color mode */
   --bs-body-bg: hsl(var(--hue-color), 28%, 12%);
@@ -31,6 +31,14 @@
 /* cambio los colores de variables provistas por bootstrap */
 .btn-primary {
   --bs-btn-bg: var(--first-color);
+  --bs-btn-hover-bg: var(--first-color-alt);
+  --bs-btn-active-bg: var(--first-color-alt);
+  --bs-btn-border-color: var(--first-color);
+  --bs-btn-hover-border-color: var(--first-color-alt);
+  --bs-btn-active-border-color: var(--first-color-alt);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--first-color);
   --bs-btn-hover-bg: var(--first-color-alt);
   --bs-btn-active-bg: var(--first-color-alt);
   --bs-btn-border-color: var(--first-color);
@@ -82,6 +90,12 @@
   background-image: none;
 }
 
+.btn-link {
+  --bs-btn-color: var(--first-color);
+  --bs-btn-hover-color: var(--first-color-alt);
+  --bs-btn-active-color: var(--first-color-alt);
+}
+
 
 /* ---------- SCROLL BAR ----------- */
 ::-webkit-scrollbar {
@@ -106,7 +120,7 @@
 }
 
 
-/* ---------- MODAl ---------- */
+/* ---------- MODAlS & LOGIN CARD ---------- */
 .modal, .bg-light {
   --bs-modal-color: ;
   --bs-modal-bg: hsl(var(--hue-color), 60%, 99%);
@@ -121,6 +135,51 @@
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+}
+
+
+/* ---------- FORMS ---------- */
+.form-control,
+.form-control:focus {
+  color: var(--text-color);
+  background-color: var(--input-color);
+  border: none;
+}
+.btn-close:focus,
+.btn-link:focus-visible,
+.form-control:focus,
+.form-range:focus::-webkit-slider-thumb {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
+}
+
+.form-label {
+  color: var(--title-color);
+}
+
+.form-range::-webkit-slider-thumb {
+  background-color: var(--first-color);
+}
+.form-range::-moz-range-thumb {
+  background-color: var(--first-color);
+}
+.form-range::-webkit-slider-thumb:active {
+  background-color: var(--first-color-alt);
+}
+.form-range::-moz-range-thumb:active {
+  background-color: var(--first-color-alt);
+}
+-webkit-slider-thumb:active {
+  background-color: var(--first-color);
+}
+
+
+/* ---------- EDIT BUTTONS ---------- */
+button.btn-outline-light {
+  height: fit-content;
+  line-height: 1;
+  font-size: 1.2rem;
+  border: none;
 }
 
 
@@ -195,22 +254,4 @@ section {
   -ms-transform: scaleX(0);
   -o-transform: scaleX(0);
   transition-delay: 0.5s;
-}
-
-
-/* ---------- FORMS ---------- */
-.form-control,
-.form-control:focus {
-  color: var(--text-color);
-  background-color: var(--input-color);
-  border: none;
-}
-.btn-close:focus,
-.form-control:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
-}
-
-.form-label {
-  color: var(--title-color);
 }

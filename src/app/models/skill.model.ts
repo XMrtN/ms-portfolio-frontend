@@ -1,10 +1,11 @@
 export class Skill {
 
-  area: string
+  id: number
+  name: string
   percentage: number
 
-  constructor(area:string="", percentage:number=0){
-    this.area = area
+  constructor(name: string, percentage: number){
+    this.name = name
     this.percentage = percentage
   }
 

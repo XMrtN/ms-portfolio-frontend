@@ -1,0 +1,53 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editHome" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editHomeLabel" aria-hidden="true" *ngIf="person">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editHomeLabel">Modificar presentación</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Name input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="homeNameInput" 
+            name="homeNameInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="person.name" 
+            required>
+            <label for="homeNameInput">Nombre</label>
+          </div>
+          <!-- LastName input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="homeLastNameInput" 
+            name="homeLastNameInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="person.lastName" 
+            required>
+            <label for="homeLastNameInput">Apellido</label>
+          </div>
+          <!-- Img input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="homeImgInput" 
+            name="homeImgInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="person.img" 
+            required>
+            <label for="homeImgInput">Foto de perfil</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

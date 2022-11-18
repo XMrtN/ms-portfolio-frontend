@@ -2,8 +2,14 @@
 <section id="skills" class="pt-5">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <h2 class="reveal d-inline-block">HABILIDADES</h2>
+      <div class="col-12 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="reveal m-0">HABILIDADES</h2>
+          <button type="button" class="btn btn-outline-light p-1" *ngIf="isLoggedIn">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </div>
+
         <p class="reveal d-inline-block">
           Mi desempeño actualmente
         </p>
@@ -12,53 +18,16 @@
     
     <div class="accordion" id="accordionExample">
       <div class="row">
-        <div class="col-md-4 col-12 px-3" 
-        [ngClass]="{'pe-md-0': f, 'px-md-2': !f && !l, 'ps-md-0': l}" 
-        *ngFor="let column of ['One', 'Two', 'Three']; first as f; last as l">
-          <div class="accordion-item">
-            <h2 class="accordion-header" attr.id="heading{{column}}">
-              <button type="button" 
-              class="accordion-button" 
-              [ngClass]="{'collapsed': !f}" 
-              attr.aria-expanded="{{f}}" 
-              data-bs-toggle="collapse" 
-              attr.data-bs-target="#collapse{{column}}" 
-              attr.aria-controls="collapse{{column}}">
-                <i class="bi accordion-icon me-3" 
-                [ngClass]="{'bi-braces': f, 'bi-hdd-network': !f && !l, 'bi-palette2': l}"></i>
-                <div *ngIf="f">
-                  <h5>Frontend developer</h5>
-                  <span>Menos de 1 año</span>
-                </div>
-                <div *ngIf="!f && !l">
-                  <h5>Backend developer</h5>
-                  <span>Menos de 6 meses</span>
-                </div>
-                <div *ngIf="l">
-                  <h5>Soft skills</h5>
-                  <span>En el entorno laboral</span>
-                </div>
-                <i class="bi bi-chevron-down ms-auto"></i>
-              </button>
-            </h2>
-            <div class="accordion-collapse collapse" 
-            [ngClass]="{'show': f}" 
-            attr.id="collapse{{column}}" 
-            attr.aria-labelledby="heading{{column}}" 
-            data-bs-parent="#accordionExample">
-              <div class="accordion-body d-flex flex-column gap-3">
-                <div class="skills-container" *ngFor="let skill of (f? frontEnd : (l? softSkill: backEnd))">
-                  <div class="skills-data d-flex justify-content-between">
-                    <h6>{{skill.area}}</h6>
-                    <span>{{skill.percentage}}</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-label="Basic example" attr.style="width: {{skill.percentage}}%" attr.aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-lg-4 col-12 px-3 pe-lg-0">
+          <app-front-skill></app-front-skill>
+        </div>
+
+        <div class="col-lg-4 col-12 px-3 px-lg-2">
+          <app-back-skill></app-back-skill>
+        </div>
+
+        <div class="col-lg-4 col-12 px-3 ps-lg-0">
+          <app-soft-skill></app-soft-skill>
         </div>
       </div>
     </div>

@@ -1,0 +1,33 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editAbout" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editAoputLabel" aria-hidden="true" *ngIf="person">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editAoputLabel">Modificar descripción</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Description input -->
+          <div class="form-floating">
+            <input type="file" 
+            class="form-control" 
+            id="aboutDescInput" 
+            name="aboutDescInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="person.description" 
+            (change)="uploadImage($event)" 
+            accept=".jpg, .jpeg, .png"
+            required>
+            <label for="aboutDescInput">Descripción</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

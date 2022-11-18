@@ -1,6 +1,6 @@
 export class Experience {
 
-  id?: number
+  id: number
   expName: string
   expDesc: string
 

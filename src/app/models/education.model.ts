@@ -1,6 +1,6 @@
 export class Education {
 
-  id?: number
+  id: number
   edName: string
   edDesc: string
 

@@ -11,7 +11,10 @@ export class NavbarComponent implements OnInit {
   
   isLoggedIn: boolean = false
 
-  constructor(private router: Router, private tokenService: TokenService) { }
+  constructor(
+    private router: Router,
+    private tokenService: TokenService
+  ) { }
   
   ngOnInit(): void {
     this.initAnimations()

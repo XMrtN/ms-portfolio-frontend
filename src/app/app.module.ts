@@ -15,15 +15,33 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from './components/socials/socials.component';
 
 import { HomeComponent } from './components/home/home.component';
+import { EditHomeComponent } from './components/home/edit-home/edit-home.component';
 import { AboutComponent } from './components/about/about.component';
+import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
+
+import { ExperienceComponent } from './components/experience/experience.component';
+import { NewExperienceComponent } from './components/experience/new-experience/new-experience.component';
+import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
+import { EducationComponent } from './components/education/education.component';
+import { NewEducationComponent } from './components/education/new-education/new-education.component';
+import { EditEducationComponent } from './components/education/edit-education/edit-education.component';
+
 import { SkillsComponent } from './components/skills/skills.component';
+import { FrontSkillComponent } from './components/front-skill/front-skill.component';
+import { NewFrontSkillComponent } from './components/front-skill/new-front-skill/new-front-skill.component';
+import { EditFrontSkillComponent } from './components/front-skill/edit-front-skill/edit-front-skill.component';
+import { BackSkillComponent } from './components/back-skill/back-skill.component';
+import { NewBackSkillComponent } from './components/back-skill/new-back-skill/new-back-skill.component';
+import { EditBackSkillComponent } from './components/back-skill/edit-back-skill/edit-back-skill.component';
+import { SoftSkillComponent } from './components/soft-skill/soft-skill.component';
+import { NewSoftSkillComponent } from './components/soft-skill/new-soft-skill/new-soft-skill.component';
+import { EditSoftSkillComponent } from './components/soft-skill/edit-soft-skill/edit-soft-skill.component';
+
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
-import { ExperienceComponent } from './components/experience/experience.component';
-import { EducationComponent } from './components/education/education.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +51,27 @@ import { EducationComponent } from './components/education/education.component';
     NavbarComponent,
     SocialsComponent,
     HomeComponent,
+    EditHomeComponent,
     AboutComponent,
+    EditAboutComponent,
+    ExperienceComponent,
+    NewExperienceComponent,
+    EditExperienceComponent,
+    EducationComponent,
+    NewEducationComponent,
+    EditEducationComponent,
     SkillsComponent,
+    FrontSkillComponent,
+    NewFrontSkillComponent,
+    EditFrontSkillComponent,
+    BackSkillComponent,
+    NewBackSkillComponent,
+    EditBackSkillComponent,
+    SoftSkillComponent,
+    NewSoftSkillComponent,
+    EditSoftSkillComponent,
     ProyectsComponent,
     ContactComponent,
-    ExperienceComponent,
-    EducationComponent
   ],
   imports: [
     BrowserModule,

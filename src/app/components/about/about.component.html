@@ -2,27 +2,22 @@
 <section id="about" class="pt-5">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <h2 class="reveal d-inline-block">SOBRE MÍ</h2>
-        <p>
-          Soy un joven de 19 años apasionado por la programación. Desde que me introduje en el desarrollo web en el 2021 supe que esto era lo que quería.
-        </p>
+      <div class="col-12 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="reveal m-0">SOBRE MÍ</h2>
+          <button type="button" class="btn btn-outline-light p-1" 
+          data-bs-toggle="modal" data-bs-target="#editAbout" 
+          *ngIf="isLoggedIn">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </div>
+        
+        <!-- <p>{{person.description}}</p> -->
       </div>
-      <div class="col-md-6 col-12" 
-      [ngClass]="{'mb-md-0 mb-4': f}" 
-      *ngFor="let column of ['Experiencia laboral', 'Educación']; first as f">
-        <h2 class="reveal second d-inline-block mb-3">{{column}}</h2>
-        <!-- <div class="row experience-data" *ngFor="let exp of (f? experience : education)">
-          <div class="col-1 d-flex flex-column align-items-center p-0 mb-4">
-            <div class="rounder"></div>
-            <div class="line"></div>
-          </div>
-          <div class="col-11">
-            <h5>{{exp.expName}}</h5>
-            <p>{{exp.expDesc}}</p>
-          </div>
-        </div> -->
-      </div>
+      <app-experience class="col-md-6 col-12 mb-md-0 mb-4"></app-experience>
+      <app-education class="col-md-6 col-12"></app-education>
     </div>
   </div>
 </section>
+
+<!-- <app-edit-about></app-edit-about> -->
