@@ -1,16 +1,16 @@
 export class Proyect {
 
-  image: string
   title: string
-  desc1: string
-  desc2: string
+  subtitle: string
+  desc: string
+  img: string
   url: string
-
-  constructor(image: string, title: string, desc1: string, desc2: string, url: string){
-    this.image = image
+  
+  constructor(title: string, subtitle: string, desc: string, img: string, url: string){
     this.title = title
-    this.desc1 = desc1
-    this.desc2 = desc2
+    this.subtitle = subtitle
+    this.desc = desc
+    this.img = img
     this.url = url
   }
 
