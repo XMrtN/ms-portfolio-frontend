@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Skill } from '../models/skill.model';
+import { SoftSkill } from '../models/soft-skill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +12,19 @@ export class SoftSkillService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<Skill[]> {
-    return this.httpClient.get<Skill[]>(this.softskillURL + '/list')
+  public list(): Observable<SoftSkill[]> {
+    return this.httpClient.get<SoftSkill[]>(this.softskillURL + '/list')
   }
 
-  public detail(id: number): Observable<Skill> {
-    return this.httpClient.get<Skill>(this.softskillURL + `/detail/${id}`)
+  public detail(id: number): Observable<SoftSkill> {
+    return this.httpClient.get<SoftSkill>(this.softskillURL + `/detail/${id}`)
   }
 
-  public save(softskill: Skill): Observable<any> {
+  public save(softskill: SoftSkill): Observable<any> {
     return this.httpClient.post<any>(this.softskillURL + '/create', softskill)
   }
 
-  public update(id: number, softskill: Skill): Observable<any> {
+  public update(id: number, softskill: SoftSkill): Observable<any> {
     return this.httpClient.put<any>(this.softskillURL + `/update/${id}`, softskill)
   }
 

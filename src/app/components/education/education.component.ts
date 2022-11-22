@@ -12,6 +12,7 @@ export class EducationComponent implements OnInit {
   
   isLoggedIn: boolean = false
   education: Education[] = []
+  id: number
 
   constructor(
     private educationService: EducationService,

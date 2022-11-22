@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Skill } from '../models/skill.model';
+import { FrontSkill } from '../models/front-skill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +12,19 @@ export class FrontSkillService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<Skill[]> {
-    return this.httpClient.get<Skill[]>(this.frontskillURL + '/list')
+  public list(): Observable<FrontSkill[]> {
+    return this.httpClient.get<FrontSkill[]>(this.frontskillURL + '/list')
   }
 
-  public detail(id: number): Observable<Skill> {
-    return this.httpClient.get<Skill>(this.frontskillURL + `/detail/${id}`)
+  public detail(id: number): Observable<FrontSkill> {
+    return this.httpClient.get<FrontSkill>(this.frontskillURL + `/detail/${id}`)
   }
 
-  public save(frontskill: Skill): Observable<any> {
+  public save(frontskill: FrontSkill): Observable<any> {
     return this.httpClient.post<any>(this.frontskillURL + '/create', frontskill)
   }
 
-  public update(id: number, frontskill: Skill): Observable<any> {
+  public update(id: number, frontskill: FrontSkill): Observable<any> {
     return this.httpClient.put<any>(this.frontskillURL + `/update/${id}`, frontskill)
   }
 

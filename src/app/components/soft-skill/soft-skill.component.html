@@ -30,14 +30,14 @@
     <div class="accordion-body d-flex flex-column gap-3 px-2 ps-sm-5">
       <div class="skills-container" *ngFor="let skill of soft">
         <div class="skills-data d-flex flex-wrap align-items-center mb-2 w-100">
-          <h6 class="pe-3 me-auto m-0">{{skill.name}}</h6>
+          <h6 class="pe-2 me-auto m-0">{{skill.name}}</h6>
           
           <div class="d-flex align-items-center gap-1">
             <span class="me-2">{{skill.percentage}}</span>
 
             <button type="button" class="btn btn-outline-light p-1" 
-            data-bs-toggle="modal" data-bs-target="#editFrontSkill" 
-            *ngIf="isLoggedIn">
+            data-bs-toggle="modal" data-bs-target="#editSoftSkill" 
+            *ngIf="isLoggedIn" (click)="this.id = skill.id">
               <i class="bi bi-pencil-square"></i>
             </button>
 
@@ -57,4 +57,4 @@
 </div>
 
 <app-new-soft-skill></app-new-soft-skill>
-<!-- <app-edit-soft-skill></app-edit-soft-skill> -->
+<app-edit-soft-skill></app-edit-soft-skill>

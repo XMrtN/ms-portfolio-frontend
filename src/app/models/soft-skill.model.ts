@@ -1,4 +1,4 @@
-export class Skill {
+export class SoftSkill {
 
   id: number
   name: string

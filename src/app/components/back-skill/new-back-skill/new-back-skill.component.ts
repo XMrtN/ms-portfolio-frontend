@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/models/skill.model';
+import { BackSkill } from 'src/app/models/back-skill.model';
 import { BackSkillService } from 'src/app/services/back-skill.service';
 import { BackSkillComponent } from '../back-skill.component';
 
@@ -10,8 +10,8 @@ import { BackSkillComponent } from '../back-skill.component';
 })
 export class NewBackSkillComponent implements OnInit {
   
-  skillName: string
-  skillPercentage: number
+  backskillName: string
+  backskillPercentage: number
 
   constructor(
     private backskillService: BackSkillService,
@@ -22,8 +22,8 @@ export class NewBackSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const skill = new Skill(this.skillName, this.skillPercentage)
-    this.backskillService.save(skill).subscribe(data => {
+    const backskill = new BackSkill(this.backskillName, this.backskillPercentage)
+    this.backskillService.save(backskill).subscribe(data => {
       this.backSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo agregar")

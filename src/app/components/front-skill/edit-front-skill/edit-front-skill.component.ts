@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Skill } from 'src/app/models/skill.model';
+import { FrontSkill } from 'src/app/models/front-skill.model';
 import { FrontSkillService } from 'src/app/services/front-skill.service';
 import { FrontSkillComponent } from '../front-skill.component';
 
@@ -11,26 +10,30 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class EditFrontSkillComponent implements OnInit {
 
-  frontSkill: Skill = null
+  frontSkill: FrontSkill = {
+    id: 0,
+    name: "",
+    percentage: 50
+  }
 
   constructor(
     private frontskillService: FrontSkillService,
-    private activatedRoute: ActivatedRoute,
     private frontSkillComponent: FrontSkillComponent
   ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.frontskillService.detail(id).subscribe(data => {
+  }
+
+  onDetail(): void {
+    this.frontskillService.detail(this.frontSkillComponent.id).subscribe(data => {
       this.frontSkill = data
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudieron cargar los datos")
     })
   }
 
   onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.frontskillService.update(id, this.frontSkill).subscribe((data) => {
+    this.frontskillService.update(this.frontSkillComponent.id, this.frontSkill).subscribe((data) => {
       this.frontSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo modificar")

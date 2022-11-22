@@ -38,6 +38,9 @@ import { NewSoftSkillComponent } from './components/soft-skill/new-soft-skill/ne
 import { EditSoftSkillComponent } from './components/soft-skill/edit-soft-skill/edit-soft-skill.component';
 
 import { ProyectsComponent } from './components/proyects/proyects.component';
+import { NewProyectComponent } from './components/proyects/new-proyect/new-proyect.component';
+import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
+
 import { ContactComponent } from './components/contact/contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -71,6 +74,8 @@ import { InterceptorProvider } from './services/interceptor.service';
     NewSoftSkillComponent,
     EditSoftSkillComponent,
     ProyectsComponent,
+    NewProyectComponent,
+    EditProyectComponent,
     ContactComponent,
   ],
   imports: [

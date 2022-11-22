@@ -16,7 +16,7 @@ tabindex="-1" aria-labelledby="newFrontSkillLabel" aria-hidden="true">
             id="skillNameInput" 
             name="skillNameInput" 
             placeholder="Nombre" 
-            [(ngModel)]="skillName" 
+            [(ngModel)]="frontskillName" 
             required>
             <label for="skillNameInput">Nombre</label>
           </div>
@@ -28,14 +28,12 @@ tabindex="-1" aria-labelledby="newFrontSkillLabel" aria-hidden="true">
           id="skillPercentageInput" 
           name="skillPercentageInput" 
           oninput="this.previousElementSibling.value = this.value" 
-          [(ngModel)]="skillPercentage" 
+          [(ngModel)]="frontskillPercentage" 
           required>
         </div>
         <div class="modal-footer">
-          <button type="button" 
-          class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" 
-          class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/models/skill.model';
+import { FrontSkill } from 'src/app/models/front-skill.model';
 import { FrontSkillService } from 'src/app/services/front-skill.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -11,7 +11,8 @@ import { TokenService } from 'src/app/services/token.service';
 export class FrontSkillComponent implements OnInit {
 
   isLoggedIn: boolean = false
-  frontEnd: Skill[] = []
+  frontEnd: FrontSkill[] = []
+  id:number
 
   constructor(
     private frontskillService: FrontSkillService,

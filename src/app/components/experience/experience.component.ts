@@ -12,6 +12,7 @@ export class ExperienceComponent implements OnInit {
   
   isLoggedIn: boolean = false
   experience: Experience[] = []
+  id: number
 
   constructor(
     private experienceService: ExperienceService,

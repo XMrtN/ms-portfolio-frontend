@@ -19,8 +19,8 @@
       <div class="d-flex gap-1 ms-3">
         <button type="button" class="btn btn-outline-light p-1" 
         data-bs-toggle="modal" data-bs-target="#editExp" 
-        *ngIf="isLoggedIn">
-          <i class="bi bi-pencil-square"></i>
+        *ngIf="isLoggedIn" (click)="this.id = exp.id">
+        <i class="bi bi-pencil-square"></i>
         </button>
         <button type="button" class="btn btn-outline-light p-1" 
         *ngIf="isLoggedIn" (click)="delete(exp.id)">
@@ -34,4 +34,4 @@
 </div>
 
 <app-new-experience></app-new-experience>
-<!-- <app-edit-experience></app-edit-experience> -->
+<app-edit-experience></app-edit-experience>

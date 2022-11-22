@@ -20,12 +20,12 @@ export class PersonService {
     return this.httpClient.get<Person>(this.url + `/detail/${id}`)
   }
 
-  // public save(education: Person): Observable<any> {
-  //   return this.httpClient.post<any>(this.url + '/create', education)
+  // public save(person: Person): Observable<any> {
+  //   return this.httpClient.post<any>(this.url + '/create', person)
   // }
 
-  public update(id: number, education: Person): Observable<any> {
-    return this.httpClient.put<any>(this.url + `/update/${id}`, education)
+  public update(id: number, person: Person): Observable<any> {
+    return this.httpClient.put<any>(this.url + `/update/${id}`, person)
   }
 
   // public delete(id: number): Observable<any> {

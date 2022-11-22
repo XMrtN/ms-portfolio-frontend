@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/models/skill.model';
+import { SoftSkill } from 'src/app/models/soft-skill.model';
 import { SoftSkillService } from 'src/app/services/soft-skill.service';
 import { SoftSkillComponent } from '../soft-skill.component';
 
@@ -10,8 +10,8 @@ import { SoftSkillComponent } from '../soft-skill.component';
 })
 export class NewSoftSkillComponent implements OnInit {
 
-  skillName: string
-  skillPercentage: number
+  softskillName: string
+  softskillPercentage: number
 
   constructor(
     private softskillService: SoftSkillService,
@@ -22,8 +22,8 @@ export class NewSoftSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const skill = new Skill(this.skillName, this.skillPercentage)
-    this.softskillService.save(skill).subscribe(data => {
+    const softskill = new SoftSkill(this.softskillName, this.softskillPercentage)
+    this.softskillService.save(softskill).subscribe(data => {
       this.softSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo agregar")

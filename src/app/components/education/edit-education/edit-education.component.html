@@ -1,6 +1,6 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editEd" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="edu">
+tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="ed">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,7 +16,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="edu">
             id="edNameInput" 
             name="edNameInput" 
             placeholder="Título" 
-            [(ngModel)]="edu.edName" 
+            [(ngModel)]="ed.edName" 
             required>
             <label for="edNameInput">Título</label>
           </div>
@@ -27,14 +27,14 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="edu">
             id="edDescInput" 
             name="edDescInput" 
             placeholder="Descripción" 
-            [(ngModel)]="edu.edDesc" 
+            [(ngModel)]="ed.edDesc" 
             required>
             <label for="edDescInput">Descripción</label>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>
     </div>

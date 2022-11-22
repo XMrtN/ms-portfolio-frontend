@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Skill } from '../models/skill.model';
+import { BackSkill } from '../models/back-skill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +12,19 @@ export class BackSkillService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<Skill[]> {
-    return this.httpClient.get<Skill[]>(this.backskillURL + '/list')
+  public list(): Observable<BackSkill[]> {
+    return this.httpClient.get<BackSkill[]>(this.backskillURL + '/list')
   }
 
-  public detail(id: number): Observable<Skill> {
-    return this.httpClient.get<Skill>(this.backskillURL + `/detail/${id}`)
+  public detail(id: number): Observable<BackSkill> {
+    return this.httpClient.get<BackSkill>(this.backskillURL + `/detail/${id}`)
   }
 
-  public save(backskill: Skill): Observable<any> {
+  public save(backskill: BackSkill): Observable<any> {
     return this.httpClient.post<any>(this.backskillURL + '/create', backskill)
   }
 
-  public update(id: number, backskill: Skill): Observable<any> {
+  public update(id: number, backskill: BackSkill): Observable<any> {
     return this.httpClient.put<any>(this.backskillURL + `/update/${id}`, backskill)
   }
 

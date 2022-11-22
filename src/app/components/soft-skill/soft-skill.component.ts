@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/models/skill.model';
+import { SoftSkill } from 'src/app/models/soft-skill.model';
 import { SoftSkillService } from 'src/app/services/soft-skill.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -11,7 +11,8 @@ import { TokenService } from 'src/app/services/token.service';
 export class SoftSkillComponent implements OnInit {
 
   isLoggedIn: boolean = false
-  soft: Skill[] = []
+  soft: SoftSkill[] = []
+  id: number
 
   constructor(
     private softskillService: SoftSkillService,

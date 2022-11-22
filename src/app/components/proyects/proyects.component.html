@@ -3,9 +3,9 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <h2 class="reveal d-inline-block">PROYECTOS</h2>
-        <p class="reveal d-inline-block">
-          Proyectos escolares y prácticas personales que he realizado.
+        <h2 class="reveal">PROYECTOS</h2>
+        <p class="reveal">
+          Proyectos en los que he participado y prácticas personales que he realizado.
         </p>
       </div>
 
@@ -28,15 +28,15 @@
           *ngFor="let proyect of proyects; first as f">
             <div class="card mb-3">
               <div class="row g-0">
-                <div class="col-md-5">
-                  <img src="{{proyect.image}}" class="img-fluid rounded-3" alt="proyectos">
+                <div class="col-md-5 d-flex align-items-center">
+                  <img src="{{proyect.img}}" class="img-fluid rounded-3" alt="proyectos">
                 </div>
                 <div class="col-md-7">
                   <div class="card-body">
                     <h5 class="card-title">{{proyect.title}}</h5>
                     <p class="card-text">
-                      {{proyect.desc1}}<br>
-                      {{proyect.desc2}}
+                      {{proyect.subtitle}}<br>
+                      {{proyect.desc}}
                     </p>
                     <a href="{{proyect.url}}" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon ms-2"></i></a>
                   </div>

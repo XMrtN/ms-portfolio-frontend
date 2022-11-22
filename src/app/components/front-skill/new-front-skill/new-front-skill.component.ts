@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/models/skill.model';
+import { FrontSkill } from 'src/app/models/front-skill.model';
 import { FrontSkillService } from 'src/app/services/front-skill.service';
 import { FrontSkillComponent } from '../front-skill.component';
 
@@ -10,8 +10,8 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class NewFrontSkillComponent implements OnInit {
 
-  skillName: string
-  skillPercentage: number
+  frontskillName: string
+  frontskillPercentage: number
 
   constructor(
     private frontskillService: FrontSkillService,
@@ -22,8 +22,8 @@ export class NewFrontSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const skill = new Skill(this.skillName, this.skillPercentage)
-    this.frontskillService.save(skill).subscribe(data => {
+    const frontskill = new FrontSkill(this.frontskillName, this.frontskillPercentage)
+    this.frontskillService.save(frontskill).subscribe(data => {
       this.frontSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo agregar")

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Skill } from 'src/app/models/skill.model';
+import { SoftSkill } from 'src/app/models/soft-skill.model';
 import { SoftSkillService } from 'src/app/services/soft-skill.service';
 import { SoftSkillComponent } from '../soft-skill.component';
 
@@ -11,26 +10,30 @@ import { SoftSkillComponent } from '../soft-skill.component';
 })
 export class EditSoftSkillComponent implements OnInit {
 
-  softSkill: Skill = null
+  softSkill: SoftSkill = {
+    id: 0,
+    name: "",
+    percentage: 50
+  }
 
   constructor(
     private softskillService: SoftSkillService,
-    private activatedRoute: ActivatedRoute,
     private softSkillComponent: SoftSkillComponent
   ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.softskillService.detail(id).subscribe(data => {
+  }
+
+  onDetail(): void {
+    this.softskillService.detail(this.softSkillComponent.id).subscribe(data => {
       this.softSkill = data
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudieron cargar los datos")
     })
   }
 
   onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.softskillService.update(id, this.softSkill).subscribe(data => {
+    this.softskillService.update(this.softSkillComponent.id, this.softSkill).subscribe(data => {
       this.softSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo modificar")
