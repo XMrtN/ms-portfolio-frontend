@@ -1,0 +1,47 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editSocial" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editSocialLabel">Modificar red social</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Icon input -->
+          <div class="input-group mb-4">
+            <div class="form-floating">
+              <input type="text" 
+              class="form-control" 
+              id="socialIconInput" 
+              name="socialIconInput" 
+              placeholder="Ícono de la red social" 
+              [(ngModel)]="this.socialsComponent.social.icon" 
+              required>
+              <label for="socialIconInput">Ícono de la red social</label>
+            </div>
+            <a href="https://icons.getbootstrap.com/" class="btn btn-outline-primary d-flex align-items-center">
+              <i class="{{this.socialsComponent.social.icon}} fs-3 lh-1"></i>
+            </a>
+          </div>
+          <!-- Url input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="socialUrlInput" 
+            name="socialUrlInput" 
+            placeholder="Link a la red social" 
+            [(ngModel)]="this.socialsComponent.social.url" 
+            required>
+            <label for="socialUrlInput">Link a la red social</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

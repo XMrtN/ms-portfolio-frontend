@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
-// npm i bootstrap bootstrap-icons gsap
 import gsap from 'gsap';
 
 import { MainComponent } from './components/main/main.component';
@@ -47,6 +46,8 @@ import { InterceptorProvider } from './services/interceptor.service';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NewSocialComponent } from './components/socials/new-social/new-social.component';
+import { EditSocialComponent } from './components/socials/edit-social/edit-social.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NewProyectComponent,
     EditProyectComponent,
     ContactComponent,
+    NewSocialComponent,
+    EditSocialComponent,
   ],
   imports: [
     BrowserModule,

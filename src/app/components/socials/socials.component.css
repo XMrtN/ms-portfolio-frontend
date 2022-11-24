@@ -1,15 +1,13 @@
 /* ---------- SOCIALS ---------- */
 /* div debajo de la pantalla con las redes sociales */
 /* se esconde en el home */
-.socials {
-  height: 50px;
-  max-width: 200px;
+.socials-container {
   z-index: 10;
-  transform: translateY(50px);
-  -webkit-transform: translateY(50px);
-  -moz-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  -o-transform: translateY(50px);
+  transform: translateY(100px);
+  -webkit-transform: translateY(100px);
+  -moz-transform: translateY(100px);
+  -ms-transform: translateY(100px);
+  -o-transform: translateY(100px);
 }
 /* simulo la forma de un trapecio */
 .socials::before {
@@ -30,22 +28,6 @@
   -moz-transform: perspective(10px) rotateX(4deg);
   -ms-transform: perspective(10px) rotateX(4deg);
   -o-transform: perspective(10px) rotateX(4deg);
-}
-/* color de los iconos */
-.socials a {
-  font-size: 1.2em;
-  padding: 0.25rem 0.5rem;
-  color: var(--second-color);
-  transition: padding 0.1s;
-  -webkit-transition: padding 0.1s;
-  -moz-transition: padding 0.1s;
-  -ms-transition: padding 0.1s;
-  -o-transition: padding 0.1s;
-}
-/* animación en los iconos */
-.socials a:hover,
-.socials a:active {
-  padding-bottom: 0.5rem;
 }
 
 

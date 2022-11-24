@@ -11,7 +11,7 @@
       <div class="w-100">
         <div class="d-flex align-items-start">
           <h5 class="me-3">Backend</h5>
-          <button type="button" class="btn btn-outline-light p-1 ms-auto mb-2" 
+          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
           data-bs-toggle="modal" data-bs-target="#newBackSkill" *ngIf="isLoggedIn">
             <i class="bi bi-plus-square"></i>
           </button>
@@ -32,12 +32,12 @@
           <span class="ms-auto mb-2">{{skill.percentage}}</span>
           
           <div class="d-flex gap-1 ps-2 mb-2">
-            <button type="button" class="btn btn-outline-light p-1" 
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editBackSkill" 
             *ngIf="isLoggedIn" (click)="this.id = skill.id; this.onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
-            <button type="button" class="btn btn-outline-light p-1" 
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             *ngIf="isLoggedIn" (click)="delete(skill.id)">
               <i class="bi bi-trash"></i>
             </button>

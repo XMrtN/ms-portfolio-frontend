@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SocialLink } from 'src/app/models/socials.model';
+import { Social } from 'src/app/models/social.model';
+import { SocialService } from 'src/app/services/social.service';
+import { TokenService } from 'src/app/services/token.service';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -9,13 +11,53 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class SocialsComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean = false
+  socials: Social[] = []
+  id: number
+  social: Social = {
+    id: 0,
+    icon: '',
+    url: ''
+  }
 
-  socials: SocialLink[] = []
+  constructor(
+    private socialService: SocialService,
+    private tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
     this.initScrollAnimations()
-    this.socialLinks()
+    this.loadSocial()
+    
+    if(this.tokenService.getToken()) {
+      this.isLoggedIn = true
+    } else {
+      this.isLoggedIn = false
+    }
+  }
+
+  loadSocial(): void {
+    this.socialService.list().subscribe(data => {
+      this.socials = data
+    })
+  }
+
+  onDetail(): void {
+    this.socialService.detail(this.id).subscribe(data => {
+      this.social = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
+    })
+  }
+
+  delete(id: number): void {
+    if(id != undefined) {
+      this.socialService.delete(id).subscribe(data => {
+        this.loadSocial()
+      }, err => {
+        alert("No se pudo eliminar")
+      })
+    }
   }
 
   initScrollAnimations(): void {
@@ -33,7 +75,7 @@ export class SocialsComponent implements OnInit {
           }
       })
 
-      gsap.to(".socials", {
+      gsap.to(".socials-container", {
           duration: 0.5,
           y: 0,
           delay: 3.4,
@@ -47,23 +89,23 @@ export class SocialsComponent implements OnInit {
     })
   }
 
-  socialLinks(): void {
-    this.socials.push(new SocialLink(
-      "facebook",
-      "https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/"
-    ))
-    this.socials.push(new SocialLink(
-      "telegram",
-      "https://telegram.me/XMrtN"
-    ))
-    this.socials.push(new SocialLink(
-      "instagram",
-      "https://www.instagram.com/martin07.24/"
-    ))
-    this.socials.push(new SocialLink(
-      "github",
-      "https://github.com/XMrtN"
-    ))
-  }
+  // socialLinks(): void {
+  //   this.socials.push(new SocialLink(
+  //     "facebook",
+  //     "https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/"
+  //   ))
+  //   this.socials.push(new SocialLink(
+  //     "telegram",
+  //     "https://telegram.me/XMrtN"
+  //   ))
+  //   this.socials.push(new SocialLink(
+  //     "instagram",
+  //     "https://www.instagram.com/martin07.24/"
+  //   ))
+  //   this.socials.push(new SocialLink(
+  //     "github",
+  //     "https://github.com/XMrtN"
+  //   ))
+  // }
 
 }

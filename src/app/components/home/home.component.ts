@@ -37,13 +37,20 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadPerson()
     this.initAnimations()
-    this.parallaxAnimations()
 
     if(this.tokenService.getToken()) {
       this.isLoggedIn = true
     } else {
       this.isLoggedIn = false
     }
+
+    document.querySelectorAll("img").forEach(img => {
+      if (img.complete) {
+        this.parallaxAnimations()
+      } else {
+        img.addEventListener("load", imgLoaded => this.parallaxAnimations())
+      }
+    })
   }
 
   loadPerson(): void {
@@ -73,21 +80,19 @@ export class HomeComponent implements OnInit {
   }
 
   parallaxAnimations(): void {
-    window.addEventListener("load", () => {
-      const parallax = gsap.timeline()
-        .fromTo(".stars", {x: -200}, {x: 200})
-        .to(".moon", {y: 400}, "<")
-        .to(".shadow", {y: 300}, "<")
-        .to(".building", {y: 150}, "<")
-        .to(".smoke", {y: 100}, "<")
-      
-      ScrollTrigger.create({
-        animation: parallax,
-        trigger: "#home",
-        start: "top 0%",
-        end: "bottom 0%",
-        scrub: 0.5
-      })
+    const parallax = gsap.timeline()
+      .fromTo(".stars", {x: -200}, {x: 200})
+      .to(".moon", {y: 400}, "<")
+      .to(".shadow", {y: 300}, "<")
+      .to(".building", {y: 150}, "<")
+      .to(".smoke", {y: 100}, "<")
+    
+    ScrollTrigger.create({
+      animation: parallax,
+      trigger: "#home",
+      start: "top 0%",
+      end: "bottom 0%",
+      scrub: 1
     })
   }
   

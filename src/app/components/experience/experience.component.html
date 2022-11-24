@@ -1,6 +1,6 @@
 <div class="d-flex align-items-start">
   <h2 class="reveal second me-3">EXPERIENCIA</h2>
-  <button type="button" class="btn btn-outline-light p-1 ms-auto mb-2" 
+  <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
   data-bs-toggle="modal" data-bs-target="#newExp" *ngIf="isLoggedIn">
     <i class="bi bi-plus-square"></i>
   </button>
@@ -21,12 +21,12 @@
       <h5 class="me-3">{{exp.expJobTitle}}</h5>
 
       <div class="d-flex gap-1 ms-auto mb-2">
-        <button type="button" class="btn btn-outline-light p-1" 
+        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
         data-bs-toggle="modal" data-bs-target="#editExp" 
         *ngIf="isLoggedIn" (click)="this.id = exp.id; this.onDetail()">
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button type="button" class="btn btn-outline-light p-1" 
+        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
         *ngIf="isLoggedIn" (click)="delete(exp.id)">
           <i class="bi bi-trash"></i>
         </button>

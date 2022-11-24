@@ -1,0 +1,47 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="newSocial" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="newSocialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newSocialLabel">Nueva red social</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+        <div class="modal-body">
+          <!-- Icon input -->
+          <div class="input-group mb-4">
+            <div class="form-floating">
+              <input type="text" 
+              class="form-control" 
+              id="socialIconInput" 
+              name="socialIconInput" 
+              placeholder="Ícono de la red social" 
+              [(ngModel)]="socialIcon" 
+              required>
+              <label for="socialIconInput">Ícono de la red social</label>
+            </div>
+            <a href="https://icons.getbootstrap.com/" class="btn btn-outline-primary d-flex align-items-center">
+              <i class="{{socialIcon}} fs-3 lh-1"></i>
+            </a>
+          </div>
+          <!-- Url input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="socialUrlInput" 
+            name="socialUrlInput" 
+            placeholder="Link a la red social" 
+            [(ngModel)]="socialUrl" 
+            required>
+            <label for="socialUrlInput">Link a la red social</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
