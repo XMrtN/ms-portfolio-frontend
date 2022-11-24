@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { SoftSkill } from '../models/soft-skill.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { SoftSkill } from '../models/soft-skill.model';
 })
 export class SoftSkillService {
 
-  softskillURL = "http://localhost:8080/softskill"
+  softskillURL = environment.url + "/softskill"
 
   constructor(private httpClient: HttpClient) { }
 

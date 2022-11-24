@@ -13,6 +13,13 @@ export class ExperienceComponent implements OnInit {
   isLoggedIn: boolean = false
   experience: Experience[] = []
   id: number
+  exp: Experience = {
+    id: 0,
+    expCompName: '',
+    expJobTitle: '',
+    expPeriod: '',
+    expDesc: ''
+  }
 
   constructor(
     private experienceService: ExperienceService,
@@ -32,6 +39,14 @@ export class ExperienceComponent implements OnInit {
   loadExp(): void {
     this.experienceService.list().subscribe(data => {
       this.experience = data
+    })
+  }
+
+  onDetail(): void {
+    this.experienceService.detail(this.id).subscribe(data => {
+      this.exp = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
     })
   }
 

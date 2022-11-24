@@ -10,30 +10,16 @@ import { SoftSkillComponent } from '../soft-skill.component';
 })
 export class EditSoftSkillComponent implements OnInit {
 
-  softSkill: SoftSkill = {
-    id: 0,
-    name: "",
-    percentage: 50
-  }
-
   constructor(
     private softskillService: SoftSkillService,
-    private softSkillComponent: SoftSkillComponent
+    protected softSkillComponent: SoftSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onDetail(): void {
-    this.softskillService.detail(this.softSkillComponent.id).subscribe(data => {
-      this.softSkill = data
-    }, err => {
-      alert("No se pudieron cargar los datos")
-    })
-  }
-
   onUpdate(): void {
-    this.softskillService.update(this.softSkillComponent.id, this.softSkill).subscribe(data => {
+    this.softskillService.update(this.softSkillComponent.id, this.softSkillComponent.softSkill).subscribe(data => {
       this.softSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo modificar")

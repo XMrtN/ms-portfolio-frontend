@@ -1,1 +1,93 @@
-<p>edit-proyect works!</p>
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editProyect" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.proyectsComponent.proyect">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editProyectLabel">Modificar experiencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Title input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="proyectTitleInput" 
+            name="proyectTitleInput" 
+            placeholder="Título" 
+            [(ngModel)]="this.proyectsComponent.proyect.title" 
+            required>
+            <label for="proyectTitleInput">Título</label>
+          </div>
+          <!-- Subtitle input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="proyectSubtitleInput" 
+            name="proyectSubtitleInput" 
+            placeholder="Subtítulo" 
+            [(ngModel)]="this.proyectsComponent.proyect.subtitle" 
+            required>
+            <label for="proyectSubtitleInput">Subtítulo</label>
+          </div>
+          <!-- Description input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="proyectDescriptionInput" 
+            name="proyectDescriptionInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="this.proyectsComponent.proyect.description" 
+            required>
+            <label for="proyectDescriptionInput">Descripción</label>
+          </div>
+          <!-- Finish date input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="proyectFinishDateInput" 
+            name="proyectFinishDateInput" 
+            placeholder="Fecha de realización" 
+            [(ngModel)]="this.proyectsComponent.proyect.finishDate" 
+            required>
+            <label for="proyectFinishDateInput">Fecha de realización</label>
+          </div>
+          <!-- Img input -->
+          <div class="form-floating mb-4">
+            <input type="file" 
+            class="form-control" 
+            id="proyectImgInput" 
+            name="proyectImgInput" 
+            placeholder="Imagen del proyecto" 
+            [(ngModel)]="this.proyectsComponent.proyect.img" 
+            accept=".jpg, .jpeg, .png" 
+            required>
+            <label for="proyectImgInput">Imagen del proyecto</label>
+          </div>
+          <!-- Img View -->
+          <div class="d-flex justify-content-center mt-4">
+            <i class="bi bi-proyect-bounding-box" style="font-size: 150px" 
+            *ngIf="!imageService.url"></i>
+            <img [src]="imageService.url" width="150px" *ngIf="imageService.url">
+          </div>
+          <!-- Url input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="proyectUrlInput" 
+            name="proyectUrlInput" 
+            placeholder="Link al repositorio" 
+            [(ngModel)]="this.proyectsComponent.proyect.url" 
+            required>
+            <label for="proyectUrlInput">Link al repositorio</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

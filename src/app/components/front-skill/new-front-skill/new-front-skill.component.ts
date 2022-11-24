@@ -11,7 +11,7 @@ import { FrontSkillComponent } from '../front-skill.component';
 export class NewFrontSkillComponent implements OnInit {
 
   frontskillName: string
-  frontskillPercentage: number
+  frontskillPercentage: number = 50
 
   constructor(
     private frontskillService: FrontSkillService,
@@ -21,6 +21,11 @@ export class NewFrontSkillComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClean(): void {
+    this.frontskillName = ''
+    this.frontskillPercentage = 50
+  }
+
   onCreate(): void {
     const frontskill = new FrontSkill(this.frontskillName, this.frontskillPercentage)
     this.frontskillService.save(frontskill).subscribe(data => {
@@ -28,6 +33,7 @@ export class NewFrontSkillComponent implements OnInit {
     }, err => {
       alert("No se pudo agregar")
     })
+    this.onClean()
   }
 
 }

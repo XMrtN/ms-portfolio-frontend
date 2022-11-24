@@ -1,6 +1,6 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editSoftSkill" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true">
+tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="this.softSkillComponent.softSkill">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,19 +16,19 @@ tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true">
             id="skillNameInput" 
             name="skillNameInput" 
             placeholder="Nombre" 
-            [(ngModel)]="softSkill.name" 
+            [(ngModel)]="this.softSkillComponent.softSkill.name" 
             required>
             <label for="skillNameInput">Nombre</label>
           </div>
           <!-- Percentage input -->
-          <label for="skillPercentageInput" class="form-label me-2">Porcentaje</label>
-          <output>50</output>
-          <input type="range" min="0" max="100" value="50"
+          <label for="skillPercentageInput" class="form-label me-2">
+            Porcentaje: {{this.softSkillComponent.softSkill.percentage}}%
+          </label>
+          <input type="range" min="0" max="100" 
           class="form-range" 
           id="skillPercentageInput" 
           name="skillPercentageInput" 
-          oninput="this.previousElementSibling.value = this.value" 
-          [(ngModel)]="softSkill.percentage" 
+          [(ngModel)]="this.softSkillComponent.softSkill.percentage" 
           required>
         </div>
         <div class="modal-footer">

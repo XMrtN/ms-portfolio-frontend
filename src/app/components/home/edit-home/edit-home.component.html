@@ -1,51 +1,70 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
-id="editHome" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editHomeLabel" aria-hidden="true" *ngIf="person">
+id="editPerson" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.homeComponent.personEdit">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editHomeLabel">Modificar presentación</h1>
+        <h1 class="modal-title fs-5" id="editPersonLabel">Modificar presentación</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
           <!-- Name input -->
-          <div class="form-floating">
+          <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="homeNameInput" 
-            name="homeNameInput" 
-            placeholder="Descripción" 
-            [(ngModel)]="person.name" 
+            id="personNameInput" 
+            name="personNameInput" 
+            placeholder="Nombre" 
+            [(ngModel)]="this.homeComponent.personEdit.name" 
             required>
-            <label for="homeNameInput">Nombre</label>
+            <label for="personNameInput">Nombre</label>
           </div>
           <!-- LastName input -->
-          <div class="form-floating">
+          <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="homeLastNameInput" 
-            name="homeLastNameInput" 
-            placeholder="Descripción" 
-            [(ngModel)]="person.lastName" 
+            id="personLastNameInput" 
+            name="personLastNameInput" 
+            placeholder="Apellido" 
+            [(ngModel)]="this.homeComponent.personEdit.lastName" 
             required>
-            <label for="homeLastNameInput">Apellido</label>
+            <label for="personLastNameInput">Apellido</label>
+          </div>
+          <!-- Description input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="personDescInput" 
+            name="personDescInput" 
+            placeholder="Descripción" 
+            [(ngModel)]="this.homeComponent.personEdit.description" 
+            required>
+            <label for="personDescInput">Descripción</label>
           </div>
           <!-- Img input -->
           <div class="form-floating">
-            <input type="text" 
+            <input type="file" 
             class="form-control" 
-            id="homeImgInput" 
-            name="homeImgInput" 
-            placeholder="Descripción" 
-            [(ngModel)]="person.img" 
+            id="personImgInput" 
+            name="personImgInput" 
+            placeholder="Foto de perfil" 
+            [(ngModel)]="this.homeComponent.personEdit.img" 
+            (change)="uploadImage($event)" 
+            accept=".jpg, .jpeg, .png" 
             required>
-            <label for="homeImgInput">Foto de perfil</label>
+            <label for="personImgInput">Foto de perfil</label>
+          </div>
+          <!-- Img View -->
+          <div class="d-flex justify-content-center mt-4">
+            <i class="bi bi-person-bounding-box" style="font-size: 150px" 
+            *ngIf="!imageService.url"></i>
+            <img [src]="imageService.url" width="150px" *ngIf="imageService.url">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>
     </div>

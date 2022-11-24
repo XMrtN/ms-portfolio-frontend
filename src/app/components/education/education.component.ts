@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
+import { EditEducationComponent } from './edit-education/edit-education.component';
 
 @Component({
   selector: 'app-education',
@@ -13,6 +14,13 @@ export class EducationComponent implements OnInit {
   isLoggedIn: boolean = false
   education: Education[] = []
   id: number
+  ed: Education = {
+    id: 0,
+    edInsTitle: '',
+    edCareerName: '',
+    edPeriod: '',
+    edDesc: ''
+  }
 
   constructor(
     private educationService: EducationService,
@@ -32,6 +40,14 @@ export class EducationComponent implements OnInit {
   loadEd(): void {
     this.educationService.list().subscribe(data => {
       this.education = data
+    })
+  }
+
+  onDetail(): void {
+    this.educationService.detail(this.id).subscribe(data => {
+      this.ed = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
     })
   }
 

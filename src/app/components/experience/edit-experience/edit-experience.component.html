@@ -1,6 +1,6 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editExp" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="expLab">
+tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.experienceComponent.exp">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,27 +9,49 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="expLab">
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
-          <!-- Title input -->
+          <!-- Company name input -->
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expNameInput" 
-            name="expNameInput" 
+            id="expCompNameInput" 
+            name="expCompNameInput" 
             placeholder="Título" 
-            [(ngModel)]="expLab.expName" 
+            [(ngModel)]="this.experienceComponent.exp.expCompName" 
             required>
-            <label for="expNameInput">Título</label>
+            <label for="expCompNameInput">Nombre de la compañía</label>
+          </div>
+          <!-- Job title input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="expJobTitleInput" 
+            name="expJobTitleInput" 
+            placeholder="Título del puesto" 
+            [(ngModel)]="this.experienceComponent.exp.expJobTitle" 
+            required>
+            <label for="expJobTitleInput">Título del puesto</label>
           </div>
           <!-- Description input -->
-          <div class="form-floating">
+          <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
             id="expDescInput" 
             name="expDescInput" 
             placeholder="Descripción" 
-            [(ngModel)]="expLab.expDesc" 
+            [(ngModel)]="this.experienceComponent.exp.expDesc" 
             required>
             <label for="expDescInput">Descripción</label>
+          </div>
+          <!-- Period input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="expPeriodInput" 
+            name="expPeriodInput" 
+            placeholder="Periodo de tiempo" 
+            [(ngModel)]="this.experienceComponent.exp.expPeriod" 
+            required>
+            <label for="expPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">

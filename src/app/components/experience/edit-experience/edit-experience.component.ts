@@ -10,31 +10,16 @@ import { ExperienceComponent } from '../experience.component';
 })
 export class EditExperienceComponent implements OnInit {
 
-  expLab: Experience = {
-    id: 0,
-    expName: "",
-    expDesc: ""
-  }
-
   constructor(
     private experienceService: ExperienceService,
-    private experienceComponent: ExperienceComponent
+    protected experienceComponent: ExperienceComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onDetail(): void {
-    this.experienceService.detail(this.experienceComponent.id).subscribe(data => {
-      this.expLab = data
-    }, err => {
-      alert("No se pudieron cargar los datos")
-    })
-  }
-
   onUpdate(): void {
-    // this.onDetail()
-    this.experienceService.update(this.experienceComponent.id, this.expLab).subscribe(data => {
+    this.experienceService.update(this.experienceComponent.id, this.experienceComponent.exp).subscribe(data => {
       this.experienceComponent.loadExp()
     }, err => {
       alert("No se pudo modificar")

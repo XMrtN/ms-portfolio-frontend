@@ -13,6 +13,11 @@ export class BackSkillComponent implements OnInit {
   isLoggedIn: boolean = false
   backEnd: BackSkill[] = []
   id: number
+  backSkill: BackSkill = {
+    id: 0,
+    name: '',
+    percentage: 50
+  }
 
   constructor(
     private backskillService: BackSkillService,
@@ -32,6 +37,14 @@ export class BackSkillComponent implements OnInit {
   loadSkill(): void {
     this.backskillService.list().subscribe(data => {
       this.backEnd = data
+    })
+  }
+
+  onDetail(): void {
+    this.backskillService.detail(this.id).subscribe(data => {
+      this.backSkill = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
     })
   }
 

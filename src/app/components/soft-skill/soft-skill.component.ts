@@ -13,6 +13,11 @@ export class SoftSkillComponent implements OnInit {
   isLoggedIn: boolean = false
   soft: SoftSkill[] = []
   id: number
+  softSkill: SoftSkill = {
+    id: 0,
+    name: '',
+    percentage: 50
+  }
 
   constructor(
     private softskillService: SoftSkillService,
@@ -32,6 +37,14 @@ export class SoftSkillComponent implements OnInit {
   loadSkill(): void {
     this.softskillService.list().subscribe(data => {
       this.soft = data
+    })
+  }
+
+  onDetail(): void {
+    this.softskillService.detail(this.id).subscribe(data => {
+      this.softSkill = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
     })
   }
 

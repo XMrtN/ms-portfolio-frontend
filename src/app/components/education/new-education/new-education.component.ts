@@ -10,7 +10,9 @@ import { EducationComponent } from '../education.component';
 })
 export class NewEducationComponent implements OnInit {
 
-  edName: string
+  edInsTitle: string
+  edCareerName: string
+  edPeriod: string
   edDesc: string
 
   constructor(
@@ -21,13 +23,21 @@ export class NewEducationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClean(): void {
+    this.edInsTitle = ''
+    this.edCareerName = ''
+    this.edPeriod = ''
+    this.edDesc = ''
+  }
+
   onCreate(): void {
-    const ed = new Education(this.edName, this.edDesc)
+    const ed = new Education(this.edInsTitle, this.edCareerName, this.edPeriod, this.edDesc)
     this.educationService.save(ed).subscribe(data => {
       this.educationComponenet.loadEd()
     }, err => {
       alert("No se pudo agregar")
     })
+    this.onClean()
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Person } from 'src/app/models/person.model';
+import { ImageService } from 'src/app/services/image.service';
 import { PersonService } from 'src/app/services/person.service';
 import { HomeComponent } from '../home.component';
 
@@ -11,30 +11,27 @@ import { HomeComponent } from '../home.component';
 })
 export class EditHomeComponent implements OnInit {
 
-  person: Person = null
-
   constructor(
     private personService: PersonService,
-    private activatedRoute: ActivatedRoute,
-    private homeComponent: HomeComponent
+    protected homeComponent: HomeComponent,
+    public imageService: ImageService
   ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.personService.detail(id).subscribe(data => {
-      this.person = data
+  }
+
+  onUpdate(): void {
+    this.homeComponent.personEdit.img = this.imageService.url
+    this.personService.update(this.homeComponent.id, this.homeComponent.personEdit).subscribe(data => {
+      this.homeComponent.loadPerson()
     }, err => {
       alert("No se pudo modificar")
     })
   }
 
-  onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id']
-    this.personService.update(id, this.person).subscribe(data => {
-      this.homeComponent.loadPerson()
-    }, err => {
-      alert("No se pudo modificar")
-    })
+  uploadImage($event: any) {
+    const name = "profile_1"
+    this.imageService.uploadImage($event, name)
   }
 
 }

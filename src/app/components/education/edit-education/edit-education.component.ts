@@ -10,31 +10,16 @@ import { EducationComponent } from '../education.component';
 })
 export class EditEducationComponent implements OnInit {
 
-  ed: Education = {
-    id: 0,
-    edName: "",
-    edDesc: ""
-  }
-
   constructor(
     private educationService: EducationService,
-    private educationComponent: EducationComponent
+    protected educationComponent: EducationComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onDetail(): void {
-    this.educationService.detail(this.educationComponent.id).subscribe(data => {
-      this.ed = data
-    }, err => {
-      alert("No se pudieron cargar los datos")
-    })
-  }
-
   onUpdate(): void {
-    // this.onDetail()
-    this.educationService.update(this.educationComponent.id, this.ed).subscribe(data => {
+    this.educationService.update(this.educationComponent.id, this.educationComponent.ed).subscribe(data => {
       this.educationComponent.loadEd()
     }, err => {
       alert("No se pudo modificar")

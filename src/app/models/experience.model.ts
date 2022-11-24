@@ -1,11 +1,15 @@
 export class Experience {
 
   id: number
-  expName: string
+  expCompName: string
+  expJobTitle: string
+  expPeriod: string
   expDesc: string
 
-  constructor(expName: string, expDesc: string){
-    this.expName = expName
+  constructor(expCompName: string, expJobTitle: string, expPeriod: string, expDesc: string){
+    this.expCompName = expCompName
+    this.expJobTitle = expJobTitle
+    this.expPeriod = expPeriod
     this.expDesc = expDesc
   }
 

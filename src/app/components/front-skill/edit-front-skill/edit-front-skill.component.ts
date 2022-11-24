@@ -10,30 +10,16 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class EditFrontSkillComponent implements OnInit {
 
-  frontSkill: FrontSkill = {
-    id: 0,
-    name: "",
-    percentage: 50
-  }
-
   constructor(
     private frontskillService: FrontSkillService,
-    private frontSkillComponent: FrontSkillComponent
+    protected frontSkillComponent: FrontSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onDetail(): void {
-    this.frontskillService.detail(this.frontSkillComponent.id).subscribe(data => {
-      this.frontSkill = data
-    }, err => {
-      alert("No se pudieron cargar los datos")
-    })
-  }
-
   onUpdate(): void {
-    this.frontskillService.update(this.frontSkillComponent.id, this.frontSkill).subscribe((data) => {
+    this.frontskillService.update(this.frontSkillComponent.id, this.frontSkillComponent.frontSkill).subscribe((data) => {
       this.frontSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo modificar")

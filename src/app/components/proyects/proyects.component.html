@@ -3,7 +3,13 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <h2 class="reveal">PROYECTOS</h2>
+        <div class="d-flex align-items-start w-100">
+          <h2 class="reveal me-3">PROYECTOS</h2>
+          <button type="button" class="btn btn-outline-light p-1 ms-auto mb-2" 
+          data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="isLoggedIn">
+            <i class="bi bi-plus-square"></i>
+          </button>
+        </div>
         <p class="reveal">
           Proyectos en los que he participado y prácticas personales que he realizado.
         </p>
@@ -13,31 +19,41 @@
       <div id="carouselExampleIndicators" class="col-12 carousel slide">
         <div class="carousel-indicators mb-0">
           <!-- Se repite el botón tantas veces como proyectos haya, a los cuales se les agregan los atributos data-slide y aria-label según sus índices y aria-current en false. Solo al primer botón se le agrega la clase active y el atributo aria-current en true -->
-          <button type="button" 
-          [ngClass]="{'active': f}" 
+          <button type="button" [ngClass]="{'active': f}" 
           *ngFor="let proyect of proyects; first as f; index as i" 
           data-bs-target="#carouselExampleIndicators" 
-          attr.data-bs-slide-to="{{i}}" 
-          attr.aria-current="{{f}}" 
-          attr.aria-label="Slide {{i + 1}}"></button>
+          attr.data-bs-slide-to="{{i}}" attr.aria-current="{{f}}" attr.aria-label="Slide {{i + 1}}"></button>
         </div>
+        
         <div class="carousel-inner">
-          <!-- Se repiten los proyectos tantas veces como proyectos haya. Solo al primer proyecto se le agrega la clase active -->
-          <div class="carousel-item px-4 pb-5" 
-          [ngClass]="{'active': f}" 
+          <div class="carousel-item px-4 pb-4" [ngClass]="{'active': f}" 
           *ngFor="let proyect of proyects; first as f">
             <div class="card mb-3">
               <div class="row g-0">
                 <div class="col-md-5 d-flex align-items-center">
                   <img src="{{proyect.img}}" class="img-fluid rounded-3" alt="proyectos">
                 </div>
+
                 <div class="col-md-7">
                   <div class="card-body">
-                    <h5 class="card-title">{{proyect.title}}</h5>
-                    <p class="card-text">
-                      {{proyect.subtitle}}<br>
-                      {{proyect.desc}}
-                    </p>
+                    <div class="d-flex align-items-start w-100">
+                      <h5 class="card-title me-3">{{proyect.title}}</h5>
+                      <div class="d-flex gap-1 ms-auto mb-2">
+                        <button type="button" class="btn btn-outline-light p-1" 
+                        data-bs-toggle="modal" data-bs-target="#editProyect" 
+                        *ngIf="isLoggedIn" (click)="this.id = proyect.id; this.onDetail()">
+                          <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-light p-1" 
+                        *ngIf="isLoggedIn" (click)="delete(proyect.id)">
+                          <i class="bi bi-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <p class="card-text">{{proyect.subtitle}}<br>{{proyect.description}}</p>
+                    <p class="card-text">Fecha de realización: {{proyect.finishDate}}</p>
+
                     <a href="{{proyect.url}}" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon ms-2"></i></a>
                   </div>
                 </div>
@@ -45,6 +61,7 @@
             </div>
           </div>
         </div>
+
         <button class="carousel-control-prev pb-5" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <i class="bi bi-chevron-left"></i>
           <span class="visually-hidden">Previous</span>
@@ -57,3 +74,6 @@
     </div>
   </div>
 </section>
+
+<app-new-proyect></app-new-proyect>
+<app-edit-proyect></app-edit-proyect>

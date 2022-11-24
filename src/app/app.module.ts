@@ -17,7 +17,6 @@ import { SocialsComponent } from './components/socials/socials.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditHomeComponent } from './components/home/edit-home/edit-home.component';
 import { AboutComponent } from './components/about/about.component';
-import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 
 import { ExperienceComponent } from './components/experience/experience.component';
 import { NewExperienceComponent } from './components/experience/new-experience/new-experience.component';
@@ -45,6 +44,9 @@ import { ContactComponent } from './components/contact/contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,6 @@ import { InterceptorProvider } from './services/interceptor.service';
     HomeComponent,
     EditHomeComponent,
     AboutComponent,
-    EditAboutComponent,
     ExperienceComponent,
     NewExperienceComponent,
     EditExperienceComponent,
@@ -82,7 +83,9 @@ import { InterceptorProvider } from './services/interceptor.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     InterceptorProvider

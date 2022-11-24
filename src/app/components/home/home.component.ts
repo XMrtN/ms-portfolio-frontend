@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ParallaxImg } from 'src/app/models/parallax.model';
 import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -13,7 +12,22 @@ export class HomeComponent implements OnInit {
 
   isLoggedIn: boolean = false
   person: Person = null
-  parallax: ParallaxImg[] = []
+  parallax = [
+    { url: "../../../assets/img/bg/stars.png", alt: "stars" },
+    { url: "../../../assets/img/bg/moon.png", alt: "moon" },
+    { url: "../../../assets/img/bg/shadow.png", alt: "shadow" },
+    { url: "../../../assets/img/bg/building.png", alt: "building" },
+    { url: "../../../assets/img/bg/smoke.png", alt: "smoke" },
+    { url: "../../../assets/img/bg/road.png", alt: "road" },
+  ]
+  id: number
+  personEdit: Person = {
+    id: 0,
+    name: "",
+    lastName: "",
+    description: "",
+    img: ""
+  }
 
   constructor(
     private personService: PersonService,
@@ -22,9 +36,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPerson()
-    this.initScrollAnimations()
+    this.initAnimations()
     this.parallaxAnimations()
-    this.parallaxImages()
 
     if(this.tokenService.getToken()) {
       this.isLoggedIn = true
@@ -39,7 +52,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  initScrollAnimations(): void {
+  onDetail(): void {
+    this.personService.detail(this.id).subscribe(data => {
+      this.personEdit = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
+    })
+  }
+
+  initAnimations(): void {
     window.addEventListener("load", () => {
       gsap.to("#home h1, #home p, .imgBox", {
         duration: 1,
@@ -68,33 +89,6 @@ export class HomeComponent implements OnInit {
         scrub: 0.5
       })
     })
-  }
-
-  parallaxImages(): void {
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/stars.png",
-      "stars"
-    ))
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/moon.png",
-      "moon"
-    ))
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/shadow.png",
-      "shadow"
-    ))
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/building.png",
-      "building"
-    ))
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/smoke.png",
-      "smoke"
-    ))
-    this.parallax.push(new ParallaxImg(
-      "../../../assets/img/bg/road.png",
-      "road"
-    ))
   }
   
 }

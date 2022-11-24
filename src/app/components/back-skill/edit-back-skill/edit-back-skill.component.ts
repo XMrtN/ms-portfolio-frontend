@@ -10,31 +10,17 @@ import { BackSkillComponent } from '../back-skill.component';
 })
 export class EditBackSkillComponent implements OnInit {
 
-  backSkill: BackSkill = {
-    id: 0,
-    name: "",
-    percentage: 50
-  }
-
   constructor(
     private backskillService: BackSkillService,
-    private backSkillComponent: BackSkillComponent
+    protected backSkillComponent: BackSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onDetail(): void {
-    this.backskillService.detail(this.backSkillComponent.id).subscribe(data => {
-      this.backSkill = data
-    }, err => {
-      alert("No se pudieron cargar los datos")
-    })
-  }
-
   onUpdate(): void {
     // this.onDetail()
-    this.backskillService.update(this.backSkillComponent.id, this.backSkill).subscribe(data => {
+    this.backskillService.update(this.backSkillComponent.id, this.backSkillComponent.backSkill).subscribe(data => {
       this.backSkillComponent.loadSkill()
     }, err => {
       alert("No se pudo modificar")

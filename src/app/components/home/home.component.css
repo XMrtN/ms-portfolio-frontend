@@ -32,26 +32,30 @@
 
 
 /* ---------- H1 & IMGBOX ---------- */
-#home h1 {
-  font-weight: 500;
+#home h1, #home p, #home .bi-pencil-square  {
   text-shadow: 2px 2px 2px hsl(0, 0%, 20%);
 }
+#home .bi-pencil-square  {
+  transition: text-shadow 0.15s;
+  -webkit-transition: text-shadow 0.15s;
+  -moz-transition: text-shadow 0.15s;
+  -ms-transition: text-shadow 0.15s;
+  -o-transition: text-shadow 0.15s;
+}
+#home .btn-outline-light:hover .bi-pencil-square  {
+  text-shadow: none;
+}
+
 #home h1 span {
   color: var(--second-color);
-  font-weight: 800;
 }
-#home p {
-  color: var(--title-color);
-  text-shadow: 2px 2px 2px hsl(0, 0%, 20%);
-}
+
 .imgBox {
   height: 150px;
   width: 150px;
 }
 
-#home h1,
-#home p,
-.imgBox {
+#home h1, #home p, .imgBox {
   opacity: 0;
   transform: translateX(-150px);
   -webkit-transform: translateX(-150px);

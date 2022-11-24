@@ -5,23 +5,34 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newExpLabel">Nueva experiencia</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
         <div class="modal-body">
-          <!-- Title input -->
+          <!-- Company name input -->
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expNameInput" 
-            name="expNameInput" 
+            id="expCompNameInput" 
+            name="expCompNameInput" 
             placeholder="Título" 
-            [(ngModel)]="expName" 
+            [(ngModel)]="expCompName" 
             required>
-            <label for="expNameInput">Título</label>
+            <label for="expCompNameInput">Nombre de la compañía</label>
+          </div>
+          <!-- Job title input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="expJobTitleInput" 
+            name="expJobTitleInput" 
+            placeholder="Título del puesto" 
+            [(ngModel)]="expJobTitle" 
+            required>
+            <label for="expJobTitleInput">Título del puesto</label>
           </div>
           <!-- Description input -->
-          <div class="form-floating">
+          <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
             id="expDescInput" 
@@ -31,9 +42,20 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             required>
             <label for="expDescInput">Descripción</label>
           </div>
+          <!-- Period input -->
+          <div class="form-floating">
+            <input type="text" 
+            class="form-control" 
+            id="expPeriodInput" 
+            name="expPeriodInput" 
+            placeholder="Periodo de tiempo" 
+            [(ngModel)]="expPeriod" 
+            required>
+            <label for="expPeriodInput">Periodo de tiempo</label>
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

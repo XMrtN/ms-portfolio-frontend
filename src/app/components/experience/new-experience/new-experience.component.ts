@@ -10,7 +10,9 @@ import { ExperienceComponent } from '../experience.component';
 })
 export class NewExperienceComponent implements OnInit {
 
-  expName: string
+  expCompName: string
+  expJobTitle: string
+  expPeriod: string
   expDesc: string
   
   constructor(
@@ -21,13 +23,21 @@ export class NewExperienceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClean(): void {
+    this.expCompName = ''
+    this.expJobTitle = ''
+    this.expPeriod = ''
+    this.expDesc = ''
+  }
+
   onCreate(): void {
-    const exp = new Experience(this.expName, this.expDesc)
+    const exp = new Experience(this.expCompName, this.expJobTitle, this.expPeriod, this.expDesc)
     this.experienceService.save(exp).subscribe(data => {
       this.experienceComponent.loadExp()
     }, err => {
       alert("No se pudo agregar")
     })
+    this.onClean()
   }
 
 }

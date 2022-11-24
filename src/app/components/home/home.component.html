@@ -7,19 +7,40 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-12 d-flex flex-column justify-content-center">
-        <h1 class="display-4">
+        <h1 class="display-4 fw-semibold">
           ¡Hola! Soy<br>
-          <!-- <span>{{person.name}} {{person.lastName}}</span> -->
+          <span class="fw-bolder">{{person.name}} {{person.lastName}}</span>
         </h1>
-        <p>Un Desarrollador Full Stack Jr.</p>
+        <p class="h6">
+          Un Desarrollador Full Stack Jr.
+          <button type="button" class="btn btn-outline-light p-1 ms-2" 
+          data-bs-toggle="modal" data-bs-target="#editPerson" 
+          *ngIf="isLoggedIn" (click)="this.id = person.id; this.onDetail()">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </p>
       </div>
       <div class="col-md-4 col-12 d-flex justify-content-center align-items-center">
         <div class="imgBox d-flex justify-content-center align-items-end">
-          <!-- <img src="{{person.img}}" alt="Martín Sepúlveda" class="h-100"> -->
+          <img src="{{person.img}}" alt="Martín Sepúlveda" class="h-100">
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- <app-edit-home></app-edit-home> -->
+<section id="about" class="pt-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 d-flex flex-column align-items-start mb-4">
+        <h2 class="reveal">SOBRE MÍ</h2>
+        <p>{{person.description}}</p>
+      </div>
+      
+      <app-experience class="col-md-6 col-12 mb-md-0 mb-4"></app-experience>
+      <app-education class="col-md-6 col-12"></app-education>
+    </div>
+  </div>
+</section>
+
+<app-edit-home></app-edit-home>

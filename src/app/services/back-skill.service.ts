@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { BackSkill } from '../models/back-skill.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { BackSkill } from '../models/back-skill.model';
 })
 export class BackSkillService {
 
-  backskillURL = "http://localhost:8080/backskill"
+  backskillURL = environment.url +  "/backskill"
 
   constructor(private httpClient: HttpClient) { }
 

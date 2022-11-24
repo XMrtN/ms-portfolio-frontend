@@ -1,26 +1,30 @@
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <h2 class="reveal second m-0">Experiencia laboral</h2>
-  <button type="button" class="btn btn-outline-light p-1" 
+<div class="d-flex align-items-start">
+  <h2 class="reveal second me-3">EXPERIENCIA</h2>
+  <button type="button" class="btn btn-outline-light p-1 ms-auto mb-2" 
   data-bs-toggle="modal" data-bs-target="#newExp" *ngIf="isLoggedIn">
     <i class="bi bi-plus-square"></i>
   </button>
 </div>
 
 <div class="row" *ngFor="let exp of experience">
+  <div class="container">
+    <hr>
+  </div>
+  
   <div class="col-1 d-flex flex-column align-items-center p-0">
     <div class="rounder"></div>
-    <div class="line"></div>
+    <div class="line mb-3"></div>
   </div>
 
   <div class="col-11">
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <h5 class="m-0">{{exp.expName}}</h5>
+    <div class="d-flex align-items-start">
+      <h5 class="me-3">{{exp.expJobTitle}}</h5>
 
-      <div class="d-flex gap-1 ms-3">
+      <div class="d-flex gap-1 ms-auto mb-2">
         <button type="button" class="btn btn-outline-light p-1" 
         data-bs-toggle="modal" data-bs-target="#editExp" 
-        *ngIf="isLoggedIn" (click)="this.id = exp.id">
-        <i class="bi bi-pencil-square"></i>
+        *ngIf="isLoggedIn" (click)="this.id = exp.id; this.onDetail()">
+          <i class="bi bi-pencil-square"></i>
         </button>
         <button type="button" class="btn btn-outline-light p-1" 
         *ngIf="isLoggedIn" (click)="delete(exp.id)">
@@ -29,7 +33,9 @@
       </div>
     </div>
   
+    <h6>{{exp.expCompName}}</h6>
     <p>{{exp.expDesc}}</p>
+    <p>Periodo: {{exp.expPeriod}}</p>
   </div>
 </div>
 

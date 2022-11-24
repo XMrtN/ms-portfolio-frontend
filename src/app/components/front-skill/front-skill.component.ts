@@ -13,6 +13,11 @@ export class FrontSkillComponent implements OnInit {
   isLoggedIn: boolean = false
   frontEnd: FrontSkill[] = []
   id:number
+  frontSkill: FrontSkill = {
+    id: 0,
+    name: '',
+    percentage: 50
+  }
 
   constructor(
     private frontskillService: FrontSkillService,
@@ -32,6 +37,14 @@ export class FrontSkillComponent implements OnInit {
   loadSkill(): void {
     this.frontskillService.list().subscribe(data => {
       this.frontEnd = data
+    })
+  }
+
+  onDetail(): void {
+    this.frontskillService.detail(this.id).subscribe(data => {
+      this.frontSkill = data
+    }, err => {
+      alert("No se pudieron cargar los datos")
     })
   }
 

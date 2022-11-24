@@ -46,6 +46,14 @@
   --bs-btn-active-border-color: var(--first-color-alt);
 }
 
+.btn-outline-light {
+  --bs-btn-color: var(--title-color);
+  --bs-btn-hover-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--title-color);
+  --bs-btn-active-color: var(--bs-body-bg);
+  --bs-btn-active-bg: var(--title-color);
+}
+
 /* cambio los colores de las variables provistas por bootstrap */
 .btn-dark:not(.active) {
   --bs-nav-link-color: hsl(0, 0%, 69%);
@@ -184,11 +192,15 @@ button.btn-outline-light {
 
 
 /* ---------- SECTIONS ---------- */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: var(--title-color);
 }
-p {
+p, .p, hr {
   color: var(--text-color);
+}
+
+span.ms-auto.mb-2, a.btn.btn-primary {
+  word-break: normal;
 }
 
 section {

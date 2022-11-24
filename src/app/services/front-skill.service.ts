@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { FrontSkill } from '../models/front-skill.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { FrontSkill } from '../models/front-skill.model';
 })
 export class FrontSkillService {
 
-  frontskillURL = "http://localhost:8080/frontskill"
+  frontskillURL = environment.url + "/frontskill"
 
   constructor(private httpClient: HttpClient) { }
 

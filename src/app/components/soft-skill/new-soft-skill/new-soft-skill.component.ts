@@ -11,7 +11,7 @@ import { SoftSkillComponent } from '../soft-skill.component';
 export class NewSoftSkillComponent implements OnInit {
 
   softskillName: string
-  softskillPercentage: number
+  softskillPercentage: number = 50
 
   constructor(
     private softskillService: SoftSkillService,
@@ -21,6 +21,11 @@ export class NewSoftSkillComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClean(): void {
+    this.softskillName = ''
+    this.softskillPercentage = 50
+  }
+
   onCreate(): void {
     const softskill = new SoftSkill(this.softskillName, this.softskillPercentage)
     this.softskillService.save(softskill).subscribe(data => {
@@ -28,6 +33,7 @@ export class NewSoftSkillComponent implements OnInit {
     }, err => {
       alert("No se pudo agregar")
     })
+    this.onClean()
   }
 
 }

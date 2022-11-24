@@ -1,11 +1,15 @@
 export class Education {
 
   id: number
-  edName: string
+  edInsTitle: string
+  edCareerName: string
+  edPeriod: string
   edDesc: string
 
-  constructor(edName: string, edDesc: string){
-    this.edName = edName
+  constructor(edInsTitle: string, edCareerName: string,  edPeriod: string, edDesc: string){
+    this.edInsTitle = edInsTitle
+    this.edCareerName = edCareerName
+    this.edPeriod = edPeriod
     this.edDesc = edDesc
   }
 

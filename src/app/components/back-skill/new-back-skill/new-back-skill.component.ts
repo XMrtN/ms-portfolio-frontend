@@ -11,7 +11,7 @@ import { BackSkillComponent } from '../back-skill.component';
 export class NewBackSkillComponent implements OnInit {
   
   backskillName: string
-  backskillPercentage: number
+  backskillPercentage: number = 50
 
   constructor(
     private backskillService: BackSkillService,
@@ -21,6 +21,11 @@ export class NewBackSkillComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClean(): void {
+    this.backskillName = ''
+    this.backskillPercentage = 50
+  }
+
   onCreate(): void {
     const backskill = new BackSkill(this.backskillName, this.backskillPercentage)
     this.backskillService.save(backskill).subscribe(data => {
@@ -28,6 +33,7 @@ export class NewBackSkillComponent implements OnInit {
     }, err => {
       alert("No se pudo agregar")
     })
+    this.onClean()
   }
 
 }
