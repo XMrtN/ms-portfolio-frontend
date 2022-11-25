@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
-import { EditEducationComponent } from './edit-education/edit-education.component';
 
 @Component({
   selector: 'app-education',

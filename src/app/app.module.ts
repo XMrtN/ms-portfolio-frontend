@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from './components/socials/socials.component';
+import { NewSocialComponent } from './components/socials/new-social/new-social.component';
+import { EditSocialComponent } from './components/socials/edit-social/edit-social.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { EditHomeComponent } from './components/home/edit-home/edit-home.component';
@@ -40,14 +42,13 @@ import { NewProyectComponent } from './components/proyects/new-proyect/new-proye
 import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
 
 import { ContactComponent } from './components/contact/contact.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
-import { NewSocialComponent } from './components/socials/new-social/new-social.component';
-import { EditSocialComponent } from './components/socials/edit-social/edit-social.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,8 @@ import { EditSocialComponent } from './components/socials/edit-social/edit-socia
     LoginComponent,
     NavbarComponent,
     SocialsComponent,
+    NewSocialComponent,
+    EditSocialComponent,
     HomeComponent,
     EditHomeComponent,
     AboutComponent,
@@ -78,15 +81,14 @@ import { EditSocialComponent } from './components/socials/edit-social/edit-socia
     ProyectsComponent,
     NewProyectComponent,
     EditProyectComponent,
-    ContactComponent,
-    NewSocialComponent,
-    EditSocialComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    DragDropModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],

@@ -6,36 +6,40 @@
   </button>
 </div>
 
-<div class="row" *ngFor="let ed of education">
-  <div class="container">
-    <hr>
-  </div>
-
-  <div class="col-1 d-flex flex-column align-items-center p-0">
-    <div class="rounder"></div>
-    <div class="line mb-3"></div>
-  </div>
-
-  <div class="col-11">
-    <div class="d-flex align-items-start">
-      <h5 class="me-3">{{ed.edCareerName}}</h5>
-
-      <div class="d-flex gap-1 ms-auto mb-2">
-        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-        data-bs-toggle="modal" data-bs-target="#editEd" 
-        *ngIf="isLoggedIn" (click)="this.id = ed.id; this.onDetail()">
-          <i class="bi bi-pencil-square"></i>
-        </button>
-        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-        *ngIf="isLoggedIn" (click)="delete(ed.id)">
-          <i class="bi bi-trash"></i>
-        </button>
+<div class="row" cdkDropList>
+  <div class="col-12" *ngFor="let ed of education" cdkDrag>
+    <div class="container">
+      <hr>
+    </div>
+    
+    <div class="row">
+      <div class="col-1 d-flex flex-column align-items-center p-0">
+        <div class="rounder"></div>
+        <div class="line mb-3"></div>
+      </div>
+      
+      <div class="col-11">
+        <div class="d-flex align-items-start">
+          <h5 class="me-3">{{ed.edCareerName}}</h5>
+      
+          <div class="d-flex gap-1 ms-auto mb-2">
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            data-bs-toggle="modal" data-bs-target="#editEd" 
+            *ngIf="isLoggedIn" (click)="this.id = ed.id; this.onDetail()">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            *ngIf="isLoggedIn" (click)="delete(ed.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      
+        <h6>{{ed.edInsTitle}}</h6>
+        <p>{{ed.edDesc}}</p>
+        <p>Periodo: {{ed.edPeriod}}</p>
       </div>
     </div>
-
-    <h6>{{ed.edInsTitle}}</h6>
-    <p>{{ed.edDesc}}</p>
-    <p>Periodo: {{ed.edPeriod}}</p>
   </div>
 </div>
 
