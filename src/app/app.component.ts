@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -11,13 +14,13 @@ export class AppComponent {
   constructor() { }
 
   ngOnInit(): void {
-    this.initAnimaitons()
-    this.initScrollAnimaitons()
+    this.initAnimaitons();
+    this.initScrollAnimaitons();
   }
 
   initAnimaitons(): void {
     window.addEventListener("load", () => {
-      document.querySelector(".wrapper")?.classList.add("fade")
+      document.querySelector(".wrapper")?.classList.add("fade");
     })
   }
 

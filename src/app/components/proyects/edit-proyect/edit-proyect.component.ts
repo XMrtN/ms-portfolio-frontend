@@ -22,10 +22,10 @@ export class EditProyectComponent implements OnInit {
 
   onUpdate(): void {
     // this.proyect.img = this.imageService.url
-    this.proyectService.update(this.proyectsComponent.id, this.proyectsComponent.proyect).subscribe(data => {
-      this.proyectsComponent.loadProyect()
+    this.proyectService.update(this.proyectsComponent.id!, this.proyectsComponent.proyect).subscribe(data => {
+      this.proyectsComponent.loadProyect();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

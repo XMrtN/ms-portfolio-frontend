@@ -10,10 +10,10 @@ import { ExperienceComponent } from '../experience.component';
 })
 export class NewExperienceComponent implements OnInit {
 
-  expCompName: string
-  expJobTitle: string
-  expPeriod: string
-  expDesc: string
+  expCompName?: string;
+  expJobTitle?: string;
+  expPeriod?: string;
+  expDesc?: string;
   
   constructor(
     private experienceService: ExperienceService,
@@ -24,20 +24,20 @@ export class NewExperienceComponent implements OnInit {
   }
 
   onClean(): void {
-    this.expCompName = ''
-    this.expJobTitle = ''
-    this.expPeriod = ''
-    this.expDesc = ''
+    this.expCompName = '';
+    this.expJobTitle = '';
+    this.expPeriod = '';
+    this.expDesc = '';
   }
 
   onCreate(): void {
-    const exp = new Experience(this.expCompName, this.expJobTitle, this.expPeriod, this.expDesc)
+    const exp = new Experience(this.expCompName!, this.expJobTitle!, this.expPeriod!, this.expDesc!);
     this.experienceService.save(exp).subscribe(data => {
-      this.experienceComponent.loadExp()
+      this.experienceComponent.loadExp();
     }, err => {
-      alert("No se pudo agregar")
+      alert("No se pudo agregar");
     })
-    this.onClean()
+    this.onClean();
   }
 
 }

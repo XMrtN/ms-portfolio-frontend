@@ -10,8 +10,8 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class AboutComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  person: Person = null
+  isLoggedIn: boolean = false;
+  person: Person = null!;
 
   constructor(
     private personService: PersonService,
@@ -19,18 +19,18 @@ export class AboutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadPerson()
+    this.loadPerson();
     
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
-      this.person = data
+      this.person = data;
     })
   }
 

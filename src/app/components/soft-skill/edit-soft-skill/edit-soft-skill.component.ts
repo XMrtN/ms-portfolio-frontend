@@ -19,10 +19,10 @@ export class EditSoftSkillComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.softskillService.update(this.softSkillComponent.id, this.softSkillComponent.softSkill).subscribe(data => {
-      this.softSkillComponent.loadSkill()
+    this.softskillService.update(this.softSkillComponent.id!, this.softSkillComponent.softSkill).subscribe(data => {
+      this.softSkillComponent.loadSkill();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

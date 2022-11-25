@@ -10,16 +10,16 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ExperienceComponent implements OnInit {
   
-  isLoggedIn: boolean = false
-  experience: Experience[] = []
-  id: number
+  isLoggedIn: boolean = false;
+  experience: Experience[] = [];
+  id?: number;
   exp: Experience = {
     id: 0,
     expCompName: '',
     expJobTitle: '',
     expPeriod: '',
     expDesc: ''
-  }
+  };
 
   constructor(
     private experienceService: ExperienceService,
@@ -27,35 +27,35 @@ export class ExperienceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadExp()
+    this.loadExp();
     
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
   loadExp(): void {
     this.experienceService.list().subscribe(data => {
-      this.experience = data
+      this.experience = data;
     })
   }
 
   onDetail(): void {
-    this.experienceService.detail(this.id).subscribe(data => {
-      this.exp = data
+    this.experienceService.detail(this.id!).subscribe(data => {
+      this.exp = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
   delete(id: number): void {
     if(id != undefined) {
       this.experienceService.delete(id).subscribe(data => {
-        this.loadExp()
+        this.loadExp();
       }, err => {
-        alert("No se pudo eliminar")
+        alert("No se pudo eliminar");
       })
     }
   }

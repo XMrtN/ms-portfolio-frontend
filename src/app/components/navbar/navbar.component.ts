@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class NavbarComponent implements OnInit {
   
-  isLoggedIn: boolean = false
+  isLoggedIn: boolean = false;
 
   constructor(
     private router: Router,
@@ -17,12 +18,12 @@ export class NavbarComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
-    this.initAnimations()
+    this.initAnimations();
 
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
   
@@ -37,12 +38,12 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogOut(): void {
-    this.tokenService.logOut()
-    window.location.reload()
+    this.tokenService.logOut();
+    window.location.reload();
   }
 
   logIn(): void {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
 }

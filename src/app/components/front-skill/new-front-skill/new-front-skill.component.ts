@@ -10,8 +10,8 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class NewFrontSkillComponent implements OnInit {
 
-  frontskillName: string
-  frontskillPercentage: number = 50
+  frontskillName?: string;
+  frontskillPercentage: number = 50;
 
   constructor(
     private frontskillService: FrontSkillService,
@@ -22,18 +22,18 @@ export class NewFrontSkillComponent implements OnInit {
   }
 
   onClean(): void {
-    this.frontskillName = ''
-    this.frontskillPercentage = 50
+    this.frontskillName = '';
+    this.frontskillPercentage = 50;
   }
 
   onCreate(): void {
-    const frontskill = new FrontSkill(this.frontskillName, this.frontskillPercentage)
+    const frontskill = new FrontSkill(this.frontskillName!, this.frontskillPercentage);
     this.frontskillService.save(frontskill).subscribe(data => {
-      this.frontSkillComponent.loadSkill()
+      this.frontSkillComponent.loadSkill();
     }, err => {
-      alert("No se pudo agregar")
+      alert("No se pudo agregar");
     })
-    this.onClean()
+    this.onClean();
   }
 
 }

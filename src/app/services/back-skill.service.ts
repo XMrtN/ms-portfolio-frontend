@@ -9,28 +9,28 @@ import { BackSkill } from '../models/back-skill.model';
 })
 export class BackSkillService {
 
-  backskillURL = environment.url +  "/backskill"
+  backskillURL = environment.url +  "/backskill";
 
   constructor(private httpClient: HttpClient) { }
 
   public list(): Observable<BackSkill[]> {
-    return this.httpClient.get<BackSkill[]>(this.backskillURL + '/list')
+    return this.httpClient.get<BackSkill[]>(this.backskillURL + '/list');
   }
 
   public detail(id: number): Observable<BackSkill> {
-    return this.httpClient.get<BackSkill>(this.backskillURL + `/detail/${id}`)
+    return this.httpClient.get<BackSkill>(this.backskillURL + `/detail/${id}`);
   }
 
   public save(backskill: BackSkill): Observable<any> {
-    return this.httpClient.post<any>(this.backskillURL + '/create', backskill)
+    return this.httpClient.post<any>(this.backskillURL + '/create', backskill);
   }
 
   public update(id: number, backskill: BackSkill): Observable<any> {
-    return this.httpClient.put<any>(this.backskillURL + `/update/${id}`, backskill)
+    return this.httpClient.put<any>(this.backskillURL + `/update/${id}`, backskill);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.backskillURL + `/delete/${id}`)
+    return this.httpClient.delete<any>(this.backskillURL + `/delete/${id}`);
   }
   
 }

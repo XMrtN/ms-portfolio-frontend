@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
+// import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-education',
@@ -10,16 +11,16 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class EducationComponent implements OnInit {
   
-  isLoggedIn: boolean = false
-  education: Education[] = []
-  id: number
+  isLoggedIn: boolean = false;
+  education: Education[] = [];
+  id?: number;
   ed: Education = {
     id: 0,
     edInsTitle: '',
     edCareerName: '',
     edPeriod: '',
     edDesc: ''
-  }
+  };
 
   constructor(
     private educationService: EducationService,
@@ -27,35 +28,39 @@ export class EducationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadEd()
+    this.loadEd();
     
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
+  // onDropped(event: CdkDragDrop<any>): void {
+  //   moveItemInArray(this.education, event.previousIndex, event.currentIndex)
+  // }
+
   loadEd(): void {
     this.educationService.list().subscribe(data => {
-      this.education = data
+      this.education = data;
     })
   }
 
   onDetail(): void {
-    this.educationService.detail(this.id).subscribe(data => {
-      this.ed = data
+    this.educationService.detail(this.id!).subscribe(data => {
+      this.ed = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
   delete(id: number): void {
     if(id != undefined) {
       this.educationService.delete(id).subscribe(data => {
-        this.loadEd()
+        this.loadEd();
       }, err => {
-        alert("No se pudo eliminar")
+        alert("No se pudo eliminar");
       })
     }
   }

@@ -10,14 +10,14 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class BackSkillComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  backEnd: BackSkill[] = []
-  id: number
+  isLoggedIn: boolean = false;
+  backEnd: BackSkill[] = [];
+  id?: number;
   backSkill: BackSkill = {
     id: 0,
     name: '',
     percentage: 50
-  }
+  };
 
   constructor(
     private backskillService: BackSkillService,
@@ -25,35 +25,35 @@ export class BackSkillComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadSkill()
+    this.loadSkill();
 
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
   loadSkill(): void {
     this.backskillService.list().subscribe(data => {
-      this.backEnd = data
+      this.backEnd = data;
     })
   }
 
   onDetail(): void {
-    this.backskillService.detail(this.id).subscribe(data => {
-      this.backSkill = data
+    this.backskillService.detail(this.id!).subscribe(data => {
+      this.backSkill = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
   delete(id: number): void {
     if(id != undefined) {
       this.backskillService.delete(id).subscribe(data => {
-        this.loadSkill()
+        this.loadSkill();
       }, err => {
-        alert("No se pudo eliminar")
+        alert("No se pudo eliminar");
       })
     }
   }

@@ -1,12 +1,12 @@
 export class SoftSkill {
 
-  id: number
-  name: string
-  percentage: number
+  id?: number;
+  name: string;
+  percentage: number;
 
   constructor(name: string, percentage: number){
-    this.name = name
-    this.percentage = percentage
+    this.name = name;
+    this.percentage = percentage;
   }
 
 }

@@ -19,11 +19,10 @@ export class EditBackSkillComponent implements OnInit {
   }
 
   onUpdate(): void {
-    // this.onDetail()
-    this.backskillService.update(this.backSkillComponent.id, this.backSkillComponent.backSkill).subscribe(data => {
-      this.backSkillComponent.loadSkill()
+    this.backskillService.update(this.backSkillComponent.id!, this.backSkillComponent.backSkill).subscribe(data => {
+      this.backSkillComponent.loadSkill();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

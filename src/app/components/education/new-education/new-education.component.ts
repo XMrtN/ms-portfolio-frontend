@@ -10,10 +10,10 @@ import { EducationComponent } from '../education.component';
 })
 export class NewEducationComponent implements OnInit {
 
-  edInsTitle: string
-  edCareerName: string
-  edPeriod: string
-  edDesc: string
+  edInsTitle?: string;
+  edCareerName?: string;
+  edPeriod?: string;
+  edDesc?: string;
 
   constructor(
     private educationService: EducationService,
@@ -24,20 +24,20 @@ export class NewEducationComponent implements OnInit {
   }
 
   onClean(): void {
-    this.edInsTitle = ''
-    this.edCareerName = ''
-    this.edPeriod = ''
-    this.edDesc = ''
+    this.edInsTitle = '';
+    this.edCareerName = '';
+    this.edPeriod = '';
+    this.edDesc = '';
   }
 
   onCreate(): void {
-    const ed = new Education(this.edInsTitle, this.edCareerName, this.edPeriod, this.edDesc)
+    const ed = new Education(this.edInsTitle!, this.edCareerName!, this.edPeriod!, this.edDesc!);
     this.educationService.save(ed).subscribe(data => {
-      this.educationComponenet.loadEd()
+      this.educationComponenet.loadEd();
     }, err => {
-      alert("No se pudo agregar")
+      alert("No se pudo agregar");
     })
-    this.onClean()
+    this.onClean();
   }
 
 }

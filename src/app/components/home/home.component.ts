@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
 import { TokenService } from 'src/app/services/token.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-home',
@@ -10,8 +14,8 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class HomeComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  person: Person = null
+  isLoggedIn: boolean = false;
+  person: Person = null!;
   parallax = [
     { url: "../../../assets/img/bg/stars.png", alt: "stars" },
     { url: "../../../assets/img/bg/moon.png", alt: "moon" },
@@ -20,14 +24,14 @@ export class HomeComponent implements OnInit {
     { url: "../../../assets/img/bg/smoke.png", alt: "smoke" },
     { url: "../../../assets/img/bg/road.png", alt: "road" },
   ]
-  id: number
+  id?: number;
   personEdit: Person = {
     id: 0,
     name: "",
     lastName: "",
     description: "",
     img: ""
-  }
+  };
 
   constructor(
     private personService: PersonService,
@@ -35,35 +39,35 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadPerson()
-    this.initAnimations()
+    this.loadPerson();
+    this.initAnimations();
 
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
 
     document.querySelectorAll("img").forEach(img => {
       if (img.complete) {
-        this.parallaxAnimations()
+        this.parallaxAnimations();
       } else {
-        img.addEventListener("load", imgLoaded => this.parallaxAnimations())
+        img.addEventListener("load", imgLoaded => this.parallaxAnimations());
       }
-    })
+    });
   }
 
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
-      this.person = data
+      this.person = data;
     })
   }
 
   onDetail(): void {
-    this.personService.detail(this.id).subscribe(data => {
-      this.personEdit = data
+    this.personService.detail(this.id!).subscribe(data => {
+      this.personEdit = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
@@ -85,7 +89,7 @@ export class HomeComponent implements OnInit {
       .to(".moon", {y: 400}, "<")
       .to(".shadow", {y: 300}, "<")
       .to(".building", {y: 150}, "<")
-      .to(".smoke", {y: 100}, "<")
+      .to(".smoke", {y: 100}, "<");
     
     ScrollTrigger.create({
       animation: parallax,

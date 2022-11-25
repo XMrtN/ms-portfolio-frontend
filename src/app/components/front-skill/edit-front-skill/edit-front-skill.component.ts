@@ -19,10 +19,10 @@ export class EditFrontSkillComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.frontskillService.update(this.frontSkillComponent.id, this.frontSkillComponent.frontSkill).subscribe((data) => {
-      this.frontSkillComponent.loadSkill()
+    this.frontskillService.update(this.frontSkillComponent.id!, this.frontSkillComponent.frontSkill).subscribe((data) => {
+      this.frontSkillComponent.loadSkill();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

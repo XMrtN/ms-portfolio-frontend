@@ -10,8 +10,8 @@ import { SocialsComponent } from '../socials.component';
 })
 export class NewSocialComponent implements OnInit {
 
-  socialIcon: string
-  socialUrl: string
+  socialIcon?: string;
+  socialUrl?: string;
   
   constructor(
     private socialService: SocialService,
@@ -22,18 +22,18 @@ export class NewSocialComponent implements OnInit {
   }
 
   onClean(): void {
-    this.socialIcon = ''
-    this.socialUrl = ''
+    this.socialIcon = '';
+    this.socialUrl = '';
   }
 
   onCreate(): void {
-    const social = new Social(this.socialIcon, this.socialUrl)
+    const social = new Social(this.socialIcon!, this.socialUrl!);
     this.socialService.save(social).subscribe(data => {
-      this.socialsComponent.loadSocial()
+      this.socialsComponent.loadSocial();
     }, err => {
-      alert("No se pudo agregar")
+      alert("No se pudo agregar");
     })
-    this.onClean()
+    this.onClean();
   }
 
 }

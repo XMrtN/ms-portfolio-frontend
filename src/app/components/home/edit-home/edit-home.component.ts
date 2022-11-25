@@ -21,17 +21,17 @@ export class EditHomeComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.homeComponent.personEdit.img = this.imageService.url
-    this.personService.update(this.homeComponent.id, this.homeComponent.personEdit).subscribe(data => {
-      this.homeComponent.loadPerson()
+    this.homeComponent.personEdit.img = this.imageService.url!;
+    this.personService.update(this.homeComponent.id!, this.homeComponent.personEdit).subscribe(data => {
+      this.homeComponent.loadPerson();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 
   uploadImage($event: any) {
-    const name = "profile_1"
-    this.imageService.uploadImage($event, name)
+    const name = "profile_1";
+    this.imageService.uploadImage($event, name);
   }
 
 }

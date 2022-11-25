@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Social } from 'src/app/models/social.model';
 import { SocialService } from 'src/app/services/social.service';
 import { TokenService } from 'src/app/services/token.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -11,9 +14,9 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class SocialsComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  socials: Social[] = []
-  id: number
+  isLoggedIn: boolean = false;
+  socials: Social[] = [];
+  id?: number;
   social: Social = {
     id: 0,
     icon: '',
@@ -26,36 +29,36 @@ export class SocialsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initScrollAnimations()
-    this.loadSocial()
+    this.initScrollAnimations();
+    this.loadSocial();
     
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
   loadSocial(): void {
     this.socialService.list().subscribe(data => {
-      this.socials = data
+      this.socials = data;
     })
   }
 
   onDetail(): void {
-    this.socialService.detail(this.id).subscribe(data => {
-      this.social = data
+    this.socialService.detail(this.id!).subscribe(data => {
+      this.social = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
   delete(id: number): void {
     if(id != undefined) {
       this.socialService.delete(id).subscribe(data => {
-        this.loadSocial()
+        this.loadSocial();
       }, err => {
-        alert("No se pudo eliminar")
+        alert("No se pudo eliminar");
       })
     }
   }

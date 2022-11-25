@@ -11,12 +11,12 @@ import { ProyectsComponent } from '../proyects.component';
 })
 export class NewProyectComponent implements OnInit {
 
-  proyectTitle: string
-  proyectSubtitle: string
-  proyectFinishDate: string
-  proyectDescription: string
-  proyectImg: string
-  proyectUrl: string
+  proyectTitle?: string;
+  proyectSubtitle?: string;
+  proyectFinishDate?: string;
+  proyectDescription?: string;
+  proyectImg?: string;
+  proyectUrl?: string;
   
   constructor(
     private proyectService: ProyectService,
@@ -28,23 +28,23 @@ export class NewProyectComponent implements OnInit {
   }
 
   onClean(): void {
-    this.proyectTitle = ''
-    this.proyectSubtitle = ''
-    this.proyectFinishDate = ''
-    this.proyectDescription = ''
-    this.proyectImg = ''
-    this.proyectUrl = ''
+    this.proyectTitle = '';
+    this.proyectSubtitle = '';
+    this.proyectFinishDate = '';
+    this.proyectDescription = '';
+    this.proyectImg = '';
+    this.proyectUrl = '';
   }
 
   onCreate(): void {
     // this.proyectImg = this.imageService.url
-    const proyect = new Proyect(this.proyectTitle, this.proyectSubtitle, this.proyectFinishDate, this.proyectDescription, this.proyectImg, this.proyectUrl)
+    const proyect = new Proyect(this.proyectTitle!, this.proyectSubtitle!, this.proyectFinishDate!, this.proyectDescription!, this.proyectImg!, this.proyectUrl!);
     this.proyectService.save(proyect).subscribe(data => {
-      this.proyectsComponent.loadProyect()
+      this.proyectsComponent.loadProyect();
     }, err => {
-      alert("No se pudo agregar")
+      alert("No se pudo agregar");
     })
-    this.onClean()
+    this.onClean();
   }
 
   // uploadImage($event: any) {

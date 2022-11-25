@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
-import gsap from 'gsap';
-
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -42,12 +40,12 @@ import { NewProyectComponent } from './components/proyects/new-proyect/new-proye
 import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
 
 import { ContactComponent } from './components/contact/contact.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+// import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
@@ -88,9 +86,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DragDropModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    // DragDropModule,
   ],
   providers: [
     InterceptorProvider

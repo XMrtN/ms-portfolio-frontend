@@ -18,10 +18,10 @@ export class EditSocialComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.socialService.update(this.socialsComponent.id, this.socialsComponent.social).subscribe(data => {
-      this.socialsComponent.loadSocial()
+    this.socialService.update(this.socialsComponent.id!, this.socialsComponent.social).subscribe(data => {
+      this.socialsComponent.loadSocial();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

@@ -10,9 +10,9 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ProyectsComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  proyects: Proyect[] = []
-  id: number
+  isLoggedIn: boolean = false;
+  proyects: Proyect[] = [];
+  id?: number;
   proyect: Proyect = {
     id: 0,
     title: '',
@@ -29,35 +29,35 @@ export class ProyectsComponent implements OnInit {
   ) { }
   
   ngOnInit(): void {
-    this.loadProyect()
+    this.loadProyect();
     
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     } else {
-      this.isLoggedIn = false
+      this.isLoggedIn = false;
     }
   }
 
   loadProyect(): void {
     this.proyectService.list().subscribe(data => {
-      this.proyects = data
+      this.proyects = data;
     })
   }
 
   onDetail(): void {
-    this.proyectService.detail(this.id).subscribe(data => {
-      this.proyect = data
+    this.proyectService.detail(this.id!).subscribe(data => {
+      this.proyect = data;
     }, err => {
-      alert("No se pudieron cargar los datos")
+      alert("No se pudieron cargar los datos");
     })
   }
 
   delete(id: number): void {
     if(id != undefined) {
       this.proyectService.delete(id).subscribe(data => {
-        this.loadProyect()
+        this.loadProyect();
       }, err => {
-        alert("No se pudo eliminar")
+        alert("No se pudo eliminar");
       })
     }
   }

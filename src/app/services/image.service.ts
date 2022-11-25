@@ -6,25 +6,25 @@ import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/s
 })
 export class ImageService {
 
-  url: string
+  url?: string;
 
   constructor(private storage: Storage) { }
 
   public uploadImage($event: any, name: string) {
-    const file = $event.target.files[0]
-    const imgRef = ref(this.storage, 'image/' + name)
+    const file = $event.target.files[0];
+    const imgRef = ref(this.storage, 'image/' + name);
     uploadBytes(imgRef, file).then(response => {
-      this.getImages()
-    }).catch(error => console.log(error))
+      this.getImages();
+    }).catch(error => console.log(error));
   }
 
   getImages() {
-    const imagesRef = ref(this.storage, 'image')
+    const imagesRef = ref(this.storage, 'image');
     list(imagesRef).then(async response => {
       for(let i of response.items) {
-        this.url = await getDownloadURL(i)
+        this.url = await getDownloadURL(i);
       }
-    }).catch(error => console.log(error))
+    }).catch(error => console.log(error));
   }
   
 }

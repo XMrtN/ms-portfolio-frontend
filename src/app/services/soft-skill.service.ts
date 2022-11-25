@@ -9,28 +9,28 @@ import { SoftSkill } from '../models/soft-skill.model';
 })
 export class SoftSkillService {
 
-  softskillURL = environment.url + "/softskill"
+  softskillURL = environment.url + "/softskill";
 
   constructor(private httpClient: HttpClient) { }
 
   public list(): Observable<SoftSkill[]> {
-    return this.httpClient.get<SoftSkill[]>(this.softskillURL + '/list')
+    return this.httpClient.get<SoftSkill[]>(this.softskillURL + '/list');
   }
 
   public detail(id: number): Observable<SoftSkill> {
-    return this.httpClient.get<SoftSkill>(this.softskillURL + `/detail/${id}`)
+    return this.httpClient.get<SoftSkill>(this.softskillURL + `/detail/${id}`);
   }
 
   public save(softskill: SoftSkill): Observable<any> {
-    return this.httpClient.post<any>(this.softskillURL + '/create', softskill)
+    return this.httpClient.post<any>(this.softskillURL + '/create', softskill);
   }
 
   public update(id: number, softskill: SoftSkill): Observable<any> {
-    return this.httpClient.put<any>(this.softskillURL + `/update/${id}`, softskill)
+    return this.httpClient.put<any>(this.softskillURL + `/update/${id}`, softskill);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.softskillURL + `/delete/${id}`)
+    return this.httpClient.delete<any>(this.softskillURL + `/delete/${id}`);
   }
   
 }

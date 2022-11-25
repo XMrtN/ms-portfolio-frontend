@@ -11,14 +11,14 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class LoginComponent implements OnInit {
 
-  isLoggedIn: boolean = false
-  isLoginFail: boolean = false
-  isShowing: boolean = false
-  loginUser: LoginUser
-  userName: string
-  password: string
-  roles: string[] = []
-  errorMsg: string
+  isLoggedIn: boolean = false;
+  isLoginFail: boolean = false;
+  isShowing: boolean = false;
+  loginUser?: LoginUser;
+  userName?: string;
+  password?: string;
+  roles: string[] = [];
+  errorMsg?: string;
 
   constructor(
     private tokenService: TokenService,
@@ -28,33 +28,33 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.tokenService.getToken()) {
-      this.isLoggedIn = true
-      this.isLoginFail = false
-      this.roles = this.tokenService.getAuthorities()
+      this.isLoggedIn = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
     }
   }
 
   onLogin(): void {
-    this.loginUser = new LoginUser(this.userName, this.password)
+    this.loginUser = new LoginUser(this.userName!, this.password!)
     this.authService.logIn(this.loginUser).subscribe(data => {
-      this.isLoggedIn = true
-      this.isLoginFail = false
-      this.tokenService.setToken(data.token)
-      this.tokenService.setUserName(data.userName)
-      this.tokenService.setAuthorities(data.authorities)
-      this.roles = data.authorities
-      this.goBack()
+      this.isLoggedIn = true;
+      this.isLoginFail = false;
+      this.tokenService.setToken(data.token!);
+      this.tokenService.setUserName(data.userName!);
+      this.tokenService.setAuthorities(data.authorities!);
+      this.roles = data.authorities!;
+      this.goBack();
     }, err => {
-      this.isLoggedIn = false
-      this.isLoginFail = true
-      this.errorMsg = err.error.msg
-      console.log(this.errorMsg)
+      this.isLoggedIn = false;
+      this.isLoginFail = true;
+      this.errorMsg = err.error.msg;
+      console.log(this.errorMsg);
     })
   }
 
   goBack(): void {
     this.router.navigate(['']).then(() => {
-      window.location.reload()
+      window.location.reload();
     })
   }
 

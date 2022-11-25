@@ -4,14 +4,14 @@
 
 export const environment = {
   firebase: {
-    projectId: 'frontendmartinsepulveda',
-    appId: '1:274607892361:web:aaf5e30a63c7a5e9df2358',
-    storageBucket: 'frontendmartinsepulveda.appspot.com',
+    projectId: 'martinsepulvedaportfolio',
+    appId: '1:138244697193:web:a43faefd899adecc8c06f8',
+    storageBucket: 'martinsepulvedaportfolio.appspot.com',
     locationId: 'southamerica-east1',
-    apiKey: 'AIzaSyBfHsoT1_YPQ9RR55RWvtB5NKNFdUqlTOc',
-    authDomain: 'frontendmartinsepulveda.firebaseapp.com',
-    messagingSenderId: '274607892361',
-    measurementId: 'G-TDPTWX7FRX',
+    apiKey: 'AIzaSyCQ8iZFQ6GtIR1mse2R3BTg2z7eO8ucBSw',
+    authDomain: 'martinsepulvedaportfolio.firebaseapp.com',
+    messagingSenderId: '138244697193',
+    measurementId: 'G-KZRSW3H9PF',
   },
   production: false,
   url: "http://localhost:8080"

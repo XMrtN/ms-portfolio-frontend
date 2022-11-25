@@ -19,10 +19,10 @@ export class EditExperienceComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.experienceService.update(this.experienceComponent.id, this.experienceComponent.exp).subscribe(data => {
-      this.experienceComponent.loadExp()
+    this.experienceService.update(this.experienceComponent.id!, this.experienceComponent.exp).subscribe(data => {
+      this.experienceComponent.loadExp();
     }, err => {
-      alert("No se pudo modificar")
+      alert("No se pudo modificar");
     })
   }
 

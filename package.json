@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-angular",
+  "name": "portfolio-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -11,20 +11,15 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
-    "@angular/cdk": "^15.0.0",
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",
     "@angular/core": "^14.1.0",
-    "@angular/fire": "^7.4.1",
+    "@angular/fire": "^7.5.0",
     "@angular/forms": "^14.1.0",
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
-    "@types/gsap": "^3.0.0",
-    "bootstrap": "^5.2.2",
-    "bootstrap-icons": "^1.9.1",
     "gsap": "^3.11.3",
-    "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
