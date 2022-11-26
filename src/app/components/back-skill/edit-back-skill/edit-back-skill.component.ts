@@ -23,7 +23,7 @@ export class EditBackSkillComponent implements OnInit {
       this.backSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

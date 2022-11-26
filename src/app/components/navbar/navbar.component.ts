@@ -9,22 +9,14 @@ import { gsap } from 'gsap';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
-  isLoggedIn: boolean = false;
 
   constructor(
     private router: Router,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
   
   ngOnInit(): void {
     this.initAnimations();
-
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
   
   initAnimations(): void {
@@ -33,13 +25,12 @@ export class NavbarComponent implements OnInit {
       .to(".nav-logo img", {y: 0}, 1)
       .to(".navbar-toggler", {y: 0}, "<0.5")
       .to(".nav-link", {y: 0, stagger: 0.2}, "<0.5")
-      .to(".login-btn, .logout-btn", {y: 0}, "<1.2");
-    })
+      .to(".log-btns", {y: 0}, "<1.2");
+    });
   }
 
   onLogOut(): void {
     this.tokenService.logOut();
-    window.location.reload();
   }
 
   logIn(): void {

@@ -11,7 +11,6 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class EducationComponent implements OnInit {
   
-  isLoggedIn: boolean = false;
   education: Education[] = [];
   id?: number;
   ed: Education = {
@@ -24,17 +23,11 @@ export class EducationComponent implements OnInit {
 
   constructor(
     private educationService: EducationService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.loadEd();
-    
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   // onDropped(event: CdkDragDrop<any>): void {
@@ -44,7 +37,7 @@ export class EducationComponent implements OnInit {
   loadEd(): void {
     this.educationService.list().subscribe(data => {
       this.education = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -52,7 +45,7 @@ export class EducationComponent implements OnInit {
       this.ed = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   delete(id: number): void {
@@ -61,7 +54,7 @@ export class EducationComponent implements OnInit {
         this.loadEd();
       }, err => {
         alert("No se pudo eliminar");
-      })
+      });
     }
   }
 

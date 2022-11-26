@@ -6,7 +6,7 @@
         <div class="d-flex align-items-start w-100">
           <h2 class="reveal me-3">PROYECTOS</h2>
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
-          data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="isLoggedIn">
+          data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="this.tokenService.isLoggedIn()">
             <i class="bi bi-plus-square"></i>
           </button>
         </div>
@@ -36,16 +36,16 @@
 
                 <div class="col-md-7">
                   <div class="card-body">
-                    <div class="d-flex align-items-start w-100">
+                    <div class="proyect-title d-flex align-items-start w-100">
                       <h5 class="card-title me-3">{{proyect.title}}</h5>
                       <div class="d-flex gap-1 ms-auto mb-2">
                         <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
                         data-bs-toggle="modal" data-bs-target="#editProyect" 
-                        *ngIf="isLoggedIn" (click)="this.id = proyect.id; this.onDetail()">
+                        *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = proyect.id; this.onDetail()">
                           <i class="bi bi-pencil-square"></i>
                         </button>
                         <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-                        *ngIf="isLoggedIn" (click)="delete(proyect.id!)">
+                        *ngIf="this.tokenService.isLoggedIn()" (click)="delete(proyect.id!)">
                           <i class="bi bi-trash"></i>
                         </button>
                       </div>

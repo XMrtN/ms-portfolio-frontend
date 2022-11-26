@@ -32,7 +32,7 @@ export class NewSocialComponent implements OnInit {
       this.socialsComponent.loadSocial();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

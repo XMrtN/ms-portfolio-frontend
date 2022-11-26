@@ -26,7 +26,7 @@ export class EditProyectComponent implements OnInit {
       this.proyectsComponent.loadProyect();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
   // uploadImage($event: any) {

@@ -32,7 +32,7 @@ export class NewSoftSkillComponent implements OnInit {
       this.softSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

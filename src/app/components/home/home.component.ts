@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class HomeComponent implements OnInit {
 
-  isLoggedIn: boolean = false;
   person: Person = null!;
   parallax = [
     { url: "../../../assets/img/bg/stars.png", alt: "stars" },
@@ -23,30 +22,26 @@ export class HomeComponent implements OnInit {
     { url: "../../../assets/img/bg/building.png", alt: "building" },
     { url: "../../../assets/img/bg/smoke.png", alt: "smoke" },
     { url: "../../../assets/img/bg/road.png", alt: "road" },
-  ]
+  ];
   id?: number;
   personEdit: Person = {
     id: 0,
-    name: "",
-    lastName: "",
-    description: "",
-    img: ""
+    name: '',
+    lastName: '',
+    description: '',
+    email: '',
+    img: '',
+    cv: ''
   };
 
   constructor(
     private personService: PersonService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.loadPerson();
     this.initAnimations();
-
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
 
     document.querySelectorAll("img").forEach(img => {
       if (img.complete) {
@@ -60,7 +55,7 @@ export class HomeComponent implements OnInit {
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
       this.person = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -68,19 +63,19 @@ export class HomeComponent implements OnInit {
       this.personEdit = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.to("#home h1, #home p, .imgBox", {
+      gsap.to("h1.display-4, .p.mb-2, .imgBox, a.btn-primary", {
         duration: 1,
         x: 0,
         opacity: 1,
         stagger: 0.4,
         delay: 2.4,
-      })
-    })
+      });
+    });
   }
 
   parallaxAnimations(): void {
@@ -97,7 +92,7 @@ export class HomeComponent implements OnInit {
       start: "top 0%",
       end: "bottom 0%",
       scrub: 1
-    })
+    });
   }
   
 }

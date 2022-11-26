@@ -37,10 +37,21 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             class="form-control" 
             id="personDescInput" 
             name="personDescInput" 
-            placeholder="Descripción" 
+            placeholder="Descripción sobre mí" 
             [(ngModel)]="this.homeComponent.personEdit.description" 
             required>
-            <label for="personDescInput">Descripción</label>
+            <label for="personDescInput">Descripción sobre mí</label>
+          </div>
+          <!-- Email input -->
+          <div class="form-floating mb-4">
+            <input type="email" 
+            class="form-control" 
+            id="personEmailInput" 
+            name="personEmailInput" 
+            placeholder="Correo electrónico" 
+            [(ngModel)]="this.homeComponent.personEdit.email" 
+            required>
+            <label for="personEmailInput">Correo electrónico</label>
           </div>
           <!-- Img input -->
           <div class="form-floating">
@@ -60,6 +71,17 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             <i class="bi bi-person-bounding-box" style="font-size: 150px" 
             *ngIf="!imageService.url"></i>
             <img [src]="imageService.url" width="150px" *ngIf="imageService.url">
+          </div>
+          <!-- Cv input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="personCvInput" 
+            name="personCvInput" 
+            placeholder="Url para descargar CV" 
+            [(ngModel)]="this.homeComponent.personEdit.cv" 
+            required>
+            <label for="personCvInput">Url para descargar CV</label>
           </div>
         </div>
         <div class="modal-footer">

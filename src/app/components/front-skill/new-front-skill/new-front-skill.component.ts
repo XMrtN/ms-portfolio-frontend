@@ -32,7 +32,7 @@ export class NewFrontSkillComponent implements OnInit {
       this.frontSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

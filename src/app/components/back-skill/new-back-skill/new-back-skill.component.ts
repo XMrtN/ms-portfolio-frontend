@@ -10,8 +10,8 @@ import { BackSkillComponent } from '../back-skill.component';
 })
 export class NewBackSkillComponent implements OnInit {
   
-  backskillName?: string
-  backskillPercentage: number = 50
+  backskillName?: string;
+  backskillPercentage: number = 50;
 
   constructor(
     private backskillService: BackSkillService,
@@ -32,7 +32,7 @@ export class NewBackSkillComponent implements OnInit {
       this.backSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

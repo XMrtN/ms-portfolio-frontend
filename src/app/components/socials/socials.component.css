@@ -1,16 +1,16 @@
 /* ---------- SOCIALS ---------- */
 /* div debajo de la pantalla con las redes sociales */
 /* se esconde en el home */
-.socials-container {
+.socials-widget-container {
   z-index: 10;
-  transform: translateY(100px);
-  -webkit-transform: translateY(100px);
-  -moz-transform: translateY(100px);
-  -ms-transform: translateY(100px);
-  -o-transform: translateY(100px);
+  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
 }
 /* simulo la forma de un trapecio */
-.socials::before {
+.socials-widget::before {
   position: absolute;
   content: "";
   left: 0;
@@ -30,6 +30,10 @@
   -o-transform: perspective(10px) rotateX(4deg);
 }
 
+.dropdown-menu {
+  --bs-dropdown-min-width: 0;
+}
+
 
 /* ---------- SCROLL UP BUTTON ---------- */
 /* botón scroll que se oculta en el home */
@@ -44,4 +48,14 @@
 }
 .scroll-up__btn i {
   font-size: 1.2em;
+}
+
+
+/* para pantallas muy chicas */
+@media screen and (max-width: 250px) {
+  .socials-widget {
+    gap: 0 !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
 }

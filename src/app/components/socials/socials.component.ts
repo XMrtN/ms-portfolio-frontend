@@ -14,35 +14,28 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class SocialsComponent implements OnInit {
 
-  isLoggedIn: boolean = false;
   socials: Social[] = [];
   id?: number;
   social: Social = {
     id: 0,
     icon: '',
     url: ''
-  }
+  };
 
   constructor(
     private socialService: SocialService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.initScrollAnimations();
     this.loadSocial();
-    
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   loadSocial(): void {
     this.socialService.list().subscribe(data => {
       this.socials = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -50,7 +43,7 @@ export class SocialsComponent implements OnInit {
       this.social = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   delete(id: number): void {
@@ -59,37 +52,37 @@ export class SocialsComponent implements OnInit {
         this.loadSocial();
       }, err => {
         alert("No se pudo eliminar");
-      })
+      });
     }
   }
 
   initScrollAnimations(): void {
     window.addEventListener("load", () => {
       gsap.to(".scroll-up__btn", {
-          duration: 0.5,
-          x: 16,
-          opacity: 0,
-          pointerEvents: "none",
-          scrollTrigger: {
-            trigger: "#home .container",
-            start: "top 100%",
-            end: "bottom 50%",
-            toggleActions: "play reverse play reverse"
-          }
-      })
+        duration: 0.5,
+        x: 16,
+        opacity: 0,
+        pointerEvents: "none",
+        scrollTrigger: {
+          trigger: "#home .container",
+          start: "top 100%",
+          end: "bottom 50%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
 
-      gsap.to(".socials-container", {
-          duration: 0.5,
-          y: 0,
-          delay: 3.4,
-          scrollTrigger: {
-            trigger: "#home .container",
-            start: "top 100%",
-            end: "bottom 50%",
-            toggleActions: "play reverse play reverse"
-          }
-      })
-    })
+      gsap.to(".socials-widget-container", {
+        duration: 0.5,
+        y: 0,
+        delay: 3.4,
+        scrollTrigger: {
+          trigger: "#home .container",
+          start: "top 100%",
+          end: "bottom 50%",
+          toggleActions: "play reverse play reverse"
+        }
+      });
+    });
   }
 
   // socialLinks(): void {

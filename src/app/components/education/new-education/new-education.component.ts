@@ -36,7 +36,7 @@ export class NewEducationComponent implements OnInit {
       this.educationComponenet.loadEd();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

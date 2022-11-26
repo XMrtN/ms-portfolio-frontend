@@ -16,10 +16,10 @@ tabindex="-1" aria-labelledby="newSocialLabel" aria-hidden="true">
               class="form-control" 
               id="socialIconInput" 
               name="socialIconInput" 
-              placeholder="Ícono de la red social" 
+              placeholder="Ícono" 
               [(ngModel)]="socialIcon" 
               required>
-              <label for="socialIconInput">Ícono de la red social</label>
+              <label class="form-label" for="socialIconInput">Ícono</label>
             </div>
             <a href="https://icons.getbootstrap.com/" class="btn btn-outline-primary d-flex align-items-center">
               <i class="{{socialIcon}} fs-3 lh-1"></i>
@@ -31,10 +31,10 @@ tabindex="-1" aria-labelledby="newSocialLabel" aria-hidden="true">
             class="form-control" 
             id="socialUrlInput" 
             name="socialUrlInput" 
-            placeholder="Link a la red social" 
+            placeholder="Url de enlace" 
             [(ngModel)]="socialUrl" 
             required>
-            <label for="socialUrlInput">Link a la red social</label>
+            <label class="form-label" for="socialUrlInput">Url de enlace</label>
           </div>
         </div>
         <div class="modal-footer">

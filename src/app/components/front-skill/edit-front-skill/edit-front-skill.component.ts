@@ -23,7 +23,7 @@ export class EditFrontSkillComponent implements OnInit {
       this.frontSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

@@ -50,4 +50,12 @@ export class TokenService {
     window.sessionStorage.clear();
   }
 
+  public isLoggedIn(): boolean {
+    if(this.getToken()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

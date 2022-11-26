@@ -15,10 +15,10 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             id="edInsTitleInput" 
             name="edInsTitleInput" 
-            placeholder="Título del instituto" 
+            placeholder="Instituto" 
             [(ngModel)]="this.educationComponent.ed.edInsTitle" 
             required>
-            <label for="edInsTitleInput">Título del instituto</label>
+            <label class="form-label" for="edInsTitleInput">Instituto</label>
           </div>
           <!-- Carrer name input -->
           <div class="form-floating mb-4">
@@ -26,10 +26,10 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             id="edCareerNameInput" 
             name="edCareerNameInput" 
-            placeholder="Título" 
+            placeholder="Carrera" 
             [(ngModel)]="this.educationComponent.ed.edCareerName" 
             required>
-            <label for="edCareerNameInput">Nombre de la carrera</label>
+            <label class="form-label" for="edCareerNameInput">Carrera</label>
           </div>
           <!-- Description input -->
           <div class="form-floating mb-4">
@@ -40,7 +40,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             placeholder="Descripción" 
             [(ngModel)]="this.educationComponent.ed.edDesc" 
             required>
-            <label for="edDescInput">Descripción</label>
+            <label class="form-label" for="edDescInput">Descripción</label>
           </div>
           <!-- Period input -->
           <div class="form-floating">
@@ -51,7 +51,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             placeholder="Periodo de tiempo" 
             [(ngModel)]="this.educationComponent.ed.edPeriod" 
             required>
-            <label for="edPeriodInput">Periodo de tiempo</label>
+            <label class="form-label" for="edPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">

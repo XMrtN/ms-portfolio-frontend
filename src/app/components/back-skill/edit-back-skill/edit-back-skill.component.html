@@ -15,14 +15,14 @@ tabindex="-1" aria-labelledby="editBackSkillLabel" aria-hidden="true" *ngIf="thi
             class="form-control" 
             id="skillNameInput" 
             name="skillNameInput" 
-            placeholder="Nombre" 
+            placeholder="Habilidad" 
             [(ngModel)]="this.backSkillComponent.backSkill.name" 
             required>
-            <label for="skillNameInput">Nombre</label>
+            <label class="form-label" for="skillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
-          <label for="skillPercentageInput" class="form-label me-2">
-            Porcentaje: {{this.backSkillComponent.backSkill.percentage}}%
+          <label class="form-label me-2" for="skillPercentageInput">
+            Progreso: {{this.backSkillComponent.backSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 

@@ -23,7 +23,7 @@ export class EditExperienceComponent implements OnInit {
       this.experienceComponent.loadExp();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

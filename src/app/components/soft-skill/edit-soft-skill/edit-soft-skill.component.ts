@@ -23,7 +23,7 @@ export class EditSoftSkillComponent implements OnInit {
       this.softSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

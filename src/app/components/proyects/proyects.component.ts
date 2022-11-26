@@ -10,7 +10,6 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ProyectsComponent implements OnInit {
 
-  isLoggedIn: boolean = false;
   proyects: Proyect[] = [];
   id?: number;
   proyect: Proyect = {
@@ -21,27 +20,21 @@ export class ProyectsComponent implements OnInit {
     description: '',
     img: '',
     url: ''
-  }
+  };
 
   constructor(
     private proyectService: ProyectService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
   
   ngOnInit(): void {
     this.loadProyect();
-    
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   loadProyect(): void {
     this.proyectService.list().subscribe(data => {
       this.proyects = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -49,7 +42,7 @@ export class ProyectsComponent implements OnInit {
       this.proyect = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   delete(id: number): void {
@@ -58,7 +51,7 @@ export class ProyectsComponent implements OnInit {
         this.loadProyect();
       }, err => {
         alert("No se pudo eliminar");
-      })
+      });
     }
   }
 

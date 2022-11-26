@@ -34,3 +34,15 @@
   -ms-transform: translateX(0.25rem);
   -o-transform: translateX(0.25rem);
 }
+
+
+/* para pantallas muy chicas */
+@media screen and (max-width: 250px) {
+  .proyect-title {
+    flex-wrap: wrap-reverse;
+  }
+  .carousel-item {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+}

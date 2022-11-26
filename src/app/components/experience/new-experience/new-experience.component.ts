@@ -36,7 +36,7 @@ export class NewExperienceComponent implements OnInit {
       this.experienceComponent.loadExp();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

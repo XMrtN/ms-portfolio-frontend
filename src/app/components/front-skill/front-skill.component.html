@@ -6,13 +6,13 @@
     data-bs-toggle="collapse" 
     data-bs-target="#collapseOne" 
     aria-controls="collapseOne">
-      <i class="bi bi-braces accordion-icon me-3"></i>
+      <i class="skill-type-icon bi bi-braces accordion-icon me-3"></i>
 
       <div class="w-100">
-        <div class="d-flex align-items-start">
+        <div class="skill-type-title d-flex align-items-start">
           <h5 class="me-3">Frontend</h5>
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
-          data-bs-toggle="modal" data-bs-target="#newFrontSkill" *ngIf="isLoggedIn">
+          data-bs-toggle="modal" data-bs-target="#newFrontSkill" *ngIf="this.tokenService.isLoggedIn()">
             <i class="bi bi-plus-square"></i>
           </button>
         </div>
@@ -34,11 +34,11 @@
           <div class="d-flex gap-1 ps-2 mb-2">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editFrontSkill" 
-            *ngIf="isLoggedIn" (click)="this.id = skill.id; this.onDetail()">
+            *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = skill.id; this.onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-            *ngIf="isLoggedIn" (click)="delete(skill.id!)">
+            *ngIf="this.tokenService.isLoggedIn()" (click)="delete(skill.id!)">
               <i class="bi bi-trash"></i>
             </button>
           </div>

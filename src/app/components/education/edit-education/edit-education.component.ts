@@ -23,7 +23,7 @@ export class EditEducationComponent implements OnInit {
       this.educationComponent.loadEd();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

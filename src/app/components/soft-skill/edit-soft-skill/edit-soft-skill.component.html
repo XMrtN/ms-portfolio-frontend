@@ -15,14 +15,14 @@ tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="thi
             class="form-control" 
             id="skillNameInput" 
             name="skillNameInput" 
-            placeholder="Nombre" 
+            placeholder="Habilidad" 
             [(ngModel)]="this.softSkillComponent.softSkill.name" 
             required>
-            <label for="skillNameInput">Nombre</label>
+            <label class="form-label" for="skillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
-          <label for="skillPercentageInput" class="form-label me-2">
-            Porcentaje: {{this.softSkillComponent.softSkill.percentage}}%
+          <label class="form-label me-2" for="skillPercentageInput">
+            Progreso: {{this.softSkillComponent.softSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 

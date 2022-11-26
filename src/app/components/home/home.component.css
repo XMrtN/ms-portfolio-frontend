@@ -14,9 +14,13 @@
   content: '';
   left: 0;
   bottom: 0;
-  height: 100px;
+  height: 56px;
   width: 100%;
-  background-image: linear-gradient(to top, var(--bs-body-bg) 0%, transparent 100%);
+  background-image: linear-gradient(
+    to top,
+    var(--bs-body-bg) 0%,
+    transparent 100%
+  );
 }
 
 .parallax {
@@ -32,9 +36,20 @@
 
 
 /* ---------- H1 & IMGBOX ---------- */
+/* se esconden para mostrarse con animación */
+h1.display-4, .p.mb-2, .imgBox, a.btn-primary {
+  opacity: 0;
+  transform: translateX(-150px);
+  -webkit-transform: translateX(-150px);
+  -moz-transform: translateX(-150px);
+  -ms-transform: translateX(-150px);
+  -o-transform: translateX(-150px);
+}
+
 #home h1, #home p, #home .bi-pencil-square  {
   text-shadow: 2px 2px 2px hsl(0, 0%, 20%);
 }
+
 #home .bi-pencil-square  {
   transition: text-shadow 0.15s;
   -webkit-transition: text-shadow 0.15s;
@@ -42,6 +57,7 @@
   -ms-transition: text-shadow 0.15s;
   -o-transition: text-shadow 0.15s;
 }
+
 #home .btn-outline-light:hover .bi-pencil-square  {
   text-shadow: none;
 }
@@ -55,15 +71,6 @@
   width: 150px;
 }
 
-#home h1, #home p, .imgBox {
-  opacity: 0;
-  transform: translateX(-150px);
-  -webkit-transform: translateX(-150px);
-  -moz-transform: translateX(-150px);
-  -ms-transform: translateX(-150px);
-  -o-transform: translateX(-150px);
-}
-
 /* transformo el fondo de la foto en un paralelogramo */
 .imgBox::before,
 .imgBox::after {
@@ -74,11 +81,6 @@
   height: 70%;
   width: 100%;
   background-color: var(--second-color);
-  border-radius: 2rem 0.5rem 2rem 0.5rem;
-  -webkit-border-radius: 2rem 0.5rem 2rem 0.5rem;
-  -moz-border-radius: 2rem 0.5rem 2rem 0.5rem;
-  -ms-border-radius: 2rem 0.5rem 2rem 0.5rem;
-  -o-border-radius: 2rem 0.5rem 2rem 0.5rem;
   z-index: -1;
   transform: skewX(40deg);
   -webkit-transform: skewX(40deg);
@@ -89,15 +91,40 @@
 .imgBox::after {
   border: 2px solid var(--second-color);
   background-color: transparent;
-  transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -ms-transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
 }
 .imgBox:hover::after {
-  left: -5px;
-  bottom: -10px;
+  left: -10px;
+  bottom: -15px;
+}
+
+.imgBox img {
+  filter: brightness(0);
+  -webkit-filter: brightness(0);
+  transform-origin: bottom;
+  transform: scale(0.9) translateX(-10px);
+  -webkit-transform: scale(0.9) translateX(-10px);
+  -moz-transform: scale(0.9) translateX(-10px);
+  -ms-transform: scale(0.9) translateX(-10px);
+  -o-transform: scale(0.9) translateX(-10px);
+  transition: 0.5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -ms-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+}
+.imgBox:hover img {
+  filter: brightness(1);
+  -webkit-filter: brightness(1);
+  transform: scale(1) translateX(0);
+  -webkit-transform: scale(1) translateX(0);
+  -moz-transform: scale(1) translateX(0);
+  -ms-transform: scale(1) translateX(0);
+  -o-transform: scale(1) translateX(0);
 }
 
 
@@ -107,5 +134,12 @@
   .imgBox {
     height: 200px;
     width: 200px;
+  }
+}
+
+/* para pantallas muy chicas */
+@media screen and (max-width: 250px) {
+  .person-col {
+    margin-bottom: 0 !important;
   }
 }

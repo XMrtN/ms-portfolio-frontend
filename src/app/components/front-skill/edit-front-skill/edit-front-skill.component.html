@@ -15,14 +15,14 @@ tabindex="-1" aria-labelledby="editFrontSkillLabel" aria-hidden="true" *ngIf="th
             class="form-control" 
             id="skillNameInput" 
             name="skillNameInput" 
-            placeholder="Nombre" 
+            placeholder="Habilidad" 
             [(ngModel)]="this.frontSkillComponent.frontSkill.name" 
             required>
-            <label for="skillNameInput">Nombre</label>
+            <label class="form-label" for="skillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
-          <label for="skillPercentageInput" class="form-label me-2">
-            Porcentaje: {{this.frontSkillComponent.frontSkill.percentage}}%
+          <label class="form-label" for="skillPercentageInput">
+            Progreso: {{this.frontSkillComponent.frontSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 

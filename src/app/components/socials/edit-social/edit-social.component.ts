@@ -22,7 +22,7 @@ export class EditSocialComponent implements OnInit {
       this.socialsComponent.loadSocial();
     }, err => {
       alert("No se pudo modificar");
-    })
+    });
   }
 
 }

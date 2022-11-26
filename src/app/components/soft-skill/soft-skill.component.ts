@@ -10,34 +10,27 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class SoftSkillComponent implements OnInit {
 
-  isLoggedIn: boolean = false;
   soft: SoftSkill[] = [];
   id?: number;
   softSkill: SoftSkill = {
     id: 0,
     name: '',
     percentage: 50
-  }
+  };
 
   constructor(
     private softskillService: SoftSkillService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.loadSkill();
-
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   loadSkill(): void {
     this.softskillService.list().subscribe(data => {
       this.soft = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -45,7 +38,7 @@ export class SoftSkillComponent implements OnInit {
       this.softSkill = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   delete(id: number): void {
@@ -54,7 +47,7 @@ export class SoftSkillComponent implements OnInit {
         this.loadSkill();
       }, err => {
         alert("No se pudo eliminar");
-      })
+      });
     }
   }
 

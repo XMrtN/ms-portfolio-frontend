@@ -49,13 +49,13 @@ export class LoginComponent implements OnInit {
       this.isLoginFail = true;
       this.errorMsg = err.error.msg;
       console.log(this.errorMsg);
-    })
+    });
   }
 
   goBack(): void {
     this.router.navigate(['']).then(() => {
       window.location.reload();
-    })
+    });
   }
 
 }

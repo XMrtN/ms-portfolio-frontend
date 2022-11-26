@@ -10,24 +10,43 @@
       </div>
 
       <div class="col-lg-7 col-md-8 col-12">
-        <form>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <form action="mailto:{{this.person.email}}">
+          <!-- Email input -->
+          <div class="form-floating mb-4">
+            <input type="email" 
+            class="form-control" 
+            id="EmailInput" 
+            name="EmailInput" 
+            placeholder="Ícono" 
+            [(ngModel)]="Email" 
+            required>
+            <label class="form-label" for="EmailInput">Correo electrónico</label>
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <!-- Description input -->
+          <div class="form-floating">
+            <textarea type="text" 
+            class="form-control" 
+            rows="4" 
+            id="DescInput" 
+            name="DescInput" 
+            placeholder="Escribe aquí" 
+            [(ngModel)]="Desc" 
+            required></textarea>
+            <label class="form-label" for="DescInput">Escribe aquí</label>
           </div>
-          
-          <button class="btn btn-primary d-inline-flex align-items-center p-3 mt-2" type="submit">Enviar Mensaje <i class="bi bi-send btn-icon mx-2"></i></button>
+          <hr>
+          <button class="btn btn-primary d-inline-flex align-items-center p-3" type="submit">
+            Enviar Mensaje <i class="bi bi-send fs-5 mx-2"></i>
+          </button>
         </form>
       </div>
     </div>
 
     <footer class="d-flex justify-content-center mt-5">
       <p>
-        Background: <a href="https://www.freepik.com/free-vector/destroyed-buildings-city-street-after-war-natural-disaster-night-vector-parallax-background-with-cartoon-cityscape-with-abandoned-broken-houses-with-smoke-cracked-road-moon-sky_21087605.htm">Destroyed city vector</a> by <a href="https://www.freepik.com/author/upklyak">upklyak</a> on <a href="https://www.freepik.com/">Freepik</a>
+        Página hecha por 
+        <a href="#home">{{this.person.name}} {{this.person.lastName}}</a><br>
+        Fondo: <a href="https://www.freepik.com/free-vector/destroyed-buildings-city-street-after-war-natural-disaster-night-vector-parallax-background-with-cartoon-cityscape-with-abandoned-broken-houses-with-smoke-cracked-road-moon-sky_21087605.htm">Destroyed city vector</a> por <a href="https://www.freepik.com/author/upklyak">upklyak</a>
       </p>
     </footer>
   </div>

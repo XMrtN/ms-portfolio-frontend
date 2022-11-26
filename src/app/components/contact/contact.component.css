@@ -2,8 +2,7 @@ footer a {
   color: var(--first-color);
 }
 
-.btn-icon {
-  font-size: 1.25rem;
+.bi-send {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);

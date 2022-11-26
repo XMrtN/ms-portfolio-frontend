@@ -1,3 +1,4 @@
+/* ---------- BACKSKILL SECTION ---------- */
 .accordion-icon {
   font-size: 2rem;
 }
@@ -36,4 +37,15 @@
 .progress {
   --bs-progress-bar-bg: var(--first-color);
   --bs-progress-bg: var(--first-color-lighter);
+}
+
+
+/* para pantallas muy chicas */
+@media screen and (max-width: 250px) {
+  .skill-type-icon {
+    display: none;
+  }
+  .skill-type-title {
+    flex-wrap: wrap-reverse;
+  }
 }

@@ -11,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class AppComponent {
 
+  isLoaded: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,7 +23,8 @@ export class AppComponent {
   initAnimaitons(): void {
     window.addEventListener("load", () => {
       document.querySelector(".wrapper")?.classList.add("fade");
-    })
+      setTimeout(() => {this.isLoaded = true}, 2000);
+    });
   }
 
   initScrollAnimaitons(): void {
@@ -32,9 +35,9 @@ export class AppComponent {
           toggleClass: "active",
           start: "top 100%",
           end: "bottom 0%"
-        })
-      })
-    })
+        });
+      });
+    });
   }
 
 }

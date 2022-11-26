@@ -43,7 +43,7 @@ export class NewProyectComponent implements OnInit {
       this.proyectsComponent.loadProyect();
     }, err => {
       alert("No se pudo agregar");
-    })
+    });
     this.onClean();
   }
 

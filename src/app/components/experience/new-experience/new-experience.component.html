@@ -15,10 +15,10 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             id="expCompNameInput" 
             name="expCompNameInput" 
-            placeholder="Título" 
+            placeholder="Compañía o empresa" 
             [(ngModel)]="expCompName" 
             required>
-            <label for="expCompNameInput">Nombre de la compañía</label>
+            <label class="form-label" for="expCompNameInput">Compañía o empresa</label>
           </div>
           <!-- Job title input -->
           <div class="form-floating mb-4">
@@ -26,10 +26,10 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             id="expJobTitleInput" 
             name="expJobTitleInput" 
-            placeholder="Título del puesto" 
+            placeholder="Puesto" 
             [(ngModel)]="expJobTitle" 
             required>
-            <label for="expJobTitleInput">Título del puesto</label>
+            <label class="form-label" for="expJobTitleInput">Puesto</label>
           </div>
           <!-- Description input -->
           <div class="form-floating mb-4">
@@ -40,7 +40,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             placeholder="Descripción" 
             [(ngModel)]="expDesc" 
             required>
-            <label for="expDescInput">Descripción</label>
+            <label class="form-label" for="expDescInput">Descripción</label>
           </div>
           <!-- Period input -->
           <div class="form-floating">
@@ -51,7 +51,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             placeholder="Periodo de tiempo" 
             [(ngModel)]="expPeriod" 
             required>
-            <label for="expPeriodInput">Periodo de tiempo</label>
+            <label class="form-label" for="expPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">

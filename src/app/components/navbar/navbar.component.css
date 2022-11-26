@@ -1,4 +1,12 @@
 /* ---------- MOBILE ---------- */
+.navbar {
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-body-bg) 0%,
+    transparent 100%
+  );
+}
+
 /* oculto los elementos del header para animación */
 .nav-logo img,
 .navbar-toggler,
@@ -129,6 +137,10 @@
 /* ---------- MEDIA QUERIES ---------- */
 /* estilos para pantallas más grandes */
 @media only screen and (min-width: 768px) {
+  .navbar {
+    background-image: none;
+  }
+  
   .nav-logo,
   .nav-logo img {
     max-width: 90px;

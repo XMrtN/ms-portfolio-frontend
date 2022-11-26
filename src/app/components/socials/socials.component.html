@@ -1,42 +1,41 @@
 <!---------- SOCIALS WIDGET ---------->
-<div class="socials-container fixed-bottom bottom-0 d-flex flex-column align-items-center mx-auto">
-  <button type="button" class="btn btn-outline-light d-flex border-0 lh-1 fs-5 h-fc p-1" 
-  data-bs-toggle="modal" data-bs-target="#newSocial" *ngIf="isLoggedIn">
-    <i class="bi bi-plus-square"></i>
-  </button>
-  
-  <div class="socials position-relative d-flex justify-content-between align-items-center gap-2 pt-2 px-3">
+<div class="socials-widget-container fixed-bottom bottom-0 d-flex flex-column align-items-center">
+  <div class="socials-widget position-relative d-flex gap-2 pt-2 px-3">
     <div class="dropup-center dropup" *ngFor="let social of socials">
-      <button class="btn btn-outline-warning border-0 lh-1 fs-5 h-fc p-1 my-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1 my-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="{{social.icon}}"></i>
       </button>
 
-      <ul class="dropdown-menu dropdown-menu-dark d-flex justify-content-center align-items-center gap-1">
+      <ul class="dropdown-menu dropdown-menu-dark d-flex gap-3 p-2">
         <li>
           <a href="{{social.url}}" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1">
             <i class="bi bi-box-arrow-up-right"></i>
           </a>
         </li>
-        <li>
+        <li class="d-flex gap-1" *ngIf="this.tokenService.isLoggedIn()">
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
           data-bs-toggle="modal" data-bs-target="#editSocial" 
-          *ngIf="isLoggedIn" (click)="this.id = social.id; this.onDetail()">
+          (click)="this.id = social.id; this.onDetail()">
             <i class="bi bi-pencil-square"></i>
           </button>
-        </li>
-        <li>
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-          *ngIf="isLoggedIn" (click)="delete(social.id!)">
+          (click)="delete(social.id!)">
             <i class="bi bi-trash"></i>
           </button>
         </li>
       </ul>
     </div>
+
+    <button type="button" class="btn btn-outline-light d-flex border-0 lh-1 fs-5 h-fc p-1 my-2" 
+    data-bs-toggle="modal" data-bs-target="#newSocial" *ngIf="this.tokenService.isLoggedIn()">
+      <i class="bi bi-plus-square"></i>
+    </button>
   </div>
 </div>
 
 <app-new-social></app-new-social>
 <app-edit-social></app-edit-social>
+
 
 <!---------- SCROLL UP BUTTON ---------->
 <a href="#" class="scroll-up__btn btn btn-dark position-fixed m-3 py-0 px-2" type="button">

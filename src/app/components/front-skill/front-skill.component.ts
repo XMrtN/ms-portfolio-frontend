@@ -10,7 +10,6 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class FrontSkillComponent implements OnInit {
 
-  isLoggedIn: boolean = false;
   frontEnd: FrontSkill[] = [];
   id?:number;
   frontSkill: FrontSkill = {
@@ -21,23 +20,17 @@ export class FrontSkillComponent implements OnInit {
 
   constructor(
     private frontskillService: FrontSkillService,
-    private tokenService: TokenService
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
     this.loadSkill();
-
-    if(this.tokenService.getToken()) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
   }
 
   loadSkill(): void {
     this.frontskillService.list().subscribe(data => {
       this.frontEnd = data;
-    })
+    });
   }
 
   onDetail(): void {
@@ -45,7 +38,7 @@ export class FrontSkillComponent implements OnInit {
       this.frontSkill = data;
     }, err => {
       alert("No se pudieron cargar los datos");
-    })
+    });
   }
 
   delete(id: number): void {
@@ -54,7 +47,7 @@ export class FrontSkillComponent implements OnInit {
         this.loadSkill();
       }, err => {
         alert("No se pudo eliminar");
-      })
+      });
     }
   }
 

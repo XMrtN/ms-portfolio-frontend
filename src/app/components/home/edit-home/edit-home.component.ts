@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'src/app/models/person.model';
 import { ImageService } from 'src/app/services/image.service';
 import { PersonService } from 'src/app/services/person.service';
 import { HomeComponent } from '../home.component';
