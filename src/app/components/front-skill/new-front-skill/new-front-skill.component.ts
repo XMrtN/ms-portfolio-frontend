@@ -10,6 +10,7 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class NewFrontSkillComponent implements OnInit {
 
+  position?: number;
   frontskillName?: string;
   frontskillPercentage: number = 50;
 
@@ -27,7 +28,7 @@ export class NewFrontSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const frontskill = new FrontSkill(this.frontskillName!, this.frontskillPercentage);
+    const frontskill = new FrontSkill(this.position!, this.frontskillName!, this.frontskillPercentage);
     this.frontskillService.save(frontskill).subscribe(data => {
       this.frontSkillComponent.loadSkill();
     }, err => {

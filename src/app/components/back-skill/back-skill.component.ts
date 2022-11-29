@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { BackSkill } from 'src/app/models/back-skill.model';
 import { BackSkillService } from 'src/app/services/back-skill.service';
@@ -6,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-back-skill',
   templateUrl: './back-skill.component.html',
-  styleUrls: ['./back-skill.component.css']
+  styleUrls: ['./back-skill.component.css', '../skills/skills.component.css']
 })
 export class BackSkillComponent implements OnInit {
 
@@ -14,6 +15,7 @@ export class BackSkillComponent implements OnInit {
   id?: number;
   backSkill: BackSkill = {
     id: 0,
+    position: 0,
     name: '',
     percentage: 50
   };
@@ -25,6 +27,18 @@ export class BackSkillComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSkill();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.backEnd, event.previousIndex, event.currentIndex);
+    this.backEnd.forEach(back => {
+      back.position = this.backEnd.indexOf(back);
+      this.backskillService.updatePos(back.id!, back).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
+    setTimeout(() => { this.loadSkill(); }, 3000);
   }
 
   loadSkill(): void {

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
-import { HomeComponent } from '../home/home.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -10,8 +10,6 @@ import { HomeComponent } from '../home/home.component';
 })
 export class ContactComponent implements OnInit {
 
-  Email?: string;
-  Desc?: string;
   person: Person = {
     id: 0,
     name: '',
@@ -21,6 +19,7 @@ export class ContactComponent implements OnInit {
     img: '',
     cv: ''
   };
+  environment = environment.url;
 
   constructor(protected personService: PersonService) { }
 

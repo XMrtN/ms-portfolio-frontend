@@ -2,7 +2,7 @@
 .navbar {
   background-image: linear-gradient(
     to bottom,
-    var(--bs-body-bg) 0%,
+    var(--bs-body-bg) 25%,
     transparent 100%
   );
 }
@@ -20,14 +20,10 @@
   -o-transform: translateY(-200px);
 }
 
-.nav-logo img,
-.navbar-toggler {
-  z-index: 10000;
-}
-
 .nav-logo,
 .nav-logo img {
   max-width: 80px;
+  z-index: 10000;
 }
 
 .offcanvas {
@@ -71,66 +67,9 @@
 
 /* ----------  MENU BUTTON ---------- */
 /* contenedor del boton menu hamburguesa */
-.navbar-toggler {
-  height: 40px;
-  width: 40px;
-}
-
-/* preparo los elementos para darles forma */
-.navbar-toggler span::before,
-.navbar-toggler span,
-.navbar-toggler span::after {
-  position: absolute;
-  height: 2px;
-  background-color: var(--title-color);
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  transform: translateY(var(--translateY)) rotate(var(--rotate));
-  -webkit-transform: translateY(var(--translateY)) rotate(var(--rotate));
-  -moz-transform: translateY(var(--translateY)) rotate(var(--rotate));
-  -ms-transform: translateY(var(--translateY)) rotate(var(--rotate));
-  -o-transform: translateY(var(--translateY)) rotate(var(--rotate));
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-}
-
-/* por defecto tiene estilo menú hamburguesa */
-.navbar-toggler span::before,
-.navbar-toggler span::after {
-  content: '';
-  --translateY: -10px;
-  --rotate: 0;
-  right: 0;
-  width: 16px;
-}
-.navbar-toggler span {
-  width: 24px;
-}
-.navbar-toggler span::after {
-  --translateY: 10px;
-  width: 8px;
-}
-
-/* cuando el menú no se muestra es una X */
-.offcanvas[role] ~ .navbar-toggler span::before,
-.offcanvas[role] ~ .navbar-toggler span::after {
-  --translateY: 0;
-  --rotate: 45deg;
-  width: 100%;
-  transition-delay: 0.125s;
-}
-.offcanvas[role] ~ .navbar-toggler span {
-  background-color: transparent;
-}
-.offcanvas[role] ~ .navbar-toggler span::after {
-  --rotate: 315deg;
-  transition-delay: 0.25s;
+.navbar-toggler-icon {
+  height: 32px;
+  width: 32px;
 }
 
 

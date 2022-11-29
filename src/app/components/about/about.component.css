@@ -1,0 +1,17 @@
+.rounder {
+  display: block;
+  height: 14px;
+  width: 14px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.line {
+  display: block;
+  height: calc(100% - 14px);
+  width: 2px;
+  background-color: var(--first-color);
+}

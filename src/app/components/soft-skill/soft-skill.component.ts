@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { SoftSkill } from 'src/app/models/soft-skill.model';
 import { SoftSkillService } from 'src/app/services/soft-skill.service';
@@ -6,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-soft-skill',
   templateUrl: './soft-skill.component.html',
-  styleUrls: ['./soft-skill.component.css']
+  styleUrls: ['./soft-skill.component.css', '../skills/skills.component.css']
 })
 export class SoftSkillComponent implements OnInit {
 
@@ -14,6 +15,7 @@ export class SoftSkillComponent implements OnInit {
   id?: number;
   softSkill: SoftSkill = {
     id: 0,
+    position: 0,
     name: '',
     percentage: 50
   };
@@ -25,6 +27,18 @@ export class SoftSkillComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSkill();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.soft, event.previousIndex, event.currentIndex);
+    this.soft.forEach(soft => {
+      soft.position = this.soft.indexOf(soft);
+      this.softskillService.updatePos(soft.id!, soft).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
+    setTimeout(() => { this.loadSkill(); }, 3000);
   }
 
   loadSkill(): void {

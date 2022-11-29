@@ -10,6 +10,7 @@ import { SoftSkillComponent } from '../soft-skill.component';
 })
 export class NewSoftSkillComponent implements OnInit {
 
+  position?: number;
   softskillName?: string;
   softskillPercentage: number = 50;
 
@@ -27,7 +28,7 @@ export class NewSoftSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const softskill = new SoftSkill(this.softskillName!, this.softskillPercentage);
+    const softskill = new SoftSkill(this.position!, this.softskillName!, this.softskillPercentage);
     this.softskillService.save(softskill).subscribe(data => {
       this.softSkillComponent.loadSkill();
     }, err => {

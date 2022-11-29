@@ -29,6 +29,10 @@ export class EducationService {
     return this.httpClient.put<any>(this.edURL + `/update/${id}`, education);
   }
 
+  public updatePos(id: number, education: Education): Observable<any> {
+    return this.httpClient.put<any>(this.edURL + `/updatepos/${id}`, education);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.edURL + `/delete/${id}`);
   }

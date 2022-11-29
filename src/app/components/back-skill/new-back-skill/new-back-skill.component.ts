@@ -10,6 +10,7 @@ import { BackSkillComponent } from '../back-skill.component';
 })
 export class NewBackSkillComponent implements OnInit {
   
+  position?: number;
   backskillName?: string;
   backskillPercentage: number = 50;
 
@@ -27,7 +28,7 @@ export class NewBackSkillComponent implements OnInit {
   }
 
   onCreate(): void {
-    const backskill = new BackSkill(this.backskillName!, this.backskillPercentage);
+    const backskill = new BackSkill(this.position!, this.backskillName!, this.backskillPercentage);
     this.backskillService.save(backskill).subscribe(data => {
       this.backSkillComponent.loadSkill();
     }, err => {

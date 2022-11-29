@@ -1,13 +1,13 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
-// import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css']
+  styleUrls: ['./education.component.css', '../about/about.component.css']
 })
 export class EducationComponent implements OnInit {
   
@@ -15,6 +15,7 @@ export class EducationComponent implements OnInit {
   id?: number;
   ed: Education = {
     id: 0,
+    position: 0,
     edInsTitle: '',
     edCareerName: '',
     edPeriod: '',
@@ -30,9 +31,17 @@ export class EducationComponent implements OnInit {
     this.loadEd();
   }
 
-  // onDropped(event: CdkDragDrop<any>): void {
-  //   moveItemInArray(this.education, event.previousIndex, event.currentIndex)
-  // }
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.education, event.previousIndex, event.currentIndex);
+    this.education.forEach(edu => {
+      edu.position = this.education.indexOf(edu);
+      this.educationService.updatePos(edu.id!, edu).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
+    setTimeout(() => { this.loadEd(); }, 3000);
+  }
 
   loadEd(): void {
     this.educationService.list().subscribe(data => {

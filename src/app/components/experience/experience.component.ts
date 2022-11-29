@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/models/experience.model';
 import { ExperienceService } from 'src/app/services/experience.service';
@@ -6,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css']
+  styleUrls: ['./experience.component.css', '../about/about.component.css']
 })
 export class ExperienceComponent implements OnInit {
   
@@ -14,6 +15,7 @@ export class ExperienceComponent implements OnInit {
   id?: number;
   exp: Experience = {
     id: 0,
+    position: 0,
     expCompName: '',
     expJobTitle: '',
     expPeriod: '',
@@ -27,6 +29,18 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadExp();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.experience, event.previousIndex, event.currentIndex);
+    this.experience.forEach(expe => {
+      expe.position = this.experience.indexOf(expe);
+      this.experienceService.updatePos(expe.id!, expe).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
+    setTimeout(() => { this.loadExp(); }, 3000);
   }
 
   loadExp(): void {

@@ -10,6 +10,7 @@ import { EducationComponent } from '../education.component';
 })
 export class NewEducationComponent implements OnInit {
 
+  position?: number;
   edInsTitle?: string;
   edCareerName?: string;
   edPeriod?: string;
@@ -31,7 +32,7 @@ export class NewEducationComponent implements OnInit {
   }
 
   onCreate(): void {
-    const ed = new Education(this.edInsTitle!, this.edCareerName!, this.edPeriod!, this.edDesc!);
+    const ed = new Education(this.position!, this.edInsTitle!, this.edCareerName!, this.edPeriod!, this.edDesc!);
     this.educationService.save(ed).subscribe(data => {
       this.educationComponenet.loadEd();
     }, err => {

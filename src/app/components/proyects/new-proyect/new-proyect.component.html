@@ -33,13 +33,14 @@ tabindex="-1" aria-labelledby="newProyectLabel" aria-hidden="true">
           </div>
           <!-- Description input -->
           <div class="form-floating mb-4">
-            <input type="text" 
+            <textarea type="text" 
             class="form-control" 
+            maxlength="200" 
             id="proyectDescriptionInput" 
             name="proyectDescriptionInput" 
             placeholder="Descripción" 
             [(ngModel)]="proyectDescription" 
-            required>
+            required></textarea>
             <label class="form-label" for="proyectDescriptionInput">Descripción</label>
           </div>
           <!-- Finish date input -->

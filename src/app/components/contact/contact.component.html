@@ -10,17 +10,36 @@
       </div>
 
       <div class="col-lg-7 col-md-8 col-12">
-        <form action="mailto:{{this.person.email}}">
+        <form action="https://formsubmit.co/{{this.person.email}}" method="POST">
+          <!-- Name input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="NameInput" 
+            name="NameInput" 
+            placeholder="Nombre" 
+            required>
+            <label class="form-label" for="NameInput">Nombre</label>
+          </div>
           <!-- Email input -->
           <div class="form-floating mb-4">
             <input type="email" 
             class="form-control" 
             id="EmailInput" 
             name="EmailInput" 
-            placeholder="Ícono" 
-            [(ngModel)]="Email" 
+            placeholder="Correo electrónico" 
             required>
             <label class="form-label" for="EmailInput">Correo electrónico</label>
+          </div>
+          <!-- Subject input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="SubjectInput" 
+            name="SubjectInput" 
+            placeholder="Asunto" 
+            required>
+            <label class="form-label" for="SubjectInput">Asunto</label>
           </div>
           <!-- Description input -->
           <div class="form-floating">
@@ -30,14 +49,16 @@
             id="DescInput" 
             name="DescInput" 
             placeholder="Escribe aquí" 
-            [(ngModel)]="Desc" 
             required></textarea>
             <label class="form-label" for="DescInput">Escribe aquí</label>
           </div>
           <hr>
-          <button class="btn btn-primary d-inline-flex align-items-center p-3" type="submit">
+          <button class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3" type="submit">
             Enviar Mensaje <i class="bi bi-send fs-5 mx-2"></i>
           </button>
+
+          <!-- <input type="hidden" name="_next" value="{{this.environment}}">
+          <input type="hidden" name="_captcha" value="false"> -->
         </form>
       </div>
     </div>

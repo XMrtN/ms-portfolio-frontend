@@ -3,10 +3,9 @@
   <div class="container py-5">
     <div class="row">
       <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <div class="d-flex align-items-start w-100">
+        <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
           <h2 class="reveal me-3">PROYECTOS</h2>
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
-          data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="this.tokenService.isLoggedIn()">
+          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="this.tokenService.isLoggedIn()">
             <i class="bi bi-plus-square"></i>
           </button>
         </div>
@@ -36,7 +35,7 @@
 
                 <div class="col-md-7">
                   <div class="card-body">
-                    <div class="proyect-title d-flex align-items-start w-100">
+                    <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
                       <h5 class="card-title me-3">{{proyect.title}}</h5>
                       <div class="d-flex gap-1 ms-auto mb-2">
                         <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
@@ -54,7 +53,7 @@
                     <p class="card-text">{{proyect.subtitle}}<br>{{proyect.description}}</p>
                     <p class="card-text">Fecha de realización: {{proyect.finishDate}}</p>
 
-                    <a href="{{proyect.url}}" class="btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon ms-2"></i></a>
+                    <a href="{{proyect.url}}" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3" role="button">Ir <i class="bi bi-arrow-right-short btn-icon ms-2"></i></a>
                   </div>
                 </div>
               </div>

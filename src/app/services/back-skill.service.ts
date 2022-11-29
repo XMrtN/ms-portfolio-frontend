@@ -29,6 +29,10 @@ export class BackSkillService {
     return this.httpClient.put<any>(this.backskillURL + `/update/${id}`, backskill);
   }
 
+  public updatePos(id: number, backskill: BackSkill): Observable<any> {
+    return this.httpClient.put<any>(this.backskillURL + `/updatepos/${id}`, backskill);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.backskillURL + `/delete/${id}`);
   }

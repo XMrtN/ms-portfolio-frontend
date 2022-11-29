@@ -9,14 +9,14 @@
       <i class="skill-type-icon bi bi-braces accordion-icon me-3"></i>
 
       <div class="w-100">
-        <div class="skill-type-title d-flex align-items-start">
+        <div class="flex-ssm-wrap-reverse d-flex align-items-start">
           <h5 class="me-3">Frontend</h5>
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
           data-bs-toggle="modal" data-bs-target="#newFrontSkill" *ngIf="this.tokenService.isLoggedIn()">
             <i class="bi bi-plus-square"></i>
           </button>
         </div>
-        <span>Maquetado y diseño</span>
+        <p class="m-0">Maquetado y diseño</p>
       </div>
 
       <i class="bi bi-chevron-down ms-3"></i>
@@ -25,11 +25,16 @@
 
   <div class="accordion-collapse collapse show" id="collapseOne" 
   aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-    <div class="accordion-body d-flex flex-column gap-3 px-2 ps-sm-5">
-      <div *ngFor="let skill of frontEnd">
-        <div class="d-flex justify-content-end align-items-end w-100">
-          <h6 class="pe-2 me-auto">{{skill.name}}</h6>
-          <span class="ms-auto mb-2">{{skill.percentage}}</span>
+    <div class="accordion-body px-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)">
+      <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of frontEnd" cdkDrag 
+      [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
+        <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-center w-100">
+          <div class="d-flex justify-content-center align-items-center mb-2 me-auto">
+            <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
+            *ngIf="this.tokenService.isLoggedIn()"></i>
+            <h6 class="mb-0 me-2">{{skill.name}}</h6>
+          </div>
+          <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}</p>
 
           <div class="d-flex gap-1 ps-2 mb-2">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 

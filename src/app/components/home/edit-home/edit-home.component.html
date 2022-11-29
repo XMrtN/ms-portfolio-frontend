@@ -9,38 +9,33 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
-          <!-- Name input -->
-          <div class="form-floating mb-4">
-            <input type="text" 
-            class="form-control" 
-            id="personNameInput" 
-            name="personNameInput" 
-            placeholder="Nombre" 
-            [(ngModel)]="this.homeComponent.personEdit.name" 
-            required>
-            <label for="personNameInput">Nombre</label>
-          </div>
-          <!-- LastName input -->
-          <div class="form-floating mb-4">
-            <input type="text" 
-            class="form-control" 
-            id="personLastNameInput" 
-            name="personLastNameInput" 
-            placeholder="Apellido" 
-            [(ngModel)]="this.homeComponent.personEdit.lastName" 
-            required>
-            <label for="personLastNameInput">Apellido</label>
-          </div>
-          <!-- Description input -->
-          <div class="form-floating mb-4">
-            <input type="text" 
-            class="form-control" 
-            id="personDescInput" 
-            name="personDescInput" 
-            placeholder="Descripción sobre mí" 
-            [(ngModel)]="this.homeComponent.personEdit.description" 
-            required>
-            <label for="personDescInput">Descripción sobre mí</label>
+          <div class="row">
+            <div class="col-sm-6 col-12">
+              <!-- Name input -->
+              <div class="form-floating mb-4">
+                <input type="text" 
+                class="form-control" 
+                id="personNameInput" 
+                name="personNameInput" 
+                placeholder="Nombre" 
+                [(ngModel)]="this.homeComponent.personEdit.name" 
+                required>
+                <label for="personNameInput">Nombre</label>
+              </div>
+            </div>
+            <div class="col-sm-6 col-12">
+              <!-- LastName input -->
+              <div class="form-floating mb-4">
+                <input type="text" 
+                class="form-control" 
+                id="personLastNameInput" 
+                name="personLastNameInput" 
+                placeholder="Apellido" 
+                [(ngModel)]="this.homeComponent.personEdit.lastName" 
+                required>
+                <label for="personLastNameInput">Apellido</label>
+              </div>
+            </div>
           </div>
           <!-- Email input -->
           <div class="form-floating mb-4">
@@ -52,6 +47,18 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             [(ngModel)]="this.homeComponent.personEdit.email" 
             required>
             <label for="personEmailInput">Correo electrónico</label>
+          </div>
+          <!-- Description input -->
+          <div class="form-floating mb-4">
+            <textarea type="text" 
+            class="form-control" 
+            maxlength="250"
+            id="personDescInput" 
+            name="personDescInput" 
+            placeholder="Descripción sobre mí" 
+            [(ngModel)]="this.homeComponent.personEdit.description" 
+            required></textarea>
+            <label for="personDescInput">Descripción sobre mí</label>
           </div>
           <!-- Img input -->
           <div class="form-floating">

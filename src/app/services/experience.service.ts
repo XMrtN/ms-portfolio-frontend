@@ -29,6 +29,10 @@ export class ExperienceService {
     return this.httpClient.put<any>(this.expURL + `/update/${id}`, experience);
   }
 
+  public updatePos(id: number, experience: Experience): Observable<any> {
+    return this.httpClient.put<any>(this.expURL + `/updatepos/${id}`, experience);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.expURL + `/delete/${id}`);
   }

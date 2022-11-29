@@ -1,4 +1,4 @@
-<div class="d-flex align-items-start">
+<div class="flex-ssm-wrap-reverse d-flex align-items-start">
   <h2 class="reveal second me-3">EXPERIENCIA</h2>
   <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
   data-bs-toggle="modal" data-bs-target="#newExp" *ngIf="this.tokenService.isLoggedIn()">
@@ -6,36 +6,41 @@
   </button>
 </div>
 
-<div class="row" *ngFor="let exp of experience">
-  <div class="container">
-    <hr>
-  </div>
-  
-  <div class="col-1 d-flex flex-column align-items-center p-0">
-    <div class="rounder"></div>
-    <div class="line mb-3"></div>
-  </div>
+<div class="mt-3" cdkDropList (cdkDropListDropped)="this.onDropped($event)">
+  <div class="card card-body bg-body border-0" *ngFor="let exp of experience" cdkDrag 
+  [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
+    <div class="d-flex">
+      <div>
+        <div class="rounder"></div>
+        <div class="line mx-auto"></div>
+      </div>
 
-  <div class="col-11">
-    <div class="exp-title d-flex align-items-start">
-      <h5 class="me-3">{{exp.expJobTitle}}</h5>
-
-      <div class="d-flex gap-1 ms-auto mb-2">
-        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-        data-bs-toggle="modal" data-bs-target="#editExp" 
-        *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = exp.id; this.onDetail()">
-          <i class="bi bi-pencil-square"></i>
-        </button>
-        <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-        *ngIf="this.tokenService.isLoggedIn()" (click)="delete(exp.id!)">
-          <i class="bi bi-trash"></i>
-        </button>
+      <div class="ps-3 w-100">
+        <div class="flex-ssm-wrap-reverse d-flex align-items-start">
+          <div class="d-flex align-items-center mb-2">
+            <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
+            *ngIf="this.tokenService.isLoggedIn()"></i>
+            <h5 class="mb-0 me-3">{{exp.expJobTitle}}</h5>
+          </div>
+          
+          <div class="d-flex gap-1 ms-auto mb-2">
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            data-bs-toggle="modal" data-bs-target="#editExp" 
+            *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = exp.id; this.onDetail()">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            *ngIf="this.tokenService.isLoggedIn()" (click)="delete(exp.id!)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      
+        <h6>{{exp.expCompName}}</h6>
+        <p>{{exp.expDesc}}</p>
+        <p class="mb-2">Periodo: {{exp.expPeriod}}</p>
       </div>
     </div>
-  
-    <h6>{{exp.expCompName}}</h6>
-    <p>{{exp.expDesc}}</p>
-    <p>Periodo: {{exp.expPeriod}}</p>
   </div>
 </div>
 

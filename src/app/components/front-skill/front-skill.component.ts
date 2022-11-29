@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FrontSkill } from 'src/app/models/front-skill.model';
 import { FrontSkillService } from 'src/app/services/front-skill.service';
@@ -6,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-front-skill',
   templateUrl: './front-skill.component.html',
-  styleUrls: ['./front-skill.component.css']
+  styleUrls: ['./front-skill.component.css', '../skills/skills.component.css']
 })
 export class FrontSkillComponent implements OnInit {
 
@@ -14,6 +15,7 @@ export class FrontSkillComponent implements OnInit {
   id?:number;
   frontSkill: FrontSkill = {
     id: 0,
+    position: 0,
     name: '',
     percentage: 50
   };
@@ -25,6 +27,18 @@ export class FrontSkillComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSkill();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.frontEnd, event.previousIndex, event.currentIndex);
+    this.frontEnd.forEach(front => {
+      front.position = this.frontEnd.indexOf(front);
+      this.frontskillService.updatePos(front.id!, front).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
+    setTimeout(() => { this.loadSkill(); }, 3000);
   }
 
   loadSkill(): void {

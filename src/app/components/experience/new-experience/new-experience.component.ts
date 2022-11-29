@@ -9,7 +9,8 @@ import { ExperienceComponent } from '../experience.component';
   styleUrls: ['./new-experience.component.css']
 })
 export class NewExperienceComponent implements OnInit {
-
+  
+  position?: number;
   expCompName?: string;
   expJobTitle?: string;
   expPeriod?: string;
@@ -31,7 +32,7 @@ export class NewExperienceComponent implements OnInit {
   }
 
   onCreate(): void {
-    const exp = new Experience(this.expCompName!, this.expJobTitle!, this.expPeriod!, this.expDesc!);
+    const exp = new Experience(this.position!, this.expCompName!, this.expJobTitle!, this.expPeriod!, this.expDesc!);
     this.experienceService.save(exp).subscribe(data => {
       this.experienceComponent.loadExp();
     }, err => {

@@ -40,8 +40,8 @@ import { NewProyectComponent } from './components/proyects/new-proyect/new-proye
 import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
 
 import { ContactComponent } from './components/contact/contact.component';
-// import { DragDropModule } from '@angular/cdk/drag-drop';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
 import { InterceptorProvider } from './services/interceptor.service';
 import { environment } from '../environments/environment';
@@ -79,16 +79,16 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     ProyectsComponent,
     NewProyectComponent,
     EditProyectComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    DragDropModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage()),
-    // DragDropModule,
   ],
   providers: [
     InterceptorProvider

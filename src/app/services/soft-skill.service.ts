@@ -29,6 +29,10 @@ export class SoftSkillService {
     return this.httpClient.put<any>(this.softskillURL + `/update/${id}`, softskill);
   }
 
+  public updatePos(id: number, softskill: SoftSkill): Observable<any> {
+    return this.httpClient.put<any>(this.softskillURL + `/updatepos/${id}`, softskill);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.softskillURL + `/delete/${id}`);
   }

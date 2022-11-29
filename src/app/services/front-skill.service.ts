@@ -29,6 +29,10 @@ export class FrontSkillService {
     return this.httpClient.put<any>(this.frontskillURL + `/update/${id}`, frontskill);
   }
 
+  public updatePos(id: number, frontskill: FrontSkill): Observable<any> {
+    return this.httpClient.put<any>(this.frontskillURL + `/updatepos/${id}`, frontskill);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.frontskillURL + `/delete/${id}`);
   }

@@ -1,44 +1,42 @@
 <!---------- NAVBAR ---------->
-<nav class="navbar navbar-dark navbar-expand-md fixed-top p-0 user-select-none">
-  <!---------- NAV CONTAINER ---------->
-  <div class="container-fluid align-items-start">
-    <!---------- ARGPROG LOGO ---------->
+<nav class="navbar navbar-dark navbar-expand-md fixed-top user-select-none p-0">
+  <div class="container-fluid align-items-start px-2">
     <div class="nav-logo position-relative w-100">
       <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa">
         <img class="position-absolute" src="../../../assets/img/argproglogo.png" alt="argpprog">
       </a>
     </div>
 
-    <!---------- OFFCANVAS ---------->
+    <button class="navbar-toggler border-0 my-2 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header p-2">
+        <button type="button" class="btn-close btn-close-white m-1 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
       <div class="offcanvas-body d-flex flex-column flex-md-row">
         <ul class="navbar-nav justify-content-center align-items-start px-md-5 h-100 w-100">
           <li class="nav-item" 
           *ngFor="let link of ['home', 'about', 'skills', 'proyects', 'contact']">
             <a class="nav-link btn btn-dark d-flex p-0" href="#{{link}}">
-              <span class="mt-2 mt-md-auto ms-2 mx-md-auto mb-1 mb-md-0">{{link}}</span>
+              <span class="text-nobreak mt-2 mt-md-auto ms-2 mx-md-auto mb-1 mb-md-0">{{link}}</span>
             </a>
           </li>
         </ul>
 
-        <!---------- LOG IN & LOG OUT BUTTONS ---------->
         <div class="log-btns align-self-end">
           <button type="button" 
-          class="btn btn-primary text-nowrap p-3 mt-2" 
+          class="btn btn-primary text-nowrap text-nobreak p-3 mt-2" 
           *ngIf="!this.tokenService.isLoggedIn()"
           (click)="logIn()">Iniciar sesión</button>
           
           <button type="button" 
-          class="btn btn-primary text-nowrap p-3 mt-2" 
+          class="btn btn-primary text-nowrap text-nobreak p-3 mt-2" 
           *ngIf="this.tokenService.isLoggedIn()" 
           (click)="onLogOut()">Cerrar sesión</button>
         </div>
       </div>
     </div>
-
-    <!---------- TOGGLER BUTTON ---------->
-    <button class="navbar-toggler my-2 p-0 border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="translate-middle"></span>
-    </button>
   </div>
 </nav>

@@ -105,6 +105,7 @@ h1.display-4, .p.mb-2, .imgBox, a.btn-primary {
 .imgBox img {
   filter: brightness(0);
   -webkit-filter: brightness(0);
+  opacity: 0.5;
   transform-origin: bottom;
   transform: scale(0.9) translateX(-10px);
   -webkit-transform: scale(0.9) translateX(-10px);
@@ -120,6 +121,7 @@ h1.display-4, .p.mb-2, .imgBox, a.btn-primary {
 .imgBox:hover img {
   filter: brightness(1);
   -webkit-filter: brightness(1);
+  opacity: 1;
   transform: scale(1) translateX(0);
   -webkit-transform: scale(1) translateX(0);
   -moz-transform: scale(1) translateX(0);
