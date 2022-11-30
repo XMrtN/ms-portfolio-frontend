@@ -29,6 +29,10 @@ export class SocialService {
     return this.httpClient.put<any>(this.socialURL + `/update/${id}`, social);
   }
 
+  public updatePos(id: number, social: Social): Observable<any> {
+    return this.httpClient.put<any>(this.socialURL + `/updatepos/${id}`, social);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.socialURL + `/delete/${id}`);
   }

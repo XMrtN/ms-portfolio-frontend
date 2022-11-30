@@ -12,7 +12,7 @@
 /* simulo la forma de un trapecio */
 .socials-widget::before {
   position: absolute;
-  content: "";
+  content: '';
   left: 0;
   bottom: 0;
   height: 100%;
@@ -30,24 +30,31 @@
   -o-transform: perspective(10px) rotateX(4deg);
 }
 
-.dropdown-menu {
-  --bs-dropdown-min-width: 0;
+.dropdown-menu.show {
+  min-width: 0;
+  display: flex;
+}
+.dropup:not(.cdk-drag-disabled) .btn-outline-warning {
+  cursor: col-resize;
+}
+
+.cdk-drag-placeholder {
+  opacity: 1;
+}
+.cdk-drag-preview {
+  opacity: 0;
 }
 
 
 /* ---------- SCROLL UP BUTTON ---------- */
 /* botón scroll que se oculta en el home */
 .scroll-up__btn {
-  --bs-btn-font-size: 1.5em;
-  --bs-btn-border-width: 2px;
+  border-width: 2px;
   right: 0;
   bottom: 0;
   border-bottom-width: 5px;
   backdrop-filter: blur(10px);
   z-index: 100;
-}
-.scroll-up__btn i {
-  font-size: 1.2em;
 }
 
 

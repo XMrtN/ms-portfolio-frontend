@@ -1,63 +1,54 @@
 <!-------- LOGIN SECTION -------->
-<section class="gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-light rounded-4">
-          <div class="card-body p-5 text-center">
-            <div class="mb-md-5 mt-md-4">
-              <h2 class="fw-bold mb-2 text-uppercase">Iniciá sesión</h2>
-              <p class="mb-5">Por favor ingrese su nombre y contraseña</p>
-
-              <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-                <!-- Email input -->
-                <div class="form-floating mb-4">
-                  <input type="text" 
-                  class="form-control" 
-                  id="userNameInput" 
-                  name="userNameInput" 
-                  placeholder="Nombre de usuario" 
-                  [(ngModel)]="userName" 
-                  required>
-                  <label class="form-label" for="userNameInput">Nombre de usuario</label>
-                </div>
-                <!-- Password input -->
-                <div class="input-group mb-4">
-                  <div class="form-floating">
-                    <input [type]="isShowing? 'text': 'password'" 
-                    class="form-control" 
-                    id="passwordInput" 
-                    name="passwordInput" 
-                    placeholder="Contraseña" 
-                    [(ngModel)]="password" 
-                    aria-label="Password" 
-                    aria-describedby="button-addon" 
-                    required>
-                    <label class="form-label" for="passwordInput">Contraseña</label>
-                  </div>
-                  <button type="button" 
-                  class="btn btn-outline-primary d-flex align-items-center" id="button-addon" 
-                  (click)="this.isShowing = !this.isShowing">
-                    <i class="bi fs-3 lh-1" 
-                    [ngClass]="isShowing? 'bi-eye-slash': 'bi-eye'"></i>
-                  </button>
-                </div>
-                
-                <!-- <p class="small mb-5"><a href="#">¿Olvidaste tu contraseña?</a></p> -->
-                
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-lg px-5">Iniciar sesión</button>
-              </form>
-            </div>
-
-            <!-- <p class="mb-0">¿No tienes una cuenta? <a href="#" class="fw-bold">Regístrate</a></p> -->
-            <p class="mb-0">
-              <button type="button" class="btn btn-link" 
-              (click)="this.goBack()">Volver al menú principal</button>
-            </p>
-          </div>
-        </div>
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="login" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginLabel">Iniciar sesión</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()"></button>
       </div>
+      <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+        <div class="modal-body">
+          <!-- Email input -->
+          <div class="form-floating mb-4">
+            <input type="text" 
+            class="form-control" 
+            id="userNameInput" 
+            name="userNameInput" 
+            placeholder="Nombre de usuario" 
+            [(ngModel)]="userName" 
+            required>
+            <label class="form-label" for="userNameInput">Nombre de usuario</label>
+          </div>
+          <!-- Password input -->
+          <div class="input-group mb-4">
+            <div class="form-floating">
+              <input [type]="isShowing? 'text': 'password'" 
+              class="form-control" 
+              id="passwordInput" 
+              name="passwordInput" 
+              placeholder="Contraseña" 
+              [(ngModel)]="password" 
+              aria-label="Password" 
+              aria-describedby="button-addon" 
+              required>
+              <label class="form-label" for="passwordInput">Contraseña</label>
+            </div>
+            <button type="button" 
+            class="btn btn-outline-primary d-flex align-items-center" id="button-addon" 
+            (click)="this.isShowing = !this.isShowing">
+              <i class="bi fs-3 lh-1" 
+              [ngClass]="isShowing? 'bi-eye-slash': 'bi-eye'"></i>
+            </button>
+          </div>
+          <!-- <p class="small mb-5"><a href="#">¿Olvidaste tu contraseña?</a></p> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Iniciar sesión</button>
+        </div>
+      </form>
     </div>
   </div>
-</section>
+</div>

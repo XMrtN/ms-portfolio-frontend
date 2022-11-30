@@ -40,7 +40,6 @@ export class EducationComponent implements OnInit {
         alert("No se pudo modificar la posición");
       });
     });
-    setTimeout(() => { this.loadEd(); }, 3000);
   }
 
   loadEd(): void {

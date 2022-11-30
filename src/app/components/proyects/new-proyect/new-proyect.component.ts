@@ -11,6 +11,7 @@ import { ProyectsComponent } from '../proyects.component';
 })
 export class NewProyectComponent implements OnInit {
 
+  position?: number;
   proyectTitle?: string;
   proyectSubtitle?: string;
   proyectFinishDate?: string;
@@ -38,7 +39,7 @@ export class NewProyectComponent implements OnInit {
 
   onCreate(): void {
     // this.proyectImg = this.imageService.url
-    const proyect = new Proyect(this.proyectTitle!, this.proyectSubtitle!, this.proyectFinishDate!, this.proyectDescription!, this.proyectImg!, this.proyectUrl!);
+    const proyect = new Proyect(this.position!, this.proyectTitle!, this.proyectSubtitle!, this.proyectFinishDate!, this.proyectDescription!, this.proyectImg!, this.proyectUrl!);
     this.proyectService.save(proyect).subscribe(data => {
       this.proyectsComponent.loadProyect();
     }, err => {

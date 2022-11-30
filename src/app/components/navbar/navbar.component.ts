@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { gsap } from 'gsap';
 
@@ -10,10 +9,7 @@ import { gsap } from 'gsap';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    protected tokenService: TokenService
-  ) { }
+  constructor(protected tokenService: TokenService) { }
   
   ngOnInit(): void {
     this.initAnimations();
@@ -31,10 +27,6 @@ export class NavbarComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
-  }
-
-  logIn(): void {
-    this.router.navigate(['/login']);
   }
 
 }

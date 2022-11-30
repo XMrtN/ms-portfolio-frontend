@@ -10,6 +10,7 @@ import { SocialsComponent } from '../socials.component';
 })
 export class NewSocialComponent implements OnInit {
 
+  position?: number;
   socialIcon?: string;
   socialUrl?: string;
   
@@ -27,7 +28,7 @@ export class NewSocialComponent implements OnInit {
   }
 
   onCreate(): void {
-    const social = new Social(this.socialIcon!, this.socialUrl!);
+    const social = new Social(this.position!, this.socialIcon!, this.socialUrl!);
     this.socialService.save(social).subscribe(data => {
       this.socialsComponent.loadSocial();
     }, err => {

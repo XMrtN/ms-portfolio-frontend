@@ -1,12 +1,12 @@
-<div class="accordion-item">
+<div class="accordion-item bg-body border-0">
   <h2 class="accordion-header" id="headingOne">
     <button type="button" 
-    class="accordion-button" 
+    class="accordion-button bg-body p-3" 
     aria-expanded="true" 
     data-bs-toggle="collapse" 
     data-bs-target="#collapseOne" 
     aria-controls="collapseOne">
-      <i class="skill-type-icon bi bi-braces accordion-icon me-3"></i>
+      <i class="skill-type-icon bi bi-braces fs-2 me-3"></i>
 
       <div class="w-100">
         <div class="flex-ssm-wrap-reverse d-flex align-items-start">
@@ -19,13 +19,13 @@
         <p class="m-0">Maquetado y diseño</p>
       </div>
 
-      <i class="bi bi-chevron-down ms-3"></i>
+      <i class="bi bi-chevron-down fs-5 ms-3"></i>
     </button>
   </h2>
 
-  <div class="accordion-collapse collapse show" id="collapseOne" 
-  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-    <div class="accordion-body px-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)">
+  <div class="accordion-collapse collapse show bg-body" id="collapseOne" 
+  aria-labelledby="headingOne" data-bs-parent="#accordion">
+    <div class="accordion-body bg-body px-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of frontEnd" cdkDrag 
       [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
         <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-center w-100">

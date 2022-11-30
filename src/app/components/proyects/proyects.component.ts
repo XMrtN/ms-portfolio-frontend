@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Proyect } from 'src/app/models/proyect.model';
 import { ProyectService } from 'src/app/services/proyect.service';
@@ -14,6 +15,7 @@ export class ProyectsComponent implements OnInit {
   id?: number;
   proyect: Proyect = {
     id: 0,
+    position: 0,
     title: '',
     subtitle: '',
     finishDate: '',
@@ -29,6 +31,17 @@ export class ProyectsComponent implements OnInit {
   
   ngOnInit(): void {
     this.loadProyect();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.proyects, event.previousIndex, event.currentIndex);
+    this.proyects.forEach(proy => {
+      proy.position = this.proyects.indexOf(proy);
+      this.proyectService.updatePos(proy.id!, proy).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
   }
 
   loadProyect(): void {

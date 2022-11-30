@@ -4,6 +4,7 @@ import { SocialService } from 'src/app/services/social.service';
 import { TokenService } from 'src/app/services/token.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ export class SocialsComponent implements OnInit {
   id?: number;
   social: Social = {
     id: 0,
+    position: 0,
     icon: '',
     url: ''
   };
@@ -30,6 +32,17 @@ export class SocialsComponent implements OnInit {
   ngOnInit(): void {
     this.initScrollAnimations();
     this.loadSocial();
+  }
+
+  onDropped(event: CdkDragDrop<any>): void {
+    moveItemInArray(this.socials, event.previousIndex, event.currentIndex);
+    this.socials.forEach(link => {
+      link.position = this.socials.indexOf(link);
+      this.socialService.updatePos(link.id!, link).subscribe(data => {
+      }, err => {
+        alert("No se pudo modificar la posición");
+      });
+    });
   }
 
   loadSocial(): void {

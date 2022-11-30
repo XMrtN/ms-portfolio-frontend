@@ -27,7 +27,7 @@
 }
 
 .offcanvas {
-  --bs-offcanvas-width: 200px;
+  width: 200px;
   background-color: var(--bs-body-bg);
 }
 

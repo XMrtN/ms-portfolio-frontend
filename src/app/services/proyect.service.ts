@@ -29,6 +29,10 @@ export class ProyectService {
     return this.httpClient.put<any>(this.url + `/update/${id}`, proyect);
   }
 
+  public updatePos(id: number, proyect: Proyect): Observable<any> {
+    return this.httpClient.put<any>(this.url + `/updatepos/${id}`, proyect);
+  }
+
   public delete(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.url + `/delete/${id}`);
   }

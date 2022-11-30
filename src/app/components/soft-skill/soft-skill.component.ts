@@ -38,7 +38,6 @@ export class SoftSkillComponent implements OnInit {
         alert("No se pudo modificar la posición");
       });
     });
-    setTimeout(() => { this.loadSkill(); }, 3000);
   }
 
   loadSkill(): void {

@@ -40,7 +40,6 @@ export class ExperienceComponent implements OnInit {
         alert("No se pudo modificar la posición");
       });
     });
-    setTimeout(() => { this.loadExp(); }, 3000);
   }
 
   loadExp(): void {

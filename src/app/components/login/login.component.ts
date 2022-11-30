@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/models/login-user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -22,8 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private tokenService: TokenService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +30,11 @@ export class LoginComponent implements OnInit {
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
     }
+  }
+
+  onClean(): void {
+    this.userName = '';
+    this.password = '';
   }
 
   onLogin(): void {
@@ -43,19 +46,13 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUserName(data.userName!);
       this.tokenService.setAuthorities(data.authorities!);
       this.roles = data.authorities!;
-      this.goBack();
     }, err => {
       this.isLoggedIn = false;
       this.isLoginFail = true;
       this.errorMsg = err.error.msg;
       console.log(this.errorMsg);
     });
-  }
-
-  goBack(): void {
-    this.router.navigate(['']).then(() => {
-      window.location.reload();
-    });
+    this.onClean();
   }
 
 }

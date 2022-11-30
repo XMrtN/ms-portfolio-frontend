@@ -168,6 +168,7 @@ textarea.form-control {
 .cdk-drag-preview,
 .btn-close:focus,
 .btn-link:focus-visible,
+.accordion-item:first-of-type .accordion-button:focus,
 .form-control:focus,
 .form-range:focus::-webkit-slider-thumb {
   outline: 0;
@@ -307,4 +308,3 @@ p, .p, hr {
     flex-wrap: wrap-reverse;
   }
 }
-
