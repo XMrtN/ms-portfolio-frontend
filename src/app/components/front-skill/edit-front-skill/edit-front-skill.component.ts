@@ -24,6 +24,7 @@ export class EditFrontSkillComponent implements OnInit {
     }, err => {
       alert("No se pudo modificar");
     });
+    this.frontSkillComponent.onClean();
   }
 
 }

@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newExpLabel">Nueva experiencia</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.experienceComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
         <div class="modal-body">
@@ -13,10 +13,9 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expCompNameInput" 
             name="expCompNameInput" 
             placeholder="Compañía o empresa" 
-            [(ngModel)]="expCompName" 
+            [(ngModel)]="this.experienceComponent.exp.expCompName" 
             required>
             <label class="form-label" for="expCompNameInput">Compañía o empresa</label>
           </div>
@@ -24,10 +23,9 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expJobTitleInput" 
             name="expJobTitleInput" 
             placeholder="Puesto" 
-            [(ngModel)]="expJobTitle" 
+            [(ngModel)]="this.experienceComponent.exp.expJobTitle" 
             required>
             <label class="form-label" for="expJobTitleInput">Puesto</label>
           </div>
@@ -35,10 +33,9 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
           <div class="form-floating mb-4">
             <textarea type="text" 
             class="form-control" 
-            id="expDescInput" 
             name="expDescInput" 
             placeholder="Descripción" 
-            [(ngModel)]="expDesc" 
+            [(ngModel)]="this.experienceComponent.exp.expDesc" 
             required></textarea>
             <label class="form-label" for="expDescInput">Descripción</label>
           </div>
@@ -46,16 +43,15 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
           <div class="form-floating">
             <input type="text" 
             class="form-control" 
-            id="expPeriodInput" 
             name="expPeriodInput" 
             placeholder="Periodo de tiempo" 
-            [(ngModel)]="expPeriod" 
+            [(ngModel)]="this.experienceComponent.exp.expPeriod" 
             required>
             <label class="form-label" for="expPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.experienceComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

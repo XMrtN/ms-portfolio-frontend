@@ -52,6 +52,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onClean(): void {
+    this.personEdit.name = '',
+    this.personEdit.lastName = '',
+    this.personEdit.description = '',
+    this.personEdit.email = '',
+    this.personEdit.img = '',
+    this.personEdit.cv = ''
+  }
+
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
       this.person = data;
@@ -68,10 +77,10 @@ export class HomeComponent implements OnInit {
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.to("h1.display-4, .p.mb-2, .imgBox, a.btn-primary", {
+      gsap.from("#home h1, #home .p, #home .btn-primary, #home .imgBox", {
         duration: 1,
-        x: 0,
-        opacity: 1,
+        x: -150,
+        opacity: 0,
         stagger: 0.4,
         delay: 2.4,
       });

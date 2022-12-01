@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editEdLabel">Modificar educación</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.educationComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
@@ -13,7 +13,6 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="edInsTitleInput" 
             name="edInsTitleInput" 
             placeholder="Instituto" 
             [(ngModel)]="this.educationComponent.ed.edInsTitle" 
@@ -24,7 +23,6 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="edCareerNameInput" 
             name="edCareerNameInput" 
             placeholder="Carrera" 
             [(ngModel)]="this.educationComponent.ed.edCareerName" 
@@ -35,7 +33,6 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
           <div class="form-floating mb-4">
             <textarea type="text" 
             class="form-control" 
-            id="edDescInput" 
             name="edDescInput" 
             placeholder="Descripción" 
             [(ngModel)]="this.educationComponent.ed.edDesc" 
@@ -46,7 +43,6 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
           <div class="form-floating">
             <input type="text" 
             class="form-control" 
-            id="edPeriodInput" 
             name="edPeriodInput" 
             placeholder="Periodo de tiempo" 
             [(ngModel)]="this.educationComponent.ed.edPeriod" 
@@ -55,7 +51,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.educationComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

@@ -10,14 +10,14 @@
       </div>
 
       <div class="col-lg-7 col-md-8 col-12">
-        <form action="https://formsubmit.co/{{this.person.email}}" method="POST">
+        <form id="contact-form" #f="ngForm" (ngSubmit)="onMailTo()" novalidate>
           <!-- Name input -->
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="NameInput" 
             name="NameInput" 
             placeholder="Nombre" 
+            [(ngModel)]="this.name" 
             required>
             <label class="form-label" for="NameInput">Nombre</label>
           </div>
@@ -25,19 +25,21 @@
           <div class="form-floating mb-4">
             <input type="email" 
             class="form-control" 
-            id="EmailInput" 
             name="EmailInput" 
             placeholder="Correo electrónico" 
+            [(ngModel)]="this.email" 
             required>
-            <label class="form-label" for="EmailInput">Correo electrónico</label>
+            <label class="form-label" for="EmailInput">Correo electrónico 
+              <span class="email-label-span">({{this.person.email}})</span>
+            </label>
           </div>
           <!-- Subject input -->
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="SubjectInput" 
             name="SubjectInput" 
             placeholder="Asunto" 
+            [(ngModel)]="this.subject" 
             required>
             <label class="form-label" for="SubjectInput">Asunto</label>
           </div>
@@ -46,9 +48,9 @@
             <textarea type="text" 
             class="form-control" 
             rows="4" 
-            id="DescInput" 
             name="DescInput" 
             placeholder="Escribe aquí" 
+            [(ngModel)]="this.desc" 
             required></textarea>
             <label class="form-label" for="DescInput">Escribe aquí</label>
           </div>

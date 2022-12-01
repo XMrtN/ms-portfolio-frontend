@@ -31,6 +31,13 @@ export class ExperienceComponent implements OnInit {
     this.loadExp();
   }
 
+  onClean(): void {
+    this.exp.expCompName = '';
+    this.exp.expJobTitle = '';
+    this.exp.expPeriod = '';
+    this.exp.expDesc = '';
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.experience, event.previousIndex, event.currentIndex);
     this.experience.forEach(expe => {

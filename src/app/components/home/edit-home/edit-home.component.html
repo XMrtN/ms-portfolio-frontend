@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editPersonLabel">Modificar presentación</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.homeComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
@@ -15,7 +15,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
               <div class="form-floating mb-4">
                 <input type="text" 
                 class="form-control" 
-                id="personNameInput" 
                 name="personNameInput" 
                 placeholder="Nombre" 
                 [(ngModel)]="this.homeComponent.personEdit.name" 
@@ -28,7 +27,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
               <div class="form-floating mb-4">
                 <input type="text" 
                 class="form-control" 
-                id="personLastNameInput" 
                 name="personLastNameInput" 
                 placeholder="Apellido" 
                 [(ngModel)]="this.homeComponent.personEdit.lastName" 
@@ -41,7 +39,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
           <div class="form-floating mb-4">
             <input type="email" 
             class="form-control" 
-            id="personEmailInput" 
             name="personEmailInput" 
             placeholder="Correo electrónico" 
             [(ngModel)]="this.homeComponent.personEdit.email" 
@@ -53,7 +50,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             <textarea type="text" 
             class="form-control" 
             maxlength="250"
-            id="personDescInput" 
             name="personDescInput" 
             placeholder="Descripción sobre mí" 
             [(ngModel)]="this.homeComponent.personEdit.description" 
@@ -61,10 +57,9 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             <label for="personDescInput">Descripción sobre mí</label>
           </div>
           <!-- Img input -->
-          <div class="form-floating">
+          <div class="form-floating mb-4">
             <input type="file" 
             class="form-control" 
-            id="personImgInput" 
             name="personImgInput" 
             placeholder="Foto de perfil" 
             [(ngModel)]="this.homeComponent.personEdit.img" 
@@ -74,23 +69,24 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.h
             <label for="personImgInput">Foto de perfil</label>
           </div>
           <!-- Img View -->
-          <div class="d-flex justify-content-center mt-4">
-            <img [src]="imageService.url" width="150px" *ngIf="imageService.url">
+          <div class="d-flex justify-content-center mb-4" *ngIf="imageService.url">
+            <img [src]="imageService.url" width="150px" class="rounded-3">
           </div>
           <!-- Cv input -->
           <div class="form-floating mb-4">
-            <input type="text" 
+            <input type="file" 
             class="form-control" 
-            id="personCvInput" 
             name="personCvInput" 
-            placeholder="Url para descargar CV" 
+            placeholder="Archivo CV" 
             [(ngModel)]="this.homeComponent.personEdit.cv" 
+            (change)="uploadFile($event)" 
+            accept=".pdf, .docx, .txt" 
             required>
-            <label for="personCvInput">Url para descargar CV</label>
+            <label for="personCvInput">Archivo CV</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.homeComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

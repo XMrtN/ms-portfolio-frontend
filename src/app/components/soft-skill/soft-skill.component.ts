@@ -29,6 +29,11 @@ export class SoftSkillComponent implements OnInit {
     this.loadSkill();
   }
 
+  onClean(): void {
+    this.softSkill.name = '';
+    this.softSkill.percentage = 50;
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.soft, event.previousIndex, event.currentIndex);
     this.soft.forEach(soft => {

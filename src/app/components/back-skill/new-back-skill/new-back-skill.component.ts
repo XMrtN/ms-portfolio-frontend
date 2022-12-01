@@ -10,31 +10,26 @@ import { BackSkillComponent } from '../back-skill.component';
 })
 export class NewBackSkillComponent implements OnInit {
   
-  position?: number;
-  backskillName?: string;
-  backskillPercentage: number = 50;
-
   constructor(
     private backskillService: BackSkillService,
-    private backSkillComponent: BackSkillComponent
+    protected backSkillComponent: BackSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.backskillName = '';
-    this.backskillPercentage = 50;
-  }
-
   onCreate(): void {
-    const backskill = new BackSkill(this.position!, this.backskillName!, this.backskillPercentage);
+    const backskill = new BackSkill(
+      this.backSkillComponent.backSkill.position,
+      this.backSkillComponent.backSkill.name,
+      this.backSkillComponent.backSkill.percentage
+    );
     this.backskillService.save(backskill).subscribe(data => {
       this.backSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.backSkillComponent.onClean();
   }
 
 }

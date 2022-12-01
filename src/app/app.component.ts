@@ -29,12 +29,14 @@ export class AppComponent {
 
   initScrollAnimaitons(): void {
     window.addEventListener("load", () => {
-      gsap.utils.toArray<HTMLElement>(".reveal").forEach((text) => {
+      gsap.utils.toArray<HTMLElement>(".reveal").forEach(text => {
         ScrollTrigger.create({
           trigger: text,
-          toggleClass: "active",
-          start: "top 100%",
-          end: "bottom 0%"
+          start: "top 90%",
+          end: "bottom 10%",
+          onRefreshInit () { text.classList.add("hidden") },
+          onEnter: () => text.classList.remove("hidden"),
+          onLeaveBack: () => text.classList.add("hidden")
         });
       });
     });

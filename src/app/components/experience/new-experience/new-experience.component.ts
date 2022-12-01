@@ -10,35 +10,28 @@ import { ExperienceComponent } from '../experience.component';
 })
 export class NewExperienceComponent implements OnInit {
   
-  position?: number;
-  expCompName?: string;
-  expJobTitle?: string;
-  expPeriod?: string;
-  expDesc?: string;
-  
   constructor(
     private experienceService: ExperienceService,
-    private experienceComponent: ExperienceComponent
+    protected experienceComponent: ExperienceComponent
   ) { }
   
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.expCompName = '';
-    this.expJobTitle = '';
-    this.expPeriod = '';
-    this.expDesc = '';
-  }
-
   onCreate(): void {
-    const exp = new Experience(this.position!, this.expCompName!, this.expJobTitle!, this.expPeriod!, this.expDesc!);
+    const exp = new Experience(
+      this.experienceComponent.exp.position,
+      this.experienceComponent.exp.expCompName,
+      this.experienceComponent.exp.expJobTitle,
+      this.experienceComponent.exp.expPeriod,
+      this.experienceComponent.exp.expDesc
+    );
     this.experienceService.save(exp).subscribe(data => {
       this.experienceComponent.loadExp();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.experienceComponent.onClean();
   }
 
 }

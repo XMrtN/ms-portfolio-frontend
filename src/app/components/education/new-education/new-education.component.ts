@@ -10,35 +10,28 @@ import { EducationComponent } from '../education.component';
 })
 export class NewEducationComponent implements OnInit {
 
-  position?: number;
-  edInsTitle?: string;
-  edCareerName?: string;
-  edPeriod?: string;
-  edDesc?: string;
-
   constructor(
     private educationService: EducationService,
-    private educationComponenet: EducationComponent
+    protected educationComponent: EducationComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.edInsTitle = '';
-    this.edCareerName = '';
-    this.edPeriod = '';
-    this.edDesc = '';
-  }
-
   onCreate(): void {
-    const ed = new Education(this.position!, this.edInsTitle!, this.edCareerName!, this.edPeriod!, this.edDesc!);
+    const ed = new Education(
+      this.educationComponent.ed.position,
+      this.educationComponent.ed.edInsTitle,
+      this.educationComponent.ed.edCareerName,
+      this.educationComponent.ed.edPeriod,
+      this.educationComponent.ed.edDesc
+    );
     this.educationService.save(ed).subscribe(data => {
-      this.educationComponenet.loadEd();
+      this.educationComponent.loadEd();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.educationComponent.onClean();
   }
 
 }

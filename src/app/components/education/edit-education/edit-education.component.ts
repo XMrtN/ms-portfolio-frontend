@@ -19,11 +19,15 @@ export class EditEducationComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.educationService.update(this.educationComponent.id!, this.educationComponent.ed).subscribe(data => {
+    this.educationService.update(
+      this.educationComponent.id!,
+      this.educationComponent.ed
+    ).subscribe(data => {
       this.educationComponent.loadEd();
     }, err => {
       alert("No se pudo modificar");
     });
+    this.educationComponent.onClean();
   }
 
 }

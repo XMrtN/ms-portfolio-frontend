@@ -1,6 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Proyect } from 'src/app/models/proyect.model';
+import { ImageService } from 'src/app/services/image.service';
 import { ProyectService } from 'src/app/services/proyect.service';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -26,11 +27,21 @@ export class ProyectsComponent implements OnInit {
 
   constructor(
     private proyectService: ProyectService,
-    protected tokenService: TokenService
+    protected tokenService: TokenService,
+    public imageService: ImageService
   ) { }
   
   ngOnInit(): void {
     this.loadProyect();
+  }
+
+  onClean(): void {
+    this.proyect.title = '';
+    this.proyect.subtitle = '';
+    this.proyect.finishDate = '';
+    this.proyect.description = '';
+    this.proyect.img = '';
+    this.proyect.url = '';
   }
 
   onDropped(event: CdkDragDrop<any>): void {
@@ -58,8 +69,9 @@ export class ProyectsComponent implements OnInit {
     });
   }
 
-  delete(id: number): void {
+  delete(id: number, title: string): void {
     if(id != undefined) {
+      this.imageService.deleteImages(`image/proyects/proyect_${title}`);
       this.proyectService.delete(id).subscribe(data => {
         this.loadProyect();
       }, err => {

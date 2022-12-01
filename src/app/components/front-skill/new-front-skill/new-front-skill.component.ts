@@ -10,31 +10,26 @@ import { FrontSkillComponent } from '../front-skill.component';
 })
 export class NewFrontSkillComponent implements OnInit {
 
-  position?: number;
-  frontskillName?: string;
-  frontskillPercentage: number = 50;
-
   constructor(
     private frontskillService: FrontSkillService,
-    private frontSkillComponent: FrontSkillComponent
+    protected frontSkillComponent: FrontSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.frontskillName = '';
-    this.frontskillPercentage = 50;
-  }
-
   onCreate(): void {
-    const frontskill = new FrontSkill(this.position!, this.frontskillName!, this.frontskillPercentage);
+    const frontskill = new FrontSkill(
+      this.frontSkillComponent.frontSkill.position,
+      this.frontSkillComponent.frontSkill.name,
+      this.frontSkillComponent.frontSkill.percentage
+    );
     this.frontskillService.save(frontskill).subscribe(data => {
       this.frontSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.frontSkillComponent.onClean();
   }
 
 }

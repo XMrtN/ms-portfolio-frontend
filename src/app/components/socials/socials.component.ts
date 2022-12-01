@@ -34,6 +34,11 @@ export class SocialsComponent implements OnInit {
     this.loadSocial();
   }
 
+  onClean(): void {
+    this.social.icon = '';
+    this.social.url = '';
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.socials, event.previousIndex, event.currentIndex);
     this.socials.forEach(link => {
@@ -84,9 +89,9 @@ export class SocialsComponent implements OnInit {
         }
       });
 
-      gsap.to(".socials-widget-container", {
+      gsap.from(".socials-widget-container", {
         duration: 0.5,
-        y: 0,
+        y: 50,
         delay: 3.4,
         scrollTrigger: {
           trigger: "#home .container",
@@ -97,24 +102,5 @@ export class SocialsComponent implements OnInit {
       });
     });
   }
-
-  // socialLinks(): void {
-  //   this.socials.push(new SocialLink(
-  //     "facebook",
-  //     "https://m.facebook.com/people/Mart%C3%ADn-Sep%C3%BAlveda/100071287513937/"
-  //   ))
-  //   this.socials.push(new SocialLink(
-  //     "telegram",
-  //     "https://telegram.me/XMrtN"
-  //   ))
-  //   this.socials.push(new SocialLink(
-  //     "instagram",
-  //     "https://www.instagram.com/martin07.24/"
-  //   ))
-  //   this.socials.push(new SocialLink(
-  //     "github",
-  //     "https://github.com/XMrtN"
-  //   ))
-  // }
 
 }

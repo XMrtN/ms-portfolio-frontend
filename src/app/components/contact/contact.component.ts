@@ -20,6 +20,10 @@ export class ContactComponent implements OnInit {
     cv: ''
   };
   environment = environment.url;
+  name?: string;
+  email?: string;
+  subject?: string;
+  desc?: string;
 
   constructor(protected personService: PersonService) { }
 
@@ -27,6 +31,10 @@ export class ContactComponent implements OnInit {
     this.personService.detail(1).subscribe(data => {
       this.person = data;
     });
+  }
+
+  onMailTo(): void {
+    window.location.href = `mailto:${this.person.email}?subject=${this.subject}&body=Nombre%3A${this.name}%0ACorreo%3A${this.email}%0AMensaje%3A${this.desc}%0A`;
   }
 
 }

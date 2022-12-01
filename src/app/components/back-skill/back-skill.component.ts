@@ -29,6 +29,11 @@ export class BackSkillComponent implements OnInit {
     this.loadSkill();
   }
 
+  onClean(): void {
+    this.backSkill.name = '';
+    this.backSkill.percentage = 50;
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.backEnd, event.previousIndex, event.currentIndex);
     this.backEnd.forEach(back => {

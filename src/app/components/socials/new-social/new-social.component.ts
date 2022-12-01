@@ -9,32 +9,27 @@ import { SocialsComponent } from '../socials.component';
   styleUrls: ['./new-social.component.css']
 })
 export class NewSocialComponent implements OnInit {
-
-  position?: number;
-  socialIcon?: string;
-  socialUrl?: string;
   
   constructor(
     private socialService: SocialService,
-    private socialsComponent: SocialsComponent
+    protected socialsComponent: SocialsComponent
   ) { }
   
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.socialIcon = '';
-    this.socialUrl = '';
-  }
-
   onCreate(): void {
-    const social = new Social(this.position!, this.socialIcon!, this.socialUrl!);
+    const social = new Social(
+      this.socialsComponent.social.position,
+      this.socialsComponent.social.icon,
+      this.socialsComponent.social.url
+    );
     this.socialService.save(social).subscribe(data => {
       this.socialsComponent.loadSocial();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.socialsComponent.onClean();
   }
 
 }

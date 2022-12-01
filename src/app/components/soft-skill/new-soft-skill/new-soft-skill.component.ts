@@ -10,31 +10,26 @@ import { SoftSkillComponent } from '../soft-skill.component';
 })
 export class NewSoftSkillComponent implements OnInit {
 
-  position?: number;
-  softskillName?: string;
-  softskillPercentage: number = 50;
-
   constructor(
     private softskillService: SoftSkillService,
-    private softSkillComponent: SoftSkillComponent
+    protected softSkillComponent: SoftSkillComponent
   ) { }
 
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.softskillName = '';
-    this.softskillPercentage = 50;
-  }
-
   onCreate(): void {
-    const softskill = new SoftSkill(this.position!, this.softskillName!, this.softskillPercentage);
+    const softskill = new SoftSkill(
+      this.softSkillComponent.softSkill.position, 
+      this.softSkillComponent.softSkill.name, 
+      this.softSkillComponent.softSkill.percentage
+    );
     this.softskillService.save(softskill).subscribe(data => {
       this.softSkillComponent.loadSkill();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.softSkillComponent.onClean();
   }
 
 }

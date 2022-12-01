@@ -31,6 +31,13 @@ export class EducationComponent implements OnInit {
     this.loadEd();
   }
 
+  onClean(): void {
+    this.ed.edInsTitle = '';
+    this.ed.edCareerName = '';
+    this.ed.edPeriod = '';
+    this.ed.edDesc = '';
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.education, event.previousIndex, event.currentIndex);
     this.education.forEach(edu => {

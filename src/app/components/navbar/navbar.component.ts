@@ -18,10 +18,10 @@ export class NavbarComponent implements OnInit {
   initAnimations(): void {
     window.addEventListener("load", () => {
       const tl = gsap.timeline({defaults: {duration: 1}})
-      .to(".nav-logo img", {y: 0}, 1)
-      .to(".navbar-toggler", {y: 0}, "<0.5")
-      .to(".nav-link", {y: 0, stagger: 0.2}, "<0.5")
-      .to(".log-btns", {y: 0}, "<1.2");
+      .from(".nav-logo img", {y: -200}, 1)
+      .from(".navbar-toggler", {y: -200}, "<0.5")
+      .from(".nav-link", {y: -200, stagger: 0.2}, "<0.5")
+      .from(".log-btns", {y: -200}, "<1.2");
     });
   }
 

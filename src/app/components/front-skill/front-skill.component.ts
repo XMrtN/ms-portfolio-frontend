@@ -29,6 +29,11 @@ export class FrontSkillComponent implements OnInit {
     this.loadSkill();
   }
 
+  onClean(): void {
+    this.frontSkill.name = '';
+    this.frontSkill.percentage = 50;
+  }
+
   onDropped(event: CdkDragDrop<any>): void {
     moveItemInArray(this.frontEnd, event.previousIndex, event.currentIndex);
     this.frontEnd.forEach(front => {

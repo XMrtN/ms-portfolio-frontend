@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editSocialLabel">Modificar red social</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.socialsComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
@@ -14,7 +14,6 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
             <div class="form-floating">
               <input type="text" 
               class="form-control" 
-              id="socialIconInput" 
               name="socialIconInput" 
               placeholder="Ícono" 
               [(ngModel)]="this.socialsComponent.social.icon" 
@@ -29,7 +28,6 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
           <div class="form-floating">
             <input type="text" 
             class="form-control" 
-            id="socialUrlInput" 
             name="socialUrlInput" 
             placeholder="Url de enlace" 
             [(ngModel)]="this.socialsComponent.social.url" 
@@ -38,7 +36,7 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.socialsComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

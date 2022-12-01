@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editExpLabel">Modificar experiencia</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.experienceComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
@@ -13,7 +13,6 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expCompNameInput" 
             name="expCompNameInput" 
             placeholder="Compañía o empresa" 
             [(ngModel)]="this.experienceComponent.exp.expCompName" 
@@ -24,7 +23,6 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
           <div class="form-floating mb-4">
             <input type="text" 
             class="form-control" 
-            id="expJobTitleInput" 
             name="expJobTitleInput" 
             placeholder="Puesto" 
             [(ngModel)]="this.experienceComponent.exp.expJobTitle" 
@@ -35,7 +33,6 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
           <div class="form-floating mb-4">
             <textarea type="text" 
             class="form-control" 
-            id="expDescInput" 
             name="expDescInput" 
             placeholder="Descripción" 
             [(ngModel)]="this.experienceComponent.exp.expDesc" 
@@ -46,7 +43,6 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
           <div class="form-floating">
             <input type="text" 
             class="form-control" 
-            id="expPeriodInput" 
             name="expPeriodInput" 
             placeholder="Periodo de tiempo" 
             [(ngModel)]="this.experienceComponent.exp.expPeriod" 
@@ -55,7 +51,7 @@ tabindex="-1" aria-labelledby="editExpLabel" aria-hidden="true" *ngIf="this.expe
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.experienceComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

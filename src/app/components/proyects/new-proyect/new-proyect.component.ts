@@ -10,47 +10,38 @@ import { ProyectsComponent } from '../proyects.component';
   styleUrls: ['./new-proyect.component.css']
 })
 export class NewProyectComponent implements OnInit {
-
-  position?: number;
-  proyectTitle?: string;
-  proyectSubtitle?: string;
-  proyectFinishDate?: string;
-  proyectDescription?: string;
-  proyectImg?: string;
-  proyectUrl?: string;
   
   constructor(
     private proyectService: ProyectService,
-    private proyectsComponent: ProyectsComponent,
+    protected proyectsComponent: ProyectsComponent,
     public imageService: ImageService
   ) { }
   
   ngOnInit(): void {
   }
 
-  onClean(): void {
-    this.proyectTitle = '';
-    this.proyectSubtitle = '';
-    this.proyectFinishDate = '';
-    this.proyectDescription = '';
-    this.proyectImg = '';
-    this.proyectUrl = '';
-  }
-
   onCreate(): void {
-    // this.proyectImg = this.imageService.url
-    const proyect = new Proyect(this.position!, this.proyectTitle!, this.proyectSubtitle!, this.proyectFinishDate!, this.proyectDescription!, this.proyectImg!, this.proyectUrl!);
+    this.proyectsComponent.proyect.img = this.imageService.url!;
+    const proyect = new Proyect(
+      this.proyectsComponent.proyect.position,
+      this.proyectsComponent.proyect.title,
+      this.proyectsComponent.proyect.subtitle,
+      this.proyectsComponent.proyect.finishDate,
+      this.proyectsComponent.proyect.description,
+      this.proyectsComponent.proyect.img,
+      this.proyectsComponent.proyect.url
+    );
     this.proyectService.save(proyect).subscribe(data => {
       this.proyectsComponent.loadProyect();
     }, err => {
       alert("No se pudo agregar");
     });
-    this.onClean();
+    this.proyectsComponent.onClean();
+    this.imageService.clearUrl();
   }
 
-  // uploadImage($event: any) {
-  //   const name = "proyect" + proyect.id
-  //   this.imageService.uploadImage($event, name)
-  // }
+  uploadImage($event: any) {
+    this.imageService.uploadImage($event, 'image/proyects/', `proyect_${this.proyectsComponent.proyect.title}`);
+  }
 
 }

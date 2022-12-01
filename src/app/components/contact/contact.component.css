@@ -1,3 +1,8 @@
+/* ---------- CONTACT SECTION ---------- */
+.email-label-span {
+  color: var(--text-color);
+}
+
 footer a {
   color: var(--first-color);
 }

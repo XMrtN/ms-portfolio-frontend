@@ -28,6 +28,7 @@
   bottom: 0;
   object-fit: cover;
   user-select: none;
+  z-index: 0;
 }
 .moon,
 .smoke {
@@ -35,15 +36,9 @@
 }
 
 
-/* ---------- H1 & IMGBOX ---------- */
-/* se esconden para mostrarse con animación */
-h1.display-4, .p.mb-2, .imgBox, a.btn-primary {
-  opacity: 0;
-  transform: translateX(-150px);
-  -webkit-transform: translateX(-150px);
-  -moz-transform: translateX(-150px);
-  -ms-transform: translateX(-150px);
-  -o-transform: translateX(-150px);
+/* ---------- TEXT & IMGBOX ---------- */
+.container {
+  z-index: 1;
 }
 
 #home h1, #home p, #home .bi-pencil-square  {

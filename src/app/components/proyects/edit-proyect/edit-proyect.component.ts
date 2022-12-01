@@ -21,17 +21,21 @@ export class EditProyectComponent implements OnInit {
   }
 
   onUpdate(): void {
-    // this.proyect.img = this.imageService.url
-    this.proyectService.update(this.proyectsComponent.id!, this.proyectsComponent.proyect).subscribe(data => {
+    this.proyectsComponent.proyect.img = this.imageService.url!;
+    this.proyectService.update(
+      this.proyectsComponent.id!,
+      this.proyectsComponent.proyect
+    ).subscribe(data => {
       this.proyectsComponent.loadProyect();
     }, err => {
       alert("No se pudo modificar");
     });
+    this.proyectsComponent.onClean();
+    this.imageService.clearUrl();
   }
 
-  // uploadImage($event: any) {
-  //   const name = "proyect" + this.id
-  //   this.imageService.uploadImage($event, name)
-  // }
+  uploadImage($event: any) {
+    this.imageService.uploadImage($event, 'image/proyects/', `proyect_${this.proyectsComponent.proyect.title}`);
+  }
 
 }

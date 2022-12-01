@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="newSocialLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newSocialLabel">Nueva red social</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.socialsComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
         <div class="modal-body">
@@ -14,31 +14,29 @@ tabindex="-1" aria-labelledby="newSocialLabel" aria-hidden="true">
             <div class="form-floating">
               <input type="text" 
               class="form-control" 
-              id="socialIconInput" 
               name="socialIconInput" 
               placeholder="Ícono" 
-              [(ngModel)]="socialIcon" 
+              [(ngModel)]="this.socialsComponent.social.icon" 
               required>
               <label class="form-label" for="socialIconInput">Ícono</label>
             </div>
             <a href="https://icons.getbootstrap.com/" class="btn btn-outline-primary d-flex align-items-center">
-              <i class="{{socialIcon}} fs-3 lh-1"></i>
+              <i class="{{this.socialsComponent.social.icon}} fs-3 lh-1"></i>
             </a>
           </div>
           <!-- Url input -->
           <div class="form-floating">
             <input type="text" 
             class="form-control" 
-            id="socialUrlInput" 
             name="socialUrlInput" 
             placeholder="Url de enlace" 
-            [(ngModel)]="socialUrl" 
+            [(ngModel)]="this.socialsComponent.social.url" 
             required>
             <label class="form-label" for="socialUrlInput">Url de enlace</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.socialsComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

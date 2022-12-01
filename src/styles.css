@@ -250,25 +250,25 @@ p, .p, hr {
 .reveal {
   position: relative;
   transform-origin: left;
-  transform: scaleX(0);
-  -webkit-transform: scaleX(0);
-  -moz-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  -o-transform: scaleX(0);
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition-delay: 0.5s;
-}
-.reveal.active {
   transform: scaleX(1);
   -webkit-transform: scaleX(1);
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
   -o-transform: scaleX(1);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
   transition-delay: 0s;
+}
+.reveal.hidden {
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transition-delay: 0.5s;
 }
 
 .reveal::before {
@@ -280,26 +280,31 @@ p, .p, hr {
   width: 100%;
   background-color: var(--first-color);
   transform-origin: right;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition-delay: 0s;
-}
-.reveal.second:before,
-.reveal:nth-child(even):before {
-  background-color: var(--second-color);
-}
-.reveal.active::before {
   transform: scaleX(0);
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
   -ms-transform: scaleX(0);
   -o-transform: scaleX(0);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
   transition-delay: 0.5s;
 }
+.reveal.hidden::before {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transition-delay: 0s;
+}
 
+.reveal.second:before,
+.reveal:nth-child(even):before {
+  background-color: var(--second-color);
+}
 
 /* ---------- MEDIA QUERIES ---------- */
 /* para pantallas muy chicas */
