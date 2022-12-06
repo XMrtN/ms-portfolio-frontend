@@ -12,6 +12,13 @@ gsap.registerPlugin(ScrollTrigger);
 export class AppComponent {
 
   isLoaded: boolean = false;
+  sections = [
+    { id: "home", name: "inicio" },
+    { id: "about", name: "acerca" },
+    { id: "skills", name: "habilidades" },
+    { id: "proyects", name: "proyectos" },
+    { id: "contact", name: "contacto" },
+  ];
 
   constructor() { }
 

@@ -12,11 +12,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ProyectsComponent implements OnInit {
 
-  proyects: Proyect[] = [];
+  proyects: Proyect[] = null!;
   id?: number;
   proyect: Proyect = {
     id: 0,
-    position: 0,
+    position: 1000,
     title: '',
     subtitle: '',
     finishDate: '',
@@ -36,6 +36,7 @@ export class ProyectsComponent implements OnInit {
   }
 
   onClean(): void {
+    this.proyect.position = 1000,
     this.proyect.title = '';
     this.proyect.subtitle = '';
     this.proyect.finishDate = '';

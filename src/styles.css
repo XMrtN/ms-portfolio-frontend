@@ -16,7 +16,7 @@
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --second-color: hsl(44, 85%, 50%);
+  --second-color: #ffc107;
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
@@ -32,9 +32,11 @@
   --bs-btn-bg: var(--first-color);
   --bs-btn-hover-bg: var(--first-color-alt);
   --bs-btn-active-bg: var(--first-color-alt);
+  --bs-btn-disabled-bg: var(--first-color);
   --bs-btn-border-color: var(--first-color);
   --bs-btn-hover-border-color: var(--first-color-alt);
   --bs-btn-active-border-color: var(--first-color-alt);
+  --bs-btn-disabled-border-color: var(--first-color);
 }
 .btn-outline-primary {
   --bs-btn-color: var(--first-color);
@@ -48,16 +50,16 @@
 .btn-outline-light {
   --bs-btn-color: var(--title-color);
   --bs-btn-hover-color: var(--bs-body-bg);
-  --bs-btn-hover-bg: var(--title-color);
   --bs-btn-active-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--title-color);
   --bs-btn-active-bg: var(--title-color);
 }
 
 .btn-outline-warning {
   --bs-btn-color: var(--second-color);
   --bs-btn-hover-color: var(--bs-body-bg);
-  --bs-btn-hover-bg: var(--second-color);
   --bs-btn-active-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--second-color);
   --bs-btn-active-bg: var(--second-color);
 }
 

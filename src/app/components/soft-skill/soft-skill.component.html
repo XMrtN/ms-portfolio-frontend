@@ -1,5 +1,5 @@
 <div class="accordion-item bg-body border-0">
-  <h2 class="accordion-header" id="headingThree">
+  <h2 id="headingThree">
     <button type="button" 
     class="accordion-button collapsed bg-body p-3" 
     aria-expanded="false" 
@@ -25,7 +25,7 @@
 
   <div class="accordion-collapse collapse bg-body" id="collapseThree" 
   aria-labelledby="headingThree" data-bs-parent="#accordion">
-    <div class="accordion-body bg-body px-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)">
+    <div class="accordion-body bg-body p-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)" *ngIf="this.soft != null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of soft" cdkDrag 
       [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
         <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-end w-100">
@@ -52,6 +52,19 @@
         <div class="progress">
           <div class="progress-bar" role="progressbar" aria-label="Basic example" attr.style="width: {{skill.percentage}}%" attr.aria-valuenow="{{skill.percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
+      </div>
+    </div>
+
+    <!---------- LAZY LOADING PLACEHOLDER ---------->
+    <div class="accordion-body bg-body p-0 ps-sm-5" *ngIf="this.soft == null">
+      <div class="card card-body bg-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
+        <h6 class="placeholder-glow">
+          <span class="placeholder col-5"></span>
+        </h6>
+        
+        <p class="placeholder-glow">
+          <span class="placeholder col-12"></span>
+        </p>
       </div>
     </div>
   </div>

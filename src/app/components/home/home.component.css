@@ -57,7 +57,7 @@
   text-shadow: none;
 }
 
-#home h1 span {
+#home h1 span.name {
   color: var(--second-color);
 }
 

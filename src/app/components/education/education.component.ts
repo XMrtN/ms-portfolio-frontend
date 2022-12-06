@@ -11,11 +11,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class EducationComponent implements OnInit {
   
-  education: Education[] = [];
+  education: Education[] = null!;
   id?: number;
   ed: Education = {
     id: 0,
-    position: 0,
+    position: 1000,
     edInsTitle: '',
     edCareerName: '',
     edPeriod: '',
@@ -32,6 +32,7 @@ export class EducationComponent implements OnInit {
   }
 
   onClean(): void {
+    this.ed.position = 1000,
     this.ed.edInsTitle = '';
     this.ed.edCareerName = '';
     this.ed.edPeriod = '';

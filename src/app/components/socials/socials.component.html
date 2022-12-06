@@ -1,30 +1,38 @@
 <!---------- SOCIALS WIDGET ---------->
 <div class="socials-widget-container fixed-bottom bottom-0 d-flex flex-column align-items-center">
   <div class="socials-widget position-relative d-flex gap-2 pt-2 px-3" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="this.onDropped($event)">
-    <div class="dropup-center dropup rounded-5 my-2" *ngFor="let social of socials" cdkDrag 
-    [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
-      <button class="btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" cdkDragHandle>
-        <i class="{{social.icon}}"></i>
-      </button>
+    <div class="d-flex gap-2" *ngIf="this.socials != null">
+      <div class="dropup-center dropup rounded-5 my-2" *ngFor="let social of socials" cdkDrag 
+      [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
+        <button class="btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false" cdkDragHandle>
+          <i class="{{social.icon}}"></i>
+        </button>
+      
+        <ul class="dropdown-menu dropdown-menu-dark gap-3 p-2">
+          <li>
+            <a href="{{social.url}}" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1">
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </li>
+          <li class="d-flex gap-1" *ngIf="this.tokenService.isLoggedIn()">
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            data-bs-toggle="modal" data-bs-target="#editSocial" 
+            (click)="this.id = social.id; this.onDetail()">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            (click)="delete(social.id!)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-      <ul class="dropdown-menu dropdown-menu-dark gap-3 p-2">
-        <li>
-          <a href="{{social.url}}" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1">
-            <i class="bi bi-box-arrow-up-right"></i>
-          </a>
-        </li>
-        <li class="d-flex gap-1" *ngIf="this.tokenService.isLoggedIn()">
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-          data-bs-toggle="modal" data-bs-target="#editSocial" 
-          (click)="this.id = social.id; this.onDetail()">
-            <i class="bi bi-pencil-square"></i>
-          </button>
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-          (click)="delete(social.id!)">
-            <i class="bi bi-trash"></i>
-          </button>
-        </li>
-      </ul>
+    <div class="d-flex gap-2 my-2" *ngIf="this.socials == null">
+      <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '', '']">
+        <i class="bi bi-person-circle"></i>
+      </button>
     </div>
 
     <button type="button" class="btn btn-outline-light d-flex border-0 lh-1 fs-5 h-fc p-1 my-2" 

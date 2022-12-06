@@ -11,11 +11,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ExperienceComponent implements OnInit {
   
-  experience: Experience[] = [];
+  experience: Experience[] = null!;
   id?: number;
   exp: Experience = {
     id: 0,
-    position: 0,
+    position: 1000,
     expCompName: '',
     expJobTitle: '',
     expPeriod: '',
@@ -32,6 +32,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   onClean(): void {
+    this.exp.position = 1000,
     this.exp.expCompName = '';
     this.exp.expJobTitle = '';
     this.exp.expPeriod = '';

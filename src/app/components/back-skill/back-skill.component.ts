@@ -11,11 +11,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class BackSkillComponent implements OnInit {
 
-  backEnd: BackSkill[] = [];
+  backEnd: BackSkill[] = null!;
   id?: number;
   backSkill: BackSkill = {
     id: 0,
-    position: 0,
+    position: 1000,
     name: '',
     percentage: 50
   };
@@ -30,6 +30,7 @@ export class BackSkillComponent implements OnInit {
   }
 
   onClean(): void {
+    this.backSkill.position = 1000,
     this.backSkill.name = '';
     this.backSkill.percentage = 50;
   }

@@ -34,7 +34,7 @@ export class ContactComponent implements OnInit {
   }
 
   onMailTo(): void {
-    window.location.href = `mailto:${this.person.email}?subject=${this.subject}&body=Nombre%3A${this.name}%0ACorreo%3A${this.email}%0AMensaje%3A${this.desc}%0A`;
+    window.location.href = `mailto:${this.person.email}?subject=${this.subject}&body=Nombre%3A%20${this.name}%0ACorreo%3A%20${this.email}%0AMensaje%3A%20${this.desc}%0A`;
   }
 
 }

@@ -14,28 +14,20 @@
 }
 
 .offcanvas {
-  width: 200px;
+  width: 256px;
   background-color: var(--bs-body-bg);
 }
 
 .navbar-nav {
-  gap: 5px 2px;
+  gap: 0.125rem;
 }
 
 
 /* ---------- HIJOS NAV-ITEM ---------- */
-/* configuro el tamaño de los nav-link */
-.nav-item,
-.nav-link {
-  width: 100%;
-}
-
 /* cambio los valores de las variables provistas por bootstrap */
 /* demas estilos a los nav-link */
 .nav-link {
   font-size: 1.3rem;
-  font-weight: 600;
-  border-radius: 0;
   border-width: 0;
   border-left-width: 6px;
   backdrop-filter: blur(10px);
@@ -98,7 +90,7 @@
 
   /* cambio bordes */
   .nav-link {
-    border-width: 0;
+    border-left-width: 0;
     border-bottom-width: 6px;
   }
 

@@ -2,9 +2,15 @@
 <section id="about" class="pt-5">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <h2 class="reveal">SOBRE MÍ</h2>
-        <p>{{this.homeComponent.person.description}}</p>
+      <div class="col-12 mb-4">
+        <h2 class="reveal d-inline-block">SOBRE MÍ</h2>
+        <p *ngIf="this.homeComponent.person != null">{{this.homeComponent.person.description}}</p>
+
+        <!---------- LAZY LOADING PLACEHOLDER ---------->
+        <p class="placeholder-glow" *ngIf="this.homeComponent.person == null">
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-4"></span>
+        </p>
       </div>
       
       <app-experience class="col-md-6 col-12 mb-md-0 mb-4"></app-experience>

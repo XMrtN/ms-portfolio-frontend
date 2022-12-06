@@ -14,7 +14,6 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class HomeComponent implements OnInit {
 
-  person: Person = null!;
   parallax = [
     { url: "../../../assets/img/bg/stars.png", alt: "stars" },
     { url: "../../../assets/img/bg/moon.png", alt: "moon" },
@@ -23,6 +22,7 @@ export class HomeComponent implements OnInit {
     { url: "../../../assets/img/bg/smoke.png", alt: "smoke" },
     { url: "../../../assets/img/bg/road.png", alt: "road" },
   ];
+  person: Person = null!;
   id?: number;
   personEdit: Person = {
     id: 0,
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     this.initAnimations();
 
     document.querySelectorAll("img").forEach(img => {
-      if (img.complete) {
+      if(img.complete) {
         this.parallaxAnimations();
       } else {
         img.addEventListener("load", imgLoaded => this.parallaxAnimations());

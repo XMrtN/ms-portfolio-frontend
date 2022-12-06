@@ -11,11 +11,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class FrontSkillComponent implements OnInit {
 
-  frontEnd: FrontSkill[] = [];
+  frontEnd: FrontSkill[] = null!;
   id?:number;
   frontSkill: FrontSkill = {
     id: 0,
-    position: 0,
+    position: 1000,
     name: '',
     percentage: 50
   };
@@ -30,6 +30,7 @@ export class FrontSkillComponent implements OnInit {
   }
 
   onClean(): void {
+    this.frontSkill.position = 1000,
     this.frontSkill.name = '';
     this.frontSkill.percentage = 50;
   }

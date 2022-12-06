@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { gsap } from 'gsap';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,10 @@ import { gsap } from 'gsap';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(protected tokenService: TokenService) { }
+  constructor(
+    protected tokenService: TokenService,
+    protected appComponent: AppComponent
+  ) { }
   
   ngOnInit(): void {
     this.initAnimations();

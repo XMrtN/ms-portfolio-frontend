@@ -15,11 +15,11 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class SocialsComponent implements OnInit {
 
-  socials: Social[] = [];
+  socials: Social[] = null!;
   id?: number;
   social: Social = {
     id: 0,
-    position: 0,
+    position: 1000,
     icon: '',
     url: ''
   };
@@ -35,6 +35,7 @@ export class SocialsComponent implements OnInit {
   }
 
   onClean(): void {
+    this.social.position = 1000,
     this.social.icon = '';
     this.social.url = '';
   }
@@ -91,7 +92,7 @@ export class SocialsComponent implements OnInit {
 
       gsap.from(".socials-widget-container", {
         duration: 0.5,
-        y: 50,
+        y: 100,
         delay: 3.4,
         scrollTrigger: {
           trigger: "#home .container",

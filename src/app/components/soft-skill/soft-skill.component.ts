@@ -11,11 +11,11 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class SoftSkillComponent implements OnInit {
 
-  soft: SoftSkill[] = [];
+  soft: SoftSkill[] = null!;
   id?: number;
   softSkill: SoftSkill = {
     id: 0,
-    position: 0,
+    position: 1000,
     name: '',
     percentage: 50
   };
@@ -30,6 +30,7 @@ export class SoftSkillComponent implements OnInit {
   }
 
   onClean(): void {
+    this.softSkill.position = 1000,
     this.softSkill.name = '';
     this.softSkill.percentage = 50;
   }
