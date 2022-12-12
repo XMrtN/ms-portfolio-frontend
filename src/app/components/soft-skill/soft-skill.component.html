@@ -1,7 +1,7 @@
 <div class="accordion-item bg-body border-0">
-  <h2 id="headingThree">
+  <h2 class="position-relative" id="headingThree">
     <button type="button" 
-    class="accordion-button collapsed bg-body p-3" 
+    class="accordion-button collapsed bg-body p-3 pe-5" 
     aria-expanded="false" 
     data-bs-toggle="collapse" 
     data-bs-target="#collapseThree" 
@@ -9,23 +9,23 @@
       <i class="skill-type-icon bi bi-palette2 fs-2 me-3"></i>
 
       <div class="w-100">
-        <div class="flex-ssm-wrap-reverse d-flex align-items-start">
-          <h5 class="me-3">Soft skills</h5>
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
-          data-bs-toggle="modal" data-bs-target="#newSoftSkill" *ngIf="this.tokenService.isLoggedIn()">
-            <i class="bi bi-plus-square"></i>
-          </button>
-        </div>
+        <h5>Soft skills</h5>
         <p class="m-0">En el entorno laboral</p>
       </div>
-
-      <i class="bi bi-chevron-down fs-5 ms-3"></i>
     </button>
+    
+    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center pe-3 h-100">
+      <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+      data-bs-toggle="modal" data-bs-target="#newSoftSkill" *ngIf="this.tokenService.isLoggedIn()">
+        <i class="bi bi-plus-square"></i>
+      </button>
+      <i class="bi bi-chevron-down fs-5"></i>
+    </div>
   </h2>
 
   <div class="accordion-collapse collapse bg-body" id="collapseThree" 
   aria-labelledby="headingThree" data-bs-parent="#accordion">
-    <div class="accordion-body bg-body p-0 ps-sm-5" cdkDropList (cdkDropListDropped)="this.onDropped($event)" *ngIf="this.soft != null">
+    <div class="accordion-body bg-body p-0 ps-sm-3" cdkDropList (cdkDropListDropped)="this.onDropped($event)" *ngIf="this.soft != null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of soft" cdkDrag 
       [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
         <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-end w-100">
@@ -56,7 +56,7 @@
     </div>
 
     <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="accordion-body bg-body p-0 ps-sm-5" *ngIf="this.soft == null">
+    <div class="accordion-body bg-body p-0 ps-sm-3" *ngIf="this.soft == null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
         <h6 class="placeholder-glow">
           <span class="placeholder col-5"></span>

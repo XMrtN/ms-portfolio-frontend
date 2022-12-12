@@ -10,5 +10,5 @@ export const environment = {
     measurementId: 'G-KZRSW3H9PF',
   },
   production: true,
-  url: "https://backendmartinsepulveda.herokuapp.com"
+  url: "https://backendmartinsepulveda-xmrtn.koyeb.app"
 };

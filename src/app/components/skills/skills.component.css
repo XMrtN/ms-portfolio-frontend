@@ -11,24 +11,34 @@
 .accordion-button:not(.collapsed) {
   box-shadow: none;
 }
-.accordion-button > i {
+h2 i:not(.bi-plus-square) {
   color: var(--first-color);
 }
 
 /* estilo al nuevo ícono */
-.accordion-button .bi-chevron-down {
+.accordion-button ~ div .bi-chevron-down {
+  pointer-events: none;
   transition: transform 0.2s ease-in-out;
   -webkit-transition: transform 0.2s ease-in-out;
   -moz-transition: transform 0.2s ease-in-out;
   -ms-transition: transform 0.2s ease-in-out;
   -o-transition: transform 0.2s ease-in-out;
 }
-.accordion-button:not(.collapsed) .bi-chevron-down {
+.accordion-button:not(.collapsed) ~ div .bi-chevron-down {
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   -o-transform: rotate(-180deg);
+}
+
+.accordion-icons {
+  top: 0;
+  right: 0;
+}
+.accordion-icons .btn-outline-light,
+.accordion-icons > i {
+  z-index: 3;
 }
 
 .progress {

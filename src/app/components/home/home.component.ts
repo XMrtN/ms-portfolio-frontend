@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.from("#home h1, #home .p, #home .btn-primary, #home .imgBox", {
+      gsap.from("#home h1, #home .p, #home .btn-primary, #home .imgBox-container", {
         duration: 1,
         x: -150,
         opacity: 0,

@@ -29,8 +29,9 @@
       </div>
     </div>
 
-    <div class="d-flex gap-2 my-2" *ngIf="this.socials == null">
-      <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '', '']">
+    <!---------- LAZY LOADING PLACEHOLDER ---------->
+    <div class="d-flex gap-2 my-2 placeholder-glow" *ngIf="this.socials == null">
+      <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '']">
         <i class="bi bi-person-circle"></i>
       </button>
     </div>
