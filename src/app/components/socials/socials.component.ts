@@ -30,8 +30,8 @@ export class SocialsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initScrollAnimations();
     this.loadSocial();
+    this.initScrollAnimations();
   }
 
   onClean(): void {

@@ -16,7 +16,6 @@
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --second-color: #ffc107;
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
@@ -56,11 +55,8 @@
 }
 
 .btn-outline-warning {
-  --bs-btn-color: var(--second-color);
   --bs-btn-hover-color: var(--bs-body-bg);
   --bs-btn-active-color: var(--bs-body-bg);
-  --bs-btn-hover-bg: var(--second-color);
-  --bs-btn-active-bg: var(--second-color);
 }
 
 /* cambio los colores de las variables provistas por bootstrap */
@@ -305,7 +301,7 @@ p, .p, hr {
 
 .reveal.second:before,
 .reveal:nth-child(even):before {
-  background-color: var(--second-color);
+  background-color: rgb(var(--bs-warning-rgb));
 }
 
 /* ---------- MEDIA QUERIES ---------- */

@@ -5,7 +5,8 @@
       <div class="col-12 d-flex flex-column align-items-start mb-4">
         <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
           <h2 class="reveal me-3">PROYECTOS</h2>
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#newProyect" *ngIf="this.tokenService.isLoggedIn()">
+          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#newProyect" 
+          *ngIf="this.tokenService.isLoggedIn() && this.proyects != null">
             <i class="bi bi-plus-square"></i>
           </button>
         </div>
@@ -35,14 +36,14 @@
                 <div class="card-body">
                   <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
                     <h5 class="card-title me-3">{{proyect.title}}</h5>
-                    <div class="d-flex gap-1 ms-auto mb-2">
+                    <div class="d-flex gap-1 ms-auto mb-2" *ngIf="this.tokenService.isLoggedIn()">
                       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
                       data-bs-toggle="modal" data-bs-target="#editProyect" 
-                      *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = proyect.id; this.onDetail()">
+                      *ngIf="this.tokenService.isLoggedIn()"(click)="this.id = proyect.id; this.onDetail()">
                         <i class="bi bi-pencil-square"></i>
                       </button>
                       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-                      *ngIf="this.tokenService.isLoggedIn()" (click)="delete(proyect.id!, proyect.title)">
+                      (click)="delete(proyect.id!, proyect.title)">
                         <i class="bi bi-trash"></i>
                       </button>
                     </div>
@@ -60,23 +61,18 @@
         
         <!---------- LAZY LOADING PLACEHOLDER ---------->
         <div class="carousel-inner" *ngIf="this.proyects == null">
-          <div class="card bg-body border-0 mb-3 px-4 pb-4">
+          <div class="card bg-body border-0 mb-3 px-4 pb-4" aria-hidden="true">
             <div class="row g-0">
-              <div class="col-md-5 d-flex justify-content-center align-items-center placeholder-glow">
-                <div class="bg-secondary placeholder rounded-3 h-100 w-100"></div>
-              </div>
+              <div class="col-md-5 bg-secondary placeholder rounded-3"></div>
           
               <div class="col-md-7">
                 <div class="card-body">
-                  <h5 class="card-title placeholder-glow">
-                    <span class="placeholder col-5"></span>
-                  </h5>
-          
-                  <p class="card-text placeholder-glow">
-                    <span class="placeholder col-6"></span><br>
+                  <h5 class="card-title placeholder col-5"></h5>
+                  <p class="card-text">
                     <span class="placeholder col-12"></span>
                     <span class="placeholder col-12"></span>
-                    <span class="placeholder col-3"></span>
+                    <span class="placeholder col-12"></span>
+                    <span class="placeholder col-4"></span>
                   </p>
           
                   <a class="btn btn-primary col-2 placeholder disabled p-3" role="button"></a>

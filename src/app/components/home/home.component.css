@@ -57,10 +57,6 @@
   text-shadow: none;
 }
 
-#home h1 span.name {
-  color: var(--second-color);
-}
-
 .imgBox {
   height: 150px;
   width: 150px;
@@ -75,7 +71,7 @@
   bottom: 0;
   height: 70%;
   width: 100%;
-  background-color: var(--second-color);
+  background-color: rgb(var(--bs-warning-rgb));
   z-index: -1;
   transform: skewX(40deg);
   -webkit-transform: skewX(40deg);
@@ -84,7 +80,7 @@
   -o-transform: skewX(40deg);
 }
 .imgBox::after {
-  border: 2px solid var(--second-color);
+  border: 2px solid rgb(var(--bs-warning-rgb));
   background-color: transparent;
   transition: 0.5s ease-in-out;
   -webkit-transition: 0.5s ease-in-out;

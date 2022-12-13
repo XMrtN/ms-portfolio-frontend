@@ -12,9 +12,9 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-  border-top: 5px solid var(--second-color);
-  border-left: 2px solid var(--second-color);
-  border-right: 2px solid var(--second-color);
+  border-top: 5px solid rgb(var(--bs-warning-rgb));
+  border-left: 2px solid rgb(var(--bs-warning-rgb));
+  border-right: 2px solid rgb(var(--bs-warning-rgb));
   background-color: var(--bs-body-bg);
   backdrop-filter: blur(10px);
   z-index: -1;

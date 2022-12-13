@@ -30,14 +30,15 @@
     </div>
 
     <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="d-flex gap-2 my-2 placeholder-glow" *ngIf="this.socials == null">
-      <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '']">
+    <div class="d-flex gap-2 my-2" *ngIf="this.socials == null" aria-hidden="true">
+      <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '', '']">
         <i class="bi bi-person-circle"></i>
       </button>
     </div>
 
     <button type="button" class="btn btn-outline-light d-flex border-0 lh-1 fs-5 h-fc p-1 my-2" 
-    data-bs-toggle="modal" data-bs-target="#newSocial" *ngIf="this.tokenService.isLoggedIn()">
+    data-bs-toggle="modal" data-bs-target="#newSocial" 
+    *ngIf="this.tokenService.isLoggedIn() && this.socials != null">
       <i class="bi bi-plus-square"></i>
     </button>
   </div>

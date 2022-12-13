@@ -43,12 +43,14 @@ export class HomeComponent implements OnInit {
     this.loadPerson();
     this.initAnimations();
 
-    document.querySelectorAll("img").forEach(img => {
-      if(img.complete) {
-        this.parallaxAnimations();
-      } else {
-        img.addEventListener("load", imgLoaded => this.parallaxAnimations());
-      }
+    window.addEventListener("load", () => {
+      document.querySelectorAll("img").forEach(img => {
+        if(img.complete) {
+          this.parallaxAnimations();
+        } else {
+          img.addEventListener("load", () => this.parallaxAnimations());
+        }
+      });
     });
   }
 
@@ -77,7 +79,7 @@ export class HomeComponent implements OnInit {
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.from("#home h1, #home .p, #home .btn-primary, #home .imgBox-container", {
+      gsap.from(".person-col h1, .person-col .p, .btn-cv, .imgBox", {
         duration: 1,
         x: -150,
         opacity: 0,

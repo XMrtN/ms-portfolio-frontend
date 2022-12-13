@@ -7,7 +7,7 @@
         <p *ngIf="this.homeComponent.person != null">{{this.homeComponent.person.description}}</p>
 
         <!---------- LAZY LOADING PLACEHOLDER ---------->
-        <p class="placeholder-glow" *ngIf="this.homeComponent.person == null">
+        <p *ngIf="this.homeComponent.person == null">
           <span class="placeholder col-12"></span>
           <span class="placeholder col-4"></span>
         </p>

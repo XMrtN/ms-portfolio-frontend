@@ -14,9 +14,10 @@
       </div>
     </button>
     
-    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center pe-3 h-100">
+    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-3 h-100">
       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-      data-bs-toggle="modal" data-bs-target="#newBackSkill" *ngIf="this.tokenService.isLoggedIn()">
+      data-bs-toggle="modal" data-bs-target="#newBackSkill" 
+      *ngIf="this.tokenService.isLoggedIn() && this.backEnd != null">
         <i class="bi bi-plus-square"></i>
       </button>
       <i class="bi bi-chevron-down fs-5"></i>
@@ -36,14 +37,14 @@
           </div>
           <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}</p>
 
-          <div class="d-flex gap-1 ps-2 mb-2">
+          <div class="d-flex gap-1 ps-2 mb-2" *ngIf="this.tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editBackSkill" 
-            *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = skill.id; this.onDetail()">
+            (click)="this.id = skill.id; this.onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-            *ngIf="this.tokenService.isLoggedIn()" (click)="delete(skill.id!)">
+            (click)="delete(skill.id!)">
               <i class="bi bi-trash"></i>
             </button>
           </div>
@@ -58,13 +59,8 @@
     <!---------- LAZY LOADING PLACEHOLDER ---------->
     <div class="accordion-body bg-body p-0 ps-sm-3" *ngIf="this.backEnd == null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
-        <h6 class="placeholder-glow">
-          <span class="placeholder col-5"></span>
-        </h6>
-        
-        <p class="placeholder-glow">
-          <span class="placeholder col-12"></span>
-        </p>
+        <h6 class="placeholder col-5 mt-2"></h6>
+        <p class="placeholder col-12 mb-2"></p>
       </div>
     </div>
   </div>

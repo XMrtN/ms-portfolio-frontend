@@ -5,47 +5,46 @@
   alt="{{img.alt}}">
   
   <div class="container">
-    <div class="row" *ngIf="this.person != null">
+    <div class="row">
       <div class="person-col col-md-8 col-12 mb-md-0 mb-4">
         <h1 class="display-4 fw-semibold">
-          ¡Hola! Soy<br>
-          <span class="name fw-bolder">{{person.name}} {{person.lastName}}</span>
+          <span *ngIf="this.person != null">¡Hola! Soy</span>
+          <span class="placeholder col-4" *ngIf="this.person == null"></span>
+          <br>
+          <span class="fw-bolder text-warning" *ngIf="this.person != null">
+            {{person.name}} {{person.lastName}}
+          </span>
+          <span class="placeholder col-10 bg-warning" *ngIf="this.person == null"></span>
         </h1>
 
         <div class="d-flex align-items-center p mb-2">
-          <p class="h6 m-0">Un Desarrollador Full Stack Jr.</p>
+          <p class="h6 m-0" *ngIf="this.person != null">
+            Un Desarrollador Full Stack Jr.
+          </p>
+          <p class="h6 placeholder col-6" *ngIf="this.person == null"></p>
+
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-2" 
           data-bs-toggle="modal" data-bs-target="#editPerson" 
-          *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = person.id; this.onDetail()">
+          *ngIf="this.tokenService.isLoggedIn() && this.person != null" (click)="this.id = person.id; this.onDetail()">
             <i class="bi bi-pencil-square"></i>
           </button>
         </div>
 
-        <a href="{{person.cv}}" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">Descargar CV <i class="bi bi-download btn-icon fs-5 ms-2"></i></a>
-      </div>
-
-      <div class="col-md-4 col-12 imgBox-container d-flex justify-content-center align-items-center">
-        <div class="imgBox position-relative d-flex justify-content-center align-items-end">
-          <img src="{{person.img}}" alt="Martín Sepúlveda" class="h-100">
+        <div class="btn-cv">
+          <a href="{{person.cv}}" *ngIf="this.person != null" 
+          class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
+            Descargar CV <i class="bi bi-download btn-icon fs-5 ms-2"></i>
+          </a>
+          <a class="btn btn-primary placeholder disabled col-3 p-3 pt-4" 
+          *ngIf="this.person == null"></a>
         </div>
       </div>
-    </div>
 
-    <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="row" *ngIf="this.person == null">
-      <div class="person-col col-md-8 col-12 mb-md-0 mb-4">
-        <h1 class="display-4 placeholder-glow">
-          <span class="placeholder col-3"></span><br>
-          <span class="name placeholder col-10"></span>
-        </h1>
-
-        <p class="h6 p placeholder-glow"><span class="placeholder col-5"></span></p>
-
-        <a class="btn btn-primary placeholder disabled col-3 p-3 pt-4"></a>
-      </div>
-
-      <div class="col-md-4 col-12 imgBox-container d-flex justify-content-center align-items-center placeholder-glow">
-        <div class="imgBox position-relative bg-transparent placeholder"></div>
+      <div class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+        <div class="imgBox position-relative d-flex justify-content-center align-items-end"
+        [ngClass]="{'bg-transparent placeholder': this.person == null}">
+          <img src="{{person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="this.person != null">
+        </div>
       </div>
     </div>
   </div>

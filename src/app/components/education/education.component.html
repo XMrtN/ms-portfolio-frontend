@@ -1,7 +1,8 @@
 <div class="flex-ssm-wrap-reverse d-flex align-items-start">
   <h2 class="reveal second me-3">EDUCACIÓN</h2>
   <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
-  data-bs-toggle="modal" data-bs-target="#newEd" *ngIf="this.tokenService.isLoggedIn()">
+  data-bs-toggle="modal" data-bs-target="#newEd" 
+  *ngIf="this.tokenService.isLoggedIn() && this.education != null">
     <i class="bi bi-plus-square"></i>
   </button>
 </div>
@@ -23,14 +24,14 @@
             <h5 class="mb-0 me-3">{{ed.edCareerName}}</h5>
           </div>
           
-          <div class="d-flex gap-1 ms-auto mb-2">
+          <div class="d-flex gap-1 ms-auto mb-2" *ngIf="this.tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editEd" 
-            *ngIf="this.tokenService.isLoggedIn()" (click)="this.id = ed.id; this.onDetail()">
+            (click)="this.id = ed.id; this.onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-            *ngIf="this.tokenService.isLoggedIn()" (click)="delete(ed.id!)">
+            (click)="delete(ed.id!)">
               <i class="bi bi-trash"></i>
             </button>
           </div>
@@ -38,7 +39,7 @@
       
         <h6>{{ed.edInsTitle}}</h6>
         <p>{{ed.edDesc}}</p>
-        <p class="mb-2">Periodo: {{ed.edPeriod}}</p>
+        <p class="m-0">Periodo: {{ed.edPeriod}}</p>
       </div>
     </div>
   </div>
@@ -46,7 +47,7 @@
 
 <!---------- LAZY LOADING PLACEHOLDER ---------->
 <div *ngIf="this.education == null">
-  <div class="card card-body bg-body border-0" *ngFor="let i of ['', '']">
+  <div class="card card-body bg-body border-0" *ngFor="let i of ['', '']" aria-hidden="true">
     <div class="d-flex">
       <div class="timeline placeholder bg-transparent">
         <div class="rounder bg-body"></div>
@@ -54,16 +55,12 @@
       </div>
   
       <div class="ps-3 w-100">
-        <h5 class="placeholder-glow">
-          <span class="placeholder col-6"></span>
-        </h5>
-        <h6 class="placeholder-glow">
+        <h5 class="placeholder col-6"></h5>
+        <p class="m-0">
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-12"></span>
+          <span class="placeholder col-12"></span>
           <span class="placeholder col-4"></span>
-        </h6>
-        <p class="placeholder-glow">
-          <span class="placeholder col-12"></span>
-          <span class="placeholder col-12"></span>
-          <span class="placeholder col-7"></span>
         </p>
       </div>
     </div>
