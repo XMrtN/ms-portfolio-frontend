@@ -11,12 +11,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header p-2">
         <button type="button" class="btn-close btn-close-white m-1 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body d-flex flex-column flex-md-row">
-        <ul class="navbar-nav justify-content-center align-items-start px-md-5 h-100 w-100">
+        <ul class="navbar-nav justify-content-center align-items-start gap-1 px-md-5 h-100 w-100">
           <li class="nav-item w-100" 
           *ngFor="let link of this.appComponent.sections">
             <a class="nav-link btn btn-dark d-flex rounded-0 fw-semibold p-0 w-100" href="#{{link.id}}">

@@ -13,29 +13,18 @@
   z-index: 10000;
 }
 
-.offcanvas {
-  width: 256px;
-  background-color: var(--bs-body-bg);
-}
 
-.navbar-nav {
-  gap: 0.125rem;
-}
-
-
-/* ---------- HIJOS NAV-ITEM ---------- */
-/* cambio los valores de las variables provistas por bootstrap */
-/* demas estilos a los nav-link */
+/* ---------- NAV-ITEM ---------- */
 .nav-link {
   font-size: 1.3rem;
   border-width: 0;
   border-left-width: 6px;
   backdrop-filter: blur(10px);
-  transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  -webkit-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  -moz-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  -ms-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out;
+  -webkit-transition: color 0.15s ease-in-out;
+  -moz-transition: color 0.15s ease-in-out;
+  -ms-transition: color 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out;
 }
 
 .nav-link span {
