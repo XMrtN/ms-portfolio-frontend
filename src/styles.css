@@ -37,14 +37,6 @@
   --bs-btn-active-border-color: var(--first-color-alt);
   --bs-btn-disabled-border-color: var(--first-color);
 }
-.btn-outline-primary {
-  --bs-btn-color: var(--first-color);
-  --bs-btn-hover-bg: var(--first-color-alt);
-  --bs-btn-active-bg: var(--first-color-alt);
-  --bs-btn-border-color: var(--first-color);
-  --bs-btn-hover-border-color: var(--first-color-alt);
-  --bs-btn-active-border-color: var(--first-color-alt);
-}
 
 .btn-outline-light {
   --bs-btn-color: var(--title-color);
@@ -152,7 +144,20 @@
 
 
 /* ---------- FORMS ---------- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: 0 0 0 30px var(--input-color) inset !important;
+}
 .form-control,
+.form-control:disabled,
 .form-control:focus {
   color: var(--text-color);
   background-color: var(--input-color);
@@ -195,15 +200,6 @@ textarea.form-control {
 
 
 /* ---------- SECTIONS ---------- */
-section {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 .bg-body {
   background-color: var(--bs-body-bg) !important;
 }

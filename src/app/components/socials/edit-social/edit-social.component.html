@@ -10,18 +10,18 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
           <!-- Icon input -->
-          <div class="input-group mb-4">
-            <div class="form-floating">
-              <input type="text" 
-              class="form-control" 
-              name="socialIconInput" 
-              placeholder="Ícono" 
-              [(ngModel)]="this.socialsComponent.social.icon" 
-              required>
-              <label class="form-label" for="socialIconInput">Ícono</label>
-            </div>
-            <a href="https://icons.getbootstrap.com/" class="btn btn-outline-primary d-flex align-items-center">
-              <i class="{{this.socialsComponent.social.icon}} fs-3 lh-1"></i>
+          <div class="form-floating d-flex align-items-center mb-4">
+            <input type="text" 
+            class="form-control pe-5" 
+            name="socialIconInput" 
+            placeholder="Ícono" 
+            [(ngModel)]="this.socialsComponent.social.icon" 
+            required>
+            <label class="form-label" for="socialIconInput">Ícono</label>
+            <a href="https://icons.getbootstrap.com/" target="_blank" 
+            class="btn btn-icon position-absolute d-flex align-items-center rounded-5 border-0 lh-1 fs-3 h-fc p-1 me-2">
+              <i [ngClass]="this.socialsComponent.social.icon"></i>
+              <i class="bi bi-bootstrap" *ngIf="this.socialsComponent.social.icon == ''"></i>
             </a>
           </div>
           <!-- Url input -->

@@ -3,10 +3,6 @@
   color: var(--text-color);
 }
 
-footer a {
-  color: var(--first-color);
-}
-
 .bi-send {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);

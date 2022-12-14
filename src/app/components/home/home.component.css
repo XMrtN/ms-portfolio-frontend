@@ -8,6 +8,7 @@
     #4b93c8 50%,
     #8be3fd 60%
   );
+  min-height: 100vh;
 }
 #home::after {
   position: absolute;

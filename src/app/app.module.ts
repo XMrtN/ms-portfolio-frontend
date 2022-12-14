@@ -40,6 +40,7 @@ import { NewProyectComponent } from './components/proyects/new-proyect/new-proye
 import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
 
 import { ContactComponent } from './components/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
@@ -80,6 +81,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NewProyectComponent,
     EditProyectComponent,
     ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

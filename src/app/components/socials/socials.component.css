@@ -42,6 +42,11 @@
   box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
 }
 
+.btn-icon,
+.btn-icon:active {
+  right: 0;
+  color: var(--first-color);
+}
 
 /* ---------- SCROLL UP BUTTON ---------- */
 /* botón scroll que se oculta en el home */

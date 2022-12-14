@@ -6,7 +6,7 @@ import { SocialsComponent } from '../socials.component';
 @Component({
   selector: 'app-new-social',
   templateUrl: './new-social.component.html',
-  styleUrls: ['./new-social.component.css']
+  styleUrls: ['./new-social.component.css', '../socials.component.css']
 })
 export class NewSocialComponent implements OnInit {
   

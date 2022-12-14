@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'src/app/models/person.model';
 import { PersonService } from 'src/app/services/person.service';
-import { environment } from 'src/environments/environment';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-contact',
@@ -10,31 +9,21 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactComponent implements OnInit {
 
-  person: Person = {
-    id: 0,
-    name: '',
-    lastName: '',
-    description: '',
-    email: '',
-    img: '',
-    cv: ''
-  };
-  environment = environment.url;
   name?: string;
   email?: string;
   subject?: string;
   desc?: string;
 
-  constructor(protected personService: PersonService) { }
+  constructor(
+    protected personService: PersonService,
+    protected mainComponent: MainComponent
+  ) { }
 
   ngOnInit(): void {
-    this.personService.detail(1).subscribe(data => {
-      this.person = data;
-    });
   }
 
   onMailTo(): void {
-    window.location.href = `mailto:${this.person.email}?subject=${this.subject}&body=Nombre%3A%20${this.name}%0ACorreo%3A%20${this.email}%0AMensaje%3A%20${this.desc}%0A`;
+    window.location.href = `mailto:${this.mainComponent.person.email}?subject=${this.subject}&body=Nombre%3A%20${this.name}%0ACorreo%3A%20${this.email}%0AMensaje%3A%20${this.desc}%0A`;
   }
 
 }

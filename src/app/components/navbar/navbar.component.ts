@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { gsap } from 'gsap';
 import { AppComponent } from 'src/app/app.component';
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     protected tokenService: TokenService,
-    protected appComponent: AppComponent
+    protected appComponent: AppComponent,
+    protected mainComponent: MainComponent
   ) { }
   
   ngOnInit(): void {
