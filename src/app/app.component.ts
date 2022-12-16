@@ -13,8 +13,6 @@ import { TokenService } from './services/token.service';
 })
 export class AppComponent {
 
-  title = '';
-  isLoaded: boolean = false;
   person: Person = null!;
   personId?: number;
   personEdit: Person = {
@@ -40,7 +38,8 @@ export class AppComponent {
     { id: "proyects", name: "proyectos" },
     { id: "contact", name: "contacto" },
   ];
-
+  isLoaded: boolean = false;
+  
   constructor(
     protected tokenService: TokenService,
     private personService: PersonService,
