@@ -1,3 +1,10 @@
-footer a {
-  color: var(--first-color);
+footer {
+  background-color: var(--first-color-second);
+}
+
+footer p, footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: var(--first-color-lighter);
 }

@@ -11,8 +11,12 @@
 .accordion-button:not(.collapsed) {
   box-shadow: none;
 }
-h2 i:not(.bi-plus-square) {
+
+.skill-type-icon, .bi-chevron-down {
   color: var(--first-color);
+}
+.skill-type-icon {
+  font-size: 2rem;
 }
 
 /* estilo al nuevo ícono */
@@ -45,6 +49,7 @@ h2 i:not(.bi-plus-square) {
 }
 
 .progress {
+  height: 0.5rem;
   background-color: var(--first-color-lighter);
 }
 .progress-bar {

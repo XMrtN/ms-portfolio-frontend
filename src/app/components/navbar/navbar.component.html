@@ -1,5 +1,5 @@
 <!---------- NAVBAR ---------->
-<nav class="navbar navbar-dark navbar-expand-md fixed-top user-select-none p-0">
+<nav class="navbar navbar-expand-md fixed-top user-select-none p-0">
   <div class="container-fluid align-items-start px-2">
     <div class="nav-logo position-relative w-100">
       <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank">
@@ -8,12 +8,16 @@
     </div>
 
     <button class="navbar-toggler border-0 my-2 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon lh-1">
+        <i class="bi bi-list"></i>
+      </span>
     </button>
 
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar">
-      <div class="offcanvas-header p-2">
-        <button type="button" class="btn-close btn-close-white m-1 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas offcanvas-end bg-body" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close lh-1 fs-5 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
       </div>
       <div class="offcanvas-body d-flex flex-column flex-md-row">
         <ul class="navbar-nav justify-content-center align-items-start gap-1 px-md-5 h-100 w-100">
@@ -25,20 +29,12 @@
           </li>
         </ul>
 
-        <div class="log-btns align-self-end">
-          <button type="button" 
-          class="btn btn-primary text-nowrap text-nobreak p-3 mt-2" 
-          data-bs-toggle="modal" data-bs-target="#login" 
-          *ngIf="!this.tokenService.isLoggedIn()">Iniciar sesión</button>
-          
-          <button type="button" 
-          class="btn btn-primary text-nowrap text-nobreak p-3 mt-2" 
-          *ngIf="this.tokenService.isLoggedIn()" 
-          (click)="onLogOut()">Cerrar sesión</button>
-        </div>
+        <button type="button" 
+        class="btn btn-primary btn-settings d-flex flex-column align-self-end lh-1 fs-5 p-3 mt-auto" 
+        data-bs-toggle="modal" data-bs-target="#settings" (click)="this.appComponent.onColorDetail()"><i class="bi bi-gear"></i></button>
       </div>
     </div>
   </div>
 </nav>
 
-<app-login></app-login>
+<app-settings></app-settings>

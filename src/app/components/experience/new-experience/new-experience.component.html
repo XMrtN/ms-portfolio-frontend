@@ -5,7 +5,9 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newExpLabel">Nueva experiencia</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.experienceComponent.onClean()"></button>
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.experienceComponent.onClean()">
+          <i class="bi bi-x-lg"></i>
+        </button>
       </div>
       <form #f="ngForm" (ngSubmit)="onCreate()" novalidate>
         <div class="modal-body">

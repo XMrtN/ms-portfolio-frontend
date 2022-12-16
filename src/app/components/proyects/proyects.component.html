@@ -1,18 +1,19 @@
 <!---------- PROYECTS SECTION ---------->
-<section id="proyects" class="position-relative overflow-hidden pt-5">
+<section id="proyects" class="position-relative bg-body overflow-hidden pt-5">
   <div class="container py-5">
     <div class="row">
-      <div class="col-12 d-flex flex-column align-items-start mb-4">
-        <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
-          <h2 class="reveal me-3">PROYECTOS</h2>
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#newProyect" 
-          *ngIf="this.tokenService.isLoggedIn() && this.proyects != null">
-            <i class="bi bi-plus-square"></i>
-          </button>
+      <div class="col-12 mb-4">
+        <div class="mb-3">
+          <div class="flex-ssm-wrap-reverse d-flex w-100">
+            <h2 class="me-3">PROYECTOS</h2>
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#newProyect" 
+            *ngIf="this.tokenService.isLoggedIn() && this.proyects != null">
+              <i class="bi bi-plus-square"></i>
+            </button>
+          </div>
+          <div class="title-span bg-warning rounded"></div>
         </div>
-        <p class="reveal">
-          Proyectos en los que he participado y prácticas personales que he realizado.
-        </p>
+        <p>Proyectos en los que he participado y prácticas personales que he realizado</p>
       </div>
 
       <!---------- BOOTSTRAP CAROUSEL ---------->
@@ -83,11 +84,11 @@
         </div>
 
         <button class="carousel-control-prev pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" *ngIf="this.proyects != null">
-          <i class="bi bi-chevron-left fs-1"></i>
+          <i class="bi bi-chevron-left"></i>
           <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" *ngIf="this.proyects != null">
-          <i class="bi bi-chevron-right fs-1"></i>
+          <i class="bi bi-chevron-right"></i>
           <span class="visually-hidden">Next</span>
         </button>
       </div>

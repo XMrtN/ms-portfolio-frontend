@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AppComponent } from 'src/app/app.component';
 import { TokenService } from 'src/app/services/token.service';
-import { MainComponent } from '../main/main.component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
     { url: "../../../assets/img/bg/road.png", alt: "road" },
   ];
 
-  constructor(protected tokenService: TokenService, protected mainComponent: MainComponent) { }
+  constructor(
+    protected tokenService: TokenService, 
+    protected appComponent: AppComponent
+  ) { }
 
   ngOnInit(): void {
     this.initAnimations();

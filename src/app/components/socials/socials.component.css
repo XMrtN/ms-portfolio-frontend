@@ -1,8 +1,10 @@
 /* ---------- SOCIALS ---------- */
-/* div debajo de la pantalla con las redes sociales */
-/* se esconde en el home */
 .socials-widget-container {
+  pointer-events: none;
   z-index: 10;
+}
+.socials-widget {
+  pointer-events: auto;
 }
 /* simulo la forma de un trapecio */
 .socials-widget::before {
@@ -12,9 +14,9 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-  border-top: 5px solid rgb(var(--bs-warning-rgb));
-  border-left: 2px solid rgb(var(--bs-warning-rgb));
-  border-right: 2px solid rgb(var(--bs-warning-rgb));
+  border-top: 5px solid var(--second-color);
+  border-left: 2px solid var(--second-color);
+  border-right: 2px solid var(--second-color);
   background-color: var(--bs-body-bg);
   backdrop-filter: blur(10px);
   z-index: -1;
@@ -26,11 +28,22 @@
 }
 
 .dropdown-menu.show {
-  min-width: 0;
   display: flex;
 }
 .dropup:not(.cdk-drag-disabled) .btn-outline-warning {
   cursor: col-resize;
+}
+.dropdown-menu {
+  background-color: var(--bs-body-bg);
+  min-width: max-content;
+  animation: 0.5s slideup;
+  -webkit-animation: 0.5s slideup;
+}
+@keyframes slideup {
+  from {
+    opacity: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .cdk-drag-preview {
@@ -39,7 +52,11 @@
 .cdk-drag-placeholder {
   opacity: 1;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
+  box-shadow: 0 0 0 0.25rem hsla(var(--hue-second-color), 100%, 51%, 0.5);
+}
+.cdk-drag-placeholder .btn-outline-warning {
+  color: var(--bs-body-bg);
+  background-color: var(--second-color);
 }
 
 .btn-icon,
@@ -51,12 +68,10 @@
 /* ---------- SCROLL UP BUTTON ---------- */
 /* botón scroll que se oculta en el home */
 .scroll-up__btn {
-  border-width: 2px;
   right: 0;
   bottom: 0;
-  border-bottom-width: 5px;
-  backdrop-filter: blur(10px);
-  z-index: 100;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 

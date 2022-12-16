@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/login/login.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SocialsComponent } from './components/socials/socials.component';
@@ -54,6 +55,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     AppComponent,
     MainComponent,
     LoginComponent,
+    SettingsComponent,
     NavbarComponent,
     SocialsComponent,
     NewSocialComponent,

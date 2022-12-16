@@ -1,13 +1,16 @@
 <!---------- ABOUT SECTION ---------->
-<section id="about" class="position-relative overflow-hidden pt-5">
+<section id="about" class="position-relative bg-body overflow-hidden pt-5">
   <div class="container py-5">
     <div class="row">
       <div class="col-12 mb-4">
-        <h2 class="reveal d-inline-block">SOBRE MÍ</h2>
-        <p *ngIf="this.mainComponent.person != null">{{this.mainComponent.person.description}}</p>
+        <div class="mb-3">
+          <h2>SOBRE MÍ</h2>
+          <div class="title-span bg-warning rounded"></div>
+        </div>
+        <p *ngIf="this.appComponent.person != null">{{this.appComponent.person.description}}</p>
 
         <!---------- LAZY LOADING PLACEHOLDER ---------->
-        <p *ngIf="this.mainComponent.person == null">
+        <p *ngIf="this.appComponent.person == null">
           <span class="placeholder col-12"></span>
           <span class="placeholder col-4"></span>
         </p>

@@ -1,12 +1,4 @@
 /* ---------- MOBILE ---------- */
-.navbar {
-  background-image: linear-gradient(
-    to bottom,
-    var(--bs-body-bg) 25%,
-    transparent 100%
-  );
-}
-
 .nav-logo,
 .nav-logo img {
   max-width: 80px;
@@ -26,6 +18,9 @@
   -ms-transition: color 0.15s ease-in-out;
   -o-transition: color 0.15s ease-in-out;
 }
+.nav-link.active {
+  color: #fff;
+}
 
 .nav-link span {
   font-family: 'Rajdhani', sans-serif;
@@ -38,6 +33,12 @@
 .navbar-toggler-icon {
   height: 32px;
   width: 32px;
+  font-size: 2rem;
+}
+.navbar-toggler:focus,
+.btn-close:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--box-shadow-color);
 }
 
 

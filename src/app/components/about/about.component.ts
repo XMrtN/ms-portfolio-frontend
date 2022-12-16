@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainComponent } from '../main/main.component';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +8,7 @@ import { MainComponent } from '../main/main.component';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(protected mainComponent: MainComponent) { }
+  constructor(protected appComponent: AppComponent) { }
 
   ngOnInit(): void {
   }

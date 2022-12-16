@@ -6,7 +6,7 @@
     data-bs-toggle="collapse" 
     data-bs-target="#collapseTwo" 
     aria-controls="collapseTwo">
-      <i class="skill-type-icon bi bi-hdd-network fs-2 me-3"></i>
+      <i class="skill-type-icon bi bi-hdd-network me-3"></i>
 
       <div class="w-100">
         <h5>Backend</h5>
@@ -35,7 +35,7 @@
             *ngIf="this.tokenService.isLoggedIn()"></i>
             <h6 class="mb-0 me-2">{{skill.name}}</h6>
           </div>
-          <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}</p>
+          <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}%</p>
 
           <div class="d-flex gap-1 ps-2 mb-2" *ngIf="this.tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 

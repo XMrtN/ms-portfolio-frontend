@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { ImageService } from 'src/app/services/image.service';
 import { PdfService } from 'src/app/services/pdf.service';
 import { PersonService } from 'src/app/services/person.service';
-import { MainComponent } from '../../main/main.component';
 
 @Component({
   selector: 'app-edit-home',
@@ -13,7 +13,7 @@ export class EditHomeComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
-    protected mainComponent: MainComponent,
+    protected appComponent: AppComponent,
     public imageService: ImageService,
     public pdfService: PdfService
   ) { }
@@ -22,25 +22,25 @@ export class EditHomeComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.mainComponent.personEdit.img = this.imageService.url!;
-    this.mainComponent.personEdit.cv = this.pdfService.url!;
+    this.appComponent.personEdit.img = this.imageService.url!;
+    this.appComponent.personEdit.cv = this.pdfService.url!;
     this.personService.update(
-      this.mainComponent.id!,
-      this.mainComponent.personEdit
+      this.appComponent.personId!,
+      this.appComponent.personEdit
     ).subscribe(data => {
-      this.mainComponent.loadPerson();
+      this.appComponent.loadPerson();
     }, err => {
       alert("No se pudo modificar");
     });
-    this.mainComponent.onClean();
+    this.appComponent.onPersonClean();
   }
 
   uploadImage($event: any) {
-    this.imageService.uploadImage($event, 'image/', `profile_${this.mainComponent.id}`);
+    this.imageService.uploadImage($event, 'image/', `profile_${this.appComponent.personId}`);
   }
 
   uploadFile($event: any) {
-    this.pdfService.uploadFile($event, 'file/', `profile-cv_${this.mainComponent.id}`);
+    this.pdfService.uploadFile($event, 'file/', `profile-cv_${this.appComponent.personId}`);
   }
 
 }

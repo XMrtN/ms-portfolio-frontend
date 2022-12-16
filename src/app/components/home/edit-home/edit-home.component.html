@@ -1,11 +1,13 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editPerson" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.mainComponent.personEdit">
+tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.appComponent.personEdit">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editPersonLabel">Modificar presentación</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="this.mainComponent.onClean()"></button>
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.onPersonClean()">
+          <i class="bi bi-x-lg"></i>
+        </button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">
@@ -17,9 +19,9 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
                 class="form-control" 
                 name="personNameInput" 
                 placeholder="Nombre" 
-                [(ngModel)]="this.mainComponent.personEdit.name" 
+                [(ngModel)]="this.appComponent.personEdit.name" 
                 required>
-                <label for="personNameInput">Nombre</label>
+                <label class="form-label" for="personNameInput">Nombre</label>
               </div>
             </div>
             <div class="col-sm-6 col-12">
@@ -29,9 +31,9 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
                 class="form-control" 
                 name="personLastNameInput" 
                 placeholder="Apellido" 
-                [(ngModel)]="this.mainComponent.personEdit.lastName" 
+                [(ngModel)]="this.appComponent.personEdit.lastName" 
                 required>
-                <label for="personLastNameInput">Apellido</label>
+                <label class="form-label" for="personLastNameInput">Apellido</label>
               </div>
             </div>
           </div>
@@ -41,9 +43,9 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
             class="form-control" 
             name="personEmailInput" 
             placeholder="Correo electrónico" 
-            [(ngModel)]="this.mainComponent.personEdit.email" 
+            [(ngModel)]="this.appComponent.personEdit.email" 
             required>
-            <label for="personEmailInput">Correo electrónico</label>
+            <label class="form-label" for="personEmailInput">Correo electrónico</label>
           </div>
           <!-- Description input -->
           <div class="form-floating mb-4">
@@ -52,9 +54,9 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
             maxlength="250"
             name="personDescInput" 
             placeholder="Descripción sobre mí" 
-            [(ngModel)]="this.mainComponent.personEdit.description" 
+            [(ngModel)]="this.appComponent.personEdit.description" 
             required></textarea>
-            <label for="personDescInput">Descripción sobre mí</label>
+            <label class="form-label" for="personDescInput">Descripción sobre mí</label>
           </div>
           <!-- Img input -->
           <div class="form-floating mb-4">
@@ -62,11 +64,11 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
             class="form-control" 
             name="personImgInput" 
             placeholder="Foto de perfil" 
-            [(ngModel)]="this.mainComponent.personEdit.img" 
+            [(ngModel)]="this.appComponent.personEdit.img" 
             (change)="uploadImage($event)" 
             accept=".jpg, .jpeg, .png" 
             required>
-            <label for="personImgInput">Foto de perfil</label>
+            <label class="form-label" for="personImgInput">Foto de perfil</label>
           </div>
           <!-- Img View -->
           <div class="d-flex justify-content-center mb-4" *ngIf="imageService.url">
@@ -78,15 +80,15 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.m
             class="form-control" 
             name="personCvInput" 
             placeholder="Archivo CV" 
-            [(ngModel)]="this.mainComponent.personEdit.cv" 
+            [(ngModel)]="this.appComponent.personEdit.cv" 
             (change)="uploadFile($event)" 
             accept=".pdf, .docx, .txt" 
             required>
-            <label for="personCvInput">Archivo CV</label>
+            <label class="form-label" for="personCvInput">Archivo CV</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.mainComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.onPersonClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

@@ -22,6 +22,7 @@
     var(--bs-body-bg) 0%,
     transparent 100%
   );
+  pointer-events: none;
 }
 
 .parallax {
@@ -44,6 +45,11 @@
 
 #home h1, #home p, #home .bi-pencil-square  {
   text-shadow: 2px 2px 2px hsl(0, 0%, 20%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+}
+#home .btn-outline-light  {
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --bs-body-bg: hsl(var(--hue-color), 28%, 12%);
 }
 
 #home .bi-pencil-square  {
@@ -72,7 +78,7 @@
   bottom: 0;
   height: 70%;
   width: 100%;
-  background-color: rgb(var(--bs-warning-rgb));
+  background-color: var(--second-color);
   z-index: -1;
   transform: skewX(40deg);
   -webkit-transform: skewX(40deg);
@@ -81,13 +87,13 @@
   -o-transform: skewX(40deg);
 }
 .imgBox::after {
-  border: 2px solid rgb(var(--bs-warning-rgb));
+  border: 2px solid var(--second-color);
   background-color: transparent;
-  transition: 0.5s ease-in-out;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -ms-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
+  transition: left 0.5s, bottom 0.5s;
+  -webkit-transition: left 0.5s, bottom 0.5s;
+  -moz-transition: left 0.5s, bottom 0.5s;
+  -ms-transition: left 0.5s, bottom 0.5s;
+  -o-transition: left 0.5s, bottom 0.5s;
 }
 .imgBox:hover::after {
   left: -10px;

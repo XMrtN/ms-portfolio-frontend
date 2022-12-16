@@ -1,4 +1,5 @@
-.btn-pwd {
+.btn-pwd,
+.btn-pwd:active {
   right: 0;
   color: var(--title-color);
 }

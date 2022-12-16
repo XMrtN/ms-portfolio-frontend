@@ -1,0 +1,65 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="settings" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="settingsLabel">Configuración</h1>
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.onColorClean()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="this.tokenService.isLoggedIn() && this.appComponent.colors != null">
+          <!-- Hue primary input -->
+          <label class="form-label me-2" for="skillPercentageInput">
+            Color primario: {{this.appComponent.colorsEdit.firstColor}}
+          </label>
+          <input type="range" min="0" max="360" 
+          class="form-range" 
+          name="skillPercentageInput" 
+          [(ngModel)]="this.appComponent.colorsEdit.firstColor" 
+          (change)="this.appComponent.onChangeColor('--hue-color', this.appComponent.colorsEdit.firstColor); this.onUpdateColor()" 
+          required>
+          <!-- Hue secondary input -->
+          <label class="form-label me-2" for="skillPercentageInput">
+            Color secundario: {{this.appComponent.colorsEdit.secondColor}}
+          </label>
+          <input type="range" min="0" max="360" 
+          class="form-range" 
+          name="skillPercentageInput" 
+          [(ngModel)]="this.appComponent.colorsEdit.secondColor" 
+          (change)="this.appComponent.onChangeColor('--hue-second-color', this.appComponent.colorsEdit.secondColor); this.onUpdateColor()" 
+          required>
+        </div>
+        <!-- Theme -->
+        <label class="form-label me-2" for="skillPercentageInput">
+          Tema
+        </label>
+        <ul class="list-unstyled d-flex flex-wrap gap-1">
+          <li>
+            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('')">Sistema</button>
+          </li>
+          <li>
+            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('light')">Claro</button>
+          </li>
+          <li>
+            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('dark')">Oscuro</button>
+          </li>
+        </ul>
+
+        <button type="button" class="btn btn-primary float-end text-nowrap text-nobreak" 
+        data-bs-toggle="modal" data-bs-target="#login" 
+        *ngIf="!this.tokenService.isLoggedIn()">Iniciar sesión</button>
+        <button type="button" class="btn btn-primary float-end text-nowrap text-nobreak" 
+        *ngIf="this.tokenService.isLoggedIn()" 
+        (click)="this.tokenService.logOut()">Cerrar sesión</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.onColorClean()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-login></app-login>
