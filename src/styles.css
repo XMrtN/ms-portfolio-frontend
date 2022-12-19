@@ -9,7 +9,8 @@
 :root, :root.light {
   /* favorite color */
   --hue-color: 235;
-  --hue-second-color: 45;
+  --second-color: #ffc107;
+  --box-shadow-second-color: #ffc10780;
   
   /* HSL color mode */
   --bs-body-bg: hsl(var(--hue-color), 60%, 99%);
@@ -18,10 +19,9 @@
   --first-color-second: hsl(var(--hue-color), 69%, 61%);
   --first-color-alt: hsl(var(--hue-color), 57%, 53%);
   --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
-  --second-color: hsl(var(--hue-second-color), 100%, 50%);
   --title-color: hsl(var(--hue-color), 8%, 15%);
   --text-color: hsl(var(--hue-color), 8%, 45%);
-  --box-shadow-color: hsla(var(--hue-color), 8%, 45%, 0.25);
+  --box-shadow-color: hsla(var(--hue-color), 8%, 15%, 0.5);
   --input-color: hsl(var(--hue-color), 70%, 96%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
@@ -34,7 +34,7 @@
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
-  --box-shadow-color: hsla(var(--hue-color), 8%, 75%, 0.25);
+  --box-shadow-color: hsla(var(--hue-color), 8%, 95%, 0.5);
   --input-color: hsl(var(--hue-color), 29%, 16%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
@@ -47,7 +47,7 @@
     --first-color-second: hsl(var(--hue-color), 30%, 8%);
     --title-color: hsl(var(--hue-color), 8%, 95%);
     --text-color: hsl(var(--hue-color), 8%, 75%);
-    --box-shadow-color: hsla(var(--hue-color), 8%, 75%, 0.25);
+    --box-shadow-color: hsla(var(--hue-color), 8%, 95%, 0.5);
     --input-color: hsl(var(--hue-color), 29%, 16%);
     --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
@@ -76,6 +76,7 @@
   --bs-btn-active-color: var(--bs-body-bg);
   --bs-btn-hover-bg: var(--title-color);
   --bs-btn-active-bg: var(--title-color);
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem var(--box-shadow-color);
 }
 
 .btn-outline-warning {
@@ -84,7 +85,7 @@
   --bs-btn-hover-bg: var(--second-color);
   --bs-btn-active-color: var(--bs-body-bg);
   --bs-btn-active-bg: var(--second-color);
-  --bs-btn-focus-box-shadow: 0 0 0 0.25rem hsla(var(--hue-second-color), 100%, 51%, 0.5);
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem var(--box-shadow-second-color);
 }
 
 .btn-dark:not(.active) {
@@ -167,11 +168,12 @@
 }
 
 
-/* ---------- MODAlS & LOGIN CARD ---------- */
+/* ---------- MODAlS ---------- */
 .modal {
   --bs-modal-bg: var(--bs-body-bg);
   --bs-modal-header-border-color: var(--border-color);
   --bs-modal-footer-border-color: var(--border-color);
+  --bs-modal-margin: 3rem;
 }
 
 
@@ -214,24 +216,39 @@ textarea.form-control {
   color: var(--title-color);
 }
 
-.form-range::-webkit-slider-thumb {
-  background-color: var(--first-color);
+/* webkit */
+.form-range::-webkit-slider-runnable-track {
+  background-color: var(--input-color);
 }
-.form-range::-moz-range-thumb {
+.form-range::-webkit-slider-thumb {
   background-color: var(--first-color);
 }
 .form-range::-webkit-slider-thumb:active {
   background-color: var(--first-color-alt);
 }
-.form-range::-moz-range-thumb:active {
+/* moz */
+.form-range::-moz-range-track {
+  background-color: var(--input-color);
+}
+.form-range::-moz-range-progress {
+  background-color: var(--first-color);
+}
+.form-range::-moz-range-progress:active {
   background-color: var(--first-color-alt);
 }
--webkit-slider-thumb:active {
+.form-range::-moz-range-thumb {
   background-color: var(--first-color);
+}
+.form-range::-moz-range-thumb:active {
+  background-color: var(--first-color-alt);
 }
 
 
 /* ---------- SECTIONS ---------- */
+section {
+  padding-top: 6rem;
+}
+
 .bg-body {
   background-color: var(--bs-body-bg) !important;
 }

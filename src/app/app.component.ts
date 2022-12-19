@@ -14,7 +14,6 @@ import { TokenService } from './services/token.service';
 export class AppComponent {
 
   person: Person = null!;
-  personId?: number;
   personEdit: Person = {
     id: 0,
     name: '',
@@ -25,10 +24,9 @@ export class AppComponent {
     cv: ''
   };
   colors: Colors = null!;
-  colorId?: number;
   colorsEdit: Colors = {
     id: 0,
-    firstColor: '',
+    firstColor: 0,
     secondColor: ''
   };
   sections = [
@@ -52,56 +50,30 @@ export class AppComponent {
     this.initAnimations();
   }
 
-  onDarkMode(value: string): void {
-    document.documentElement.className = value;
+  onDarkMode(value: any): void {
+    value != null?
+    document.documentElement.className = value:
+    document.documentElement.removeAttribute('class');
   }
 
   onChangeColor(color: string, value: any) {
-    document.documentElement.style.setProperty(color, value)
-  }
-
-  onPersonClean(): void {
-    this.personEdit.name = '',
-    this.personEdit.lastName = '',
-    this.personEdit.description = '',
-    this.personEdit.email = '',
-    this.personEdit.img = '',
-    this.personEdit.cv = ''
-  }
-
-  onColorClean(): void {
-    this.colorsEdit.firstColor = '',
-    this.colorsEdit.secondColor = ''
+    document.documentElement.style.setProperty(color, value);
   }
   
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
       this.person = data;
+      this.personEdit = data;
     });
   }
 
   loadColors(): void {
     this.colorsService.detail(1).subscribe(data => {
       this.colors = data;
-      this.colorId = data.id;
-      this.onChangeColor("--hue-color", data.firstColor);
-      this.onChangeColor("--hue-second-color", data.secondColor);
-    });
-  }
-  
-  onPersonDetail(): void {
-    this.personService.detail(this.personId!).subscribe(data => {
-      this.personEdit = data;
-    }, err => {
-      alert("No se pudieron cargar los datos");
-    });
-  }
-  
-  onColorDetail(): void {
-    this.colorsService.detail(this.colorId!).subscribe(data => {
       this.colorsEdit = data;
-    }, err => {
-      alert("No se pudieron cargar los datos");
+      this.onChangeColor("--hue-color", data.firstColor);
+      this.onChangeColor("--second-color", data.secondColor);
+      this.onChangeColor("--box-shadow-second-color", data.secondColor + 80);
     });
   }
 

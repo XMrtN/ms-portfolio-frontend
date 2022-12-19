@@ -58,7 +58,6 @@ tabindex="-1" aria-labelledby="newProyectLabel" aria-hidden="true">
             class="form-control" 
             name="proyectImgInput" 
             placeholder="Imagen del proyecto" 
-            [(ngModel)]="this.proyectsComponent.proyect.img" 
             (change)="uploadImage($event)" 
             accept=".jpg, .jpeg, .png" 
             required>
@@ -66,7 +65,7 @@ tabindex="-1" aria-labelledby="newProyectLabel" aria-hidden="true">
           </div>
           <!-- Img View -->
           <div class="d-flex justify-content-center mb-4" *ngIf="imageService.url">
-            <img [src]="imageService.url" class="img-fluid rounded-3">
+            <img [src]="imageService.url" height=200 class="rounded-3">
           </div>
           <!-- Url input -->
           <div class="form-floating">

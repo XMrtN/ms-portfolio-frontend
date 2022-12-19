@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editPersonLabel">Modificar presentación</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.onPersonClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.loadPerson()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -64,7 +64,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
             class="form-control" 
             name="personImgInput" 
             placeholder="Foto de perfil" 
-            [(ngModel)]="this.appComponent.personEdit.img" 
             (change)="uploadImage($event)" 
             accept=".jpg, .jpeg, .png" 
             required>
@@ -72,7 +71,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
           </div>
           <!-- Img View -->
           <div class="d-flex justify-content-center mb-4" *ngIf="imageService.url">
-            <img [src]="imageService.url" width="150px" class="rounded-3">
+            <img [src]="imageService.url" height=200 class="rounded-3">
           </div>
           <!-- Cv input -->
           <div class="form-floating mb-4">
@@ -80,7 +79,6 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
             class="form-control" 
             name="personCvInput" 
             placeholder="Archivo CV" 
-            [(ngModel)]="this.appComponent.personEdit.cv" 
             (change)="uploadFile($event)" 
             accept=".pdf, .docx, .txt" 
             required>
@@ -88,7 +86,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.onPersonClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.loadPerson()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

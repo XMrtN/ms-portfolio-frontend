@@ -25,22 +25,23 @@ export class EditHomeComponent implements OnInit {
     this.appComponent.personEdit.img = this.imageService.url!;
     this.appComponent.personEdit.cv = this.pdfService.url!;
     this.personService.update(
-      this.appComponent.personId!,
+      this.appComponent.person.id!,
       this.appComponent.personEdit
     ).subscribe(data => {
       this.appComponent.loadPerson();
     }, err => {
+      this.appComponent.loadPerson();
       alert("No se pudo modificar");
     });
-    this.appComponent.onPersonClean();
+    this.imageService.clearUrl();
   }
 
   uploadImage($event: any) {
-    this.imageService.uploadImage($event, 'image/', `profile_${this.appComponent.personId}`);
+    this.imageService.uploadImage($event, 'image/', `profile_${this.appComponent.person.id!}`);
   }
 
   uploadFile($event: any) {
-    this.pdfService.uploadFile($event, 'file/', `profile-cv_${this.appComponent.personId}`);
+    this.pdfService.uploadFile($event, 'file/', `profile-cv_${this.appComponent.person.id!}`);
   }
 
 }

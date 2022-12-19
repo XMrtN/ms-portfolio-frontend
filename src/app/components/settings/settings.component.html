@@ -5,32 +5,32 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="settingsLabel">Configuración</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.onColorClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
       <div class="modal-body">
-        <div *ngIf="this.tokenService.isLoggedIn() && this.appComponent.colors != null">
+        <div class="mb-3" *ngIf="this.tokenService.isLoggedIn() && this.appComponent.colors != null">
           <!-- Hue primary input -->
-          <label class="form-label me-2" for="skillPercentageInput">
+          <label class="form-label me-2" for="firstColorInput">
             Color primario: {{this.appComponent.colorsEdit.firstColor}}
           </label>
           <input type="range" min="0" max="360" 
           class="form-range" 
-          name="skillPercentageInput" 
+          name="firstColorInput" 
           [(ngModel)]="this.appComponent.colorsEdit.firstColor" 
           (change)="this.appComponent.onChangeColor('--hue-color', this.appComponent.colorsEdit.firstColor); this.onUpdateColor()" 
           required>
           <!-- Hue secondary input -->
-          <label class="form-label me-2" for="skillPercentageInput">
-            Color secundario: {{this.appComponent.colorsEdit.secondColor}}
-          </label>
-          <input type="range" min="0" max="360" 
-          class="form-range" 
-          name="skillPercentageInput" 
-          [(ngModel)]="this.appComponent.colorsEdit.secondColor" 
-          (change)="this.appComponent.onChangeColor('--hue-second-color', this.appComponent.colorsEdit.secondColor); this.onUpdateColor()" 
-          required>
+          <div class="d-flex flex-wrap align-items-center">
+            <label class="form-label mb-0 me-2" for="secondColorInput">Color secundario: </label>
+            <input type="color" class="form-control form-control-color" 
+            value="{{this.appComponent.colorsEdit.secondColor}}" 
+            name="secondColorInput" title="Elige un color" 
+            [(ngModel)]="this.appComponent.colorsEdit.secondColor" 
+            (change)="this.appComponent.onChangeColor('--second-color', this.appComponent.colorsEdit.secondColor); this.appComponent.onChangeColor('--box-shadow-second-color', this.appComponent.colorsEdit.secondColor + 80); this.onUpdateColor()" 
+            required>
+          </div>
         </div>
         <!-- Theme -->
         <label class="form-label me-2" for="skillPercentageInput">
@@ -38,7 +38,7 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
         </label>
         <ul class="list-unstyled d-flex flex-wrap gap-1">
           <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('')">Sistema</button>
+            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode(null)">Sistema</button>
           </li>
           <li>
             <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('light')">Claro</button>
@@ -56,7 +56,7 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
         (click)="this.tokenService.logOut()">Cerrar sesión</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.onColorClean()">Cerrar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

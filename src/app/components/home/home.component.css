@@ -9,6 +9,7 @@
     #8be3fd 60%
   );
   min-height: 100vh;
+  padding-bottom: 4rem;
 }
 #home::after {
   position: absolute;
@@ -30,6 +31,7 @@
   bottom: 0;
   object-fit: cover;
   user-select: none;
+  pointer-events: none;
   z-index: 0;
 }
 .moon,

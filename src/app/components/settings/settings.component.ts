@@ -21,10 +21,9 @@ export class SettingsComponent implements OnInit {
 
   onUpdateColor(): void {
     this.colorsService.update(
-      this.appComponent.colorId!,
+      this.appComponent.colors.id!,
       this.appComponent.colorsEdit
     ).subscribe(data => {
-      this.appComponent.loadColors();
     }, err => {
       alert("No se pudieron modificar los colores");
     });

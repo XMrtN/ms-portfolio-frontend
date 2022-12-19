@@ -5,6 +5,9 @@
   z-index: 10000;
 }
 
+.offcanvas {
+  width: 256px;
+}
 
 /* ---------- NAV-ITEM ---------- */
 .nav-link {

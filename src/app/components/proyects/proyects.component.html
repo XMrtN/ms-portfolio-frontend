@@ -1,6 +1,6 @@
 <!---------- PROYECTS SECTION ---------->
-<section id="proyects" class="position-relative bg-body overflow-hidden pt-5">
-  <div class="container py-5">
+<section id="proyects" class="position-relative bg-body overflow-hidden">
+  <div class="container">
     <div class="row">
       <div class="col-12 mb-4">
         <div class="mb-3">
@@ -33,8 +33,8 @@
                 <img src="{{proyect.img}}" class="img-fluid rounded-3" alt="proyectos">
               </div>
 
-              <div class="col-md-7">
-                <div class="card-body">
+              <div class="col-md-7 pt-3 pt-md-0 ps-md-3">
+                <div class="card-body p-0">
                   <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
                     <h5 class="card-title me-3">{{proyect.title}}</h5>
                     <div class="d-flex gap-1 ms-auto mb-2" *ngIf="this.tokenService.isLoggedIn()">

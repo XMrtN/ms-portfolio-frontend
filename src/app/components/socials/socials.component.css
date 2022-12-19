@@ -52,7 +52,7 @@
 .cdk-drag-placeholder {
   opacity: 1;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem hsla(var(--hue-second-color), 100%, 51%, 0.5);
+  box-shadow: 0 0 0 0.25rem var(--box-shadow-second-color);
 }
 .cdk-drag-placeholder .btn-outline-warning {
   color: var(--bs-body-bg);

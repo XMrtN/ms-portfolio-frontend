@@ -7,7 +7,7 @@ import { ProyectsComponent } from '../proyects.component';
 @Component({
   selector: 'app-edit-proyect',
   templateUrl: './edit-proyect.component.html',
-  styleUrls: ['./edit-proyect.component.css']
+  styleUrls: ['./edit-proyect.component.css', '../proyects.component.css']
 })
 export class EditProyectComponent implements OnInit {
 

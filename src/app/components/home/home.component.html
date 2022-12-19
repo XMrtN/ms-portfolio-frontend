@@ -1,4 +1,4 @@
-<section id="home" class="position-relative d-flex justify-content-center align-items-center overflow-hidden pt-5">
+<section id="home" class="position-relative d-flex justify-content-center align-items-center overflow-hidden">
   <img class="parallax {{img.alt}} position-absolute d-block h-100 w-100" 
   *ngFor="let img of parallax" 
   src="{{img.url}}" 
@@ -25,14 +25,13 @@
 
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-2" 
           data-bs-toggle="modal" data-bs-target="#editPerson" 
-          *ngIf="this.tokenService.isLoggedIn() && this.appComponent.person != null" (click)="this.appComponent.personId = this.appComponent.person.id; this.appComponent.onPersonDetail()">
+          *ngIf="this.tokenService.isLoggedIn() && this.appComponent.person != null">
             <i class="bi bi-pencil-square"></i>
           </button>
         </div>
 
         <div class="btn-cv">
-          <a href="{{this.appComponent.person.cv}}" target="_blank" *ngIf="this.appComponent.person != null" 
-          class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
+          <a href="{{this.appComponent.person.cv}}" download *ngIf="this.appComponent.person != null" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
             Descargar CV <i class="bi bi-download btn-icon fs-5 ms-2"></i>
           </a>
           <a class="btn btn-primary placeholder disabled col-3 p-3 pt-4" 

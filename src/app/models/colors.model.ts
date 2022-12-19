@@ -1,10 +1,10 @@
 export class Colors {
 
   id?: number;
-  firstColor: string;
+  firstColor: number;
   secondColor: string;
 
-  constructor(firstColor: string, secondColor: string){
+  constructor(firstColor: number, secondColor: string){
     this.firstColor = firstColor;
     this.secondColor = secondColor;
   }
