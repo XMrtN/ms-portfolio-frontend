@@ -34,6 +34,11 @@ export class SocialsComponent implements OnInit {
     this.initScrollAnimations();
   }
 
+  onScrollTop(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   onClean(): void {
     this.social.position = 1000,
     this.social.icon = '';
@@ -77,7 +82,7 @@ export class SocialsComponent implements OnInit {
 
   initScrollAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.to(".scroll-up__btn", {
+      gsap.to(".btn-scroll-up", {
         duration: 0.5,
         x: 16,
         opacity: 0,

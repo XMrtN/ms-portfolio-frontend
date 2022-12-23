@@ -4,13 +4,19 @@
     <div class="row">
       <div class="col-12 mb-4">
         <div class="mb-3">
-          <h2>SOBRE MÍ</h2>
+          <div class="flex-ssm-wrap-reverse d-flex w-100">
+            <h2 class="me-3">SOBRE MÍ</h2>
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#editPersonDesc" 
+            *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </div>
           <div class="title-span bg-warning rounded"></div>
         </div>
-        <p *ngIf="this.appComponent.person != null">{{this.appComponent.person.description}}</p>
+        <p *ngIf="appComponent.person != null">{{appComponent.person.description}}</p>
 
         <!---------- LAZY LOADING PLACEHOLDER ---------->
-        <p *ngIf="this.appComponent.person == null">
+        <p *ngIf="appComponent.person == null">
           <span class="placeholder col-12"></span>
           <span class="placeholder col-4"></span>
         </p>
@@ -21,3 +27,5 @@
     </div>
   </div>
 </section>
+
+<app-edit-about></app-edit-about>

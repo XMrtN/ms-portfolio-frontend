@@ -16,7 +16,9 @@ import { EditSocialComponent } from './components/socials/edit-social/edit-socia
 
 import { HomeComponent } from './components/home/home.component';
 import { EditHomeComponent } from './components/home/edit-home/edit-home.component';
+
 import { AboutComponent } from './components/about/about.component';
+import { EditAboutComponent } from './components/about/edit-about/edit-about.component';
 
 import { ExperienceComponent } from './components/experience/experience.component';
 import { NewExperienceComponent } from './components/experience/new-experience/new-experience.component';
@@ -41,6 +43,7 @@ import { NewProyectComponent } from './components/proyects/new-proyect/new-proye
 import { EditProyectComponent } from './components/proyects/edit-proyect/edit-proyect.component';
 
 import { ContactComponent } from './components/contact/contact.component';
+import { EditContactComponent } from './components/contact/edit-contact/edit-contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -63,6 +66,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     HomeComponent,
     EditHomeComponent,
     AboutComponent,
+    EditAboutComponent,
     ExperienceComponent,
     NewExperienceComponent,
     EditExperienceComponent,
@@ -83,6 +87,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NewProyectComponent,
     EditProyectComponent,
     ContactComponent,
+    EditContactComponent,
     FooterComponent
   ],
   imports: [

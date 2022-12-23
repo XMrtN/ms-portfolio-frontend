@@ -10,25 +10,25 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
         </button>
       </div>
       <div class="modal-body">
-        <div class="mb-3" *ngIf="this.tokenService.isLoggedIn() && this.appComponent.colors != null">
+        <div class="mb-3" *ngIf="tokenService.isLoggedIn() && appComponent.colors != null">
           <!-- Hue primary input -->
           <label class="form-label me-2" for="firstColorInput">
-            Color primario: {{this.appComponent.colorsEdit.firstColor}}
+            Color primario: {{appComponent.colorsEdit.firstColor}}
           </label>
           <input type="range" min="0" max="360" 
           class="form-range" 
           name="firstColorInput" 
-          [(ngModel)]="this.appComponent.colorsEdit.firstColor" 
-          (change)="this.appComponent.onChangeColor('--hue-color', this.appComponent.colorsEdit.firstColor); this.onUpdateColor()" 
+          [(ngModel)]="appComponent.colorsEdit.firstColor" 
+          (change)="appComponent.onChangeColor('--hue-color', appComponent.colorsEdit.firstColor); onUpdateColor()" 
           required>
           <!-- Hue secondary input -->
           <div class="d-flex flex-wrap align-items-center">
             <label class="form-label mb-0 me-2" for="secondColorInput">Color secundario: </label>
             <input type="color" class="form-control form-control-color" 
-            value="{{this.appComponent.colorsEdit.secondColor}}" 
+            value="{{appComponent.colorsEdit.secondColor}}" 
             name="secondColorInput" title="Elige un color" 
-            [(ngModel)]="this.appComponent.colorsEdit.secondColor" 
-            (change)="this.appComponent.onChangeColor('--second-color', this.appComponent.colorsEdit.secondColor); this.appComponent.onChangeColor('--box-shadow-second-color', this.appComponent.colorsEdit.secondColor + 80); this.onUpdateColor()" 
+            [(ngModel)]="appComponent.colorsEdit.secondColor" 
+            (change)="appComponent.onChangeColor('--second-color', appComponent.colorsEdit.secondColor); appComponent.onChangeColor('--box-shadow-second-color', appComponent.colorsEdit.secondColor + 80); onUpdateColor()" 
             required>
           </div>
         </div>
@@ -38,22 +38,22 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
         </label>
         <ul class="list-unstyled d-flex flex-wrap gap-1">
           <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode(null)">Sistema</button>
+            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode(null)">Sistema</button>
           </li>
           <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('light')">Claro</button>
+            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode('light')">Claro</button>
           </li>
           <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="this.appComponent.onDarkMode('dark')">Oscuro</button>
+            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode('dark')">Oscuro</button>
           </li>
         </ul>
 
         <button type="button" class="btn btn-primary float-end text-nowrap text-nobreak" 
         data-bs-toggle="modal" data-bs-target="#login" 
-        *ngIf="!this.tokenService.isLoggedIn()">Iniciar sesión</button>
+        *ngIf="!tokenService.isLoggedIn()">Iniciar sesión</button>
         <button type="button" class="btn btn-primary float-end text-nowrap text-nobreak" 
-        *ngIf="this.tokenService.isLoggedIn()" 
-        (click)="this.tokenService.logOut()">Cerrar sesión</button>
+        *ngIf="tokenService.isLoggedIn()" 
+        (click)="tokenService.logOut()">Cerrar sesión</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MainComponent } from './components/main/main.component';
 import { Colors } from './models/colors.model';
 import { Person } from './models/person.model';
 import { ColorsService } from './services/colors.service';
@@ -48,6 +47,7 @@ export class AppComponent {
     this.loadPerson();
     this.loadColors();
     this.initAnimations();
+    document.documentElement.style.removeProperty("--bs-body-bg");
   }
 
   onDarkMode(value: any): void {

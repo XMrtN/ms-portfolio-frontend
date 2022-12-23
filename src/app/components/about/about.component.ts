@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +9,10 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(protected appComponent: AppComponent) { }
+  constructor(
+    protected appComponent: AppComponent,
+    protected tokenService: TokenService
+  ) { }
 
   ngOnInit(): void {
   }

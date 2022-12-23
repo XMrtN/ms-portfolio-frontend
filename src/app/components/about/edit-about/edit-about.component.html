@@ -1,0 +1,33 @@
+<div class="modal fade modal-dialog-scrollable vh-100" 
+id="editPersonDesc" data-bs-backdrop="static" data-bs-keyboard="false" 
+tabindex="-1" aria-labelledby="editPersonDescLabel" aria-hidden="true" *ngIf="appComponent.personEdit">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editPersonDescLabel">Modificar descripción</h1>
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="appComponent.loadPerson()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+        <div class="modal-body">
+          <!-- Description input -->
+          <div class="form-floating mb-4">
+            <textarea type="text" 
+            class="form-control" 
+            maxlength="250" 
+            name="personDescInput" 
+            placeholder="Descripción sobre mí" 
+            [(ngModel)]="appComponent.personEdit.description" 
+            required></textarea>
+            <label class="form-label" for="personDescInput">Descripción sobre mí</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appComponent.loadPerson()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

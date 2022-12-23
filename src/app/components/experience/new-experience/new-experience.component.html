@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newExpLabel">Nueva experiencia</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.experienceComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="experienceComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,7 +17,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             name="expCompNameInput" 
             placeholder="Compañía o empresa" 
-            [(ngModel)]="this.experienceComponent.exp.expCompName" 
+            [(ngModel)]="experienceComponent.exp.expCompName" 
             required>
             <label class="form-label" for="expCompNameInput">Compañía o empresa</label>
           </div>
@@ -27,7 +27,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             name="expJobTitleInput" 
             placeholder="Puesto" 
-            [(ngModel)]="this.experienceComponent.exp.expJobTitle" 
+            [(ngModel)]="experienceComponent.exp.expJobTitle" 
             required>
             <label class="form-label" for="expJobTitleInput">Puesto</label>
           </div>
@@ -37,7 +37,7 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             name="expDescInput" 
             placeholder="Descripción" 
-            [(ngModel)]="this.experienceComponent.exp.expDesc" 
+            [(ngModel)]="experienceComponent.exp.expDesc" 
             required></textarea>
             <label class="form-label" for="expDescInput">Descripción</label>
           </div>
@@ -47,13 +47,13 @@ tabindex="-1" aria-labelledby="newExpLabel" aria-hidden="true">
             class="form-control" 
             name="expPeriodInput" 
             placeholder="Periodo de tiempo" 
-            [(ngModel)]="this.experienceComponent.exp.expPeriod" 
+            [(ngModel)]="experienceComponent.exp.expPeriod" 
             required>
             <label class="form-label" for="expPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.experienceComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="experienceComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

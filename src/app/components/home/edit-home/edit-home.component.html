@@ -1,11 +1,11 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editPerson" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.appComponent.personEdit">
+tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="appComponent.personEdit">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editPersonLabel">Modificar presentación</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.appComponent.loadPerson()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="appComponent.loadPerson()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -19,7 +19,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
                 class="form-control" 
                 name="personNameInput" 
                 placeholder="Nombre" 
-                [(ngModel)]="this.appComponent.personEdit.name" 
+                [(ngModel)]="appComponent.personEdit.name" 
                 required>
                 <label class="form-label" for="personNameInput">Nombre</label>
               </div>
@@ -31,32 +31,11 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
                 class="form-control" 
                 name="personLastNameInput" 
                 placeholder="Apellido" 
-                [(ngModel)]="this.appComponent.personEdit.lastName" 
+                [(ngModel)]="appComponent.personEdit.lastName" 
                 required>
                 <label class="form-label" for="personLastNameInput">Apellido</label>
               </div>
             </div>
-          </div>
-          <!-- Email input -->
-          <div class="form-floating mb-4">
-            <input type="email" 
-            class="form-control" 
-            name="personEmailInput" 
-            placeholder="Correo electrónico" 
-            [(ngModel)]="this.appComponent.personEdit.email" 
-            required>
-            <label class="form-label" for="personEmailInput">Correo electrónico</label>
-          </div>
-          <!-- Description input -->
-          <div class="form-floating mb-4">
-            <textarea type="text" 
-            class="form-control" 
-            maxlength="250"
-            name="personDescInput" 
-            placeholder="Descripción sobre mí" 
-            [(ngModel)]="this.appComponent.personEdit.description" 
-            required></textarea>
-            <label class="form-label" for="personDescInput">Descripción sobre mí</label>
           </div>
           <!-- Img input -->
           <div class="form-floating mb-4">
@@ -86,7 +65,7 @@ tabindex="-1" aria-labelledby="editPersonLabel" aria-hidden="true" *ngIf="this.a
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.appComponent.loadPerson()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appComponent.loadPerson()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

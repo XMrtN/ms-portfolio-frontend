@@ -17,7 +17,7 @@
     <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-3 h-100">
       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
       data-bs-toggle="modal" data-bs-target="#newSoftSkill" 
-      *ngIf="this.tokenService.isLoggedIn() && this.soft != null">
+      *ngIf="tokenService.isLoggedIn() && soft != null">
         <i class="bi bi-plus-square"></i>
       </button>
       <i class="bi bi-chevron-down fs-5"></i>
@@ -26,21 +26,21 @@
 
   <div class="accordion-collapse collapse bg-body" id="collapseThree" 
   aria-labelledby="headingThree" data-bs-parent="#accordion">
-    <div class="accordion-body bg-body p-0 ps-sm-3" cdkDropList (cdkDropListDropped)="this.onDropped($event)" *ngIf="this.soft != null">
+    <div class="accordion-body bg-body p-0 ps-sm-3" cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="soft != null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of soft" cdkDrag 
-      [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
+      [cdkDragDisabled]="!tokenService.isLoggedIn()">
         <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-end w-100">
           <div class="d-flex justify-content-center align-items-center mb-2 me-auto">
             <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
-            *ngIf="this.tokenService.isLoggedIn()"></i>
+            *ngIf="tokenService.isLoggedIn()"></i>
             <h6 class="mb-0 me-2">{{skill.name}}</h6>
           </div>
           <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}%</p>
           
-          <div class="d-flex gap-1 ps-2 mb-2" *ngIf="this.tokenService.isLoggedIn()">
+          <div class="d-flex gap-1 ps-2 mb-2" *ngIf="tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editSoftSkill" 
-            (click)="this.id = skill.id; this.onDetail()">
+            (click)="id = skill.id; onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
@@ -57,7 +57,7 @@
     </div>
 
     <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="accordion-body bg-body p-0 ps-sm-3" *ngIf="this.soft == null">
+    <div class="accordion-body bg-body p-0 ps-sm-3" *ngIf="soft == null">
       <div class="card card-body bg-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
         <h6 class="placeholder col-5 mt-2"></h6>
         <p class="placeholder col-12 mb-2"></p>

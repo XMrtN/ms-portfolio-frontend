@@ -22,7 +22,7 @@
       <div class="offcanvas-body d-flex flex-column flex-md-row">
         <ul class="navbar-nav justify-content-center align-items-start gap-1 px-md-5 h-100 w-100">
           <li class="nav-item w-100" 
-          *ngFor="let link of this.appComponent.sections">
+          *ngFor="let link of appComponent.sections">
             <a class="nav-link btn btn-dark d-flex rounded-0 fw-semibold p-0 w-100" href="#{{link.id}}">
               <span class="text-nobreak mt-2 mt-md-auto ms-2 mx-md-auto mb-1 mb-md-0">{{link.name}}</span>
             </a>

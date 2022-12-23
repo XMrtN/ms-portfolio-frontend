@@ -1,11 +1,11 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editEd" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educationComponent.ed">
+tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="educationComponent.ed">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editEdLabel">Modificar educación</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.educationComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="educationComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,7 +17,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             name="edInsTitleInput" 
             placeholder="Instituto" 
-            [(ngModel)]="this.educationComponent.ed.edInsTitle" 
+            [(ngModel)]="educationComponent.ed.edInsTitle" 
             required>
             <label class="form-label" for="edInsTitleInput">Instituto</label>
           </div>
@@ -27,7 +27,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             name="edCareerNameInput" 
             placeholder="Carrera" 
-            [(ngModel)]="this.educationComponent.ed.edCareerName" 
+            [(ngModel)]="educationComponent.ed.edCareerName" 
             required>
             <label class="form-label" for="edCareerNameInput">Carrera</label>
           </div>
@@ -37,7 +37,7 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             name="edDescInput" 
             placeholder="Descripción" 
-            [(ngModel)]="this.educationComponent.ed.edDesc" 
+            [(ngModel)]="educationComponent.ed.edDesc" 
             required></textarea>
             <label class="form-label" for="edDescInput">Descripción</label>
           </div>
@@ -47,13 +47,13 @@ tabindex="-1" aria-labelledby="editEdLabel" aria-hidden="true" *ngIf="this.educa
             class="form-control" 
             name="edPeriodInput" 
             placeholder="Periodo de tiempo" 
-            [(ngModel)]="this.educationComponent.ed.edPeriod" 
+            [(ngModel)]="educationComponent.ed.edPeriod" 
             required>
             <label class="form-label" for="edPeriodInput">Periodo de tiempo</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.educationComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="educationComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

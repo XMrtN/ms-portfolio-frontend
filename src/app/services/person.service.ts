@@ -29,6 +29,14 @@ export class PersonService {
     return this.httpClient.put<any>(this.url + `/update/${id}`, person);
   }
 
+  public updateDesc(id: number, person: Person): Observable<any> {
+    return this.httpClient.put<any>(this.url + `/updatedesc/${id}`, person);
+  }
+
+  public updateEmail(id: number, person: Person): Observable<any> {
+    return this.httpClient.put<any>(this.url + `/updateemail/${id}`, person);
+  }
+
   // public delete(id: number): Observable<any> {
   //   return this.httpClient.delete<any>(this.url + `/delete/${id}`);
   // }

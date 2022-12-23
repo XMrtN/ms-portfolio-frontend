@@ -1,11 +1,11 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editSoftSkill" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="this.softSkillComponent.softSkill">
+tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="softSkillComponent.softSkill">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editSoftSkillLabel">Modificar habilidad blanda</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.softSkillComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="softSkillComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,22 +17,22 @@ tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="thi
             class="form-control" 
             name="softskillNameInput" 
             placeholder="Habilidad" 
-            [(ngModel)]="this.softSkillComponent.softSkill.name" 
+            [(ngModel)]="softSkillComponent.softSkill.name" 
             required>
             <label class="form-label" for="softskillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
           <label class="form-label me-2" for="softskillPercentageInput">
-            Progreso: {{this.softSkillComponent.softSkill.percentage}}%
+            Progreso: {{softSkillComponent.softSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 
           name="softskillPercentageInput" 
-          [(ngModel)]="this.softSkillComponent.softSkill.percentage" 
+          [(ngModel)]="softSkillComponent.softSkill.percentage" 
           required>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.softSkillComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="softSkillComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

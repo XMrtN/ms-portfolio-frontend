@@ -8,7 +8,7 @@
 /* variables de color general */
 :root, :root.light {
   /* favorite color */
-  --hue-color: 235;
+  --hue-color: 230;
   --second-color: #ffc107;
   --box-shadow-second-color: #ffc10780;
   
@@ -199,7 +199,7 @@ select:-webkit-autofill:focus {
 }
 
 textarea.form-control {
-  height: 110px !important;
+  height: 120px !important;
 }
 
 .cdk-drag-preview,

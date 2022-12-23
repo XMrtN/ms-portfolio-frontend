@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="newFrontSkillLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newFrontSkillLabel">Nueva habilidad en Frontend</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.frontSkillComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="frontSkillComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,22 +17,22 @@ tabindex="-1" aria-labelledby="newFrontSkillLabel" aria-hidden="true">
             class="form-control" 
             name="frontskillPercentageInput" 
             placeholder="Habilidad" 
-            [(ngModel)]="this.frontSkillComponent.frontSkill.name" 
+            [(ngModel)]="frontSkillComponent.frontSkill.name" 
             required>
             <label class="form-label" for="frontskillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
           <label class="form-label me-2" for="skillPercentageInput">
-            Progreso: {{this.frontSkillComponent.frontSkill.percentage}}%
+            Progreso: {{frontSkillComponent.frontSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 
           name="skillPercentageInput" 
-          [(ngModel)]="this.frontSkillComponent.frontSkill.percentage" 
+          [(ngModel)]="frontSkillComponent.frontSkill.percentage" 
           required>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.frontSkillComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="frontSkillComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

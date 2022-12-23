@@ -2,14 +2,14 @@
   <h4 class="me-3">EDUCACIÓN</h4>
   <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
   data-bs-toggle="modal" data-bs-target="#newEd" 
-  *ngIf="this.tokenService.isLoggedIn() && this.education != null">
+  *ngIf="tokenService.isLoggedIn() && education != null">
     <i class="bi bi-plus-square"></i>
   </button>
 </div>
 
-<div cdkDropList (cdkDropListDropped)="this.onDropped($event)" *ngIf="this.education != null">
+<div cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="education != null">
   <div class="card card-body bg-body border-0" *ngFor="let ed of education" cdkDrag 
-  [cdkDragDisabled]="!this.tokenService.isLoggedIn()">
+  [cdkDragDisabled]="!tokenService.isLoggedIn()">
     <div class="d-flex">
       <div class="timeline">
         <div class="rounder bg-body"></div>
@@ -20,14 +20,14 @@
         <div class="flex-ssm-wrap-reverse d-flex align-items-start">
           <div class="d-flex align-items-center mb-2">
             <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
-            *ngIf="this.tokenService.isLoggedIn()"></i>
+            *ngIf="tokenService.isLoggedIn()"></i>
             <h5 class="mb-0 me-3">{{ed.edCareerName}}</h5>
           </div>
           
-          <div class="d-flex gap-1 ms-auto mb-2" *ngIf="this.tokenService.isLoggedIn()">
+          <div class="d-flex gap-1 ms-auto mb-2" *ngIf="tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editEd" 
-            (click)="this.id = ed.id; this.onDetail()">
+            (click)="id = ed.id; onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
@@ -46,7 +46,7 @@
 </div>
 
 <!---------- LAZY LOADING PLACEHOLDER ---------->
-<div *ngIf="this.education == null">
+<div *ngIf="education == null">
   <div class="card card-body bg-body border-0" *ngFor="let i of ['', '']" aria-hidden="true">
     <div class="d-flex">
       <div class="timeline placeholder bg-transparent">

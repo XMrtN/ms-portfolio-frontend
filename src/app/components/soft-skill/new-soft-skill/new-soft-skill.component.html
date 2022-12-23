@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="newSoftSkillLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="newSoftSkillLabel">Nueva habilidad blanda</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.softSkillComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="softSkillComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,22 +17,22 @@ tabindex="-1" aria-labelledby="newSoftSkillLabel" aria-hidden="true">
             class="form-control" 
             name="softskillNameInput" 
             placeholder="Habilidad" 
-            [(ngModel)]="this.softSkillComponent.softSkill.name" 
+            [(ngModel)]="softSkillComponent.softSkill.name" 
             required>
             <label class="form-label" for="softskillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
           <label class="form-label me-2" for="softskillPercentageInput">
-            Progreso: {{this.softSkillComponent.softSkill.percentage}}%
+            Progreso: {{softSkillComponent.softSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 
           name="softskillPercentageInput" 
-          [(ngModel)]="this.softSkillComponent.softSkill.percentage" 
+          [(ngModel)]="softSkillComponent.softSkill.percentage" 
           required>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.softSkillComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="softSkillComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

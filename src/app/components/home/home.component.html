@@ -8,41 +8,41 @@
     <div class="row">
       <div class="person-col col-md-8 col-12 mb-md-0 mb-4">
         <h1 class="display-4 fw-semibold">
-          <span *ngIf="this.appComponent.person != null">¡Hola! Soy</span>
-          <span class="placeholder col-4" *ngIf="this.appComponent.person == null"></span>
+          <span *ngIf="appComponent.person != null">¡Hola! Soy</span>
+          <span class="placeholder col-4" *ngIf="appComponent.person == null"></span>
           <br>
-          <span class="fw-bolder text-warning" *ngIf="this.appComponent.person != null">
-            {{this.appComponent.person.name}} {{this.appComponent.person.lastName}}
+          <span class="fw-bolder text-warning" *ngIf="appComponent.person != null">
+            {{appComponent.person.name}} {{appComponent.person.lastName}}
           </span>
-          <span class="placeholder col-10 bg-warning" *ngIf="this.appComponent.person == null"></span>
+          <span class="placeholder col-10 bg-warning" *ngIf="appComponent.person == null"></span>
         </h1>
 
         <div class="d-flex align-items-center p mb-2">
-          <p class="h6 m-0" *ngIf="this.appComponent.person != null">
+          <p class="h6 m-0" *ngIf="appComponent.person != null">
             Un Desarrollador Full Stack Jr.
           </p>
-          <p class="h6 placeholder col-6" *ngIf="this.appComponent.person == null"></p>
+          <p class="h6 placeholder col-6" *ngIf="appComponent.person == null"></p>
 
           <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-2" 
           data-bs-toggle="modal" data-bs-target="#editPerson" 
-          *ngIf="this.tokenService.isLoggedIn() && this.appComponent.person != null">
+          *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
             <i class="bi bi-pencil-square"></i>
           </button>
         </div>
 
         <div class="btn-cv">
-          <a href="{{this.appComponent.person.cv}}" download *ngIf="this.appComponent.person != null" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
+          <a href="{{appComponent.person.cv}}" download *ngIf="appComponent.person != null" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
             Descargar CV <i class="bi bi-download btn-icon fs-5 ms-2"></i>
           </a>
           <a class="btn btn-primary placeholder disabled col-3 p-3 pt-4" 
-          *ngIf="this.appComponent.person == null"></a>
+          *ngIf="appComponent.person == null"></a>
         </div>
       </div>
 
       <div class="col-md-4 col-12 d-flex justify-content-center align-items-center">
         <div class="imgBox position-relative d-flex justify-content-center align-items-end"
-        [ngClass]="{'bg-transparent placeholder': this.appComponent.person == null}">
-          <img src="{{this.appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="this.appComponent.person != null">
+        [ngClass]="{'bg-transparent placeholder': appComponent.person == null}">
+          <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person != null">
         </div>
       </div>
     </div>

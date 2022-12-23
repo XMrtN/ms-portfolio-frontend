@@ -5,7 +5,7 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editSocialLabel">Modificar red social</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.socialsComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="socialsComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,13 +17,13 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
             class="form-control pe-5" 
             name="socialIconInput" 
             placeholder="Ícono" 
-            [(ngModel)]="this.socialsComponent.social.icon" 
+            [(ngModel)]="socialsComponent.social.icon" 
             required>
             <label class="form-label" for="socialIconInput">Ícono</label>
             <a href="https://icons.getbootstrap.com/" target="_blank" 
             class="btn btn-icon position-absolute d-flex align-items-center rounded-5 border-0 lh-1 fs-3 h-fc p-1 me-2">
-              <i [ngClass]="this.socialsComponent.social.icon"></i>
-              <i class="bi bi-bootstrap" *ngIf="this.socialsComponent.social.icon == ''"></i>
+              <i [ngClass]="socialsComponent.social.icon"></i>
+              <i class="bi bi-bootstrap" *ngIf="socialsComponent.social.icon == ''"></i>
             </a>
           </div>
           <!-- Url input -->
@@ -32,13 +32,13 @@ tabindex="-1" aria-labelledby="editSocialLabel" aria-hidden="true">
             class="form-control" 
             name="socialUrlInput" 
             placeholder="Url de enlace" 
-            [(ngModel)]="this.socialsComponent.social.url" 
+            [(ngModel)]="socialsComponent.social.url" 
             required>
             <label class="form-label" for="socialUrlInput">Url de enlace</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.socialsComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="socialsComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

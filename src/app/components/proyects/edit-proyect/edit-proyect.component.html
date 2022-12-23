@@ -1,11 +1,11 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editProyect" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.proyectsComponent.proyect">
+tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="proyectsComponent.proyect">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editProyectLabel">Modificar experiencia</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.proyectsComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="proyectsComponent.onClean(); imageService.clearUrl()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,7 +17,7 @@ tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.
             class="form-control" 
             name="proyectTitleInput" 
             placeholder="Título" 
-            [(ngModel)]="this.proyectsComponent.proyect.title" 
+            [(ngModel)]="proyectsComponent.proyect.title" 
             required>
             <label class="form-label" for="proyectTitleInput">Título</label>
           </div>
@@ -27,7 +27,7 @@ tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.
             class="form-control" 
             name="proyectSubtitleInput" 
             placeholder="Subtítulo" 
-            [(ngModel)]="this.proyectsComponent.proyect.subtitle" 
+            [(ngModel)]="proyectsComponent.proyect.subtitle" 
             required>
             <label class="form-label" for="proyectSubtitleInput">Subtítulo</label>
           </div>
@@ -38,7 +38,7 @@ tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.
             maxlength="200" 
             name="proyectDescriptionInput" 
             placeholder="Descripción" 
-            [(ngModel)]="this.proyectsComponent.proyect.description" 
+            [(ngModel)]="proyectsComponent.proyect.description" 
             required></textarea>
             <label class="form-label" for="proyectDescriptionInput">Descripción</label>
           </div>
@@ -48,7 +48,7 @@ tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.
             class="form-control" 
             name="proyectFinishDateInput" 
             placeholder="Fecha de realización" 
-            [(ngModel)]="this.proyectsComponent.proyect.finishDate" 
+            [(ngModel)]="proyectsComponent.proyect.finishDate" 
             required>
             <label class="form-label" for="proyectFinishDateInput">Fecha de realización</label>
           </div>
@@ -73,13 +73,13 @@ tabindex="-1" aria-labelledby="editProyectLabel" aria-hidden="true" *ngIf="this.
             class="form-control" 
             name="proyectUrlInput" 
             placeholder="Link al repositorio" 
-            [(ngModel)]="this.proyectsComponent.proyect.url" 
+            [(ngModel)]="proyectsComponent.proyect.url" 
             required>
             <label class="form-label" for="proyectUrlInput">Link al repositorio</label>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.proyectsComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="proyectsComponent.onClean(); imageService.clearUrl()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

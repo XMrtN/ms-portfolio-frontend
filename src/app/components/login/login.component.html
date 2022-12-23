@@ -6,7 +6,7 @@ tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="loginLabel">Iniciar sesión</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -35,14 +35,14 @@ tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true">
             <label class="form-label" for="passwordInput">Contraseña</label>
             <button type="button" 
             class="btn btn-pwd position-absolute d-flex align-items-center rounded-5 border-0 lh-1 fs-3 h-fc p-1 me-2" id="button-addon" 
-            (click)="this.isShowing = !this.isShowing">
+            (click)="isShowing = !isShowing">
               <i class="bi" [ngClass]="isShowing? 'bi-eye-slash': 'bi-eye'"></i>
             </button>
           </div>
           <!-- <p class="small mb-5"><a href="#">¿Olvidaste tu contraseña?</a></p> -->
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Iniciar sesión</button>
         </div>
       </form>

@@ -1,11 +1,11 @@
 <div class="modal fade modal-dialog-scrollable vh-100" 
 id="editFrontSkill" data-bs-backdrop="static" data-bs-keyboard="false" 
-tabindex="-1" aria-labelledby="editFrontSkillLabel" aria-hidden="true" *ngIf="this.frontSkillComponent.frontSkill">
+tabindex="-1" aria-labelledby="editFrontSkillLabel" aria-hidden="true" *ngIf="frontSkillComponent.frontSkill">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editFrontSkillLabel">Modificar habilidad en Frontend</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="this.frontSkillComponent.onClean()">
+        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="frontSkillComponent.onClean()">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
@@ -17,22 +17,22 @@ tabindex="-1" aria-labelledby="editFrontSkillLabel" aria-hidden="true" *ngIf="th
             class="form-control" 
             name="frontskillNameInput" 
             placeholder="Habilidad" 
-            [(ngModel)]="this.frontSkillComponent.frontSkill.name" 
+            [(ngModel)]="frontSkillComponent.frontSkill.name" 
             required>
             <label class="form-label" for="frontskillNameInput">Habilidad</label>
           </div>
           <!-- Percentage input -->
           <label class="form-label" for="skillPercentageInput">
-            Progreso: {{this.frontSkillComponent.frontSkill.percentage}}%
+            Progreso: {{frontSkillComponent.frontSkill.percentage}}%
           </label>
           <input type="range" min="0" max="100" 
           class="form-range" 
           name="frontskillPercentageInput" 
-          [(ngModel)]="this.frontSkillComponent.frontSkill.percentage" 
+          [(ngModel)]="frontSkillComponent.frontSkill.percentage" 
           required>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="this.frontSkillComponent.onClean()">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="frontSkillComponent.onClean()">Cancelar</button>
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
         </div>
       </form>

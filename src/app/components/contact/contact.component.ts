@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { PersonService } from 'src/app/services/person.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-contact',
@@ -16,7 +17,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     protected personService: PersonService,
-    protected appComponent: AppComponent
+    protected appComponent: AppComponent,
+    protected tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
