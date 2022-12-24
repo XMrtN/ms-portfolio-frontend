@@ -6,9 +6,9 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-4">
-        <div class="imgBox position-relative d-flex justify-content-center"
-        [ngClass]="{'bg-transparent placeholder': appComponent.person == null}">
+      <div class="col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-3">
+        <div class="imgBox position-relative bg-warning d-flex justify-content-center overflow-hidden"
+        [ngClass]="{'placeholder': appComponent.person == null}">
           <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person != null">
         </div>
       </div>
