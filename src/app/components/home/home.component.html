@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-4">
-        <div class="imgBox position-relative bg-warning d-flex justify-content-center overflow-hidden"
+        <div class="imgBox position-relative d-flex justify-content-center"
         [ngClass]="{'bg-transparent placeholder': appComponent.person == null}">
           <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person != null">
         </div>
@@ -24,15 +24,17 @@
           <span class="placeholder col-10 bg-warning" *ngIf="appComponent.person == null"></span>
         </h1>
 
-        <p class="h6 mb-2" *ngIf="appComponent.person != null">
-          Un Desarrollador Full Stack Jr.
-          <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
-          data-bs-toggle="modal" data-bs-target="#editPerson" 
-          *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
-            <i class="bi bi-pencil-square"></i>
-          </button>
-        </p>
-        <p class="h6 placeholder col-6" *ngIf="appComponent.person == null"></p>
+        <div class="p mb-2">
+          <p class="h6 mb-0" *ngIf="appComponent.person != null">
+            Un Desarrollador Full Stack Jr.
+            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            data-bs-toggle="modal" data-bs-target="#editPerson" 
+            *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </p>
+          <p class="h6 placeholder col-6" *ngIf="appComponent.person == null"></p>
+        </div>
 
         <div class="btn-cv">
           <a href="{{appComponent.person.cv}}" download *ngIf="appComponent.person != null" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">

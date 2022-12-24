@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.from("#home h1, #home p, .btn-cv, .order-md-last", {
+      gsap.from("#home h1, #home .p, .btn-cv, .order-md-last", {
         duration: 1,
         x: -150,
         opacity: 0,
