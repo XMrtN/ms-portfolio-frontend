@@ -32,7 +32,6 @@
   object-fit: cover;
   user-select: none;
   pointer-events: none;
-  z-index: 0;
 }
 .moon,
 .smoke {
@@ -41,12 +40,8 @@
 
 
 /* ---------- TEXT & IMGBOX ---------- */
-.container {
-  z-index: 1;
-}
-
 #home h1, #home p, #home .bi-pencil-square  {
-  text-shadow: 2px 2px 2px hsl(0, 0%, 20%);
+  text-shadow: 2px 2px 2px #333;
   --title-color: hsl(var(--hue-color), 8%, 95%);
 }
 #home .btn-outline-light  {
@@ -68,65 +63,13 @@
 
 .imgBox {
   height: 150px;
-  width: 150px;
-}
-
-/* transformo el fondo de la foto en un paralelogramo */
-.imgBox::before,
-.imgBox::after {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: 0;
-  height: 70%;
   width: 100%;
-  background-color: var(--second-color);
-  z-index: -1;
-  transform: skewX(40deg);
-  -webkit-transform: skewX(40deg);
-  -moz-transform: skewX(40deg);
-  -ms-transform: skewX(40deg);
-  -o-transform: skewX(40deg);
-}
-.imgBox::after {
-  border: 2px solid var(--second-color);
-  background-color: transparent;
-  transition: left 0.5s, bottom 0.5s;
-  -webkit-transition: left 0.5s, bottom 0.5s;
-  -moz-transition: left 0.5s, bottom 0.5s;
-  -ms-transition: left 0.5s, bottom 0.5s;
-  -o-transition: left 0.5s, bottom 0.5s;
-}
-.imgBox:hover::after {
-  left: -10px;
-  bottom: -15px;
-}
-
-.imgBox img {
-  filter: brightness(0);
-  -webkit-filter: brightness(0);
-  opacity: 0.5;
-  transform-origin: bottom;
-  transform: scale(0.9) translateX(-10px);
-  -webkit-transform: scale(0.9) translateX(-10px);
-  -moz-transform: scale(0.9) translateX(-10px);
-  -ms-transform: scale(0.9) translateX(-10px);
-  -o-transform: scale(0.9) translateX(-10px);
-  transition: 0.5s ease-in-out;
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -ms-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-}
-.imgBox:hover img {
-  filter: brightness(1);
-  -webkit-filter: brightness(1);
-  opacity: 1;
-  transform: scale(1) translateX(0);
-  -webkit-transform: scale(1) translateX(0);
-  -moz-transform: scale(1) translateX(0);
-  -ms-transform: scale(1) translateX(0);
-  -o-transform: scale(1) translateX(0);
+  max-width: 250px;
+  border-radius: 65% 35% 75% 25% / 70% 60% 40% 30%;
+  -webkit-border-radius: 65% 35% 75% 25% / 70% 60% 40% 30%;
+  -moz-border-radius: 65% 35% 75% 25% / 70% 60% 40% 30%;
+  -ms-border-radius: 65% 35% 75% 25% / 70% 60% 40% 30%;
+  -o-border-radius: 65% 35% 75% 25% / 70% 60% 40% 30%;
 }
 
 
@@ -135,13 +78,5 @@
 @media only screen and (min-width: 768px) {
   .imgBox {
     height: 200px;
-    width: 200px;
-  }
-}
-
-/* para pantallas muy chicas */
-@media screen and (max-width: 250px) {
-  .person-col {
-    margin-bottom: 0 !important;
   }
 }

@@ -8,7 +8,7 @@
 /* variables de color general */
 :root, :root.light {
   /* favorite color */
-  --hue-color: 230;
+  --hue-color: 240;
   --second-color: #ffc107;
   --box-shadow-second-color: #ffc10780;
   
@@ -173,7 +173,12 @@
   --bs-modal-bg: var(--bs-body-bg);
   --bs-modal-header-border-color: var(--border-color);
   --bs-modal-footer-border-color: var(--border-color);
-  --bs-modal-margin: 3rem;
+}
+.modal::-webkit-scrollbar {
+  width: 0;
+}
+.modal-dialog {
+  margin-bottom: 4rem;
 }
 
 
