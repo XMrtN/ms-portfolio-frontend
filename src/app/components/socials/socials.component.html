@@ -1,9 +1,9 @@
 <!---------- SOCIALS WIDGET ---------->
-<div class="socials-widget-container fixed-bottom bottom-0 d-flex flex-column align-items-center">
-  <div class="socials-widget position-relative d-flex gap-2 pt-2 px-3">
+<div class="social-container fixed-bottom bottom-0 d-flex flex-column align-items-center">
+  <div class="social position-relative d-flex gap-2 pt-2 px-3">
     <!-- LOGGED IN BUTTONS -->
-    <div class="d-flex gap-2" *ngIf="tokenService.isLoggedIn() && socials != null" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onDropped($event)">
-      <div class="dropup-center dropup rounded-5 my-2" *ngFor="let social of socials" cdkDrag 
+    <div class="d-flex gap-2" *ngIf="tokenService.isLoggedIn() && socials" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onDropped($event)">
+      <div class="social-icon dropup-center dropup rounded-5 my-2" *ngFor="let social of socials" cdkDrag 
       [cdkDragDisabled]="!tokenService.isLoggedIn()">
         <button class="btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" cdkDragHandle>
           <i class="{{social.icon}}"></i>
@@ -31,14 +31,14 @@
     </div>
 
     <!-- LOGGED OUT BUTTONS -->
-    <div class="d-flex gap-2 my-2" *ngIf="!tokenService.isLoggedIn() && socials != null">
-      <a href="{{social.url}}" target="_blank" class="btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let social of socials">
+    <div class="d-flex gap-2 my-2" *ngIf="!tokenService.isLoggedIn() && socials">
+      <a href="{{social.url}}" target="_blank" class="social-icon btn btn-outline-warning border-0 rounded-5 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let social of socials">
         <i class="{{social.icon}}"></i>
       </a>
     </div>
 
     <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="d-flex gap-2 my-2" *ngIf="socials == null" aria-hidden="true">
+    <div class="d-flex gap-2 my-2" *ngIf="!socials" aria-hidden="true">
       <button class="btn btn-outline-warning placeholder disabled border-0 lh-1 fs-5 h-fc p-1" type="button" *ngFor="let i of ['', '', '']">
         <i class="bi bi-person-circle"></i>
       </button>
@@ -47,7 +47,7 @@
     <!-- ADD NEW BUTTON -->
     <button type="button" class="btn btn-outline-light d-flex border-0 lh-1 fs-5 h-fc p-1 my-2" 
     data-bs-toggle="modal" data-bs-target="#newSocial" 
-    *ngIf="tokenService.isLoggedIn() && socials != null">
+    *ngIf="tokenService.isLoggedIn() && socials">
       <i class="bi bi-plus-square"></i>
     </button>
   </div>
@@ -58,4 +58,4 @@
 
 
 <!---------- SCROLL UP BUTTON ---------->
-<button class="btn-scroll-up btn btn-primary position-fixed d-flex lh-1 fs-3 p-2 m-3" type="button" (click)="onScrollTop()" routerLink="/"><i class="bi bi-arrow-up-short btn-icon"></i></button>
+<button class="btn-scroll-up btn btn-primary position-fixed d-flex lh-1 fs-3 p-2 m-3" type="button" (click)="onScrollTop()" routerLink=''><i class="bi bi-arrow-up-short btn-icon"></i></button>

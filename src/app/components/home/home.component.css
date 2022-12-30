@@ -1,5 +1,7 @@
 /* ---------- PARALLAX BACKGROUND --------- */
 #home {
+  position: relative;
+  overflow: hidden;
   background-color: #2e125f;
   background-image: linear-gradient(
     to bottom,
@@ -10,20 +12,6 @@
   );
   min-height: 100vh;
   padding-bottom: 4rem;
-}
-#home::after {
-  position: absolute;
-  content: '';
-  left: 0;
-  bottom: 0;
-  height: 56px;
-  width: 100%;
-  background-image: linear-gradient(
-    to top,
-    var(--bs-body-bg) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
 }
 
 .parallax {
@@ -40,16 +28,16 @@
 
 
 /* ---------- TEXT & IMGBOX ---------- */
-#home h1, #home p, #home .bi-pencil-square  {
+.home-greeting, .home-name, .home-profession h6, .home-profession .bi-pencil-square {
   text-shadow: 2px 2px 2px #333;
   --title-color: hsl(var(--hue-color), 8%, 95%);
 }
-#home .btn-outline-light  {
+.home-profession .btn-outline-light  {
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --bs-body-bg: hsl(var(--hue-color), 28%, 12%);
 }
 
-#home .bi-pencil-square  {
+.home-profession .bi-pencil-square  {
   transition: text-shadow 0.15s;
   -webkit-transition: text-shadow 0.15s;
   -moz-transition: text-shadow 0.15s;
@@ -57,7 +45,7 @@
   -o-transition: text-shadow 0.15s;
 }
 
-#home .btn-outline-light:hover .bi-pencil-square  {
+.home-profession .btn-outline-light:hover .bi-pencil-square  {
   text-shadow: none;
 }
 

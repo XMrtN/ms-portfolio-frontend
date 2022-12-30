@@ -10,7 +10,7 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
         </button>
       </div>
       <div class="modal-body">
-        <div class="mb-3" *ngIf="tokenService.isLoggedIn() && appComponent.colors != null">
+        <div class="mb-3" *ngIf="tokenService.isLoggedIn() && appComponent.colors">
           <!-- Hue primary input -->
           <label class="form-label me-2" for="firstColorInput">
             Color primario: {{appComponent.colorsEdit.firstColor}}

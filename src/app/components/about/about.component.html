@@ -1,5 +1,5 @@
 <!---------- ABOUT SECTION ---------->
-<section id="about" class="position-relative bg-body overflow-hidden">
+<section id="about">
   <div class="container">
     <div class="row">
       <div class="col-12 mb-4">
@@ -7,16 +7,16 @@
           <div class="flex-ssm-wrap-reverse d-flex w-100">
             <h2 class="me-3">SOBRE MÍ</h2>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#editPersonDesc" 
-            *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
+            *ngIf="tokenService.isLoggedIn() && appComponent.person">
               <i class="bi bi-pencil-square"></i>
             </button>
           </div>
           <div class="title-span bg-warning rounded"></div>
         </div>
-        <p *ngIf="appComponent.person != null">{{appComponent.person.description}}</p>
+        <p *ngIf="appComponent.person">{{appComponent.person.description}}</p>
 
         <!---------- LAZY LOADING PLACEHOLDER ---------->
-        <p *ngIf="appComponent.person == null">
+        <p *ngIf="!appComponent.person">
           <span class="placeholder col-12"></span>
           <span class="placeholder col-4"></span>
         </p>

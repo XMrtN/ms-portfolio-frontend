@@ -2,27 +2,24 @@
   <h4 class="me-3">EDUCACIÓN</h4>
   <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" 
   data-bs-toggle="modal" data-bs-target="#newEd" 
-  *ngIf="tokenService.isLoggedIn() && education != null">
+  *ngIf="tokenService.isLoggedIn() && education">
     <i class="bi bi-plus-square"></i>
   </button>
 </div>
 
-<div cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="education != null">
-  <div class="card card-body bg-body border-0" *ngFor="let ed of education" cdkDrag 
+<div cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="education">
+  <div class="card card-body border-0 p-2" *ngFor="let ed of education" cdkDrag 
   [cdkDragDisabled]="!tokenService.isLoggedIn()">
     <div class="d-flex">
       <div class="timeline">
-        <div class="rounder bg-body"></div>
+        <div class="rounder"></div>
         <div class="line mx-auto"></div>
       </div>
 
-      <div class="ps-3 w-100">
+      <div class="card-data w-100">
         <div class="flex-ssm-wrap-reverse d-flex align-items-start">
-          <div class="d-flex align-items-center mb-2">
-            <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
-            *ngIf="tokenService.isLoggedIn()"></i>
-            <h5 class="mb-0 me-3">{{ed.edCareerName}}</h5>
-          </div>
+          <h5 class="me-3"><i class="drag-handle bi bi-list lh-1 fs-5 me-2" cdkDragHandle 
+          *ngIf="tokenService.isLoggedIn()"></i>{{ed.edCareerName}}</h5>
           
           <div class="d-flex gap-1 ms-auto mb-2" *ngIf="tokenService.isLoggedIn()">
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
@@ -46,15 +43,15 @@
 </div>
 
 <!---------- LAZY LOADING PLACEHOLDER ---------->
-<div *ngIf="education == null">
-  <div class="card card-body bg-body border-0" *ngFor="let i of ['', '']" aria-hidden="true">
+<div *ngIf="!education">
+  <div class="card card-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
     <div class="d-flex">
       <div class="timeline placeholder bg-transparent">
-        <div class="rounder bg-body"></div>
+        <div class="rounder"></div>
         <div class="line mx-auto"></div>
       </div>
   
-      <div class="ps-3 w-100">
+      <div class="card-data w-100">
         <h5 class="placeholder col-6"></h5>
         <p class="m-0">
           <span class="placeholder col-12"></span>

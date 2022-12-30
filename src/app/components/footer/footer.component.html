@@ -1,6 +1,6 @@
-<footer class="position-relative overflow-hidden py-5">
+<footer class="py-5">
   <div class="container">
-    <p *ngIf="appComponent.person != null">
+    <p *ngIf="appComponent.person">
       Página hecha por <a href="#home">{{appComponent.person.name}} {{appComponent.person.lastName}}</a>
     </p>
     <p>

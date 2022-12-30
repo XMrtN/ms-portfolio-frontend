@@ -43,13 +43,9 @@ export class HomeComponent implements OnInit {
 
   initAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.from("#home h1, #home .p, .btn-cv, .order-md-last", {
-        duration: 1,
-        x: -150,
-        opacity: 0,
-        stagger: 0.4,
-        delay: 2.4,
-      });
+      gsap.from(".home-img", {duration: 2, x: 60, opacity: 0, delay: 0.5});
+      gsap.from(".home-data", {duration: 2, y: 25, opacity: 0, delay: 0.8});
+      gsap.from(".home-greeting, .home-name, .home-profession, .home-button", {duration: 2, y: 25, opacity: 0, delay: 1, ease: "expo.out", stagger: 0.2});
     });
   }
 

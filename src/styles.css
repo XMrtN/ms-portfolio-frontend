@@ -207,13 +207,10 @@ textarea.form-control {
   height: 120px !important;
 }
 
-.cdk-drag-preview,
 .btn-close:focus,
 .btn-link:focus-visible,
-.accordion-item:first-of-type .accordion-button:focus,
 .form-control:focus,
 .form-range:focus::-webkit-slider-thumb {
-  outline: 0;
   box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
 }
 
@@ -251,11 +248,12 @@ textarea.form-control {
 
 /* ---------- SECTIONS ---------- */
 section {
+  background-color: var(--bs-body-bg);
   padding-top: 6rem;
 }
 
-.bg-body {
-  background-color: var(--bs-body-bg) !important;
+.card {
+  background-color: var(--bs-body-bg);
 }
 
 .title-span {
@@ -301,6 +299,9 @@ hr {
 
 .cdk-drag-placeholder {
   opacity: 0;
+}
+.cdk-drag-preview {
+  background-color: var(--input-color);
 }
 
 .cdk-drop-list-dragging .cdk-drag {

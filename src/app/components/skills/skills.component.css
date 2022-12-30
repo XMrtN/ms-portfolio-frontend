@@ -1,4 +1,14 @@
 /* -------- ACCORDION COLORS ---------- */
+.accordion {
+  --bs-accordion-bg: var(--bs-body-bg);
+  --bs-accordion-btn-bg: var(--bs-accordion-bg);
+  --bs-accordion-active-bg: var(--bs-accordion-bg);
+  --bs-accordion-btn-color: var(--bs-accordion-color);
+  --bs-accordion-active-color: var(--bs-accordion-color);
+  --bs-accordion-border-width: 0;
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
 /* corrigo el border-radius inferior del botón cuando se muestra el contenido */
 .accordion-item:first-of-type .accordion-button {
   border-bottom-left-radius: var(--bs-accordion-inner-border-radius);
@@ -8,26 +18,24 @@
 .accordion-button::after {
   display: none;
 }
-.accordion-button:not(.collapsed) {
-  box-shadow: none;
-}
 
 .skill-type-icon, .bi-chevron-down {
   color: var(--first-color);
 }
 .skill-type-icon {
   font-size: 2rem;
+  margin-right: 0.75rem;
 }
 
 /* estilo al nuevo ícono */
-.accordion-button ~ div .bi-chevron-down {
+.accordion-button ~ .accordion-icons .bi-chevron-down {
   transition: transform 0.2s ease-in-out;
   -webkit-transition: transform 0.2s ease-in-out;
   -moz-transition: transform 0.2s ease-in-out;
   -ms-transition: transform 0.2s ease-in-out;
   -o-transition: transform 0.2s ease-in-out;
 }
-.accordion-button:not(.collapsed) ~ div .bi-chevron-down {
+.accordion-button:not(.collapsed) ~ .accordion-icons .bi-chevron-down {
   transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
   -moz-transform: rotate(-180deg);
@@ -48,6 +56,11 @@
   pointer-events: auto;
 }
 
+.accordion-body {
+  padding: 0;
+  padding-left: 2.25rem;
+}
+
 .progress {
   height: 0.5rem;
   background-color: var(--first-color-lighter);
@@ -61,5 +74,9 @@
 @media screen and (max-width: 250px) {
   .skill-type-icon {
     display: none;
+  }
+
+  .accordion-body {
+    padding-left: 0;
   }
 }

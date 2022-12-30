@@ -1,13 +1,13 @@
 /* ---------- SOCIALS ---------- */
-.socials-widget-container {
+.social-container {
   pointer-events: none;
   z-index: 10;
 }
-.socials-widget {
+.social {
   pointer-events: auto;
 }
 /* simulo la forma de un trapecio */
-.socials-widget::before {
+.social::before {
   position: absolute;
   content: '';
   left: 0;
@@ -25,6 +25,12 @@
   -moz-transform: perspective(10px) rotateX(4deg);
   -ms-transform: perspective(10px) rotateX(4deg);
   -o-transform: perspective(10px) rotateX(4deg);
+}
+
+.modal .btn-icon,
+.modal .btn-icon:active {
+  right: 0;
+  color: var(--title-color);
 }
 
 .dropdown-menu.show {
@@ -51,8 +57,6 @@
 }
 .cdk-drag-placeholder {
   opacity: 1;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem var(--box-shadow-second-color);
 }
 .cdk-drag-placeholder .btn-outline-warning {
   color: var(--bs-body-bg);
@@ -85,7 +89,7 @@
 
 /* para pantallas muy chicas */
 @media screen and (max-width: 250px) {
-  .socials-widget {
+  .social {
     gap: 0 !important;
     padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;

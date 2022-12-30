@@ -21,3 +21,7 @@
   width: var(--tl-line);
   background-color: var(--first-color);
 }
+
+.card-data {
+  padding-left: 0.75rem;
+}

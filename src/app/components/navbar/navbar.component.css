@@ -1,25 +1,34 @@
 /* ---------- MOBILE ---------- */
+.navbar {
+  background-color: var(--bs-body-bg);
+}
+
 .nav-logo,
 .nav-logo img {
   max-width: 80px;
   z-index: 10000;
 }
 
-.offcanvas {
-  width: 256px;
-}
 
 /* ---------- NAV-ITEM ---------- */
+.navbar-nav {
+  gap: 2px;
+}
+
+.nav-item,
+.nav-link {
+  max-width: 256px;
+}
+
 .nav-link {
   font-size: 1.3rem;
   border-width: 0;
   border-left-width: 6px;
-  backdrop-filter: blur(10px);
-  transition: color 0.15s ease-in-out;
-  -webkit-transition: color 0.15s ease-in-out;
-  -moz-transition: color 0.15s ease-in-out;
-  -ms-transition: color 0.15s ease-in-out;
-  -o-transition: color 0.15s ease-in-out;
+  transition: 0s;
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -ms-transition: 0s;
+  -o-transition: 0s;
 }
 .nav-link.active {
   color: #fff;
@@ -32,7 +41,6 @@
 
 
 /* ----------  MENU BUTTON ---------- */
-/* contenedor del boton menu hamburguesa */
 .navbar-toggler-icon {
   height: 32px;
   width: 32px;
@@ -48,10 +56,6 @@
 /* ---------- MEDIA QUERIES ---------- */
 /* estilos para pantallas más grandes */
 @media only screen and (min-width: 768px) {
-  .navbar {
-    background-image: none;
-  }
-  
   .nav-logo,
   .nav-logo img {
     max-width: 90px;
@@ -74,14 +78,12 @@
     -o-transform: skewX(-45deg);
   }
 
-  /* cambio el tamaño de los nav-link */
   .nav-item,
   .nav-link {
     height: 60px;
     max-width: 145px;
   }
 
-  /* cambio bordes */
   .nav-link {
     border-left-width: 0;
     border-bottom-width: 6px;
@@ -90,8 +92,7 @@
   .nav-link span {
     text-transform: uppercase;
   }
-  
-  /* efecto de luz debajo de los nav-link */
+
   .nav-link::before {
     position: absolute;
     content: '';

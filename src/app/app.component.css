@@ -1,4 +1,8 @@
 /* ---------- LOADER ---------- */
 .wrapper {
   z-index: 99999999;
+  background: var(--bs-body-bg);
+}
+.spinner-border {
+  color: var(--title-color);
 }

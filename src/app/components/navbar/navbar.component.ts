@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 import { AppComponent } from 'src/app/app.component';
-import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-navbar',
@@ -18,11 +17,10 @@ export class NavbarComponent implements OnInit {
   
   initAnimations(): void {
     window.addEventListener("load", () => {
-      const tl = gsap.timeline({defaults: {duration: 1}})
-      .from(".nav-logo img", {y: -200}, 1)
-      .from(".navbar-toggler", {y: -200}, "<0.5")
-      .from(".nav-link", {y: -200, stagger: 0.2}, "<0.5")
-      .from(".btn-settings", {y: -200}, "<1.2");
+      gsap.from(".navbar", {duration: 2, y: -100, delay: 0.5, ease: "expo.out"});
+      gsap.from(".nav-logo img, .navbar-toggler", {duration: 2, y: -100, delay: 1.5, ease: "expo.out", stagger: 0.2});
+      gsap.from(".nav-link", {duration: 2, y: -100, delay: 1.8, ease: "expo.out", stagger: 0.2});
+      gsap.from(".nav-button", {duration: 2, y: -100, delay: 2.3, ease: "expo.out", stagger: 0.2});
     });
   }
 

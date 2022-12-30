@@ -82,30 +82,18 @@ export class SocialsComponent implements OnInit {
 
   initScrollAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.to(".btn-scroll-up", {
-        duration: 0.5,
-        x: 16,
-        opacity: 0,
-        pointerEvents: "none",
-        scrollTrigger: {
-          trigger: "#home .container",
-          start: "top 100%",
-          end: "bottom 50%",
-          toggleActions: "play reverse play reverse"
-        }
-      });
+      gsap.to(".btn-scroll-up", {duration: 1, x: 16, opacity: 0, pointerEvents: "none", scrollTrigger: {
+        trigger: "#home .container",
+        start: "top 100%",
+        end: "bottom 50%",
+        toggleActions: "play reverse play reverse"}});
 
-      gsap.from(".socials-widget-container", {
-        duration: 0.5,
-        y: 100,
-        delay: 3.4,
-        scrollTrigger: {
-          trigger: "#home .container",
-          start: "top 100%",
-          end: "bottom 50%",
-          toggleActions: "play reverse play reverse"
-        }
-      });
+      gsap.from(".social-container", {duration: 1, y: 25, opacity: 0, delay: 2, scrollTrigger: {
+        trigger: "#home .container",
+        start: "top 100%",
+        end: "bottom 50%",
+        toggleActions: "play reverse play reverse"}});
+      gsap.from(".social-icon", {duration: 2, y: 25, delay: 2.3, ease: "expo.out", stagger: 0.2});
     });
   }
 

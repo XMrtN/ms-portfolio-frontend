@@ -1,12 +1,12 @@
-<div class="accordion-item bg-body border-0">
+<div class="accordion-item border-0">
   <h2 class="position-relative" id="headingTwo">
     <button type="button" 
-    class="accordion-button collapsed bg-body p-3 pe-5" 
+    class="accordion-button collapsed py-3 ps-0 pe-5" 
     aria-expanded="false" 
     data-bs-toggle="collapse" 
     data-bs-target="#collapseTwo" 
     aria-controls="collapseTwo">
-      <i class="skill-type-icon bi bi-hdd-network me-3"></i>
+      <i class="skill-type-icon bi bi-hdd-network"></i>
 
       <div class="w-100">
         <h5>Backend</h5>
@@ -14,27 +14,24 @@
       </div>
     </button>
     
-    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-3 h-100">
+    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-0 h-100">
       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
       data-bs-toggle="modal" data-bs-target="#newBackSkill" 
-      *ngIf="tokenService.isLoggedIn() && backEnd != null">
+      *ngIf="tokenService.isLoggedIn() && backEnd">
         <i class="bi bi-plus-square"></i>
       </button>
       <i class="bi bi-chevron-down fs-5"></i>
     </div>
   </h2>
 
-  <div class="accordion-collapse collapse bg-body" id="collapseTwo" 
+  <div class="accordion-collapse collapse" id="collapseTwo" 
   aria-labelledby="headingTwo" data-bs-parent="#accordion">
-    <div class="accordion-body bg-body p-0 ps-sm-3" cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="backEnd != null">
-      <div class="card card-body bg-body border-0 p-2" *ngFor="let skill of backEnd" cdkDrag 
+    <div class="accordion-body" cdkDropList (cdkDropListDropped)="onDropped($event)" *ngIf="backEnd">
+      <div class="card card-body border-0 p-2" *ngFor="let skill of backEnd" cdkDrag 
       [cdkDragDisabled]="!tokenService.isLoggedIn()">
         <div class="flex-ssm-wrap-reverse d-flex justify-content-end align-items-center w-100">
-          <div class="d-flex justify-content-center align-items-center mb-2 me-auto">
-            <i class="drag-handle bi bi-list lh-1 fs-5 pe-2" cdkDragHandle 
-            *ngIf="tokenService.isLoggedIn()"></i>
-            <h6 class="mb-0 me-2">{{skill.name}}</h6>
-          </div>
+          <h6 class="pe-2 me-auto"><i class="drag-handle bi bi-list lh-1 fs-5 me-2" cdkDragHandle 
+          *ngIf="tokenService.isLoggedIn()"></i>{{skill.name}}</h6>
           <p class="text-nobreak ms-auto mb-2">{{skill.percentage}}%</p>
 
           <div class="d-flex gap-1 ps-2 mb-2" *ngIf="tokenService.isLoggedIn()">
@@ -57,8 +54,8 @@
     </div>
 
     <!---------- LAZY LOADING PLACEHOLDER ---------->
-    <div class="accordion-body bg-body p-0 ps-sm-3" *ngIf="backEnd == null">
-      <div class="card card-body bg-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
+    <div class="accordion-body" *ngIf="!backEnd">
+      <div class="card card-body border-0 p-2" *ngFor="let i of ['', '']" aria-hidden="true">
         <h6 class="placeholder col-5 mt-2"></h6>
         <p class="placeholder col-12 mb-2"></p>
       </div>

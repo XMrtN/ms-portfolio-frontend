@@ -1,4 +1,4 @@
-<section id="home" class="position-relative d-flex justify-content-center align-items-center overflow-hidden">
+<section id="home" class="d-flex justify-content-center align-items-center">
   <img class="parallax {{img.alt}} position-absolute d-block h-100 w-100" 
   *ngFor="let img of parallax" 
   src="{{img.url}}" 
@@ -6,42 +6,43 @@
   
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-3">
+      <div class="home-img col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-3">
         <div class="imgBox position-relative bg-warning d-flex justify-content-center overflow-hidden"
-        [ngClass]="{'placeholder': appComponent.person == null}">
-          <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person != null">
+        [ngClass]="{'placeholder': !appComponent.person}">
+          <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person">
         </div>
       </div>
       
-      <div class="col-md-8 col-12 order-md-first">
-        <h1 class="display-4 fw-semibold">
-          <span *ngIf="appComponent.person != null">¡Hola! Soy</span>
-          <span class="placeholder col-4" *ngIf="appComponent.person == null"></span>
-          <br>
-          <span class="fw-bolder text-warning" *ngIf="appComponent.person != null">
+      <div class="home-data col-md-8 col-12 order-md-first">
+        <h4 class="home-greeting fw-semibold mb-0">
+          <span *ngIf="appComponent.person">¡Hola! Mi nombre es</span>
+          <span class="placeholder col-4" *ngIf="!appComponent.person"></span>
+        </h4>
+        <h1 class="home-name display-4 fw-semibold">
+          <span class="fw-bolder text-warning" *ngIf="appComponent.person">
             {{appComponent.person.name}} {{appComponent.person.lastName}}
           </span>
-          <span class="placeholder col-10 bg-warning" *ngIf="appComponent.person == null"></span>
+          <span class="placeholder col-10 bg-warning" *ngIf="!appComponent.person"></span>
         </h1>
 
-        <div class="p mb-2">
-          <p class="h6 mb-0" *ngIf="appComponent.person != null">
-            Un Desarrollador Full Stack Jr.
+        <div class="home-profession mb-2">
+          <h6 class="mb-0" *ngIf="appComponent.person">
+            Soy un Desarrollador Web Full Stack Jr.
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editPerson" 
-            *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
+            *ngIf="tokenService.isLoggedIn() && appComponent.person">
               <i class="bi bi-pencil-square"></i>
             </button>
-          </p>
-          <p class="h6 placeholder col-6" *ngIf="appComponent.person == null"></p>
+          </h6>
+          <h6 class="h6 placeholder col-6" *ngIf="!appComponent.person"></h6>
         </div>
 
-        <div class="btn-cv">
-          <a href="{{appComponent.person.cv}}" download *ngIf="appComponent.person != null" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
+        <div class="home-button">
+          <a href="{{appComponent.person.cv}}" download *ngIf="appComponent.person" class="text-nobreak btn btn-primary d-inline-flex align-items-center p-3">
             Descargar CV <i class="bi bi-download btn-icon fs-5 ms-2"></i>
           </a>
           <a class="btn btn-primary placeholder disabled col-3 p-3 pt-4" 
-          *ngIf="appComponent.person == null"></a>
+          *ngIf="!appComponent.person"></a>
         </div>
       </div>
     </div>

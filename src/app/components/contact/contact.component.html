@@ -1,5 +1,5 @@
 <!---------- CONTACT SECTION ---------->
-<section id="contact" class="position-relative bg-body overflow-hidden">
+<section id="contact">
   <div class="container">
     <div class="row d-flex flex-column align-items-center">
       <div class="col-12 mb-4">
@@ -7,7 +7,7 @@
           <div class="flex-ssm-wrap-reverse d-flex w-100">
             <h2 class="me-3">CONTÁCTAME</h2>
             <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-auto mb-2" data-bs-toggle="modal" data-bs-target="#editEmail" 
-            *ngIf="tokenService.isLoggedIn() && appComponent.person != null">
+            *ngIf="tokenService.isLoggedIn() && appComponent.person">
               <i class="bi bi-pencil-square"></i>
             </button>
           </div>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="col-lg-7 col-md-8 col-12">
-        <form id="contact-form" #f="ngForm" (ngSubmit)="onMailTo()" novalidate *ngIf="appComponent.person != null">
+        <form id="contact-form" #f="ngForm" (ngSubmit)="onMailTo()" novalidate *ngIf="appComponent.person">
           <!-- Name input -->
           <div class="form-floating mb-4">
             <input type="text" 
@@ -68,7 +68,7 @@
         </form>
 
         <!-- LAZY LOADING PLACEHOLDER -->
-        <div *ngIf="appComponent.person == null">
+        <div *ngIf="!appComponent.person">
           <input class="form-control mb-4" type="text" disabled *ngFor="let i of ['', '', '']">
           <a class="btn btn-primary col-3 placeholder disabled p-3" role="button"></a>
         </div>

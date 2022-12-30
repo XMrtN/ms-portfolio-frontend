@@ -6,24 +6,19 @@
   font-size: 2rem;
 }
 
-.carousel-indicators button {
+.carousel-indicator {
   background-color: var(--first-color);
   opacity: 0.1;
 }
-.carousel-indicators button.active {
+.carousel-indicator.active {
   opacity: 1;
 }
-.carousel-indicators button:not(.cdk-drag-disabled) {
+.carousel-indicator:not(.cdk-drag-disabled) {
   cursor: col-resize;
 }
 
 .cdk-drag-preview {
-  opacity: 0;
-}
-.cdk-drag-placeholder {
-  opacity: 0.5 !important;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
+  opacity: 0 !important;
 }
 
 .carousel .btn-icon {
