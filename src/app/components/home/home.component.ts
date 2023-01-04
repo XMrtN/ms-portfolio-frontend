@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AppComponent } from 'src/app/app.component';
 import { TokenService } from 'src/app/services/token.service';
 
@@ -46,13 +48,14 @@ export class HomeComponent implements OnInit {
   }
 
   parallaxAnimations(): void {
+    gsap.registerPlugin(ScrollTrigger);
+    
     const parallax = gsap.timeline()
       .fromTo(".stars", {x: -200}, {x: 200})
       .to(".moon", {y: 400}, "<")
       .to(".shadow", {y: 300}, "<")
       .to(".building", {y: 150}, "<")
       .to(".smoke", {y: 100}, "<");
-    
     ScrollTrigger.create({
       animation: parallax,
       trigger: "#home",

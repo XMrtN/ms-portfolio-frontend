@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Social } from 'src/app/models/social.model';
 import { SocialService } from 'src/app/services/social.service';
 import { TokenService } from 'src/app/services/token.service';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -78,17 +80,26 @@ export class SocialsComponent implements OnInit {
 
   initScrollAnimations(): void {
     window.addEventListener("load", () => {
-      gsap.to(".btn-scroll-up", {duration: 1, x: 16, opacity: 0, pointerEvents: "none", scrollTrigger: {
-        trigger: "#home .container",
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const scrollBtn = gsap.to(".btn-scroll-up", {duration: 1, x: 16, opacity: 0, pointerEvents: "none"});
+      ScrollTrigger.create({
+        animation: scrollBtn,
+        trigger: "#home",
         start: "top 100%",
         end: "bottom 50%",
-        toggleActions: "play reverse play reverse"}});
-
-      gsap.from(".social-container", {duration: 1, y: 25, opacity: 0, delay: 2, scrollTrigger: {
-        trigger: "#home .container",
+        toggleActions: "play reverse play reverse"
+      });
+      
+      const socialIcons = gsap.from(".social-container", {duration: 1, y: 25, opacity: 0, delay: 2});
+      ScrollTrigger.create({
+        animation: socialIcons,
+        trigger: "#home",
         start: "top 100%",
         end: "bottom 50%",
-        toggleActions: "play reverse play reverse"}});
+        toggleActions: "play reverse play reverse"
+      });
+      
       gsap.from(".social-icon", {duration: 2, y: 25, delay: 2.3, ease: "expo.out", stagger: 0.2});
     });
   }
