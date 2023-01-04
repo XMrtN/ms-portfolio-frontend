@@ -50,8 +50,8 @@ export class AppComponent {
     document.documentElement.style.removeProperty("--bs-body-bg");
   }
 
-  onDarkMode(value: any): void {
-    value != null?
+  onDarkMode(value: string): void {
+    value != ''?
     document.documentElement.className = value:
     document.documentElement.removeAttribute('class');
   }

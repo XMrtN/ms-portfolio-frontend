@@ -17,6 +17,7 @@
 .parallax {
   left: 0;
   bottom: 0;
+  height: calc(100% - 4rem);
   object-fit: cover;
   user-select: none;
   pointer-events: none;

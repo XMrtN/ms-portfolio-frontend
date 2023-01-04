@@ -10,6 +10,8 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class SettingsComponent implements OnInit {
 
+  value: string = '';
+
   constructor(
     protected tokenService: TokenService,
     protected appComponent: AppComponent,

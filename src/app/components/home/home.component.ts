@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AppComponent } from 'src/app/app.component';
 import { TokenService } from 'src/app/services/token.service';
-
-gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-home',

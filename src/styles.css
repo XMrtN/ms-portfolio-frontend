@@ -129,7 +129,11 @@
   );
 }
 .btn-dark.active:active {
-  background-image: none;
+  background-image: linear-gradient(
+    to bottom,
+    var(--bs-btn-active-bg) 0%,
+    var(--bs-btn-active-bg) 100%
+  );
 }
 
 
@@ -197,7 +201,10 @@ select:-webkit-autofill:focus {
 }
 .form-control,
 .form-control:disabled,
-.form-control:focus {
+.form-control:focus,
+.form-select,
+.form-select:disabled,
+.form-select:focus {
   color: var(--text-color);
   background-color: var(--input-color);
   border: none;
@@ -210,6 +217,7 @@ textarea.form-control {
 .btn-close:focus,
 .btn-link:focus-visible,
 .form-control:focus,
+.form-select:focus,
 .form-range:focus::-webkit-slider-thumb {
   box-shadow: 0 0 0 0.25rem hsla(var(--hue-color), 69%, 61%, 0.25);
 }

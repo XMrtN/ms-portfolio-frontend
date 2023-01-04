@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Social } from 'src/app/models/social.model';
 import { SocialService } from 'src/app/services/social.service';
 import { TokenService } from 'src/app/services/token.service';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-
-gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-socials',

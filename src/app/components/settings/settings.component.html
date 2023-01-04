@@ -33,20 +33,13 @@ tabindex="-1" aria-labelledby="settingsLabel" aria-hidden="true">
           </div>
         </div>
         <!-- Theme -->
-        <label class="form-label me-2" for="skillPercentageInput">
-          Tema
-        </label>
-        <ul class="list-unstyled d-flex flex-wrap gap-1">
-          <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode(null)">Sistema</button>
-          </li>
-          <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode('light')">Claro</button>
-          </li>
-          <li>
-            <button class="btn btn-outline-light border-0" type="button" (click)="appComponent.onDarkMode('dark')">Oscuro</button>
-          </li>
-        </ul>
+        <select class="form-select mb-3" aria-label="Theme" 
+        [(ngModel)]="value" (change)="appComponent.onDarkMode(value)">
+          <option selected value="">Tema</option>
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+          <option value="">Sistema</option>
+        </select>
 
         <button type="button" class="btn btn-primary float-end text-nowrap text-nobreak" 
         data-bs-toggle="modal" data-bs-target="#login" 
