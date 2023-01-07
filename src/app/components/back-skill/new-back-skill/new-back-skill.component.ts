@@ -6,7 +6,7 @@ import { BackSkillComponent } from '../back-skill.component';
 @Component({
   selector: 'app-new-back-skill',
   templateUrl: './new-back-skill.component.html',
-  styleUrls: ['./new-back-skill.component.css']
+  styleUrls: ['./new-back-skill.component.scss']
 })
 export class NewBackSkillComponent implements OnInit {
   

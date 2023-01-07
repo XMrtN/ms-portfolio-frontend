@@ -7,7 +7,7 @@ import { PersonService } from 'src/app/services/person.service';
 @Component({
   selector: 'app-edit-home',
   templateUrl: './edit-home.component.html',
-  styleUrls: ['./edit-home.component.css']
+  styleUrls: ['./edit-home.component.scss']
 })
 export class EditHomeComponent implements OnInit {
 

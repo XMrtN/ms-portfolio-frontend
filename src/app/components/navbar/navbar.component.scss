@@ -1,0 +1,140 @@
+// ========== IMPORTS ==========
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+// ========== ESTILOS ==========
+.nav-logo,
+.nav-logo img {
+  max-width: 80px;
+}
+
+// ========== ITEMS DEL NAV ==========
+.navbar-nav {
+  gap: 2px;
+}
+
+.nav-link {
+  font-size: 1.3rem;
+  color: #b0b0b0;
+  border-color: #b0b0b0;
+  border-width: 0;
+  border-left-width: 6px;
+
+  &:hover {
+    border-color: #fff;
+  }
+
+  &.active {
+    --bs-btn-bg-gradient: rgba(103, 35, 35, 0.8);
+    --bs-btn-bg: rgba(168, 5, 5, 0.8);
+    --bs-btn-hover-bg-gradient: rgba(113, 35, 35, 0.8);
+    --bs-btn-hover-bg: rgba(189, 10, 10, 0.8);
+    --bs-btn-active-bg: rgba(113, 35, 35, 0.8);
+    color: #fff;
+    border-color: #ff4f1f;
+    @include gradient-y(
+      var(--bs-btn-bg-gradient),
+      var(--bs-btn-bg)
+    );
+
+    &:hover {
+      border-color: #ff742e;
+      @include gradient-y(
+        var(--bs-btn-hover-bg-gradient),
+        var(--bs-btn-hover-bg)
+      );
+    }
+
+    &:active {
+      @include gradient-y(
+        var(--bs-btn-active-bg),
+        var(--bs-btn-active-bg)
+      );
+    }
+  }
+
+  span {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: capitalize;
+  }
+}
+
+
+// ========== MEDIA QUERIES ==========
+// estilos para pantallas más grandes
+@media only screen and (min-width: 992px) {
+  .nav-logo,
+  .nav-logo img {
+    max-width: 90px;
+  }
+
+  // transformo los nav-item en paralelogramos
+  .nav-item {
+    transform: skewX(45deg);
+    -webkit-transform: skewX(45deg);
+    -moz-transform: skewX(45deg);
+    -ms-transform: skewX(45deg);
+    -o-transform: skewX(45deg);
+
+    span {
+      transform: skewX(-45deg);
+      -webkit-transform: skewX(-45deg);
+      -moz-transform: skewX(-45deg);
+      -ms-transform: skewX(-45deg);
+      -o-transform: skewX(-45deg);
+    }
+  }
+
+  .nav-item,
+  .nav-link {
+    height: 60px;
+    max-width: 145px;
+  }
+
+  .nav-link {
+    border-left-width: 0;
+    border-bottom-width: 6px;
+    
+    span {
+      text-transform: uppercase;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: calc(100% + 6px);
+      left: 0;
+      display: block;
+      height: 25px;
+      width: 100%;
+      pointer-events: none;
+      @include gradient-y(
+        var(--bs-btn-bg),
+        transparent,
+        0%,
+        100%
+      );
+    }
+
+    &:hover{
+      &::before {
+        @include gradient-y(
+          var(--bs-btn-hover-bg),
+          transparent,
+          0%,
+          100%
+        );
+      }
+    }
+
+    &:active{
+      &::before {
+        @include gradient-y(
+          var(--bs-btn-active-bg),
+          transparent,
+          0%,
+          100%
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.rounder {
+  display: block;
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+.line {
+  display: block;
+  height: calc(100% - 0.875rem);
+  width: 0.125rem;
+}
+
+.card-data {
+  padding-left: 0.75rem;
+}

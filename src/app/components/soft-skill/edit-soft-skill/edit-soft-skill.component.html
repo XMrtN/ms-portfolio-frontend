@@ -5,9 +5,7 @@ tabindex="-1" aria-labelledby="editSoftSkillLabel" aria-hidden="true" *ngIf="sof
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editSoftSkillLabel">Modificar habilidad blanda</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="softSkillComponent.onClean()">
-          <i class="bi bi-x-lg"></i>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="softSkillComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">

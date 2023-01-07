@@ -5,9 +5,7 @@ tabindex="-1" aria-labelledby="editFrontSkillLabel" aria-hidden="true" *ngIf="fr
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editFrontSkillLabel">Modificar habilidad en Frontend</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="frontSkillComponent.onClean()">
-          <i class="bi bi-x-lg"></i>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="frontSkillComponent.onClean()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">

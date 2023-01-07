@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css', '../about/about.component.css']
+  styleUrls: ['./experience.component.scss', '../about/about.component.scss']
 })
 export class ExperienceComponent implements OnInit {
   

@@ -9,7 +9,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-socials',
   templateUrl: './socials.component.html',
-  styleUrls: ['./socials.component.css']
+  styleUrls: ['./socials.component.scss']
 })
 export class SocialsComponent implements OnInit {
 

@@ -1,0 +1,214 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+// ========== VARIABLES BOOTSTRAP ==========
+$primary: #5757e0;
+
+// ========== IMPORTS ==========
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// ========== COLORES ==========
+$body-bg: tint-color($primary, 98%);
+$body-color: shade-color(tint-color($primary, 60%), 40%);
+$body-emphasis-color: shade-color(tint-color($primary, 60%), 85%);
+$emphasis-color: $body-emphasis-color;
+$primary-bg-subtle: tint-color($primary, 80%);
+$primary-text: shade-color($primary, 20%);
+
+$body-bg-dark: shade-color(tint-color($primary, 25%), 83%);
+$body-color-dark: shade-color(tint-color($primary, 80%), 10%);
+$body-emphasis-color-dark: tint-color($primary, 95%);
+$emphasis-color-dark: $body-emphasis-color-dark;
+$primary-bg-subtle-dark: shade-color($primary, 80%);
+$primary-text-dark: tint-color($primary, 40%);
+
+// ========== ACORDEON ==========
+$accordion-icon-width:           1.25rem;
+
+$accordion-button-icon:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-button-active-icon:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+$accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+// ========== CARRUSEL ==========
+$carousel-control-color:               $primary;
+$carousel-dark-control-icon-filter:    none;
+$carousel-control-width:               max-content;
+$carousel-control-opacity:             .5;
+$carousel-control-hover-opacity:       1;
+$carousel-indicator-active-bg:         $primary;
+$carousel-dark-indicator-active-bg:    $primary;
+$carousel-indicator-opacity:           .15;
+$carousel-indicator-active-opacity:    1;
+
+// ========== FORMULARIO ==========
+$input-bg:                      var(--bs-input-color);
+$input-color:                   var(--bs-body-color);
+$input-disabled-bg:             $input-bg;
+$input-disabled-color:          $input-color;
+$input-focus-bg:                $input-bg;
+$input-focus-color:             $input-color;
+$input-placeholder-color:       var(--bs-text-color);
+$input-plaintext-color:         $input-color;
+$input-border-width:            0;
+
+$form-range-track-bg:           $input-bg;
+$form-range-thumb-active-bg:    shade-color($primary, 15%);
+
+// ========== BARRA DE PROGRESO ==========
+$progress-height:    0.5rem;
+$progress-bg:        shade-color(tint-color($primary, 60%), 10%);
+
+
+// ========== IMPORTS ==========
+@import "../node_modules/bootstrap/scss/variables";
+
+// ========== ESTILOS SASS ==========
+$theme-colors: map-merge($theme-colors, ("apex": rgba(46, 46, 46, 0.6)));
+
+// ========== MODO OSCURO ==========
+:root {
+  $component-colors: (
+    "primary-alt": $primary,
+    "input-color": tint-color($primary, 90%),
+    "scroll-bar-color": shade-color(tint-color($primary, 95%), 10%),
+    "scroll-thumb-color": shade-color(tint-color($primary, 95%), 25%),
+    "scroll-thumb-hover-color": shade-color(tint-color($primary, 95%), 40%)
+  );
+  @each $color, $value in $component-colors {
+    --bs-#{$color}: #{$value};
+  }
+
+  &[data-bs-theme="dark"] {
+    $component-colors: (
+      "primary-alt": shade-color(tint-color($primary, 25%), 89%),
+      "input-color": shade-color(tint-color($primary, 25%), 77%),
+      "scroll-bar-color": shade-color(tint-color($primary, 65%), 45%),
+      "scroll-thumb-color": shade-color(tint-color($primary, 65%), 60%),
+      "scroll-thumb-hover-color": shade-color(tint-color($primary, 95%), 40%)
+    );
+    @each $color, $value in $component-colors {
+      --bs-#{$color}: #{$value};
+    }
+  }
+}
+
+
+// ========== IMPORT FINAL ==========
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+// ========== ESTILOS ==========
+.btn-outline-light:not(.home-edit-button) {
+  --bs-btn-color: var(--bs-emphasis-color);
+  --bs-btn-hover-color: var(--bs-body-bg);
+  --bs-btn-active-color: var(--bs-body-bg);
+  --bs-btn-hover-bg: var(--bs-emphasis-color);
+  --bs-btn-active-bg: var(--bs-emphasis-color);
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-emphasis-color-rgb), .5);
+}
+
+.btn-outline-warning {
+  --bs-btn-hover-color: var(--bs-body-bg);
+  --bs-btn-active-color: var(--bs-body-bg);
+}
+
+// ========== SCROLL BAR ==========
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: var(--bs-scroll-bar-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--bs-scroll-thumb-color);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bs-scroll-thumb-hover-color);
+}
+
+// ========== MODAL ==========
+.modal-dialog {
+  margin-bottom: 4rem;
+}
+
+// ========== FORMULARIO ==========
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--bs-body-color);
+  -webkit-box-shadow: 0 0 0 30px var(--bs-input-color) inset;
+}
+
+textarea.form-control {
+  height: 120px !important;
+}
+
+// ========== SECCIONES ==========
+section {
+  padding-top: 6rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--bs-emphasis-color);
+}
+
+.title-span {
+  height: 0.25rem;
+  width: 4rem;
+}
+
+.text-nobreak {
+  word-break: normal !important;
+}
+
+.h-fc {
+  height: fit-content !important;
+}
+
+
+// ========== DRAG & DROP ==========
+.drag-handle {
+  cursor: row-resize;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+.cdk-drag-preview {
+  background-color: var(--bs-input-color);
+}
+
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  -webkit-transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  -moz-transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  -ms-transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  -o-transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+// ========== MEDIA QUERIES ==========
+// para pantallas muy chicas
+@media screen and (max-width: 250px) {
+  .flex-ssm-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}

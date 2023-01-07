@@ -14,7 +14,7 @@
       </div>
       
       <div class="home-data col-md-8 col-12 order-md-first">
-        <h4 class="home-greeting fw-semibold mb-0">
+        <h4 class="home-greeting fw-semibold text-light mb-0">
           <span *ngIf="appComponent.person">¡Hola! Mi nombre es</span>
           <span class="placeholder col-4" *ngIf="!appComponent.person"></span>
         </h4>
@@ -26,9 +26,9 @@
         </h1>
 
         <div class="home-profession mb-2">
-          <h6 class="mb-0" *ngIf="appComponent.person">
+          <h6 class="text-light mb-0" *ngIf="appComponent.person">
             Soy un Desarrollador Web Full Stack Jr.
-            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+            <button type="button" class="home-edit-button btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editPerson" 
             *ngIf="tokenService.isLoggedIn() && appComponent.person">
               <i class="bi bi-pencil-square"></i>

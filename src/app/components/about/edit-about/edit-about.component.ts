@@ -5,7 +5,7 @@ import { PersonService } from 'src/app/services/person.service';
 @Component({
   selector: 'app-edit-about',
   templateUrl: './edit-about.component.html',
-  styleUrls: ['./edit-about.component.css']
+  styleUrls: ['./edit-about.component.scss']
 })
 export class EditAboutComponent implements OnInit {
 

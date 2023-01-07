@@ -1,27 +1,24 @@
 <div class="accordion-item border-0">
   <h2 class="position-relative" id="headingOne">
     <button type="button" 
-    class="accordion-button py-3 ps-0 pe-5" 
+    class="accordion-button p-3" 
     aria-expanded="true" 
     data-bs-toggle="collapse" 
     data-bs-target="#collapseOne" 
     aria-controls="collapseOne">
-      <i class="skill-type-icon bi bi-braces"></i>
+      <i class="skill-type-icon bi bi-braces text-primary"></i>
       
       <div class="w-100">
         <h5>Frontend</h5>
         <p class="m-0">Maquetado y diseño</p>
       </div>
-    </button>
-
-    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-0 h-100">
-      <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+      
+      <button type="button" class="btn btn-outline-light border-0 float-end lh-1 fs-5 h-fc p-1 me-1" 
       data-bs-toggle="modal" data-bs-target="#newFrontSkill" 
       *ngIf="tokenService.isLoggedIn() && frontEnd">
         <i class="bi bi-plus-square"></i>
       </button>
-      <i class="bi bi-chevron-down fs-5"></i>
-    </div>
+    </button>
   </h2>
 
   <div class="accordion-collapse collapse show" id="collapseOne" 

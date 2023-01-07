@@ -2,7 +2,7 @@
 <section id="proyects">
   <div class="container">
     <div class="row">
-      <div class="col-12 mb-4">
+      <div class="col-12">
         <div class="mb-3">
           <div class="flex-ssm-wrap-reverse d-flex w-100">
             <h2 class="me-3">PROYECTOS</h2>
@@ -19,7 +19,7 @@
       <!---------- BOOTSTRAP CAROUSEL ---------->
       <div id="carouselIndicators" class="col-12 carousel slide">
         <div class="carousel-indicators mb-0" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onDropped($event)">
-          <button type="button" class="carousel-indicator rounded-3" [ngClass]="{'active': f}" 
+          <button type="button" class="carousel-indicator" [ngClass]="{'active': f}" 
           *ngFor="let proyect of proyects; first as f; index as i" 
           data-bs-target="#carouselIndicators" 
           attr.data-bs-slide-to="{{i}}" attr.aria-current="{{f}}" attr.aria-label="Slide {{i + 1}}" 
@@ -27,7 +27,7 @@
         </div>
         
         <div class="carousel-inner" *ngIf="proyects">
-          <div class="carousel-item card border-0 mb-3 px-4 pb-4" [ngClass]="{'active': f}" *ngFor="let proyect of proyects; first as f">
+          <div class="carousel-item card border-0 mb-3 p-4" [ngClass]="{'active': f}" *ngFor="let proyect of proyects; first as f">
             <div class="row g-0">
               <div class="col-md-5 d-flex justify-content-center align-items-center">
                 <img src="{{proyect.img}}" class="img-fluid rounded-3" alt="proyectos">
@@ -36,7 +36,7 @@
               <div class="col-md-7 pt-3 pt-md-0 ps-md-3">
                 <div class="card-body p-0">
                   <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
-                    <h5 class="card-title me-3">{{proyect.title}}</h5>
+                    <h5 class="me-3">{{proyect.title}}</h5>
                     <div class="d-flex gap-1 ms-auto mb-2" *ngIf="tokenService.isLoggedIn()">
                       <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
                       data-bs-toggle="modal" data-bs-target="#editProyect" 
@@ -83,12 +83,12 @@
           </div>
         </div>
 
-        <button class="carousel-control-prev pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" *ngIf="proyects">
-          <i class="bi bi-chevron-left"></i>
+        <button class="carousel-control-prev pb-4" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" *ngIf="proyects">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" *ngIf="proyects">
-          <i class="bi bi-chevron-right"></i>
+        <button class="carousel-control-next pb-4" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" *ngIf="proyects">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>

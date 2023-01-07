@@ -6,7 +6,7 @@ import { ExperienceComponent } from '../experience.component';
 @Component({
   selector: 'app-new-experience',
   templateUrl: './new-experience.component.html',
-  styleUrls: ['./new-experience.component.css']
+  styleUrls: ['./new-experience.component.scss']
 })
 export class NewExperienceComponent implements OnInit {
   

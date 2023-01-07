@@ -1,0 +1,96 @@
+/* ---------- SOCIALS ---------- */
+.social-container {
+  pointer-events: none;
+  z-index: 10;
+}
+.social {
+  pointer-events: auto;
+}
+/* simulo la forma de un trapecio */
+.social::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border-top: 5px solid var(--bs-warning);
+  border-left: 2px solid var(--bs-warning);
+  border-right: 2px solid var(--bs-warning);
+  background-color: var(--bs-body-bg);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  transform: perspective(10px) rotateX(4deg);
+  -webkit-transform: perspective(10px) rotateX(4deg);
+  -moz-transform: perspective(10px) rotateX(4deg);
+  -ms-transform: perspective(10px) rotateX(4deg);
+  -o-transform: perspective(10px) rotateX(4deg);
+}
+
+.modal .btn-icon,
+.modal .btn-icon:active {
+  right: 0;
+  color: var(--bs-body-color);
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+.dropup:not(.cdk-drag-disabled) .btn-outline-warning {
+  cursor: col-resize;
+}
+.dropdown-menu {
+  min-width: max-content;
+  animation: 0.5s slideup;
+  -webkit-animation: 0.5s slideup;
+}
+@keyframes slideup {
+  from {
+    opacity: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.cdk-drag-preview {
+  opacity: 0;
+}
+.cdk-drag-placeholder {
+  opacity: 1;
+}
+.cdk-drag-placeholder .btn-outline-warning {
+  color: var(--bs-body-bg);
+  background-color: var(--bs-warning);
+}
+
+
+/* ---------- SCROLL UP BUTTON ---------- */
+/* botón scroll que se oculta en el home */
+.btn-scroll-up {
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.btn-scroll-up .btn-icon {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.btn-scroll-up:hover .btn-icon {
+  transform: translateY(-0.25rem);
+  -webkit-transform: translateY(-0.25rem);
+  -moz-transform: translateY(-0.25rem);
+  -ms-transform: translateY(-0.25rem);
+  -o-transform: translateY(-0.25rem);
+}
+
+
+/* para pantallas muy chicas */
+@media screen and (max-width: 250px) {
+  .social {
+    gap: 0 !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+}

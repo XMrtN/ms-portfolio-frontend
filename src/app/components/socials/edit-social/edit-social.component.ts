@@ -5,7 +5,7 @@ import { SocialsComponent } from '../socials.component';
 @Component({
   selector: 'app-edit-social',
   templateUrl: './edit-social.component.html',
-  styleUrls: ['./edit-social.component.css', '../socials.component.css']
+  styleUrls: ['./edit-social.component.scss', '../socials.component.scss']
 })
 export class EditSocialComponent implements OnInit {
 

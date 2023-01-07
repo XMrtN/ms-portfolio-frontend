@@ -5,7 +5,11 @@
   "projects": {
     "portfolio_Frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,14 +22,20 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+              "node_modules/bootstrap-icons/font/bootstrap-icons.scss",
+              "src/styles.scss"
+=======
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
+>>>>>>> fec578564a63bdd472b13d4ec7703a9c66d5e468
             ],
             "scripts": [
               "node_modules/gsap/dist/gsap.min.js",
@@ -90,14 +100,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
+              "src/styles.scss"
+=======
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
+>>>>>>> fec578564a63bdd472b13d4ec7703a9c66d5e468
             ],
             "scripts": [
               "node_modules/gsap/dist/gsap.min.js",

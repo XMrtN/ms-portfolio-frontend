@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-soft-skill',
   templateUrl: './soft-skill.component.html',
-  styleUrls: ['./soft-skill.component.css', '../skills/skills.component.css']
+  styleUrls: ['./soft-skill.component.scss', '../skills/skills.component.scss']
 })
 export class SoftSkillComponent implements OnInit {
 

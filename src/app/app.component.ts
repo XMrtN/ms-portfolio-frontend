@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { Colors } from './models/colors.model';
 import { Person } from './models/person.model';
-import { ColorsService } from './services/colors.service';
 import { PersonService } from './services/person.service';
 import { TokenService } from './services/token.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
@@ -22,12 +20,6 @@ export class AppComponent {
     img: '',
     cv: ''
   };
-  colors: Colors = null!;
-  colorsEdit: Colors = {
-    id: 0,
-    firstColor: 0,
-    secondColor: ''
-  };
   sections = [
     { id: "home", name: "inicio" },
     { id: "about", name: "acerca" },
@@ -39,14 +31,14 @@ export class AppComponent {
   
   constructor(
     protected tokenService: TokenService,
-    private personService: PersonService,
-    private colorsService: ColorsService
+    private personService: PersonService
   ) { }
 
   ngOnInit(): void {
     this.loadPerson();
-    this.loadColors();
     this.initAnimations();
+<<<<<<< HEAD
+=======
     document.documentElement.style.removeProperty("--bs-body-bg");
   }
 
@@ -58,22 +50,13 @@ export class AppComponent {
 
   onChangeColor(color: string, value: any) {
     document.documentElement.style.setProperty(color, value);
+>>>>>>> fec578564a63bdd472b13d4ec7703a9c66d5e468
   }
   
   loadPerson(): void {
     this.personService.detail(1).subscribe(data => {
       this.person = data;
       this.personEdit = data;
-    });
-  }
-
-  loadColors(): void {
-    this.colorsService.detail(1).subscribe(data => {
-      this.colors = data;
-      this.colorsEdit = data;
-      this.onChangeColor("--hue-color", data.firstColor);
-      this.onChangeColor("--second-color", data.secondColor);
-      this.onChangeColor("--box-shadow-second-color", data.secondColor + 80);
     });
   }
 

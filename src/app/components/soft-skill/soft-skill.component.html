@@ -1,27 +1,24 @@
 <div class="accordion-item border-0">
   <h2 class="position-relative" id="headingThree">
     <button type="button" 
-    class="accordion-button collapsed py-3 ps-0 pe-5" 
+    class="accordion-button collapsed p-3" 
     aria-expanded="false" 
     data-bs-toggle="collapse" 
     data-bs-target="#collapseThree" 
     aria-controls="collapseThree">
-      <i class="skill-type-icon bi bi-palette2"></i>
+      <i class="skill-type-icon bi bi-palette2 text-primary"></i>
 
       <div class="w-100">
         <h5>Soft skills</h5>
         <p class="m-0">En el entorno laboral</p>
       </div>
-    </button>
-    
-    <div class="accordion-icons position-absolute d-flex flex-column justify-content-center align-items-center me-0 h-100">
-      <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+      
+      <button type="button" class="btn btn-outline-light border-0 float-end lh-1 fs-5 h-fc p-1 me-1" 
       data-bs-toggle="modal" data-bs-target="#newSoftSkill" 
       *ngIf="tokenService.isLoggedIn() && soft">
         <i class="bi bi-plus-square"></i>
       </button>
-      <i class="bi bi-chevron-down fs-5"></i>
-    </div>
+    </button>
   </h2>
 
   <div class="accordion-collapse collapse" id="collapseThree" 

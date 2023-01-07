@@ -6,7 +6,7 @@ import { EducationComponent } from '../education.component';
 @Component({
   selector: 'app-new-education',
   templateUrl: './new-education.component.html',
-  styleUrls: ['./new-education.component.css']
+  styleUrls: ['./new-education.component.scss']
 })
 export class NewEducationComponent implements OnInit {
 

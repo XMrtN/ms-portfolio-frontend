@@ -6,7 +6,7 @@ import { FrontSkillComponent } from '../front-skill.component';
 @Component({
   selector: 'app-new-front-skill',
   templateUrl: './new-front-skill.component.html',
-  styleUrls: ['./new-front-skill.component.css']
+  styleUrls: ['./new-front-skill.component.scss']
 })
 export class NewFrontSkillComponent implements OnInit {
 

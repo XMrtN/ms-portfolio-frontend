@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-front-skill',
   templateUrl: './front-skill.component.html',
-  styleUrls: ['./front-skill.component.css', '../skills/skills.component.css']
+  styleUrls: ['./front-skill.component.scss', '../skills/skills.component.scss']
 })
 export class FrontSkillComponent implements OnInit {
 

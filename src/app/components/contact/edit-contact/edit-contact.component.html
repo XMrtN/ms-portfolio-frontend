@@ -5,9 +5,7 @@ tabindex="-1" aria-labelledby="editEmailLabel" aria-hidden="true" *ngIf="appComp
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="editEmailLabel">Modificar coreo electrónico</h1>
-        <button type="button" class="btn-close lh-1 fs-5" data-bs-dismiss="modal" aria-label="Close" (click)="appComponent.loadPerson()">
-          <i class="bi bi-x-lg"></i>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="appComponent.loadPerson()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
         <div class="modal-body">

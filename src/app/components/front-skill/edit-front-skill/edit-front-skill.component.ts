@@ -6,7 +6,7 @@ import { FrontSkillComponent } from '../front-skill.component';
 @Component({
   selector: 'app-edit-front-skill',
   templateUrl: './edit-front-skill.component.html',
-  styleUrls: ['./edit-front-skill.component.css']
+  styleUrls: ['./edit-front-skill.component.scss']
 })
 export class EditFrontSkillComponent implements OnInit {
 

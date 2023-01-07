@@ -6,7 +6,7 @@ import { SoftSkillComponent } from '../soft-skill.component';
 @Component({
   selector: 'app-new-soft-skill',
   templateUrl: './new-soft-skill.component.html',
-  styleUrls: ['./new-soft-skill.component.css']
+  styleUrls: ['./new-soft-skill.component.scss']
 })
 export class NewSoftSkillComponent implements OnInit {
 

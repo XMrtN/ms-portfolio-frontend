@@ -1,0 +1,33 @@
+// ========== ESTILOS ==========
+.accordion-button {
+  border-radius: var(--bs-accordion-inner-border-radius);
+  -webkit-border-radius: var(--bs-accordion-inner-border-radius);
+  -moz-border-radius: var(--bs-accordion-inner-border-radius);
+  -ms-border-radius: var(--bs-accordion-inner-border-radius);
+  -o-border-radius: var(--bs-accordion-inner-border-radius);
+}
+.accordion-button:not(.collapsed, :focus) {
+  box-shadow: none;
+}
+
+.skill-type-icon {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+}
+
+.accordion-body {
+  padding: 0;
+  padding-left: 3.25rem;
+}
+
+
+// para pantallas muy chicas
+@media screen and (max-width: 250px) {
+  .skill-type-icon {
+    display: none;
+  }
+
+  .accordion-body {
+    padding-left: 0;
+  }
+}

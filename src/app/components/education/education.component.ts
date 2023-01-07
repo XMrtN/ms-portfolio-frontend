@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls: ['./education.component.css', '../about/about.component.css']
+  styleUrls: ['./education.component.scss', '../about/about.component.scss']
 })
 export class EducationComponent implements OnInit {
   

@@ -7,7 +7,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-back-skill',
   templateUrl: './back-skill.component.html',
-  styleUrls: ['./back-skill.component.css', '../skills/skills.component.css']
+  styleUrls: ['./back-skill.component.scss', '../skills/skills.component.scss']
 })
 export class BackSkillComponent implements OnInit {
 
