@@ -37,20 +37,6 @@ export class AppComponent {
   ngOnInit(): void {
     this.loadPerson();
     this.initAnimations();
-<<<<<<< HEAD
-=======
-    document.documentElement.style.removeProperty("--bs-body-bg");
-  }
-
-  onDarkMode(value: string): void {
-    value != ''?
-    document.documentElement.className = value:
-    document.documentElement.removeAttribute('class');
-  }
-
-  onChangeColor(color: string, value: any) {
-    document.documentElement.style.setProperty(color, value);
->>>>>>> fec578564a63bdd472b13d4ec7703a9c66d5e468
   }
   
   loadPerson(): void {
