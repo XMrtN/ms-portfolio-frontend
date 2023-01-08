@@ -54,7 +54,7 @@ $input-disabled-bg:             $input-bg;
 $input-disabled-color:          $input-color;
 $input-focus-bg:                $input-bg;
 $input-focus-color:             $input-color;
-$input-placeholder-color:       var(--bs-text-color);
+$input-placeholder-color:       $input-color;
 $input-plaintext-color:         $input-color;
 $input-border-width:            0;
 
@@ -139,11 +139,6 @@ $theme-colors: map-merge($theme-colors, ("apex": rgba(46, 46, 46, 0.6)));
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--bs-scroll-thumb-hover-color);
-}
-
-// ========== MODAL ==========
-.modal-dialog {
-  margin-bottom: 4rem;
 }
 
 // ========== FORMULARIO ==========

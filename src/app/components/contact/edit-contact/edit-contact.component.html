@@ -1,10 +1,10 @@
-<div class="modal fade modal-dialog-scrollable vh-100" 
+<div class="modal fade modal-dialog-scrollable h-100" 
 id="editEmail" data-bs-backdrop="static" data-bs-keyboard="false" 
 tabindex="-1" aria-labelledby="editEmailLabel" aria-hidden="true" *ngIf="appComponent.personEdit">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editEmailLabel">Modificar coreo electrónico</h1>
+        <h1 class="modal-title fs-5" id="editEmailLabel">Modificar correo electrónico</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="appComponent.loadPerson()"></button>
       </div>
       <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>

@@ -41,14 +41,6 @@
 }
 .dropdown-menu {
   min-width: max-content;
-  animation: 0.5s slideup;
-  -webkit-animation: 0.5s slideup;
-}
-@keyframes slideup {
-  from {
-    opacity: 0;
-    margin-bottom: 1rem;
-  }
 }
 
 .cdk-drag-preview {

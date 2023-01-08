@@ -9,19 +9,21 @@
           <i class="{{social.icon}}"></i>
         </button>
       
-        <ul class="dropdown-menu gap-3 p-2">
+        <ul class="dropdown-menu gap-1 p-1">
           <li>
-            <a href="{{social.url}}" target="_blank" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1">
+            <a href="{{social.url}}" target="_blank" class="btn btn-outline-light border-0 rounded-1 lh-1 fs-5 h-fc p-1">
               <i class="bi bi-box-arrow-up-right"></i>
             </a>
           </li>
-          <li class="d-flex gap-1" *ngIf="tokenService.isLoggedIn()">
-            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+          <li *ngIf="tokenService.isLoggedIn()">
+            <button type="button" class="btn btn-outline-light border-0 rounded-1 lh-1 fs-5 h-fc p-1" 
             data-bs-toggle="modal" data-bs-target="#editSocial" 
             (click)="id = social.id; onDetail()">
               <i class="bi bi-pencil-square"></i>
             </button>
-            <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1" 
+          </li>
+          <li *ngIf="tokenService.isLoggedIn()">
+            <button type="button" class="btn btn-outline-light border-0 rounded-1 lh-1 fs-5 h-fc p-1" 
             (click)="delete(social.id!)">
               <i class="bi bi-trash"></i>
             </button>
