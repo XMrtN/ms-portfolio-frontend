@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education.model';
 import { EducationService } from 'src/app/services/education.service';
 import { TokenService } from 'src/app/services/token.service';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-education',
@@ -10,8 +11,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./education.component.scss', '../about/about.component.scss']
 })
 export class EducationComponent implements OnInit {
-  
-  education: Education[] = null!;
+
   id?: number;
   ed: Education = {
     id: 0,
@@ -24,7 +24,8 @@ export class EducationComponent implements OnInit {
 
   constructor(
     private educationService: EducationService,
-    protected tokenService: TokenService
+    protected tokenService: TokenService,
+    protected aboutComponent: AboutComponent
   ) { }
 
   ngOnInit(): void {
@@ -40,9 +41,9 @@ export class EducationComponent implements OnInit {
   }
 
   onDropped(event: CdkDragDrop<any>): void {
-    moveItemInArray(this.education, event.previousIndex, event.currentIndex);
-    this.education.forEach(edu => {
-      edu.position = this.education.indexOf(edu);
+    moveItemInArray(this.aboutComponent.education, event.previousIndex, event.currentIndex);
+    this.aboutComponent.education.forEach(edu => {
+      edu.position = this.aboutComponent.education.indexOf(edu);
       this.educationService.updatePos(edu.id!, edu).subscribe(data => {
       }, err => {
         alert("No se pudo modificar la posición");
@@ -52,7 +53,7 @@ export class EducationComponent implements OnInit {
 
   loadEd(): void {
     this.educationService.list().subscribe(data => {
-      this.education = data;
+      this.aboutComponent.education = data;
     });
   }
 

@@ -5,15 +5,15 @@
   alt="{{img.alt}}">
   
   <div class="container">
-    <div class="row">
-      <div class="home-img col-md-4 col-12 order-md-last d-flex justify-content-center align-items-center mb-md-0 mb-3">
+    <div class="row g-4">
+      <div class="home-img col-md-5 col-12 order-md-last d-flex justify-content-center align-items-center">
         <div class="imgBox position-relative bg-warning d-flex justify-content-center overflow-hidden"
         [ngClass]="{'placeholder': !appComponent.person}">
           <img src="{{appComponent.person.img}}" alt="Martín Sepúlveda" class="h-100" *ngIf="appComponent.person">
         </div>
       </div>
       
-      <div class="home-data col-md-8 col-12 order-md-first">
+      <div class="home-data col-md-7 col-12 order-md-first">
         <h4 class="home-greeting fw-semibold text-light mb-0">
           <span *ngIf="appComponent.person">¡Hola! Mi nombre es</span>
           <span class="placeholder col-4" *ngIf="!appComponent.person"></span>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Experience } from 'src/app/models/experience.model';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { TokenService } from 'src/app/services/token.service';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-experience',
@@ -10,8 +11,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./experience.component.scss', '../about/about.component.scss']
 })
 export class ExperienceComponent implements OnInit {
-  
-  experience: Experience[] = null!;
+
   id?: number;
   exp: Experience = {
     id: 0,
@@ -24,7 +24,8 @@ export class ExperienceComponent implements OnInit {
 
   constructor(
     private experienceService: ExperienceService,
-    protected tokenService: TokenService
+    protected tokenService: TokenService,
+    protected aboutComponent: AboutComponent
   ) { }
 
   ngOnInit(): void {
@@ -40,9 +41,9 @@ export class ExperienceComponent implements OnInit {
   }
 
   onDropped(event: CdkDragDrop<any>): void {
-    moveItemInArray(this.experience, event.previousIndex, event.currentIndex);
-    this.experience.forEach(expe => {
-      expe.position = this.experience.indexOf(expe);
+    moveItemInArray(this.aboutComponent.experience, event.previousIndex, event.currentIndex);
+    this.aboutComponent.experience.forEach(expe => {
+      expe.position = this.aboutComponent.experience.indexOf(expe);
       this.experienceService.updatePos(expe.id!, expe).subscribe(data => {
       }, err => {
         alert("No se pudo modificar la posición");
@@ -52,7 +53,7 @@ export class ExperienceComponent implements OnInit {
 
   loadExp(): void {
     this.experienceService.list().subscribe(data => {
-      this.experience = data;
+      this.aboutComponent.experience = data;
     });
   }
 

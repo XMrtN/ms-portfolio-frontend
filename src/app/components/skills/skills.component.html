@@ -1,28 +1,22 @@
 <!---------- SKILLS SECTION ---------->
 <section id="skills">
   <div class="container">
-    <div class="row">
-      <div class="col-12 mb-4">
+    <div class="row g-4">
+      <div class="col-12">
         <div class="mb-3">
           <h2>HABILIDADES</h2>
           <div class="title-span bg-warning rounded"></div>
         </div>
         <p>Mi desempeño actualmente</p>
       </div>
-    </div>
-    
-    <div class="accordion" id="accordion">
-      <div class="row">
-        <div class="col-lg-4 col-12">
-          <app-front-skill></app-front-skill>
-        </div>
-
-        <div class="col-lg-4 col-12">
-          <app-back-skill></app-back-skill>
-        </div>
-
-        <div class="col-lg-4 col-12">
-          <app-soft-skill></app-soft-skill>
+      
+      <div class="col-12">
+        <div class="accordion row g-2" id="accordion">
+          <div class="col-lg-8 col-sm-6 col-12 row g-2 p-0 m-0">
+            <app-front-skill class="col-lg-6 col-12"></app-front-skill>
+            <app-back-skill class="col-lg-6 col-12"></app-back-skill>
+          </div>
+          <app-soft-skill class="col-lg-4 col-sm-6 col-12"></app-soft-skill>
         </div>
       </div>
     </div>

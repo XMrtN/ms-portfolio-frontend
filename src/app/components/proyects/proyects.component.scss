@@ -30,3 +30,19 @@
     padding-right: 0.25rem !important;
   }
 }
+
+/* para pantallas más grandes */
+@media screen and (min-width: 1200px) {
+  .carousel-control-prev {
+    left: -1rem;
+  }
+  .carousel-control-next {
+    right: -1rem;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    height: 3rem;
+    width: 3rem;
+  }
+}

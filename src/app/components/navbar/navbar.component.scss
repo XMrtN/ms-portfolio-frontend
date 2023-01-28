@@ -18,7 +18,7 @@
   border-color: #b0b0b0;
   border-width: 0;
   border-left-width: 6px;
-
+  
   &:hover {
     border-color: #fff;
   }
@@ -71,72 +71,70 @@
   }
 
   // transformo los nav-item en paralelogramos
-  .nav-item {
+  .navbar-navigation {
     transform: skewX(45deg);
     -webkit-transform: skewX(45deg);
     -moz-transform: skewX(45deg);
     -ms-transform: skewX(45deg);
     -o-transform: skewX(45deg);
-
-    span {
-      transform: skewX(-45deg);
-      -webkit-transform: skewX(-45deg);
-      -moz-transform: skewX(-45deg);
-      -ms-transform: skewX(-45deg);
-      -o-transform: skewX(-45deg);
-    }
-  }
-
-  .nav-item,
-  .nav-link {
-    height: 60px;
-    max-width: 145px;
-  }
-
-  .nav-link {
-    border-left-width: 0;
-    border-bottom-width: 6px;
     
-    span {
-      text-transform: uppercase;
-    }
-
-    &::before {
-      position: absolute;
-      content: '';
-      top: calc(100% + 6px);
-      left: 0;
-      display: block;
-      height: 25px;
-      width: 100%;
-      pointer-events: none;
-      @include gradient-y(
-        var(--bs-btn-bg),
-        transparent,
-        0%,
-        100%
-      );
-    }
-
-    &:hover{
+    .nav-link {
+      height: 60px;
+      max-width: 145px;
+      border-left-width: 0;
+      border-bottom-width: 6px;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      
+      span {
+        text-transform: uppercase;
+        transform: skewX(-45deg);
+        -webkit-transform: skewX(-45deg);
+        -moz-transform: skewX(-45deg);
+        -ms-transform: skewX(-45deg);
+        -o-transform: skewX(-45deg);
+      }
+  
       &::before {
+        position: absolute;
+        content: '';
+        top: calc(100% + 6px);
+        left: 0;
+        display: block;
+        height: 25px;
+        width: 100%;
+        pointer-events: none;
         @include gradient-y(
-          var(--bs-btn-hover-bg),
+          var(--bs-btn-bg),
           transparent,
           0%,
           100%
         );
       }
-    }
-
-    &:active{
-      &::before {
-        @include gradient-y(
-          var(--bs-btn-active-bg),
-          transparent,
-          0%,
-          100%
-        );
+  
+      &:hover{
+        &::before {
+          @include gradient-y(
+            var(--bs-btn-hover-bg),
+            transparent,
+            0%,
+            100%
+          );
+        }
+      }
+  
+      &:active{
+        &::before {
+          @include gradient-y(
+            var(--bs-btn-active-bg),
+            transparent,
+            0%,
+            100%
+          );
+        }
       }
     }
   }

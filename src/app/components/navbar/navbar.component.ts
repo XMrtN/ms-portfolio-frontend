@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   initAnimations(): void {
     window.addEventListener("load", () => {
       gsap.from(".nav-logo img, .navbar-toggler", {duration: 2, y: -100, delay: 1.5, ease: "expo.out", stagger: 0.2});
-      gsap.from(".nav-link", {duration: 2, y: -100, delay: 1.8, ease: "expo.out", stagger: 0.2});
+      gsap.from(".navbar .nav-link", {duration: 2, y: -100, delay: 1.8, ease: "expo.out", stagger: 0.2});
       gsap.from(".nav-button", {duration: 2, y: -100, delay: 2.3, ease: "expo.out", stagger: 0.2});
     });
   }

@@ -1,7 +1,7 @@
 <!---------- PROYECTS SECTION ---------->
 <section id="proyects">
   <div class="container">
-    <div class="row">
+    <div class="row g-4">
       <div class="col-12">
         <div class="mb-3">
           <div class="flex-ssm-wrap-reverse d-flex w-100">
@@ -17,7 +17,7 @@
       </div>
 
       <!---------- BOOTSTRAP CAROUSEL ---------->
-      <div id="carouselIndicators" class="col-12 carousel slide">
+      <div id="carouselIndicators" class="col-12 carousel slide pb-5">
         <div class="carousel-indicators mb-0" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="onDropped($event)">
           <button type="button" class="carousel-indicator" [ngClass]="{'active': f}" 
           *ngFor="let proyect of proyects; first as f; index as i" 
@@ -27,13 +27,13 @@
         </div>
         
         <div class="carousel-inner" *ngIf="proyects">
-          <div class="carousel-item card border-0 mb-3 p-4" [ngClass]="{'active': f}" *ngFor="let proyect of proyects; first as f">
-            <div class="row g-0">
-              <div class="col-md-5 d-flex justify-content-center align-items-center">
+          <div class="carousel-item card border-0 px-4" [ngClass]="{'active': f}" *ngFor="let proyect of proyects; first as f">
+            <div class="row g-4 g-xl-5">
+              <div class="col-sm-6 d-flex justify-content-center align-items-center">
                 <img src="{{proyect.img}}" class="img-fluid rounded-3" alt="proyectos">
               </div>
 
-              <div class="col-md-7 pt-3 pt-md-0 ps-md-3">
+              <div class="col-sm-6 d-flex justify-content-center align-items-center">
                 <div class="card-body p-0">
                   <div class="flex-ssm-wrap-reverse d-flex align-items-start w-100">
                     <h5 class="me-3">{{proyect.title}}</h5>
@@ -64,9 +64,11 @@
         <div class="carousel-inner" *ngIf="!proyects">
           <div class="card border-0 mb-3 px-4 pb-4" aria-hidden="true">
             <div class="row g-0">
-              <div class="col-md-5 bg-secondary placeholder rounded-3" style="min-height: 100px;"></div>
-          
-              <div class="col-md-7 pt-3 pt-md-0 ps-md-3">
+              <div class="col-sm-6 d-flex justify-content-center align-items-center pe-sm-3 pe-xl-5">
+                <div class="bg-secondary placeholder rounded-3 h-100 w-100" style="min-height: 100px;"></div>
+              </div>
+              
+              <div class="col-sm-6 d-flex justify-content-center align-items-center pt-4 pt-sm-0 ps-sm-2 ps-xl-4">
                 <div class="card-body p-0">
                   <h5 class="card-title placeholder col-5"></h5>
                   <p class="card-text">
@@ -83,11 +85,11 @@
           </div>
         </div>
 
-        <button class="carousel-control-prev pb-4" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" *ngIf="proyects">
+        <button class="carousel-control-prev pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev" *ngIf="proyects">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next pb-4" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" *ngIf="proyects">
+        <button class="carousel-control-next pb-5" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next" *ngIf="proyects">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>

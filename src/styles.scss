@@ -6,38 +6,39 @@
 }
 
 // ========== VARIABLES BOOTSTRAP ==========
-$primary: #5757e0;
+$blue:    #5757e0;
 
 // ========== IMPORTS ==========
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
 
 // ========== COLORES ==========
-$body-bg: tint-color($primary, 98%);
-$body-color: shade-color(tint-color($primary, 60%), 40%);
-$body-emphasis-color: shade-color(tint-color($primary, 60%), 85%);
-$emphasis-color: $body-emphasis-color;
-$primary-bg-subtle: tint-color($primary, 80%);
-$primary-text: shade-color($primary, 20%);
+$body-bg:                     tint-color($primary, 98%);
+$body-color:                  shade-color(tint-color($primary, 60%), 40%);
+$body-emphasis-color:         shade-color(tint-color($primary, 60%), 85%);
+$emphasis-color:              $body-emphasis-color;
+$body-bg-dark:                shade-color(tint-color($primary, 25%), 83%);
+$body-color-dark:             shade-color(tint-color($primary, 80%), 10%);
+$body-emphasis-color-dark:    tint-color($primary, 95%);
+$emphasis-color-dark:         $body-emphasis-color-dark;
 
-$body-bg-dark: shade-color(tint-color($primary, 25%), 83%);
-$body-color-dark: shade-color(tint-color($primary, 80%), 10%);
-$body-emphasis-color-dark: tint-color($primary, 95%);
-$emphasis-color-dark: $body-emphasis-color-dark;
-$primary-bg-subtle-dark: shade-color($primary, 80%);
-$primary-text-dark: tint-color($primary, 40%);
+// ========== PESTAÑAS DE NAVEGACIÓN ==========
+$nav-link-font-size:             1.8rem;
+$nav-link-color:                 var(--bs-body-color);
+$nav-pills-link-active-color:    var(--bs-link-color);
+$nav-pills-link-active-bg:       var(--bs-body-bg);
 
-// ========== ACORDEON ==========
-$accordion-icon-width:           1.25rem;
-
-$accordion-button-icon:          url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-$accordion-button-active-icon:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
-
+// ========== ACORDEÓN ==========
+$accordion-button-active-color:      var(--bs-body-color);
+$accordion-icon-width:               1.25rem;
+$accordion-button-icon:              url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-button-active-icon:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 $accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 
 // ========== CARRUSEL ==========
-$carousel-control-color:               $primary;
 $carousel-dark-control-icon-filter:    none;
 $carousel-control-width:               max-content;
 $carousel-control-opacity:             .5;
@@ -46,6 +47,11 @@ $carousel-indicator-active-bg:         $primary;
 $carousel-dark-indicator-active-bg:    $primary;
 $carousel-indicator-opacity:           .15;
 $carousel-indicator-active-opacity:    1;
+$carousel-control-prev-icon-bg:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/></svg>");
+$carousel-control-next-icon-bg:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
+
+// ========== MODAL ==========
+$modal-fade-transform:    none;
 
 // ========== FORMULARIO ==========
 $input-bg:                      var(--bs-input-color);
@@ -64,10 +70,6 @@ $form-range-thumb-active-bg:    shade-color($primary, 15%);
 // ========== BARRA DE PROGRESO ==========
 $progress-height:    0.5rem;
 $progress-bg:        shade-color(tint-color($primary, 60%), 10%);
-
-
-// ========== IMPORTS ==========
-@import "../node_modules/bootstrap/scss/variables";
 
 // ========== ESTILOS SASS ==========
 $theme-colors: map-merge($theme-colors, ("apex": rgba(46, 46, 46, 0.6)));
@@ -153,7 +155,7 @@ textarea:-webkit-autofill:focus {
 }
 
 textarea.form-control {
-  height: 120px !important;
+  min-height: 120px !important;
 }
 
 // ========== SECCIONES ==========

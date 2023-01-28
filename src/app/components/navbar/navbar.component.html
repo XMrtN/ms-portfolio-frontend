@@ -17,15 +17,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-center pb-4 pb-lg-0 px-lg-5 w-100">
-          <li class="nav-item w-100" *ngFor="let link of appComponent.sections">
-            <a class="nav-link btn btn-apex d-flex rounded-0 fw-semibold p-0 w-100" href="#{{link.id}}">
-              <span class="text-nobreak mt-2 mt-lg-auto ms-2 mx-lg-auto mb-1 mb-lg-0">{{link.name}}</span>
-            </a>
-          </li>
+        <ul class="navbar-navigation navbar-nav btn-group-vertical justify-content-center pb-4 pb-lg-0 px-lg-5 w-100">
+          <a class="nav-link btn btn-apex d-flex fw-semibold p-0 mt-0 w-100" href="#{{link.id}}" *ngFor="let link of appComponent.sections">
+            <span class="text-nobreak mt-2 mt-lg-auto ms-2 mx-lg-auto mb-1 mb-lg-0">{{link.name}}</span>
+          </a>
         </ul>
 
-        <ul class="navbar-nav align-items-lg-center">
+        <ul class="navbar-nav align-items-lg-center gap-2">
           <li>
             <button type="button" class="nav-button btn btn-primary text-nowrap text-nobreak p-3" data-bs-toggle="modal" data-bs-target="#login" *ngIf="!tokenService.isLoggedIn()">
               Iniciar sesión
