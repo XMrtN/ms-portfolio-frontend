@@ -15,14 +15,12 @@ $blue:    #5757e0;
 @import "../node_modules/bootstrap/scss/variables-dark";
 
 // ========== COLORES ==========
-$body-bg:                     tint-color($primary, 98%);
-$body-color:                  shade-color(tint-color($primary, 60%), 40%);
-$body-emphasis-color:         shade-color(tint-color($primary, 60%), 85%);
-$emphasis-color:              $body-emphasis-color;
-$body-bg-dark:                shade-color(tint-color($primary, 25%), 83%);
-$body-color-dark:             shade-color(tint-color($primary, 80%), 10%);
-$body-emphasis-color-dark:    tint-color($primary, 95%);
-$emphasis-color-dark:         $body-emphasis-color-dark;
+$body-bg:                tint-color($primary, 98%);
+$body-color:             shade-color(tint-color($primary, 60%), 40%);
+$headings-color:         shade-color(tint-color($primary, 60%), 85%);
+$body-bg-dark:           shade-color(tint-color($primary, 25%), 83%);
+$body-color-dark:        shade-color(tint-color($primary, 80%), 10%);
+$headings-color-dark:    tint-color($primary, 95%);
 
 // ========== PESTAÑAS DE NAVEGACIÓN ==========
 $nav-link-font-size:             1.8rem;
@@ -51,7 +49,10 @@ $carousel-control-prev-icon-bg:        url("data:image/svg+xml,<svg xmlns='http:
 $carousel-control-next-icon-bg:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$primary}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>");
 
 // ========== MODAL ==========
-$modal-fade-transform:    none;
+$modal-fade-transform:        none;
+$modal-content-border-width:  0;
+$modal-header-border-width:   0;
+$modal-footer-border-width:   0;
 
 // ========== FORMULARIO ==========
 $input-bg:                      var(--bs-input-color);
@@ -68,39 +69,29 @@ $form-range-track-bg:           $input-bg;
 $form-range-thumb-active-bg:    shade-color($primary, 15%);
 
 // ========== BARRA DE PROGRESO ==========
-$progress-height:    0.5rem;
+$progress-height:    5px;
 $progress-bg:        shade-color(tint-color($primary, 60%), 10%);
 
 // ========== ESTILOS SASS ==========
 $theme-colors: map-merge($theme-colors, ("apex": rgba(46, 46, 46, 0.6)));
 
 // ========== MODO OSCURO ==========
-:root {
-  $component-colors: (
-    "primary-alt": $primary,
-    "input-color": tint-color($primary, 90%),
-    "scroll-bar-color": shade-color(tint-color($primary, 95%), 10%),
-    "scroll-thumb-color": shade-color(tint-color($primary, 95%), 25%),
-    "scroll-thumb-hover-color": shade-color(tint-color($primary, 95%), 40%)
-  );
-  @each $color, $value in $component-colors {
-    --bs-#{$color}: #{$value};
-  }
-
-  &[data-bs-theme="dark"] {
-    $component-colors: (
-      "primary-alt": shade-color(tint-color($primary, 25%), 89%),
-      "input-color": shade-color(tint-color($primary, 25%), 77%),
-      "scroll-bar-color": shade-color(tint-color($primary, 65%), 45%),
-      "scroll-thumb-color": shade-color(tint-color($primary, 65%), 60%),
-      "scroll-thumb-hover-color": shade-color(tint-color($primary, 95%), 40%)
-    );
-    @each $color, $value in $component-colors {
-      --bs-#{$color}: #{$value};
-    }
+:root,
+[data-bs-theme="light"] {
+  --bs-primary-alt:               #{$primary};
+  --bs-input-color:               #{tint-color($primary, 90%)};
+  --bs-scroll-bar-color:          #{shade-color(tint-color($primary, 95%), 10%)};
+  --bs-scroll-thumb-color:        #{shade-color(tint-color($primary, 95%), 25%)};
+  --bs-scroll-thumb-hover-color:  #{shade-color(tint-color($primary, 95%), 40%)};
+}
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+    --bs-primary-alt:               #{shade-color(tint-color($primary, 25%), 89%)};
+    --bs-input-color:               #{shade-color(tint-color($primary, 25%), 77%)};
+    --bs-scroll-bar-color:          #{shade-color(tint-color($primary, 65%), 45%)};
+    --bs-scroll-thumb-color:        #{shade-color(tint-color($primary, 65%), 60%)};
   }
 }
-
 
 // ========== IMPORT FINAL ==========
 @import "../node_modules/bootstrap/scss/bootstrap";
@@ -108,11 +99,11 @@ $theme-colors: map-merge($theme-colors, ("apex": rgba(46, 46, 46, 0.6)));
 
 // ========== ESTILOS ==========
 .btn-outline-light:not(.home-edit-button) {
-  --bs-btn-color: var(--bs-emphasis-color);
+  --bs-btn-color: var(--bs-heading-color);
   --bs-btn-hover-color: var(--bs-body-bg);
   --bs-btn-active-color: var(--bs-body-bg);
-  --bs-btn-hover-bg: var(--bs-emphasis-color);
-  --bs-btn-active-bg: var(--bs-emphasis-color);
+  --bs-btn-hover-bg: var(--bs-heading-color);
+  --bs-btn-active-bg: var(--bs-heading-color);
   --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-emphasis-color-rgb), .5);
 }
 
@@ -161,10 +152,6 @@ textarea.form-control {
 // ========== SECCIONES ==========
 section {
   padding-top: 6rem;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--bs-emphasis-color);
 }
 
 .title-span {

@@ -25,10 +25,10 @@
       <div class="col-12">
         <ul class="nav nav-pills justify-content-center gap-2 gap-lg-4 mb-4" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-education-tab" data-bs-toggle="pill" data-bs-target="#pills-education" type="button" role="tab" aria-controls="pills-education" aria-selected="true">
+            <button class="nav-link active p-1" id="pills-education-tab" data-bs-toggle="pill" data-bs-target="#pills-education" type="button" role="tab" aria-controls="pills-education" aria-selected="true">
               <i class="bi bi-mortarboard me-1"></i>
               Educación
-              <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-1 mb-1" 
+              <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 mb-1" 
               data-bs-toggle="modal" data-bs-target="#newEd" 
               *ngIf="tokenService.isLoggedIn() && education">
                 <i class="bi bi-plus-square"></i>
@@ -36,10 +36,10 @@
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-work-tab" data-bs-toggle="pill" data-bs-target="#pills-work" type="button" role="tab" aria-controls="pills-work" aria-selected="false">
+            <button class="nav-link p-1" id="pills-work-tab" data-bs-toggle="pill" data-bs-target="#pills-work" type="button" role="tab" aria-controls="pills-work" aria-selected="false">
               <i class="bi bi-briefcase me-1"></i>
               Laboral
-              <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 ms-1 mb-1" 
+              <button type="button" class="btn btn-outline-light border-0 lh-1 fs-5 h-fc p-1 mb-1" 
               data-bs-toggle="modal" data-bs-target="#newExp" 
               *ngIf="tokenService.isLoggedIn() && experience">
                 <i class="bi bi-plus-square"></i>
